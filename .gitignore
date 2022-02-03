@@ -1,0 +1,4 @@
+/node_modules
+/dist
+/gulp
+package-lock.json

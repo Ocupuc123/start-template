@@ -1,0 +1,48 @@
+// Переменные =========================================================================== //
+// BOOTSTRAP V5
+$body-bg: #fff;
+$body-color: #000;
+$font-family-base: "Inter";
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+$primary: #44e912;
+$grid-gutter-width: 30px;
+$container-max-width: 1180px;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1025px,
+  xl: calc($container-max-width + $grid-gutter-width),
+);
+$container-max-widths: (
+  xs: calc($container-max-width + $grid-gutter-width)
+);
+
+// Базовые подключения ================================================================== //
+@import "fonts";
+
+// Импорт модулей ======================================================================= //
+// SWIPER
+@import "../../node_modules/swiper/swiper";
+
+// BOOTSTRAP V5
+@import "node_modules/bootstrap/scss/bootstrap-reboot";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+
+// Опционально (Можно отключить)
+@import "node_modules/bootstrap/scss/bootstrap-grid";
+
+// Настройки ============================================================================ //
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: currentcolor;
+}
+
+a {
+  text-decoration: none;
+}
