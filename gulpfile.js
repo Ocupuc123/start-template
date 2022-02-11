@@ -30,18 +30,17 @@ import { zip } from "./gulp/tasks/zip.js";
 function watcher() {
   gulp.watch(path.watch.files, copy);
   gulp.watch(path.watch.html, html);
+  gulp.watch(path.watch.svg, svgSprite);
   gulp.watch(path.watch.scss, scss);
   gulp.watch(path.watch.js, js);
   gulp.watch(path.watch.images, images);
 }
 
-export { svgSprite };
-
 // Последовательня обработка шрифтов
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
 // Основные задачи
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, svgSprite, scss, js, images));
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));

@@ -1,0 +1,48 @@
+// Стили прибитого подвала
+.page {
+  height: 100%;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: currentcolor;
+}
+
+.btn {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include media-breakpoint-down(lg) {
+    padding: rfs-fluid-value($btn-padding-y) rfs-fluid-value($btn-padding-x);
+    font-size: rfs-fluid-value($btn-font-size);
+  }
+}
+
+.mm-spn.mm-spn--light {
+  background: #fff;
+}
+
+.burger {
+  @include burger;
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.dropdown-search {
+  @include dropdown-search;
+}

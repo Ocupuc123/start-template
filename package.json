@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "bootstrap": "latest",
+    "mmenu-light": "^3.1.0",
     "swiper": "latest"
   }
 }
