@@ -1,6 +1,6 @@
 import dartSass from "sass";
 import gulpSass from "gulp-sass";
-// import postCss from "gulp-postcss";
+import sassGlob from "gulp-sass-glob";
 import rename from "gulp-rename";
 import cleanCss from "gulp-clean-css";
 import autoprefixer from "gulp-autoprefixer";
@@ -19,6 +19,7 @@ export const scss = () => {
         })
       )
     )
+    .pipe(sassGlob())
     .pipe(app.plugins.replace(/@img\//g, "../img/"))
     .pipe(
       sass({
@@ -30,8 +31,7 @@ export const scss = () => {
       app.plugins.if(
         app.isBuild,
         autoprefixer({
-          grid: true,
-          overrideBrowserslist: ["last 3 version"],
+          overrideBrowserslist: ["defaults"],
           cascade: true,
         })
       )

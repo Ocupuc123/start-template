@@ -2,10 +2,14 @@
 @import "fonts";
 @import "variables";
 @import "mixins";
+
+// Bootstrap Компоненты
 @import "node_modules/bootstrap/scss/bootstrap-reboot";
 @import "node_modules/bootstrap/scss/mixins/breakpoints";
-@import "node_modules/bootstrap/scss/containers";
-@import "node_modules/bootstrap/scss/buttons";
+
+// Bootstrap Helpers
+@import "node_modules/bootstrap/scss/helpers/visually-hidden";
+@import "node_modules/bootstrap/scss/helpers/stretched-link";
 
 // Импорт модулей ====================================================================
 @import "../../node_modules/mmenu-light/dist/mmenu-light";
@@ -16,3 +20,4 @@
 @import "settings";
 
 // Стили шаблона =====================================================================
+@import "./blocks/**/*";
