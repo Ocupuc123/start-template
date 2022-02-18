@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp build --build",
-    "zip": "gulp deployZIP --build",
-    "svg": "gulp svgSprite"
+    "zip": "gulp deployZIP --build"
   },
   "author": "Evgeny Ovchinnikov",
   "license": "ISC",

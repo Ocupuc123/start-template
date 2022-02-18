@@ -37,23 +37,6 @@ svg {
   max-width: calc($container-width + $container-padding-x);
 }
 
-.btn {
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @include media-breakpoint-down(lg) {
-    padding: rfs-fluid-value($btn-padding-y) rfs-fluid-value($btn-padding-x);
-    font-size: rfs-fluid-value($btn-font-size);
-  }
-}
-
-.form-control {
-  @include media-breakpoint-down(lg) {
-    padding: rfs-fluid-value($input-padding-y) rfs-fluid-value($input-padding-x);
-    font-size: rfs-fluid-value($input-font-size);
-  }
-}
-
 .mm-spn.mm-spn--light {
   background: #fff;
 }

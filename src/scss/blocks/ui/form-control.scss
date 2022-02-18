@@ -10,3 +10,10 @@ $input-placeholder-color: rgb(187 187 187);
 $input-bg: $body-bg;
 
 @import "node_modules/bootstrap/scss/forms/form-control";
+
+.form-control {
+  @include media-breakpoint-down(lg) {
+    padding: rfs-fluid-value($input-padding-y) rfs-fluid-value($input-padding-x);
+    font-size: rfs-fluid-value($input-font-size);
+  }
+}
