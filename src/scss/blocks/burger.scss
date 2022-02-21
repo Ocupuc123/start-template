@@ -4,22 +4,22 @@
   --burger-line-height: 2px;
 
   position: relative;
-  border: none;
-  padding: 0;
   width: var(--burger-width);
   height: var(--burger-height);
+  padding: 0;
   background-color: transparent;
+  border: none;
   cursor: pointer;
 
   &::before,
   &::after {
-    content: "";
     position: absolute;
     left: 0;
     width: 100%;
     height: var(--burger-line-height);
     background-color: currentcolor;
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+    content: "";
   }
 
   &::before {
@@ -32,8 +32,8 @@
 
   &__line {
     position: absolute;
-    left: 0;
     top: 50%;
+    left: 0;
     width: 100%;
     height: var(--burger-line-height);
     background-color: currentcolor;
@@ -55,6 +55,7 @@
       transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
     }
 
+    /* stylelint-disable-next-line selector-class-pattern */
     .burger__line {
       transform: scale(0);
       transition: transform 0.3s ease-in-out;

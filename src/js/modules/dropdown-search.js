@@ -1,5 +1,5 @@
 // Сниппет(HTML): g-dropdown-search
-export function dropdownSearch() {
+export default function dropdownSearch() {
   const dropdownSearch = document.querySelector(".dropdown-search");
   const dropdownSearchToggler = document.querySelector(".dropdown-search__toggler");
   const dropdownSearchWrapper = document.querySelector(".dropdown-search__wrapper");

@@ -31,12 +31,13 @@ svg {
 }
 
 .container {
-  margin: 0 auto;
-  padding: 0 calc($container-padding-x * 0.5);
   width: 100%;
   max-width: calc($container-width + $container-padding-x);
+  margin: 0 auto;
+  padding: 0 calc($container-padding-x * 0.5);
 }
 
+/* stylelint-disable-next-line selector-class-pattern */
 .mm-spn.mm-spn--light {
   background: #fff;
 }

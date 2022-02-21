@@ -47,8 +47,11 @@
     "prettier": "latest",
     "sass": "latest",
     "stylelint": "latest",
+    "stylelint-config-rational-order": "latest",
+    "stylelint-config-standard": "latest",
     "stylelint-config-standard-scss": "latest",
     "stylelint-order": "latest",
+    "stylelint-scss": "latest",
     "terser-webpack-plugin": "latest",
     "webpack": "latest",
     "webpack-stream": "latest"
