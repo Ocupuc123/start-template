@@ -4,6 +4,11 @@
   "rules": {
     "order/order": [
       "custom-properties",
+      {
+        "type": "at-rule",
+        "name": "include",
+        "hasBlock": false
+      },
       "declarations",
       {
         "type": "at-rule",
@@ -11,11 +16,56 @@
       },
       {
         "type": "at-rule",
-        "name": "include"
+        "name": "include",
+        "hasBlock": true
       },
       {
         "type": "rule",
-        "selector": "^&::\\w+$"
+        "selector": "&::before"
+      },
+      {
+        "type": "rule",
+        "selector": "&::after"
+      },
+      {
+        "type": "rule",
+        "selector": "&:link"
+      },
+      {
+        "type": "rule",
+        "selector": "&:visited"
+      },
+      {
+        "type": "rule",
+        "selector": "&:focus"
+      },
+      {
+        "type": "rule",
+        "selector": "&:hover"
+      },
+      {
+        "type": "rule",
+        "selector": "&:active"
+      },
+      {
+        "type": "rule",
+        "selector": "&:disabled"
+      },
+      {
+        "type": "rule",
+        "selector": "&:first-child"
+      },
+      {
+        "type": "rule",
+        "selector": "&:last-child"
+      },
+      {
+        "type": "rule",
+        "selector": "&:nth-child.+"
+      },
+      {
+        "type": "rule",
+        "selector": ".* &"
       },
       {
         "type": "rule",
@@ -36,5 +86,9 @@
         "ignoreFunctions": ["rfs-fluid-value"]
       }
     ]
-  }
+  },
+  "overrides": [{
+    "files": ["src/scss/*/**.scss"],
+    "customSyntax": "postcss-scss"
+  }]
 }
