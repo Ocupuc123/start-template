@@ -1,19 +1,6 @@
-$btn-padding-y: 10px;
-$btn-padding-x: 30px;
-$btn-font-size: 16px;
-$btn-line-height: 1.5;
-$btn-white-space: nowrap;
-$btn-border-width: 1px;
-$btn-font-weight: 400;
-
-@import "node_modules/bootstrap/scss/buttons";
-
-.btn {
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @include media-breakpoint-down(lg) {
-    padding: rfs-fluid-value($btn-padding-y) rfs-fluid-value($btn-padding-x);
-    font-size: rfs-fluid-value($btn-font-size);
+@if $btn-white-space == nowrap {
+  .btn {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
