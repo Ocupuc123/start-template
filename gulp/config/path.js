@@ -1,9 +1,10 @@
 // Получаем имя папки проекта
-import * as nodePath from "path";
+import * as nodePath from 'path';
+
 const rootFolder = nodePath.basename(nodePath.resolve());
 
-const buildFolder = `./dist`;
-const srcFolder = `./src`;
+const buildFolder = './dist';
+const srcFolder = './src';
 
 export const path = {
   build: {
@@ -20,7 +21,7 @@ export const path = {
     scss: `${srcFolder}/scss/style.scss`,
     html: `${srcFolder}/*.html`,
     files: `${srcFolder}/resources/**/*.*`,
-    svgicons: `${srcFolder}/svgicons/*.svg`
+    svgicons: `${srcFolder}/svgicons/*.svg`,
   },
   watch: {
     js: `${srcFolder}/js/**/*.js`,
@@ -31,8 +32,8 @@ export const path = {
     files: `${srcFolder}/resources/**/*.*`,
   },
   clean: buildFolder,
-  buildFolder: buildFolder,
-  srcFolder: srcFolder,
-  rootFolder: rootFolder,
-  ftp: ``,
+  buildFolder,
+  srcFolder,
+  rootFolder,
+  ftp: '',
 };

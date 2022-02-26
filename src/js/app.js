@@ -1,12 +1,11 @@
-// import mmenuInit from "./modules/mmenu.js";
-// import sliderInit from "./modules/swiper.js";
-// import dropdownSearch from "./modules/dropdown-search.js";
-// import "./modules/dynamicAdapt.js";
-// import "./modules/bootstrap.js";
-// import "./functions.js";
+// import mmenuInit from './modules/mmenu';
+// import sliderInit from "./modules/swiper";
+// import './modules/dynamic-adapt';
+// import './modules/bootstrap';
+// import './functions';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // mmenuInit();
   // sliderInit();
-  // dropdownSearch();
+  // DynamicAdapt();
 });
