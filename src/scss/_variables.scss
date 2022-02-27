@@ -29,9 +29,6 @@ $line-height-base: 1.5;
 $body-text-align: left;
 $link-decoration: none;
 
-// Параграф
-$paragraph-margin-bottom: 1rem;
-
 // Заголовки
 $h1-font-size: 40px;
 $h2-font-size: 30px;
@@ -40,46 +37,8 @@ $headings-margin-bottom: 30px;
 $headings-font-weight: 700;
 $headings-color: $body-color;
 
-// Кнопки
-$btn-padding-y: 10px;
-$btn-padding-x: 30px;
-$btn-font-size: 16px;
-$btn-line-height: 1.5;
-$btn-white-space: nowrap;
-$btn-border-width: 1px;
-$btn-font-weight: 400;
-
-// Хлебные крошки
-$breadcrumb-active-color: $body-color;
-$breadcrumb-font-size: 16px;
-$breadcrumb-item-padding-x: 10px;
-$breadcrumb-margin-bottom: 0;
-$breadcrumb-divider-color: $body-color;
-
-// Пагинация
-$pagination-padding-y: 0.375rem;
-$pagination-padding-x: 0.75rem;
-$pagination-border-width: 1px;
-$pagination-border-radius: $border-radius;
-$pagination-margin-start: -$pagination-border-width;
-$pagination-border-color: $border-color;
-$pagination-hover-bg: $border-color;
-$pagination-hover-border-color: $border-color;
-$pagination-active-color: #fff;
-$pagination-active-bg: $primary;
-$pagination-active-border-color: $primary;
-
-// Формы
-$input-padding-y: 10px;
-$input-padding-x: 20px;
-$input-font-size: 16px;
-$input-font-weight: 400;
-$input-line-height: 1.5;
-$input-color: $body-color;
-$input-border-color: $border-color;
-$input-border-width: 1px;
-$input-placeholder-color: rgb(187 187 187);
-$input-bg: $body-bg;
+// Параграф
+$paragraph-margin-bottom: 1rem;
 
 // Различные настройки
 $colors: ();

@@ -1,0 +1,13 @@
+$pagination-padding-y: 0.375rem;
+$pagination-padding-x: 0.75rem;
+$pagination-border-width: 1px;
+$pagination-border-radius: $border-radius;
+$pagination-margin-start: -$pagination-border-width;
+$pagination-border-color: $border-color;
+$pagination-hover-bg: $border-color;
+$pagination-hover-border-color: $border-color;
+$pagination-active-color: #fff;
+$pagination-active-bg: $primary;
+$pagination-active-border-color: $primary;
+
+// @import "node_modules/bootstrap/scss/pagination";
