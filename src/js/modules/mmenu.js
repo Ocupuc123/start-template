@@ -1,5 +1,4 @@
-// mmenu-light.js ================================================//
-/* Документация плагина: https://mmenujs.com/mmenu-light/tutorial.html */
+// Документация плагина: https://mmenujs.com/mmenu-light/tutorial.html
 // Сниппет(HTML): g-nav
 import MmenuLight from 'mmenu-light';
 

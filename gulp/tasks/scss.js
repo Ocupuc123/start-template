@@ -40,7 +40,7 @@ export const scss = () => {
       app.plugins.if(
         app.isBuild,
         cleanCss({
-          level: 2,
+          level: 1,
           // format: "beautify",
         })
       )

@@ -61,6 +61,7 @@
     "webpack-stream": "latest"
   },
   "dependencies": {
+    "beerslider": "latest",
     "bootstrap": "latest",
     "mmenu-light": "latest",
     "swiper": "latest"
