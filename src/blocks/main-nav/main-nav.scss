@@ -1,0 +1,89 @@
+// В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.main-nav {
+  $main-nav: &; // #{$main-nav}__element
+
+  > nav > ul {
+    @include list-reset;
+
+    display: flex;
+
+    > li {
+      flex: 1 1 auto;
+      max-width: 100%;
+
+      &.is-active {
+        > a {
+          color: #fff;
+          background: $primary;
+        }
+      }
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    > li > a {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 50px;
+      padding: 5px 10px;
+      color: #202c40;
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: 0.2s;
+
+      &:hover {
+        color: #fff;
+        background: $primary;
+      }
+    }
+  }
+
+  .has-sublist {
+    position: relative;
+
+    &:hover > ul {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    ul {
+      @include list-reset;
+
+      padding: 10px 0;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    > ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+      width: 220px;
+      background-color: #fff;
+      box-shadow: 0 3px 10px rgb(83 99 125 / 19%);
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .has-sublist > ul {
+      top: 0;
+      left: 100%;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    a {
+      display: inline-flex;
+      width: 100%;
+      padding: 5px 15px;
+    }
+  }
+}
