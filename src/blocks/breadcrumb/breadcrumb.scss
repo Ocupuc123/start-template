@@ -1,7 +1,28 @@
-$breadcrumb-active-color: $body-color;
-$breadcrumb-font-size: 16px;
-$breadcrumb-item-padding-x: 10px;
-$breadcrumb-margin-bottom: 0;
-$breadcrumb-divider-color: $body-color;
+.breadcrumb {
+  @include list-reset;
 
-// @import "node_modules/bootstrap/scss/breadcrumb";
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 23px 0 30px;
+}
+
+.breadcrumb-item {
+  color: rgb(101 116 146 / 62%);
+  font-size: 13px;
+
+  &::before {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
+    content: ">";
+  }
+
+  &:first-child::before {
+    content: none;
+  }
+
+  a {
+    color: $body-color;
+  }
+}

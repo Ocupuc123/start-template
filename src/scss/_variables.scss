@@ -1,5 +1,9 @@
+// Разное
 $border-radius: 0.25rem;
 $rfs-breakpoint: 1025px;
+$visual-grid: true;
+$sticky-footer: true;
+$body-overflow-hidden-x: false;
 
 // Цвета
 $body-bg: #fff;
@@ -9,7 +13,7 @@ $secondary: #0a66f0;
 $border-color: rgb(236 236 236);
 
 // Ширины
-$container-padding-x: 30px;
+$container-padding-x: 60px;
 $container-width: 1250px;
 
 // Брейкпоинты

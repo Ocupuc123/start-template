@@ -4,21 +4,83 @@
   min-height: 100%;
 
   &__body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    @if $sticky-footer == true {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    @if $body-overflow-hidden-x == true {
+      overflow-x: hidden;
+    }
+
+    @if $visual-grid == true {
+      &::before {
+        --grid-color: rgb(255 0 0 / 20%);
+        --grid-sides: 15px;
+        --grid-gutter: 15px;
+        --grid-columns: 4;
+        --grid-column-width:
+          calc(
+            (100% - var(--grid-gutter) * var(--grid-columns)) / var(--grid-columns)
+          );
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        max-width: calc($container-width + $container-padding-x);
+        margin: 0 auto;
+        background-image:
+          repeating-linear-gradient(
+            to right,
+            transparent 0,
+            transparent calc(var(--grid-gutter) / 2),
+            var(--grid-color) calc(var(--grid-gutter) / 2),
+            var(--grid-color) calc(var(--grid-column-width) + var(--grid-gutter) / 2),
+            transparent calc(var(--grid-column-width) + var(--grid-gutter) / 2),
+            transparent calc(var(--grid-column-width) + var(--grid-gutter))
+          );
+        background-repeat: no-repeat;
+        border: solid transparent;
+        border-width:
+          0 calc(
+            var(--grid-sides) - var(--grid-gutter) / 2
+          );
+        opacity: 0.3;
+        content: "";
+        pointer-events: none;
+
+        @include media-breakpoint-up(md) {
+          --grid-sides: 20px;
+          --grid-columns: 8;
+        }
+
+        @include media-breakpoint-up(lg) {
+          --grid-sides: 30px;
+          --grid-columns: 12;
+        }
+      }
+    }
   }
 
   &__header {
-    flex-shrink: 0;
+    @if $sticky-footer == true {
+      flex-shrink: 0;
+    }
   }
 
   &__main {
-    flex: 1 1 auto;
+    @if $sticky-footer == true {
+      flex: 1 1 auto;
+    }
   }
 
   &__footer {
-    flex-shrink: 0;
+    @if $sticky-footer == true {
+      flex-shrink: 0;
+    }
   }
 }
 
@@ -34,7 +96,15 @@ svg {
   width: 100%;
   max-width: calc($container-width + $container-padding-x);
   margin: 0 auto;
-  padding: 0 calc($container-padding-x * 0.5);
+  padding: 0 15px;
+
+  @include media-breakpoint-up(md) {
+    padding: 0 20px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 calc($container-padding-x * 0.5);
+  }
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
