@@ -1,0 +1,47 @@
+p {
+  margin-top: $paragraph-margin-top;
+}
+
+article ul,
+article ol {
+  margin: 30px 0;
+
+  li {
+    &::marker {
+      color: $primary;
+    }
+
+    + li {
+      @include media-breakpoint-up(lg) {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+article h1,
+article .h1 {
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $h1-margin-bottom;
+  }
+}
+
+article h2,
+article .h2 {
+  margin-top: 30px;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: $h2-margin-top;
+    margin-bottom: $h2-margin-bottom;
+  }
+}
+
+article h3,
+article .h3 {
+  margin-top: 30px;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: $h3-margin-top;
+    margin-bottom: $h3-margin-bottom;
+  }
+}

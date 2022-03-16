@@ -1,7 +1,7 @@
 // Разное
 $border-radius: 0.25rem;
 $rfs-breakpoint: 1025px;
-$visual-grid: true;
+$visual-grid: false;
 $sticky-footer: true;
 $body-overflow-hidden-x: false;
 
@@ -34,15 +34,28 @@ $body-text-align: left;
 $link-decoration: none;
 
 // Заголовки
-$h1-font-size: 40px;
-$h2-font-size: 30px;
-$h3-font-size: 26px;
-$headings-margin-bottom: 30px;
+$headings-line-height: 130%;
 $headings-font-weight: 700;
 $headings-color: $body-color;
+$headings-margin-bottom: 16px;
+
+// H1
+$h1-font-size: 40px;
+$h1-margin-bottom: 40px;
+
+// H2
+$h2-font-size: 30px;
+$h2-margin-top: 30px;
+$h2-margin-bottom: 30px;
+
+// H3
+$h3-font-size: 26px;
+$h3-margin-top: 26px;
+$h3-margin-bottom: 26px;
 
 // Параграф
-$paragraph-margin-bottom: 1rem;
+$paragraph-margin-top: 16px;
+$paragraph-margin-bottom: 0;
 
 // Различные настройки
 $colors: ();
