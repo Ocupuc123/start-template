@@ -30,6 +30,7 @@
         right: 0;
         bottom: 0;
         left: 0;
+        z-index: 1000;
         max-width: calc($container-width + $container-padding-x);
         margin: 0 auto;
         background-image:
