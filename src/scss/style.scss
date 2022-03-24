@@ -1,6 +1,5 @@
 @import "fonts";
 @import "variables";
-@import "typography";
 @import "mixins";
 
 // Bootstrap Компоненты
@@ -17,5 +16,6 @@
 // @import "../../node_modules/swiper/swiper";
 
 // Стили шаблона
+@import "typography";
 @import "settings";
 @import "../blocks/**/*";
