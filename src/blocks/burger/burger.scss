@@ -13,10 +13,6 @@
   border: none;
   cursor: pointer;
 
-  @include media-breakpoint-up(lg) {
-    display: none;
-  }
-
   &::before,
   &::after {
     position: absolute;
@@ -36,7 +32,8 @@
     top: calc(100% - var(--burger-line-height));
   }
 
-  .mm-ocd-opened & {
+  .mm-ocd-opened .header &,
+  &[aria-expanded="true"] {
     &::before {
       top: 50%;
       transform: rotate(45deg);
