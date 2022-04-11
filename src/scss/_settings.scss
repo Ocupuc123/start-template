@@ -112,3 +112,10 @@ svg {
 .mm-spn.mm-spn--light {
   background: #fff;
 }
+
+article {
+  section {
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+  }
+}
