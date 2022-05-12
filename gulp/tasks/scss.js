@@ -31,7 +31,6 @@ export const scss = () => {
       app.plugins.if(
         app.isBuild,
         autoprefixer({
-          overrideBrowserslist: ["defaults"],
           cascade: true,
         })
       )

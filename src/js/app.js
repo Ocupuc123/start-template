@@ -1,11 +1,10 @@
-import mmenuInit from './modules/mmenu';
-import sliderInit from './modules/swiper';
-import './modules/bootstrap';
-// import './modules/dynamic-adapt';
-// import './modules/beerslider';
+import {mmenu} from './modules/mmenu.js';
+import {swiper} from './modules/swiper.js';
+// import './modules/bootstrap.js';
+// import './modules/dynamic-adapt.js';
+// import './modules/beerslider.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  mmenuInit();
-  sliderInit();
-  // DynamicAdapt();
+  mmenu();
+  swiper();
 });

@@ -1,14 +1,13 @@
 {
+  "root": true,
   "env": {
     "jquery": true,
-    "es2021": true,
+    "es2017": true,
     "browser": true
   },
-  "extends": ["airbnb-base"],
+  "extends": "htmlacademy/vanilla",
   "parserOptions": {
-    "ecmaVersion": "latest"
-  },
-  "rules": {
-
+    "ecmaVersion": 2019,
+    "sourceType": "module"
   }
 }

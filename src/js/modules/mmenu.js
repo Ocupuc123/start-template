@@ -2,9 +2,10 @@
 // Сниппет(HTML): g-nav
 import MmenuLight from 'mmenu-light';
 
-export default function mmenuInit() {
-  const mmenuButtonOpen = document.querySelector('[data-mmenu]');
-  if (mmenuButtonOpen) {
+export function mmenu() {
+  const mmenuDrawerButton = document.querySelector('[data-mmenu]');
+
+  if (mmenuDrawerButton) {
     const menu = new MmenuLight(document.querySelector('#menu'), '(max-width: 1024px)');
 
     // eslint-disable-next-line no-unused-vars
@@ -15,8 +16,8 @@ export default function mmenuInit() {
       position: 'right',
     });
 
-    mmenuButtonOpen.addEventListener('click', (evnt) => {
-      evnt.preventDefault();
+    mmenuDrawerButton.addEventListener('click', (evt) => {
+      evt.preventDefault();
       drawer.open();
     });
   }

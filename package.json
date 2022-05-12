@@ -20,8 +20,7 @@
     "browser-sync": "latest",
     "del": "latest",
     "eslint": "latest",
-    "eslint-config-airbnb-base": "latest",
-    "eslint-plugin-import": "latest",
+    "eslint-config-htmlacademy": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-cheerio": "latest",
@@ -56,7 +55,6 @@
     "stylelint-config-standard-scss": "latest",
     "stylelint-order": "latest",
     "stylelint-scss": "latest",
-    "terser-webpack-plugin": "latest",
     "webpack": "latest",
     "webpack-stream": "latest"
   },

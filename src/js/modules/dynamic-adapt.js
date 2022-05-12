@@ -4,7 +4,7 @@
 // Andrikanych Yevhen 2020
 // https://github.com/FreelancerLifeStyle/dynamic_adapt
 
-export default function DynamicAdapt(type) {
+export function DynamicAdapt(type) {
   this.type = type;
 }
 

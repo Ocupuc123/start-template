@@ -1,4 +1,4 @@
-// Документация плагина: https://getbootstrap.com/
-import 'bootstrap/js/dist/collapse';
-// import 'bootstrap/js/dist/modal';
-// import 'bootstrap/js/dist/tab';
+// import 'bootstrap/js/dist/collapse.js';
+// import 'bootstrap/js/dist/dropdown.js';
+// import 'bootstrap/js/dist/modal.js';
+// import 'bootstrap/js/dist/tab.js';
