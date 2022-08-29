@@ -15,13 +15,14 @@ export const path = {
     fonts: `${buildFolder}/fonts/`,
   },
   src: {
-    js: `${srcFolder}/js/**/*.js`,
+    js: `${srcFolder}/js/**/*.*`,
     images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
     svg: `${srcFolder}/img/**/*.svg`,
     templateScss: `${srcFolder}/scss/template.scss`,
     bootstrapScss: `${srcFolder}/scss/bootstrap.scss`,
     html: `${srcFolder}/*.html`,
     files: `${srcFolder}/resources/**/*.*`,
+    css: `${srcFolder}/css/*.css`,
     svgicons: `${srcFolder}/svgicons/*.svg`,
     fonts: `${srcFolder}/fonts/**/*.*`
   },
