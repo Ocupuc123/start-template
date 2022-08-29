@@ -12,11 +12,6 @@
   "author": "Evgeny Ovchinnikov",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "latest",
-    "@babel/preset-env": "latest",
-    "babel-loader": "latest",
-    "babel-plugin-module-resolver": "latest",
-    "babel-plugin-root-import": "latest",
     "browser-sync": "latest",
     "del": "latest",
     "eslint": "latest",
@@ -26,7 +21,6 @@
     "gulp-cheerio": "latest",
     "gulp-clean-css": "latest",
     "gulp-file-include": "latest",
-    "gulp-fonter": "latest",
     "gulp-group-css-media-queries": "latest",
     "gulp-if": "latest",
     "gulp-imagemin": "latest",
@@ -40,7 +34,6 @@
     "gulp-sass-glob": "latest",
     "gulp-svg-sprite": "latest",
     "gulp-svgmin": "latest",
-    "gulp-ttf2woff2": "latest",
     "gulp-zip": "latest",
     "htmlhint": "latest",
     "jquery": "latest",
@@ -54,14 +47,9 @@
     "stylelint-config-standard": "latest",
     "stylelint-config-standard-scss": "latest",
     "stylelint-order": "latest",
-    "stylelint-scss": "latest",
-    "webpack": "latest",
-    "webpack-stream": "latest"
+    "stylelint-scss": "latest"
   },
   "dependencies": {
-    "beerslider": "latest",
-    "bootstrap": "latest",
-    "mmenu-light": "latest",
-    "swiper": "latest"
+    "bootstrap": "^5.2.0"
   }
 }

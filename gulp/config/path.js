@@ -15,17 +15,20 @@ export const path = {
     fonts: `${buildFolder}/fonts/`,
   },
   src: {
-    js: `${srcFolder}/js/app.js`,
+    js: `${srcFolder}/js/**/*.js`,
     images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
     svg: `${srcFolder}/img/**/*.svg`,
-    scss: `${srcFolder}/scss/style.scss`,
+    templateScss: `${srcFolder}/scss/template.scss`,
+    bootstrapScss: `${srcFolder}/scss/bootstrap.scss`,
     html: `${srcFolder}/*.html`,
     files: `${srcFolder}/resources/**/*.*`,
     svgicons: `${srcFolder}/svgicons/*.svg`,
+    fonts: `${srcFolder}/fonts/**/*.*`
   },
   watch: {
     js: `${srcFolder}/js/**/*.js`,
     scss: `${srcFolder}/**/*.scss`,
+    bootstrapScss: `${srcFolder}/scss/_variables.scss`,
     svg: `${srcFolder}/svgicons/**/*.svg`,
     html: `${srcFolder}/**/*.html`,
     images: `${srcFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,

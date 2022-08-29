@@ -5,6 +5,16 @@
     @@include('blocks/header/header.html')
     <main class="page__main">
       <div class="container">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
         <article>
           <h1>Стартовый шаблон</h1>
           <p>
@@ -50,6 +60,7 @@
       </div>
     </main>
     @@include('blocks/footer/footer.html')
-    <script src="js/app.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
