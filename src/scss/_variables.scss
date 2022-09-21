@@ -1,9 +1,7 @@
 // Разное
 $border-radius: 10px;
-$rfs-breakpoint: 1025px;
-$visual-grid: false;
 $sticky-footer: true;
-$body-overflow-hidden-x: false;
+$main-overflow-hidden-x: true;
 
 // Цвета
 $body-bg: #fff;
@@ -11,25 +9,40 @@ $body-color: #000;
 $primary: #f1bb0a;
 $secondary: #0a66f0;
 $border-color: rgb(236 236 236);
+$burger-color: $body-color;
+
+// Прочие ширины
+$template-container-width: 1200;
+$grid-gutter-width: 30px;
+$container-padding-x: 30px;
+$container-width: calc(($template-container-width * 1px) + $container-padding-x);
+$container-max-widths: (
+  xl: $container-width,
+);
 
 // Ширины
-$container-padding-x: 60px;
-$container-width: 1250px;
+$desktop-full-hd: 1920;
+$laptop: 1440;
+$desktop: 1025;
+$tablet: 768;
+$mobile: 480;
 
 // Брейкпоинты
 $grid-breakpoints: (
   xs: 0,
-  sm: 480px,
-  md: 768px,
-  lg: 1025px,
-  xl: calc($container-width + $container-padding-x),
-  xxl: 1440px
+  sm: $mobile * 1px,
+  md: $tablet * 1px,
+  lg: $desktop * 1px,
+  xl: $container-width,
+  xxl: $laptop * 1px,
+  full-hd: $desktop-full-hd * 1px
 );
+
+// RFS
+$rfs-breakpoint: $container-width;
 
 // Типография
 $font-family-base: "Inter";
-$font-size-base: 1rem;
-$line-height-base: 1.5;
 $body-text-align: left;
 $link-decoration: none;
 
@@ -38,23 +51,12 @@ $headings-line-height: 130%;
 $headings-font-weight: 700;
 $headings-color: $body-color;
 $headings-margin-bottom: 16px;
-
-// H1
 $h1-font-size: 40px;
-$h1-margin-bottom: 40px;
-
-// H2
 $h2-font-size: 30px;
-$h2-margin-top: 30px;
-$h2-margin-bottom: 30px;
-
-// H3
 $h3-font-size: 26px;
-$h3-margin-top: 26px;
-$h3-margin-bottom: 26px;
 
 // Параграф
-$paragraph-margin-top: 16px;
+$paragraph-margin-top: 1rem;
 $paragraph-margin-bottom: 0;
 
 // Кнопки

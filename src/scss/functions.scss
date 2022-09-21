@@ -1,0 +1,4 @@
+// адаптивные стили через vw
+@function vw($value, $base: $desktop-full-hd) {
+  @return calc($value / $base * 100vw);
+}
