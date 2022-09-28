@@ -1,0 +1,33 @@
+// В этом файле должны быть стили для БЭМ-блока offcanvas, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.offcanvas {
+  $offcanvas: &; // #{$offcanvas}__element
+
+  &-actions {
+    margin-top: 40px;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+
+    a {
+      color: $body-color;
+    }
+  }
+
+  &-mail {
+    margin-bottom: 10px;
+
+    a {
+      font-size: 18px;
+    }
+  }
+
+  &-phone {
+    a {
+      font-size: 22px;
+    }
+  }
+}

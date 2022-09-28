@@ -1,107 +1,154 @@
-// В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
-// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
-// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-
 .main-nav {
-  $main-nav: &; // #{$main-nav}__element
-
-  > nav > ul {
+  & > ul {
     @include list-reset;
 
-    display: flex;
-
-    > li {
-      flex: 1 1 auto;
-      max-width: 100%;
-
-      &.has-sublist {
-        > a {
-          white-space: nowrap;
-
-          &::after {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            margin-top: -4px;
-            margin-left: 12px;
-            vertical-align: middle;
-            border-bottom: 2px solid;
-            border-left: 2px solid;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
-            content: "";
-          }
-        }
-      }
-
-      &.is-active {
-        > a {
-          color: #fff;
-          background: $primary;
-        }
-      }
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      align-items: center;
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    > li > a {
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 50px;
-      padding: 5px 10px;
-      color: $body-color;
-      text-align: center;
-      transition: 0.2s;
+    & > li {
+      @include media-breakpoint-down(lg) {
+        border-bottom: 1px solid $border-color;
+      }
 
-      &:hover {
-        color: #fff;
-        background: $primary;
+      & > a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+
+        @include media-breakpoint-down(lg) {
+          padding: 10px 0;
+          font-size: 18px;
+        }
       }
     }
   }
 
-  .has-sublist {
-    position: relative;
+  .chevron {
+    @include flex-all-center;
 
-    &:hover > ul {
-      visibility: visible;
-      opacity: 1;
-      pointer-events: auto;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    background-image: $accordion-button-icon;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+
+    @include media-breakpoint-down(lg) {
+      background-color: #ebebeb;
     }
+  }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    ul {
-      @include list-reset;
+  .submenu {
+    display: none;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0;
+    text-align: left;
+    list-style: none;
 
-      padding: 10px 0;
-
-      /* stylelint-disable-next-line no-descending-specificity */
-      a {
-        display: inline-flex;
-        width: 100%;
-        padding: 5px 15px;
-      }
-    }
-
-    /* stylelint-disable-next-line no-descending-specificity */
-    > ul {
+    @include media-breakpoint-up(lg) {
       position: absolute;
       top: 100%;
       left: 0;
       z-index: 10;
-      width: 220px;
-      background-color: #fff;
-      box-shadow: 0 3px 10px rgb(83 99 125 / 19%);
+      display: block;
+      width: 250px;
+      min-width: $dropdown-min-width;
+      min-height: 100px;
+      margin: 0;
+      padding: 8px 0;
+      background: $dropdown-bg;
+      border: $dropdown-border-width solid $border-color;
+      border-color: $dropdown-border-color;
+      border-radius: $dropdown-border-radius;
+      transform: translateY(5px);
       visibility: hidden;
       opacity: 0;
+      transition: all 0.2s ease 0s;
       pointer-events: none;
     }
 
-    .has-sublist > ul {
-      top: 0;
-      left: 100%;
+    a {
+      display: block;
+      width: 100%;
+      padding: $dropdown-item-padding-y 0;
+      color: $dropdown-link-color;
+      text-decoration: none;
+
+      @include media-breakpoint-up(lg) {
+        padding-right: $dropdown-item-padding-x;
+        padding-left: $dropdown-item-padding-x;
+      }
+
+      &:hover {
+        color: $dropdown-link-hover-color;
+
+        @include media-breakpoint-up(lg) {
+          background-color: $dropdown-link-hover-bg;
+        }
+      }
+    }
+
+    .chevron {
+      @include media-breakpoint-up(lg) {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .submenu {
+      @include media-breakpoint-up(lg) {
+        top: 0;
+        left: 100%;
+      }
+    }
+  }
+
+  .is-dropdown {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include media-breakpoint-up(lg) {
+      flex-wrap: nowrap;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    & > a {
+      width: calc(100% - 30px);
+    }
+
+    &:hover > .submenu {
+      @include media-breakpoint-up(lg) {
+        transform: none;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    &.is-active {
+      & > .submenu {
+        @include media-breakpoint-down(lg) {
+          display: block;
+        }
+      }
+
+      & > .chevron {
+        @include media-breakpoint-down(lg) {
+          transform: rotate(180deg);
+        }
+      }
     }
   }
 }

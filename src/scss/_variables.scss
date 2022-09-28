@@ -1,5 +1,5 @@
 // Разное
-$border-radius: 10px;
+$border-radius: 0;
 $sticky-footer: true;
 $main-overflow-hidden-x: true;
 
@@ -47,24 +47,22 @@ $body-text-align: left;
 $link-decoration: none;
 
 // Заголовки
-$headings-line-height: 130%;
+$headings-line-height: 1.2;
 $headings-font-weight: 700;
 $headings-color: $body-color;
-$headings-margin-bottom: 16px;
+$headings-margin-bottom: 1rem;
 $h1-font-size: 40px;
 $h2-font-size: 30px;
 $h3-font-size: 26px;
 
 // Параграф
-$paragraph-margin-top: 1rem;
-$paragraph-margin-bottom: 0;
+$paragraph-margin-bottom: 1rem;
 
 // Кнопки
 $btn-padding-y: 10px;
 $btn-padding-x: 30px;
 $btn-font-size: 16px;
 $btn-line-height: 1.5;
-$btn-white-space: nowrap;
 $btn-border-width: 1px;
 $btn-font-weight: 400;
 
@@ -92,3 +90,6 @@ $pagination-hover-border-color: $border-color;
 $pagination-active-color: #fff;
 $pagination-active-bg: $primary;
 $pagination-active-border-color: $primary;
+
+// Offcanvas
+$offcanvas-horizontal-width: 270px;
