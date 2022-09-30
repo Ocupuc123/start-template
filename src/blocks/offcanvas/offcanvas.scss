@@ -5,6 +5,14 @@
 .offcanvas {
   $offcanvas: &; // #{$offcanvas}__element
 
+  &-logo {
+    max-width: 170px;
+
+    img {
+      max-height: 50px;
+    }
+  }
+
   &-actions {
     margin-top: 40px;
 

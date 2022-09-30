@@ -29,7 +29,7 @@ if (blockName) {
     if (extension === 'scss') {
       fileContent = `// В этом файле должны быть стили для БЭМ-блока ${blockName}, его элементов,\n// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...\n// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`;
     } else if (extension === 'html') {
-      fileContent = `<div class="${blockName}">\n  <div class="container"></div>\n</div>\n`;
+      fileContent = `<section class="${blockName} page-section">\n  <div class="container"></div>\n</section>\n`;
     }
 
     if (fileExist(filePath) === false) {

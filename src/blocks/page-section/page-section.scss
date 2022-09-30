@@ -1,0 +1,16 @@
+/* stylelint-disable function-no-unknown */
+// В этом файле должны быть стили для БЭМ-блока page-section, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.page-section {
+  $page-section: &; // #{$page-section}__element
+
+  padding-top: rfs-value(20px);
+  padding-bottom: rfs-value(20px);
+
+  @include media-breakpoint-up(sm) {
+    padding-top: rfs-value(40px);
+    padding-bottom: rfs-value(40px);
+  }
+}
