@@ -1,30 +1,25 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-console */
-
-// Генератор файлов блока
-
 // Использование: node createBlock.js [имя блока] [доп. расширения через пробел]
 
 import * as fs from 'fs';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import mkdirp from 'mkdirp';
 
 const dir = 'src/blocks';
+// eslint-disable-next-line no-undef
 const blockName = process.argv[2];
-const defaultExtensions = ['scss', 'html']; // расширения по умолчанию
+const defaultExtensions = ['scss', 'html'];
+// eslint-disable-next-line no-undef
 const extensions = uniqueArray(defaultExtensions.concat(process.argv.slice(3)));
 
-// Если есть имя блока
 if (blockName) {
   const dirPath = `${dir}/${blockName}/`;
   const made = mkdirp.sync(dirPath);
+  // eslint-disable-next-line no-console
   console.log(`Создание папки: ${made}`);
 
-  // Обходим массив расширений и создаем файлы, если они еще не созданы
   extensions.forEach((extension) => {
-    const filePath = `${dirPath + blockName}.${extension}`; // полный путь к создаваемому файлу
-    let fileContent = ''; // будущий контент файла
-    const fileCreateMsg = ''; // будущее сообщение в консоли при создании файла
+    const filePath = `${dirPath + blockName}.${extension}`;
+    let fileContent = '';
+    const fileCreateMsg = '';
 
     if (extension === 'scss') {
       fileContent = `// В этом файле должны быть стили для БЭМ-блока ${blockName}, его элементов,\n// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...\n// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`;
@@ -35,18 +30,23 @@ if (blockName) {
     if (fileExist(filePath) === false) {
       fs.writeFile(filePath, fileContent, (err) => {
         if (err) {
+          // eslint-disable-next-line no-console
           return console.log(`Файл НЕ создан: ${err}`);
         }
         if (fileCreateMsg) {
+          // eslint-disable-next-line no-console
           console.warn(fileCreateMsg);
         }
+        // eslint-disable-next-line no-console
         return console.log(`Файл создан: ${filePath}`);
       });
     } else if (extension !== 'js') {
+      // eslint-disable-next-line no-console
       console.log(`Файл НЕ создан: ${filePath} (уже существует)`);
     }
   });
 } else {
+  // eslint-disable-next-line no-console
   console.log('Отмена операции: не указан блок');
 }
 
