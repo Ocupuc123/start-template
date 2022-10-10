@@ -33,7 +33,7 @@ const templateStyles = () => {
     .pipe(
       cleanCss({
         level: 1,
-        // format: "beautify",
+        format: "beautify",
       })
     )
     .pipe(app.gulp.dest(app.path.build.css))
