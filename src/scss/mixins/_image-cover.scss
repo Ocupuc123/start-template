@@ -1,0 +1,9 @@
+@import "object-fit-cover";
+
+@mixin image-cover {
+  @include object-fit-cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}

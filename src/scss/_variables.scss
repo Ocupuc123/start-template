@@ -1,7 +1,5 @@
 // Разное
-$border-radius: 0;
-$sticky-footer: true;
-$main-overflow-hidden-x: true;
+$border-radius: 10px;
 
 // Цвета
 $body-bg: #fff;
@@ -12,21 +10,20 @@ $border-color: rgb(236 236 236);
 $burger-color: $body-color;
 $link-color: $primary;
 
-// Прочие ширины
-$template-container-width: 1200;
-$grid-gutter-width: 30px;
-$container-padding-x: 30px;
-$container-width: calc(($template-container-width * 1px) + $container-padding-x);
-$container-max-widths: (
-  xl: $container-width,
-);
-
 // Ширины
 $desktop-full-hd: 1920;
 $laptop: 1440;
+$content-width: 1170;
 $desktop: 1025;
 $tablet: 768;
 $mobile: 480;
+
+// Прочие ширины
+$grid-gutter-width: 30px;
+$container-padding-x: 30px;
+$container-max-widths: (
+  xl: $content-width * 1px,
+);
 
 // Брейкпоинты
 $grid-breakpoints: (
@@ -34,13 +31,13 @@ $grid-breakpoints: (
   sm: $mobile * 1px,
   md: $tablet * 1px,
   lg: $desktop * 1px,
-  xl: $container-width,
+  xl: $content-width * 1px,
   xxl: $laptop * 1px,
   full-hd: $desktop-full-hd * 1px
 );
 
 // RFS
-$rfs-breakpoint: $container-width;
+$rfs-breakpoint: $content-width;
 
 // Типография
 $font-family-base: "Inter";
@@ -58,39 +55,6 @@ $h3-font-size: 26px;
 
 // Параграф
 $paragraph-margin-bottom: 1rem;
-
-// Кнопки
-$btn-padding-y: 10px;
-$btn-padding-x: 30px;
-$btn-font-size: 16px;
-$btn-line-height: 1.5;
-$btn-border-width: 1px;
-$btn-font-weight: 400;
-
-// Формы
-$input-padding-y: 10px;
-$input-padding-x: 20px;
-$input-font-size: 16px;
-$input-font-weight: 400;
-$input-line-height: 1.5;
-$input-color: $body-color;
-$input-border-color: $border-color;
-$input-border-width: 1px;
-$input-placeholder-color: rgb(187 187 187);
-$input-bg: $body-bg;
-
-// Пагинация
-$pagination-padding-y: 0.375rem;
-$pagination-padding-x: 0.75rem;
-$pagination-border-width: 1px;
-$pagination-border-radius: $border-radius;
-$pagination-margin-start: -$pagination-border-width;
-$pagination-border-color: $border-color;
-$pagination-hover-bg: $border-color;
-$pagination-hover-border-color: $border-color;
-$pagination-active-color: #fff;
-$pagination-active-bg: $primary;
-$pagination-active-border-color: $primary;
 
 // Offcanvas
 $offcanvas-horizontal-width: 270px;
