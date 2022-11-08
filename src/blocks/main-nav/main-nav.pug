@@ -1,0 +1,47 @@
+-
+  let mainMenu =[
+    { title: 'Главная страница', link: '#'},
+    { title: 'Страницы', link: '#',
+      list: [
+        { name: 'О компании', link: '#' },
+        { name: 'Услуги', link: '#' },
+      ]
+    },
+    { title: 'Репозиторий', link: 'https://github.com/Ocupuc123' },
+    { title: 'Контакты автора', link: '#',
+      list: [
+        { name: 'О компании', link: '#' },
+        { name: 'Услуги', link: '#' },
+        { name: 'Страницы', link: '#' }
+      ]
+    }
+  ]
+
+mixin main-nav(mods)
+  -
+    const baseName = 'main-nav'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  nav.main-nav.navbar.navbar-expand-lg.p-0(class=allMods)&attributes(attributes)
+    ul.navbar-nav
+      each menuItem in mainMenu
+        if menuItem.list
+          li.dropdown
+            a(href=menuItem.link)=menuItem.title
+            button.main-nav__toggle.btn.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false' aria-label='Стрелка вниз')
+            ul.dropdown-menu
+              each sublistLink in menuItem.list
+                li
+                  a(href=sublistLink.link)=sublistLink.name
+        else
+          li
+            a(href=menuItem.link)=menuItem.title
+
+

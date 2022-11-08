@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
-import cached from 'gulp-cached';
 import dependents from 'gulp-dependents';
 import pugLinter from 'gulp-pug-linter';
 import filter from 'gulp-filter';
@@ -10,7 +9,6 @@ import browsersync from 'browser-sync';
 
 const pugToHtml = ()=> gulp.src('src/pages/**/*.pug')
   .pipe(plumber())
-  .pipe(cached('pugCache'))
   .pipe(dependents({
     '.pug': {
       parserSteps: [/^\s*(?:extends|include)\s+(.+?)\s*$/gm],

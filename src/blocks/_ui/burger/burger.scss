@@ -32,26 +32,6 @@
     top: calc(100% - var(--burger-line-height));
   }
 
-  .mm-ocd-opened .header &,
-  &[aria-expanded="true"] {
-    &::before {
-      top: 50%;
-      transform: rotate(45deg);
-      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
-    }
-
-    &::after {
-      top: 50%;
-      transform: rotate(-45deg);
-      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
-    }
-
-    #{$burger}__line {
-      transform: scale(0);
-      transition: transform 0.3s ease-in-out;
-    }
-  }
-
   &__line {
     position: absolute;
     top: 50%;

@@ -21,8 +21,8 @@ const browserSync = (callback) => {
 
   gulp.watch('src/vendors/**/*.*', gulp.series(vendorsCss, vendorsJs));
   gulp.watch(['src/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(pugMixins, pugToHtml));
-  gulp.watch(['src/**/*.scss', '!src/scss/bootstrap/*.scss'], gulp.series(styles));
-  gulp.watch('src/scss/bootstrap/variables.scss', gulp.series(bootstrapStyles));
+  gulp.watch(['src/**/*.scss', '!src/scss/_variables.scss', '!src/scss/bootstrap/*.scss'], gulp.series(styles));
+  gulp.watch('src/scss/_variables.scss', gulp.series(bootstrapStyles));
   gulp.watch('src/fonts/**/*.*', gulp.series(fonts));
   gulp.watch('src/resources/**/*.*', gulp.series(resources));
   gulp.watch('src/images/icons/svg/*.svg', gulp.series(svgSprite));

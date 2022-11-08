@@ -23,7 +23,9 @@ const styles = ()=> gulp.src('src/scss/main.scss')
     webpClass: '.webp',
     noWebpClass: '.no-webp'
   }))
-  .pipe(autoprefixer({ cascade: false }))
+  .pipe(autoprefixer({
+    cascade: true,
+  }))
   .pipe(cleanCSS({ compatibility: '*', level: 2 }))
   .pipe(rename({ dirname: 'css' }))
   .pipe(gulp.dest('build'))

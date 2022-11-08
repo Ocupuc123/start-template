@@ -1,0 +1,13 @@
+mixin burger(mods)
+  -
+    const baseName = 'burger'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+  .burger(type='button' aria-label='Открыть меню' data-bs-toggle='offcanvas' data-bs-target='#offcanvasMobileMenu')
+    span.burger__line
