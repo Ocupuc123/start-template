@@ -1,4 +1,5 @@
 /node_modules
 /build
 /dist
+/src/scss/mixins/_sprite-svg.scss
 package-lock.json

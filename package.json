@@ -37,8 +37,8 @@
     "gulp-svg-sprite": "latest",
     "gulp-svgmin": "latest",
     "gulp-webp": "latest",
-    "gulp-webp-html-nosvg": "^1.1.1",
-    "gulp-webpcss": "^1.1.1",
+    "gulp-webp-html-nosvg": "latest",
+    "gulp-webpcss": "latest",
     "gulp-zip": "latest",
     "postcss": "latest",
     "postcss-scss": "latest",
@@ -52,14 +52,14 @@
     "stylelint-config-standard-scss": "latest",
     "stylelint-order": "latest",
     "stylelint-scss": "latest",
-    "supports-webp": "^3.0.0",
-    "webp-converter": "^2.2.3",
+    "supports-webp": "latest",
+    "webp-converter": "2.2.3",
     "webpack": "latest",
     "webpack-stream": "latest"
   },
   "dependencies": {
     "bootstrap": "latest",
-    "jquery": "^3.6.1",
+    "jquery": "latest",
     "lodash": "latest"
   }
 }
