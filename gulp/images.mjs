@@ -8,12 +8,12 @@ import browsersync from 'browser-sync';
 const images = () => gulp.src(['src/images/**/*.{gif,png,jpg,jpeg,webp}', '!src/images/icons/**/*.*', '!src/images/favicons/**/*.*'])
   .pipe(plumber())
   .pipe(webp({
-    quality: 95
+    quality: 90
   }))
   .pipe(gulp.dest('build/images'))
   .pipe(gulp.src(['src/images/**/*.{gif,png,jpg,jpeg,webp}', '!src/images/icons/**/*.*', '!src/images/favicons/**/*.*']))
   .pipe(imagemin([
-    mozjpeg({ quality: 98, progressive: true }),
+    mozjpeg({ quality: 90, progressive: true }),
     optipng({optimizationLevel: 1}),
   ]))
   .pipe(gulp.dest('build/images'))

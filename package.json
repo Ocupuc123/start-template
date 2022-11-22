@@ -19,6 +19,7 @@
     "eslint-config-htmlacademy": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
+    "gulp-cached": "latest",
     "gulp-cheerio": "latest",
     "gulp-clean-css": "latest",
     "gulp-dependents": "latest",

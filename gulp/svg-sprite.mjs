@@ -20,19 +20,12 @@ const svgSprite = () => gulp.src('src/images/icons/svg/*.svg')
   )
   .pipe(replace('&gt;', '>'))
   .pipe(gulpSvgSprite({
+    shape: {
+      dest: 'svgs'
+    },
     mode: {
-      symbol: {
-        sprite: '../sprite.svg',
-        svg: {
-          xmlDeclaration: false,
-          doctypeDeclaration: false
-        },
-        render: {
-          scss: {
-            dest: '../../../src/scss/mixins/_sprite-svg.scss',
-            template: 'src/scss/templates/_sprite_svg_template.scss'
-          }
-        }
+      stack: {
+        sprite: '../sprite.svg'
       }
     }
   }))
