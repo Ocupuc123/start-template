@@ -1,0 +1,142 @@
+@import "node_modules/normalize.css/normalize";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  color: $body-color;
+  font-size: $body-font-size;
+  font-family: $body-font-famaly;
+  text-align: left;
+  background-color: $body-bg;
+}
+
+html {
+  min-width: 320px;
+  height: 100%;
+  line-height: $html-line-height;
+  -webkit-tap-highlight-color: transparent;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-text-decoration;
+  transition: color $transition-time;
+
+  &:hover,
+  &:focus {
+    color: $link-color-hover;
+    text-decoration: $link-text-decoration-hover;
+  }
+
+  &[href^="tel:"] {
+    // На больших экранах телефоны-ссылки делаем обычным текстом
+    @include media-breakpoint-up-lg {
+      color: inherit;
+      white-space: nowrap;
+      cursor: default;
+    }
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin: 1em 0 0.5em;
+  color: $heading-color;
+  font-weight: $heading-font-weight;
+  line-height: 1.2;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-h1 - 10;
+
+  @include media-breakpoint-up-lg {
+    font-size: $font-size-h1;
+  }
+}
+
+h2,
+.h2 {
+  font-size: $font-size-h2 - 5;
+
+  @include media-breakpoint-up-lg {
+    font-size: $font-size-h2;
+  }
+}
+
+h3,
+.h3 {
+  font-size: $font-size-h3;
+}
+
+h4,
+.h4 {
+  font-size: $font-size-h4;
+}
+
+h5,
+.h5 {
+  font-size: $font-size-h5;
+}
+
+h6,
+.h6 {
+  font-size: $font-size-h6;
+}
+
+p {
+  margin: 0;
+
+  & + & {
+    margin-top: 1rem;
+  }
+}
+
+ul,
+ol {
+  margin: 1rem 0;
+  padding-left: 1.5em;
+
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.container {
+  max-width: $screen-xl * 1px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  fill: currentcolor;
+}

@@ -1,4 +1,5 @@
 .burger {
+  --burger-color: #000;
   --burger-width: 30px;
   --burger-height: 20px;
   --burger-line-height: 2px;
@@ -19,7 +20,7 @@
     left: 0;
     width: 100%;
     height: var(--burger-line-height);
-    background-color: $burger-color;
+    background-color: var(--burger-color);
     transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
     content: "";
   }
@@ -38,7 +39,7 @@
     left: 0;
     width: 100%;
     height: var(--burger-line-height);
-    background-color: $burger-color;
+    background-color: var(--burger-color);
     transform: translateY(-50%);
     transition: transform 0.3s ease-in-out;
   }

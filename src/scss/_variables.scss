@@ -1,60 +1,49 @@
-// Разное
-$border-radius: 0;
+@use "sass:color";
+
+// Настройка страницы
+$body-font-famaly: "Arial", sans-serif;
+$body-font-size: 1rem;
+$html-line-height: 1.5;
+$link-text-decoration: none;
+$link-text-decoration-hover: none;
 
 // Цвета
+
+$color-main: #0275d9;
+$color-success: #5cb75c;
+$color-danger: #d8544f;
+$color-warning: #efac4d;
+$text-color-muted: #c2c2c2;
+
+// Семантические цвета
+
 $body-bg: #fff;
-$body-color: #000;
-$primary: #f1bb0a;
-$secondary: #0a66f0;
-$border-color: rgb(236 236 236);
-$burger-color: $body-color;
-$link-color: $primary;
+$body-color: #333;
+$heading-color: #202020;
+$link-color: $color-main;
+$link-color-hover: color.adjust($link-color, $blackness: 15%); // stylelint-disable-line
+
+// Базовая типографика
+
+$heading-font-weight: 700;
+$font-size-h1: 40px;
+$font-size-h2: 32px;
+$font-size-h3: 24px;
+$font-size-h4: 18px;
+$font-size-h5: 16px;
+$font-size-h6: 16px;
 
 // Ширины
-$desktop-full-hd: 1920;
-$laptop: 1440;
-$content-width: 1170;
-$desktop: 1025;
-$tablet: 768;
-$mobile: 480;
 
-// Прочие ширины
-$grid-gutter-width: 30px;
-$container-padding-x: 30px;
-$container-max-widths: (
-  xl: $content-width * 1px,
-);
+$screen-xs: 0;
+$screen-sm: 480;
+$screen-md: 768;
+$screen-lg: 1025;
+$screen-xl: 1200;
+$screen-xxl: 1440;
 
-// Брейкпоинты
-$grid-breakpoints: (
-  xs: 0,
-  sm: $mobile * 1px,
-  md: $tablet * 1px,
-  lg: $desktop * 1px,
-  xl: $content-width * 1px,
-  xxl: $laptop * 1px,
-  full-hd: $desktop-full-hd * 1px
-);
+// Разное
 
-// RFS
-$rfs-breakpoint: $content-width;
-
-// Типография
-$font-family-base: "Inter";
-$body-text-align: left;
-$link-decoration: none;
-
-// Заголовки
-$headings-line-height: 1.2;
-$headings-font-weight: 700;
-$headings-color: $body-color;
-$headings-margin-bottom: 1rem;
-$h1-font-size: 40px;
-$h2-font-size: 30px;
-$h3-font-size: 26px;
-
-// Параграф
-$paragraph-margin-bottom: 1rem;
-
-// Offcanvas
-$offcanvas-horizontal-width: 270px;
+$transition-time: 0.2s;
+$border-radius: 3px;
+$shadow: 0 4px 2px -2px rgb(0 0 0 / 30%);

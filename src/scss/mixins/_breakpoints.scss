@@ -1,0 +1,65 @@
+// The maximum value is reduced by 0.02px to work around the limitations of
+// `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+// See https://bugs.webkit.org/show_bug.cgi?id=178261
+
+@mixin media-breakpoint-down-sm {
+  @media (max-width: ($screen-sm - 0.02) * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down-md {
+  @media (max-width: ($screen-md - 0.02) * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down-lg {
+  @media (max-width: ($screen-lg - 0.02) * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down-xl {
+  @media (max-width: ($screen-xl - 0.02) * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down-xxl {
+  @media (max-width: ($screen-xxl - 0.02) * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-sm {
+  @media (min-width: $screen-sm * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-md {
+  @media (min-width: $screen-md * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-lg {
+  @media (min-width: $screen-lg * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-xl {
+  @media (min-width: $screen-xl * 1px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-xxl {
+  @media (min-width: $screen-xxl * 1px) {
+    @content;
+  }
+}

@@ -1,4 +1,4 @@
 // адаптивные стили через vw
-@function vw($value, $base: $desktop-full-hd) {
+@function vw($value, $base: $screen-xl) {
   @return calc($value / $base * 100vw);
 }
