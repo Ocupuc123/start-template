@@ -1,7 +1,7 @@
 {
-  "name": "start-project",
+  "name": "pug-bem-start-project",
   "version": "1.0.0",
-  "description": "Simple bem pug+scss template",
+  "description": "Стартовый проект. Gulp + bem + pug",
   "main": "gulpfile.mjs",
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp development",
