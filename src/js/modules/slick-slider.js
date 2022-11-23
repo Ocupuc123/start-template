@@ -1,1 +1,0 @@
-// $('.slick-slider').slick();
