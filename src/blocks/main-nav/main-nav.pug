@@ -29,19 +29,4 @@ mixin main-nav(mods)
       allMods = allMods.trim()
     }
 
-  nav.main-nav.navbar.navbar-expand-lg.p-0(class=allMods)&attributes(attributes)
-    ul.navbar-nav
-      each menuItem in mainMenu
-        if menuItem.list
-          li.dropdown
-            a(href=menuItem.link)=menuItem.title
-            button.main-nav__toggle.btn.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false' aria-label='Стрелка вниз')
-            ul.dropdown-menu
-              each sublistLink in menuItem.list
-                li
-                  a(href=sublistLink.link)=sublistLink.name
-        else
-          li
-            a(href=menuItem.link)=menuItem.title
-
-
+  +b.main-nav

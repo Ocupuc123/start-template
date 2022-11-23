@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
-import filter from 'gulp-filter';
 import sassGlob from 'gulp-sass-glob';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
@@ -15,7 +14,6 @@ const sass = gulpSass(dartSass);
 
 const styles = ()=> gulp.src('src/scss/main.scss')
   .pipe(plumber())
-  .pipe(filter('src/scss/main.scss'))
   .pipe(sassGlob())
   .pipe(sass().on('error', sass.logError))
   .pipe(mqpacker())
