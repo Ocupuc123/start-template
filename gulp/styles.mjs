@@ -15,7 +15,7 @@ const sass = gulpSass(dartSass);
 const styles = ()=> gulp.src('src/scss/main.scss')
   .pipe(plumber())
   .pipe(sassGlob())
-  .pipe(sass().on('error', sass.logError))
+  .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
   .pipe(mqpacker())
   .pipe(webpcss({
     webpClass: '.webp',

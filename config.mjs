@@ -3,7 +3,7 @@ const config = {
     'no-js',
   ],
   'alwaysAddBlocks': [
-    'burger',
+    // 'burger',
     // 'logo',
   ],
   'addStyle': [

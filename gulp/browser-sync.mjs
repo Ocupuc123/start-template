@@ -9,8 +9,7 @@ import { svgSprite } from './svg-sprite.mjs';
 import { images } from './images.mjs';
 import { favicons } from './favicons.mjs';
 import { scripts } from './scripts.mjs';
-import { writeScssImportsFile } from './blocks-from-html.mjs';
-
+import { writeScssImportsFile } from './write-sass-imports-file.mjs';
 
 const browserSync = (callback) => {
   server.init({
