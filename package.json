@@ -17,6 +17,7 @@
     "del": "latest",
     "eslint": "latest",
     "eslint-config-htmlacademy": "latest",
+    "get-classes-from-html": "^1.0.1",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-cached": "latest",

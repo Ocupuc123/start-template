@@ -2,13 +2,17 @@
 
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
-import webpack from 'webpack-stream';
+import webpackStream from 'webpack-stream';
+import webpack from 'webpack';
 import browsersync from 'browser-sync';
 
 const scripts = () => gulp.src('src/js/main.js')
   .pipe(plumber())
-  .pipe(webpack({
+  .pipe(webpackStream({
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+    plugins: [
+      new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery' }),
+    ],
     devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
     output: {
       filename: 'main.js'
