@@ -6,7 +6,7 @@ import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
 import browsersync from 'browser-sync';
 
-const scripts = () => gulp.src('src/js/main.js')
+const scripts = () => gulp.src('src/js/entry.js')
   .pipe(plumber())
   .pipe(webpackStream({
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',

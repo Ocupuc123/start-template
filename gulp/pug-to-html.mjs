@@ -28,10 +28,9 @@ const getClassesToBlocksList = () => through.obj(function (file, enc, cb) {
       .toString()
       .split('\n')
       .map((html) => {
-        // const blocksFolder = fs.readdirSync(`${process.cwd()}${path.sep}src${path.sep}blocks${path.sep}`, {
-        //   withFileTypes: true
-        // }).filter((d) => d.isDirectory()).map((d) => d.name);
-        const isEmptyFile = fs.readdirSync(`${process.cwd()}${path.sep}src${path.sep}blocks${path.sep}`);
+        const blocksFolder = fs.readdirSync(`${process.cwd()}${path.sep}src${path.sep}blocks${path.sep}`, {
+          withFileTypes: true
+        }).filter((d) => d.isDirectory()).map((d) => d.name);
         const fileContent = html;
         const classesInFile = getClassesFromHtml(fileContent);
 

@@ -14,7 +14,10 @@ const config = {
     'src/scss/normalize.scss',
     // 'node_modules/slick-carousel/slick/slick.css',
   ],
-  'addJs': [
+  'addJsBefore': [
+    './modules/is-webp.js',
+  ],
+  'addJsAfter': [
     './main.js',
   ],
   'addAssets': {
