@@ -10,11 +10,12 @@ import { svgSprite } from './gulp/svg-sprite.mjs';
 import { images } from './gulp/images.mjs';
 import { favicons } from './gulp/favicons.mjs';
 import { scripts } from './gulp/scripts.mjs';
-import { writeScssImportsFile } from './gulp/write-sass-imports-file.mjs';
+import { writeSassImportsFile } from './gulp/write-sass-imports-file.mjs';
+import { writeJsImportsFile } from './gulp//write-js-imports-file.mjs';
 
 const build = gulp.series(
   clean, pugMixins, pugToHtmlFast, favicons,
-  gulp.parallel(pugToHtml, svgSprite, images, fonts, resources, writeScssImportsFile),
+  gulp.parallel(pugToHtml, svgSprite, images, fonts, resources, writeSassImportsFile, writeJsImportsFile),
   gulp.parallel(styles,scripts)
 );
 

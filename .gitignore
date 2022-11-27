@@ -2,4 +2,5 @@
 /build
 /dist
 /src/scss/main.scss
+/src/js/entry.js
 package-lock.json

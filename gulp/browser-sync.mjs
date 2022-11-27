@@ -9,7 +9,8 @@ import { svgSprite } from './svg-sprite.mjs';
 import { images } from './images.mjs';
 import { favicons } from './favicons.mjs';
 import { scripts } from './scripts.mjs';
-import { writeScssImportsFile } from './write-sass-imports-file.mjs';
+import { writeSassImportsFile } from './write-sass-imports-file.mjs';
+import { writeJsImportsFile } from './write-js-imports-file.mjs';
 
 const browserSync = (callback) => {
   server.init({
@@ -18,7 +19,7 @@ const browserSync = (callback) => {
     cors: true
   });
 
-  gulp.watch(['src/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(pugMixins, pugToHtml, writeScssImportsFile));
+  gulp.watch(['src/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(pugMixins, pugToHtml, writeSassImportsFile, writeJsImportsFile));
   gulp.watch('src/**/*.scss', gulp.series(styles));
   gulp.watch('src/**/*.js', gulp.series(scripts));
   gulp.watch('src/fonts/**/*.*', gulp.series(fonts));

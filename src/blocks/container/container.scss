@@ -1,0 +1,9 @@
+// В этом файле должны быть стили для БЭМ-блока container, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.container {
+  max-width: $screen-xl * 1px;
+  margin: 0 auto;
+  padding: 0 15px;
+}

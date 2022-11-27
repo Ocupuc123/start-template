@@ -1,0 +1,10 @@
+// В этом файле должны быть стили для БЭМ-блока svg-icon, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.svg-icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  fill: currentcolor;
+}

@@ -12,7 +12,7 @@ const config = {
     'src/scss/functions.scss',
     'src/scss/fonts.scss',
     'src/scss/normalize.scss',
-    'node_modules/slick-carousel/slick/slick.css',
+    // 'node_modules/slick-carousel/slick/slick.css',
   ],
   'addJs': [
     './main.js',

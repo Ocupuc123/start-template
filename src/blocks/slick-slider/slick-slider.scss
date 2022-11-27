@@ -1,8 +1,9 @@
-@use "sass:color";
-
 // В этом файле должны быть стили для БЭМ-блока slick-slider, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+@use "sass:color";
+@import "node_modules/slick-carousel/slick/slick";
 
 $slick-arrow-width: 45px !default;
 $slick-arrow-height: 45px !default;
