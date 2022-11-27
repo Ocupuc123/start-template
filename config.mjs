@@ -15,7 +15,7 @@ const config = {
     // 'node_modules/slick-carousel/slick/slick.css',
   ],
   'addJsBefore': [
-    './modules/is-webp.js',
+    './utils/is-webp.js',
   ],
   'addJsAfter': [
     './main.js',
