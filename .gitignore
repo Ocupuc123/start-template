@@ -3,4 +3,5 @@
 /dist
 /src/scss/main.scss
 /src/js/entry.js
+/src/blocks/mixins.pug
 package-lock.json
