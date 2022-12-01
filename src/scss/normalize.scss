@@ -26,7 +26,10 @@ html {
   }
 }
 
-img {
+img,
+svg,
+picture,
+video {
   max-width: 100%;
   height: auto;
 }
