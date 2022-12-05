@@ -64,6 +64,7 @@
     "bootstrap": "latest",
     "jquery": "latest",
     "lodash": "latest",
+    "scroll-lock": "latest",
     "slick-carousel": "latest"
   }
 }

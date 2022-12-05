@@ -1,0 +1,24 @@
+mixin off-canvas(mods)
+  -
+    const baseName = 'off-canvas'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  +b.off-canvas(class=allMods)&attributes(attributes)
+    +e.header
+      +e.logo(href='/')
+        img(src='./images/logo.svg')
+      +close('Закрыть')
+    +e.body
+      +main-nav('0')
+      +e.contacts
+        +e.phone-container
+          a(href='tel:+79002448310') 89002448310
+        +e.mail-container
+          a(href='mailto:ocupuc123@mail.ru') ocupuc123@mail.ru

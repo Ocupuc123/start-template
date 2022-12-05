@@ -1,15 +1,24 @@
 @use "sass:color";
 
 // Настройка страницы
-
 $body-font-famaly: "Arial", sans-serif;
 $body-font-size: 1rem;
 $html-line-height: 1.5;
 $link-text-decoration: none;
 $link-text-decoration-hover: none;
 
-// Цвета
-
+// Базовые цвета https://colorscheme.ru/color-converter.html
+$black: hsl(0deg 0% 0%);
+$gray-darkest: hsl(0deg 0% 10%);
+$gray-darker: hsl(0deg 0% 20%);
+$gray-darken: hsl(0deg 0% 30%);
+$gray-dark: hsl(0deg 0% 40%);
+$gray: hsl(0deg 0% 50%);
+$gray-light: hsl(0deg 0% 60%);
+$gray-lighten: hsl(0deg 0% 70%);
+$gray-lighter: hsl(0deg 0% 80%);
+$gray-lightest: hsl(0deg 0% 90%);
+$white: hsl(0deg 0% 100%);
 $color-main: #0275d9;
 $color-success: #5cb75c;
 $color-danger: #d8544f;
@@ -17,16 +26,15 @@ $color-warning: #efac4d;
 $text-color-muted: #c2c2c2;
 
 // Семантические цвета
-
 $body-bg: #fff;
 $body-color: #333;
 $heading-color: #202020;
 $link-color: $color-main;
 /* stylelint-disable-next-line function-no-unknown */
 $link-color-hover: color.adjust($link-color, $blackness: 15%);
+$border-color: $gray-lightest;
 
 // Базовая типографика
-
 $heading-font-weight: 700;
 $font-size-h1: 40px;
 $font-size-h2: 32px;
@@ -36,7 +44,6 @@ $font-size-h5: 16px;
 $font-size-h6: 16px;
 
 // Ширины
-
 $screen-xs: 0;
 $screen-sm: 480;
 $screen-md: 768;
@@ -45,13 +52,14 @@ $screen-xl: 1200;
 $screen-xxl: 1440;
 
 // Разное
-
 $transition-time: 0.2s;
 $border-radius: 3px;
 $shadow: 0 4px 2px -2px rgb(0 0 0 / 30%);
+$menu-desktop-width: $screen-lg;
+$toggler-part-height: 2px;
+$z-index-modal: 100;
 
 // Настройка слайдера
-
 $slick-arrow-width: 40px;
 $slick-arrow-height: 40px;
 $slick-arrow-radius: 50%;

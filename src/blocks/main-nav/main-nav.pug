@@ -1,32 +1,54 @@
--
-  let mainMenu =[
-    { title: 'Главная страница', link: '#'},
-    { title: 'Страницы', link: '#',
-      list: [
-        { name: 'О компании', link: '#' },
-        { name: 'Услуги', link: '#' },
-      ]
-    },
-    { title: 'Репозиторий', link: 'https://github.com/Ocupuc123' },
-    { title: 'Контакты автора', link: '#',
-      list: [
-        { name: 'О компании', link: '#' },
-        { name: 'Услуги', link: '#' },
-        { name: 'Страницы', link: '#' }
-      ]
-    }
-  ]
+//- Все примеси в этом файле должны начинаться c имени блока (main-nav)
+//- Структура меню — в main-nav.data.pug
 
-mixin main-nav(mods)
+mixin main-nav(selectedID)
+
+  //-  Принимает:
+  //-  selectedID {string} - id пункта меню (по умолчанию — из main-nav.data.pug)
+  //-  Вызов:
+  //-  +main-nav('1')
+
+  //- подключаем файл со структурой данных блока
+  include main-nav.data.pug
+
+  nav#nav.main-nav&attributes(attributes)
+    ul.main-nav__list
+      each menuItem in mainMenu
+        +main-nav-item(selectedID, menuItem, 1)
+          if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
+            button.main-nav__sublist-toggle(type='button' aria-label='Открыть подменю')
+            +main-nav-sublist-wrapper(2)
+              each menuItem2 in menuItem.childs
+                +main-nav-item(selectedID, menuItem2, 2)
+                  if (typeof(menuItem2.childs) !== 'undefined' && menuItem2.childs)
+                    button.main-nav__sublist-toggle(type='button' aria-label='Открыть подменю')
+                    +main-nav-sublist-wrapper(3)
+                      each menuItem3 in menuItem2.childs
+                        +main-nav-item(selectedID, menuItem3, 3)
+
+mixin main-nav-item(selectedID, item, level)
   -
-    const baseName = 'main-nav'
-    let allMods = ''
-    if (typeof mods !== 'undefined' && mods) {
-      const modsList = mods.split(',')
-      for (const element of modsList) {
-        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
-      }
-      allMods = allMods.trim()
+    let thisItemClass = 'main-nav__item';
+    let thisLinkClass = 'main-nav__link';
+    if(selectedID == item.id) {
+      thisItemClass += ' main-nav__item--active';
+    }
+    if(item.childs) {
+      thisItemClass += ' main-nav__item--has-child';
+    }
+    if(level > 1) {
+      thisItemClass += ' main-nav__item--lvl-' + level;
+      thisLinkClass += ' main-nav__link--lvl-' + level;
     }
 
-  +b.main-nav
+  li(class=thisItemClass)
+    a(class=thisLinkClass, href=item.url)=item.name
+    block
+
+mixin main-nav-sublist-wrapper(level)
+  -
+    const divClass = 'main-nav__sublist-wrapper main-nav__sublist-wrapper--lvl-' + level;
+    const listClass = 'main-nav__list main-nav__list--lvl-' + level;
+  div(class=divClass)
+    ul(class=listClass)
+      block

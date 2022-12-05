@@ -1,0 +1,88 @@
+// В этом файле должны быть стили для БЭМ-блока off-canvas, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.off-canvas {
+  $off-canvas: &; // #{$off-canvas}__element
+
+  @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-index-modal;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    background-clip: padding-box;
+    outline: 0;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform $transition-time ease-in-out;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid $border-color;
+
+    @media (min-width: $menu-desktop-width * 1px) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: block;
+    max-width: 120px;
+    max-height: 40px;
+
+    img {
+      max-height: 100%;
+    }
+  }
+
+  &__body {
+    @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+      flex-grow: 1;
+      padding: 0 1rem 2rem;
+      overflow-y: auto;
+    }
+  }
+
+  &__contacts {
+    margin-top: 3rem;
+
+    @media (min-width: $menu-desktop-width * 1px) {
+      display: none;
+    }
+  }
+
+  &__phone-container {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 24px;
+
+    a {
+      color: $body-color;
+    }
+  }
+
+  &__mail-container {
+    font-size: 18px;
+
+    a {
+      color: $body-color;
+    }
+  }
+
+  &--shown {
+    @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+      transform: none;
+      visibility: visible;
+    }
+  }
+}

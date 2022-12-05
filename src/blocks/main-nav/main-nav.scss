@@ -1,0 +1,197 @@
+// В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.main-nav {
+  $main-nav: &; // #{$main-nav}__element
+
+  position: relative;
+  z-index: 10;
+
+  // первый уровень
+  &__list {
+    @include list-reset;
+
+    // настольный вид списка
+    @media (min-width: $menu-desktop-width * 1px) {
+      display: flex;
+      flex-wrap: wrap;
+
+      &--lvl-2 {
+        display: block;
+      }
+
+      &--lvl-3 {
+        display: block;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &--active {
+
+      & > #{$main-nav}__link {
+        color: #000;
+      }
+    }
+
+    &--has-child {
+      & > #{$main-nav}__link {
+        @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+          margin-right: 3rem;
+        }
+      }
+    }
+
+    &--lvl-2 {
+      #{$main-nav}__sublist-toggle {
+        top: 3px;
+      }
+    }
+  }
+
+  &__sublist-toggle {
+    position: absolute;
+    top: 17px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform $transition-time;
+    user-select: none;
+
+    @media (min-width: $menu-desktop-width * 1px) {
+      display: none;
+    }
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80%;
+      height: $toggler-part-height;
+      background-color: $gray-dark;
+      transform: translate(-50%, -50%);
+      transition: opacity $transition-time;
+      content: "";
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: $toggler-part-height;
+      height: 80%;
+      background-color: $gray-dark;
+      transform: translate(-50%, -50%);
+      content: "";
+    }
+
+    &--active {
+      transform: rotate(90deg);
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background-color: #fff;
+
+    @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+      padding: 1rem 0;
+      font-size: 22px;
+    }
+
+    &:hover,
+    &:focus {
+      z-index: 1;
+      text-decoration: none;
+      background-color: $gray-lightest;
+    }
+
+    &--lvl-2 {
+      @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+        padding: 0.5rem 0;
+        font-size: 16px;
+      }
+
+      @media (min-width: $menu-desktop-width * 1px) {
+        min-width: 200px;
+      }
+    }
+
+    &--lvl-3 {
+      @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+        padding: 0.5rem 0;
+        font-size: 16px;
+      }
+
+      @media (min-width: $menu-desktop-width * 1px) {
+        min-width: 200px;
+      }
+    }
+  }
+
+  &__sublist-wrapper {
+    @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+      display: none;
+    }
+
+    &--lvl-2 {
+      @media (min-width: $menu-desktop-width * 1px) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity $transition-time;
+        #{$main-nav}__item--show-child > &,
+        #{$main-nav}__item:hover & {
+          height: auto;
+          overflow: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    &--lvl-3 {
+      @media (min-width: $menu-desktop-width * 1px) {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        z-index: 1;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity $transition-time;
+        #{$main-nav}__item--show-child > &,
+        #{$main-nav}__item--lvl-2:hover & {
+          height: auto;
+          overflow: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  & > #{$main-nav}__list > #{$main-nav}__item {
+    @media (max-width: ($menu-desktop-width - 0.02) * 1px) {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}

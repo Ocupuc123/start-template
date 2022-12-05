@@ -1,65 +1,76 @@
-.burger {
-  --burger-color: #000;
-  --burger-width: 30px;
-  --burger-height: 20px;
-  --burger-line-height: 2px;
+// В этом файле должны быть стили для БЭМ-блока burger, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-  $burger: &;
+.burger {
+  $burger: &; // #{$burger}__element
 
   position: relative;
-  width: var(--burger-width);
-  height: var(--burger-height);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   padding: 0;
-  background-color: transparent;
+  background: transparent;
   border: none;
   cursor: pointer;
-
-  &::before,
-  &::after {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: var(--burger-line-height);
-    background-color: var(--burger-color);
-    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
-    content: "";
-  }
-
-  &::before {
-    top: 0;
-  }
-
-  &::after {
-    top: calc(100% - var(--burger-line-height));
-  }
+  user-select: none;
 
   &__line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: var(--burger-line-height);
-    background-color: var(--burger-color);
-    transform: translateY(-50%);
-    transition: transform 0.3s ease-in-out;
-  }
+    position: relative;
+    display: block;
+    width: 90%;
+    height: $toggler-part-height;
+    color: transparent;
+    font-size: 0;
+    background: $gray-dark;
+    transition: background $transition-time $transition-time;
 
-  &--active {
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: $toggler-part-height;
+      background: $gray-dark;
+      transform-origin: 50% 50%;
+      transition: top $transition-time $transition-time, transform $transition-time;
+      content: "";
+    }
+
     &::before {
-      top: 50%;
-      transform: rotate(45deg);
-      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+      top: -10px;
     }
 
     &::after {
-      top: 50%;
-      transform: rotate(-45deg);
-      transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+      top: 10px;
     }
+  }
+
+  &--close {
 
     #{$burger}__line {
-      transform: scale(0);
-      transition: transform 0.3s ease-in-out;
+      background: transparent;
+      transition: background $transition-time 0s;
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      &::before,
+      &::after {
+        top: 0;
+        transition: top $transition-time, transform $transition-time $transition-time;
+      }
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      &::before {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      &::after {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
     }
   }
 }
