@@ -3,6 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .container {
+  width: 100%;
   max-width: $screen-xl * 1px;
   margin: 0 auto;
   padding: 0 15px;

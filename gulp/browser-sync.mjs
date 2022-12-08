@@ -26,7 +26,7 @@ const browserSync = (callback) => {
   gulp.watch('src/resources/**/*.*', gulp.series(resources));
   gulp.watch('src/images/icons/svg/*.svg', gulp.series(svgSprite));
   gulp.watch('src/images/favicons/*.png', gulp.series(favicons));
-  gulp.watch(['src/images/**/*.{gif,jpg,png,webp,svg}', '!src/images/favicons/*.png', '!src/images/icons/svg/*.svg'], gulp.series(images));
+  gulp.watch(['src/images/**/*.{gif,jpg,png,jpeg,webp,svg}', '!src/images/favicons/*.png', '!src/images/icons/svg/*.svg'], gulp.series(images));
 
   return callback();
 };
