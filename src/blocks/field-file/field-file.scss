@@ -1,0 +1,88 @@
+// В этом файле должны быть стили для БЭМ-блока field-file, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.field-file {
+  $block-name: &; // #{$block-name}__element
+
+  display: block;
+  margin-bottom: $typo-margin-vertical;
+
+  &__name {
+    @include field-name;
+  }
+
+  &__input-wrap {
+    position: relative;
+    display: block;
+  }
+
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:active ~ #{$block-name}__name-text,
+    &:focus ~ #{$block-name}__name-text {
+      @include field-focus;
+    }
+  }
+
+  &__name-text {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    @at-root input:disabled ~ & {
+      background: $gray-lighter;
+      cursor: not-allowed;
+    }
+
+    &::before {
+      display: block;
+      margin-right: $field-padding-horizontal;
+      padding: $field-padding-vertical  $field-padding-horizontal;
+      line-height: $line-height;
+      background-color: $gray-lightest;
+      border-right: 1px solid $border-color;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+      content: attr(data-button-text);
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        background-color: darken($gray-lightest, 10%); // как у обычных кнопок
+      }
+    }
+  }
+
+  &__help-text {
+    @include field-help-text;
+  }
+
+  &--error {
+
+    #{$block-name}__name,
+    #{$block-name}__name-text,
+    #{$block-name}__input,
+    #{$block-name}__help-text {
+      color: $color-danger;
+    }
+
+    #{$block-name}__name-text {
+      background-color: lighten($color-danger, 35%);
+      border-color: $color-danger;
+    }
+  }
+}

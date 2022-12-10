@@ -22,7 +22,7 @@ const favicons = () => gulp.src('src/images/favicons/favicon.png')
       firefox: true,
       yandex: true,
       windows: true,
-      coast: true
+      // coast: true
     }
   }))
   .pipe(gulp.dest('build/images/favicons'));

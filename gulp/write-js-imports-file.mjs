@@ -1,7 +1,4 @@
-/* global process */
-
 import fs from 'node:fs';
-// import path from 'node:path';
 import config from '../config.mjs';
 import { blocksFromHtml } from './pug-to-html.mjs';
 

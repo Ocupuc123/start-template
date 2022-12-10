@@ -1,0 +1,93 @@
+// В этом файле должны быть стили для БЭМ-блока button, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "sass:color";
+
+.button {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0;
+  padding: $field-padding-vertical  $field-padding-horizontal;
+  overflow: hidden;
+  color: $text-color;
+  font-size: 1em;
+  font-family: inherit;
+  line-height: $line-height;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  background-color: $gray-lightest;
+  background-image: none;
+  border: 1px solid $gray-lighter;
+  border-radius: $border-radius;
+  cursor: pointer;
+  user-select: none;
+
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover,
+  &:focus {
+    color: $text-color;
+    text-decoration: none;
+    /* stylelint-disable-next-line function-no-unknown */
+    background-color: color.adjust($gray-lightest, $blackness: 15%);
+
+    /* stylelint-disable-next-line function-no-unknown */
+    border-color: color.adjust($gray-lighter, $blackness: 12%);
+  }
+
+  &:active,
+  &:focus {
+    @include field-focus;
+  }
+
+  &--disabled,
+  &:disabled {
+    color: $text-color;
+    background-color: $gray-lightest;
+    cursor: not-allowed;
+    opacity: $opacity;
+
+    @at-root a.btn--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &--main {
+    color: #fff;
+    background-color: $color-main;
+    border: 1px solid $color-main;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      /* stylelint-disable-next-line function-no-unknown */
+      background-color: color.adjust($color-main, $blackness: 10%);
+      /* stylelint-disable-next-line function-no-unknown */
+      border-color: color.adjust($color-main, $blackness: 12%);
+    }
+
+    &--disabled,
+    &:disabled {
+      color: #fff;
+      background-color: $color-main;
+      border-color: $color-main;
+    }
+  }
+
+  &--outline {
+    color: $color-main;
+    background-color: transparent;
+  }
+}

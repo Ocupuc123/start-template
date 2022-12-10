@@ -3,7 +3,7 @@ const config = {
     'no-js',
   ],
   'alwaysAddBlocks': [
-    // 'burger',
+    // 'form-validation',
     // 'logo',
   ],
   'addStyle': [
@@ -12,19 +12,17 @@ const config = {
     'src/scss/functions.scss',
     'src/scss/fonts.scss',
     'src/scss/normalize.scss',
-    // 'node_modules/slick-carousel/slick/slick.css',
+    // 'node_modules/some/some.css',
   ],
   'addJsBefore': [
-    './utils/is-webp.js',
+    // './utils/some.js',
   ],
   'addJsAfter': [
     './main.js',
   ],
   'addAssets': {
-    // 'src/img/demo-*.{png,svg,jpg,jpeg}': 'img/',
-    // 'src/fonts/demo-empty-open-sans.woff2': 'fonts/',
-    // 'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'img/favicon',
-    // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'img/',
+    'src/fonts/*.*': 'fonts/',
+    // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'images/',
   },
 };
 

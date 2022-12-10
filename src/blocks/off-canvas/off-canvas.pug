@@ -10,15 +10,15 @@ mixin off-canvas(mods)
       allMods = allMods.trim()
     }
 
-  +b.off-canvas(class=allMods)&attributes(attributes)
-    +e.header
-      +e.logo(href='/')
+  .off-canvas(class=allMods)&attributes(attributes)
+    .off-canvas__header
+      .off-canvas__logo(href='/')
         img(src='./images/logo.svg')
       +close('Закрыть')
-    +e.body
+    .off-canvas__body
       +main-nav('0')
-      +e.contacts
-        +e.phone-container
+      .off-canvas__contacts
+        .off-canvas__phone-container
           a(href='tel:+79002448310') 89002448310
-        +e.mail-container
+        .off-canvas__mail-container
           a(href='mailto:ocupuc123@mail.ru') ocupuc123@mail.ru

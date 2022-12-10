@@ -1,9 +1,9 @@
 @use "sass:color";
 
 // Настройка страницы
-$body-font-famaly: "Arial", sans-serif;
-$body-font-size: 1rem;
-$html-line-height: 1.5;
+$font-famaly: "Arial", sans-serif;
+$font-size: 1rem;
+$line-height: 1.5;
 $link-text-decoration: none;
 $link-text-decoration-hover: none;
 
@@ -19,6 +19,10 @@ $gray-lighten: hsl(0deg 0% 70%);
 $gray-lighter: hsl(0deg 0% 80%);
 $gray-lightest: hsl(0deg 0% 90%);
 $white: hsl(0deg 0% 100%);
+$color-vk: #4a76a8;
+$color-fb: #4267b2;
+$color-tw: #40a2f5;
+$color-gh: #24292e;
 $color-main: #0275d9;
 $color-success: #5cb75c;
 $color-danger: #d8544f;
@@ -27,7 +31,7 @@ $text-color-muted: #c2c2c2;
 
 // Семантические цвета
 $body-bg: #fff;
-$body-color: #333;
+$text-color: #333;
 $heading-color: #202020;
 $link-color: $color-main;
 /* stylelint-disable-next-line function-no-unknown */
@@ -42,6 +46,7 @@ $font-size-h3: 24px;
 $font-size-h4: 18px;
 $font-size-h5: 16px;
 $font-size-h6: 16px;
+$font-size-sm: 0.75em;
 
 // Ширины
 $screen-xs: 0;
@@ -58,6 +63,10 @@ $shadow: 0 4px 2px -2px rgb(0 0 0 / 30%);
 $menu-desktop-width: $screen-lg;
 $toggler-part-height: 2px;
 $z-index-modal: 100;
+$typo-margin-vertical: 1em;
+$field-padding-vertical: 5px;
+$field-padding-horizontal: 12px;
+$opacity: 0.7;
 
 // Настройка слайдера
 $slick-arrow-width: 40px;

@@ -4,7 +4,6 @@ import sassGlob from 'gulp-sass-glob';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
-import webpcss from 'gulp-webpcss';
 import rename from 'gulp-rename';
 import mqpacker from 'gulp-group-css-media-queries';
 import cleanCSS from 'gulp-clean-css';
@@ -17,10 +16,6 @@ const styles = ()=> gulp.src('src/scss/main.scss')
   .pipe(sassGlob())
   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
   .pipe(mqpacker())
-  .pipe(webpcss({
-    webpClass: '.webp',
-    noWebpClass: '.no-webp'
-  }))
   .pipe(autoprefixer({
     cascade: true,
   }))
