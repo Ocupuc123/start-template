@@ -1,0 +1,53 @@
+// В этом файле должны быть стили для БЭМ-блока characteristic, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.characteristic {
+  $characteristic: &; // #{$characteristic}__element
+
+  margin: 0;
+  padding: 0;
+
+  &__group {
+    display: flex;
+    padding: 10px 0;
+
+    @include media-breakpoint-down-lg {
+      border-bottom: 1px dashed #d9d9d9;
+    }
+  }
+
+  &__term {
+    display: flex;
+    flex: 1;
+    align-items: baseline;
+    margin: 0;
+    padding-right: 8px;
+    font-weight: 400;
+
+    @include media-breakpoint-down-lg {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &::after {
+      @include media-breakpoint-up-lg {
+        flex: 1;
+        margin-left: 8px;
+        border-bottom: 1px dashed #d9d9d9;
+        content: "";
+      }
+    }
+  }
+
+  &__definition {
+    margin: 0;
+    font-weight: 400;
+
+    @include media-breakpoint-down-lg {
+      flex: 1;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
