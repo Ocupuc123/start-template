@@ -7,13 +7,12 @@ import { styles } from './gulp/styles.mjs';
 import { copyAssets } from './gulp/copy-assets.mjs';
 import { svgSprite } from './gulp/svg-sprite.mjs';
 import { images } from './gulp/images.mjs';
-import { favicons } from './gulp/favicons.mjs';
 import { scripts } from './gulp/scripts.mjs';
 import { writeSassImportsFile } from './gulp/write-sass-imports-file.mjs';
 import { writeJsImportsFile } from './gulp//write-js-imports-file.mjs';
 
 const build = gulp.series(
-  clean, pugMixins, pugToHtmlFast, favicons,
+  clean, pugMixins, pugToHtmlFast,
   gulp.parallel(pugToHtml, svgSprite, images, copyAssets, writeSassImportsFile, writeJsImportsFile),
   gulp.parallel(styles,scripts)
 );

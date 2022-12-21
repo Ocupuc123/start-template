@@ -28,7 +28,6 @@
     "gulp-cheerio": "latest",
     "gulp-clean-css": "latest",
     "gulp-dependents": "latest",
-    "gulp-favicons": "latest",
     "gulp-filter": "latest",
     "gulp-group-css-media-queries": "latest",
     "gulp-imagemin": "latest",
