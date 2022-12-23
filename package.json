@@ -16,7 +16,7 @@
     "bem-tools-core": "latest",
     "bem-tools-create": "latest",
     "browser-sync": "latest",
-    "cpy": "^9.0.1",
+    "cpy": "latest",
     "cross-env": "latest",
     "del": "latest",
     "eslint": "latest",
@@ -59,14 +59,14 @@
     "webpack-stream": "latest"
   },
   "dependencies": {
-    "autosize": "^5.0.2",
-    "baron": "^3.0.3",
+    "autosize": "latest",
+    "baron": "latest",
     "bootstrap": "latest",
-    "choices.js": "^10.2.0",
-    "closest": "^0.0.1",
+    "choices.js": "latest",
+    "closest": "latest",
     "jquery": "latest",
     "lodash": "latest",
-    "scroll-lock": "latest",
-    "slick-carousel": "latest"
+    "slick-carousel": "latest",
+    "smartmenus": "latest"
   }
 }

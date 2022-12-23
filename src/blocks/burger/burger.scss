@@ -5,11 +5,10 @@
 .burger {
   $burger: &; // #{$burger}__element
 
+  @include flex-all-center;
+
   position: relative;
   z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 32px;
   height: 32px;
   padding: 0;

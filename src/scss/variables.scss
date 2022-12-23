@@ -81,3 +81,18 @@ $slick-dot-size: 10px;
 $slick-opacity-default: 1;
 $slick-opacity-on-hover: 1;
 $slick-opacity-not-active: 0.25;
+
+// Настройка главного меню
+// $sm-clean__desktop-bg: $gray-lightest;
+// $sm-clean__collapsible-bg: $white;
+$sm-clean__collapsible-toggle-bg: #fff;
+$sm-clean__desktop-vp: $screen-lg * 1px;
+$sm-clean__font-family: $font-famaly;
+$sm-clean__font-size-base: 16px;
+$sm-clean__line-height: 16px;
+$sm-clean__font-size-small: 16px;
+$sm-clean__desktop-item-hover-color: $color-main;
+$sm-clean__desktop-item-current-color: $color-main;
+$sm-clean__desktop-sub-item-hover-color: $color-main;
+$sm-clean__desktop-sub-item-current-color: $color-main;
+$sm-clean__collapsible-item-current-color: $color-main;

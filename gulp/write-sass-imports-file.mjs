@@ -41,7 +41,7 @@ const writeSassImportsFile = (cb) => {
 
   if (config.addStyle.length > 0) {
     config.addStyle.forEach((src) => {
-      src = src.replace(/src\/scss\/|.scss|.css/gi, '');
+      src = src.replace(/src\/scss\/|.scss/gi, '');
       scssImportsList.push(src);
     });
   }

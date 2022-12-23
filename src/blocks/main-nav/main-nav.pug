@@ -11,44 +11,24 @@ mixin main-nav(selectedID)
   //- подключаем файл со структурой данных блока
   include main-nav.data.pug
 
-  nav#nav.main-nav&attributes(attributes)
-    ul.main-nav__list
+  nav#nav.main-nav(itemscope='' itemtype='http://schema.org/SiteNavigationElement')&attributes(attributes)
+    ul#main-menu.sm.sm-clean(itemprop='about' itemscope='' itemtype='http://schema.org/ItemList')
       each menuItem in mainMenu
-        +main-nav-item(selectedID, menuItem, 1)
+        li(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
+          if (selectedID === menuItem.id)
+            a.current(href=menuItem.url itemprop='url')=menuItem.name
+          else
+            a(href=menuItem.url itemprop='url')=menuItem.name
+          meta(itemprop='name' content=menuItem.name)
           if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
-            button.main-nav__sublist-toggle(type='button' aria-label='Открыть подменю')
-            +main-nav-sublist-wrapper(2)
+            ul(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
               each menuItem2 in menuItem.childs
-                +main-nav-item(selectedID, menuItem2, 2)
+                li(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
+                  a(href=menuItem2.url itemprop='url')=menuItem2.name
+                  meta(itemprop='name' content=menuItem2.name)
                   if (typeof(menuItem2.childs) !== 'undefined' && menuItem2.childs)
-                    button.main-nav__sublist-toggle(type='button' aria-label='Открыть подменю')
-                    +main-nav-sublist-wrapper(3)
+                    ul(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
                       each menuItem3 in menuItem2.childs
-                        +main-nav-item(selectedID, menuItem3, 3)
-
-mixin main-nav-item(selectedID, item, level)
-  -
-    let thisItemClass = 'main-nav__item';
-    let thisLinkClass = 'main-nav__link';
-    if(selectedID == item.id) {
-      thisItemClass += ' main-nav__item--active';
-    }
-    if(item.childs) {
-      thisItemClass += ' main-nav__item--has-child';
-    }
-    if(level > 1) {
-      thisItemClass += ' main-nav__item--lvl-' + level;
-      thisLinkClass += ' main-nav__link--lvl-' + level;
-    }
-
-  li(class=thisItemClass)
-    a(class=thisLinkClass, href=item.url)=item.name
-    block
-
-mixin main-nav-sublist-wrapper(level)
-  -
-    const divClass = 'main-nav__sublist-wrapper main-nav__sublist-wrapper--lvl-' + level;
-    const listClass = 'main-nav__list main-nav__list--lvl-' + level;
-  div(class=divClass)
-    ul(class=listClass)
-      block
+                        li(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
+                          a(href=menuItem3.url itemprop='url')=menuItem3.name
+                          meta(itemprop='name' content=menuItem3.name)

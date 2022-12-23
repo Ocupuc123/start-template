@@ -1,7 +1,4 @@
-import { disablePageScroll } from 'scroll-lock';
-
 const burgers = document.querySelectorAll('.burger');
-const scrollableElement = document.querySelector('.off-canvas__body');
 
 if (burgers.length > 0) {
   burgers.forEach((burger) => {
@@ -11,9 +8,6 @@ if (burgers.length > 0) {
       if (targetId && targetClassToggle) {
         evt.currentTarget.classList.toggle('burger--close');
         document.getElementById(targetId).classList.toggle(targetClassToggle);
-      }
-      if (targetId === 'off-canvas') {
-        disablePageScroll(scrollableElement);
       }
     });
   });
