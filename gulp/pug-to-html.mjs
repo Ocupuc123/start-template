@@ -1,5 +1,3 @@
-/* global Buffer process */
-
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import filter from 'gulp-filter';
@@ -10,8 +8,6 @@ import pug from 'gulp-pug';
 import browsersync from 'browser-sync';
 import getClassesFromHtml from 'get-classes-from-html';
 import through from 'through2';
-import path from 'node:path';
-import fs from 'node:fs';
 import config from '../config.mjs';
 
 const blocksFromHtml = [];

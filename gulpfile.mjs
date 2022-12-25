@@ -12,8 +12,9 @@ import { writeSassImportsFile } from './gulp/write-sass-imports-file.mjs';
 import { writeJsImportsFile } from './gulp//write-js-imports-file.mjs';
 
 const build = gulp.series(
-  clean, pugMixins, pugToHtmlFast,
-  gulp.parallel(pugToHtml, svgSprite, images, copyAssets, writeSassImportsFile, writeJsImportsFile),
+  gulp.parallel(clean, pugMixins),
+  gulp.parallel(pugToHtmlFast, copyAssets, svgSprite),
+  gulp.parallel(images, writeSassImportsFile, writeJsImportsFile),
   gulp.parallel(styles,scripts)
 );
 
