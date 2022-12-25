@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import clean from './gulp/clean.mjs';
 import { browserSync } from './gulp/browser-sync.mjs';
 import { pugMixins } from './gulp/pug-mixins.mjs';
-import { pugToHtml, pugToHtmlFast } from './gulp/pug-to-html.mjs';
+import { pugToHtmlFast } from './gulp/pug-to-html.mjs';
 import { styles } from './gulp/styles.mjs';
 import { copyAssets } from './gulp/copy-assets.mjs';
 import { svgSprite } from './gulp/svg-sprite.mjs';
