@@ -171,21 +171,16 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 
   // Main menu items
   a {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      padding: $sm-clean__collapsible-item-padding-vertical $sm-clean__collapsible-item-padding-horizontal;
+    padding: $sm-clean__collapsible-item-padding-vertical $sm-clean__collapsible-item-padding-horizontal;
 
-      /* make room for the toggle button (sub indicator) */
-      padding-right: $sm-clean__collapsible-item-padding-horizontal + $sm-clean__toggle-size + $sm-clean__toggle-spacing;
-      color: $sm-clean__collapsible-item-color;
-      font-weight: 400;
-      font-size: $sm-clean__font-size-base;
-      font-family: $sm-clean__font-family;
-      line-height: $sm-clean__line-height;
-      text-decoration: none;
-    }
+    /* make room for the toggle button (sub indicator) */
+    padding-right: $sm-clean__collapsible-item-padding-horizontal + $sm-clean__toggle-size + $sm-clean__toggle-spacing;
+    color: $sm-clean__collapsible-item-color;
+    font-weight: 400;
+    font-size: $sm-clean__font-size-base;
+    font-family: $sm-clean__font-family;
+    line-height: $sm-clean__line-height;
+    text-decoration: none;
 
     // Toggle buttons (sub menu indicators)
     .sub-arrow {
