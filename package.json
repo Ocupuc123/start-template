@@ -65,7 +65,8 @@
     "choices.js": "latest",
     "closest": "latest",
     "jquery": "latest",
-    "lodash": "latest",
+    "lodash.debounce": "latest",
+    "lodash.throttle": "latest",
     "slick-carousel": "latest",
     "smartmenus": "latest"
   }
