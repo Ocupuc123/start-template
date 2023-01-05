@@ -11,24 +11,21 @@ mixin main-nav(selectedID)
   //- подключаем файл со структурой данных блока
   include main-nav.data.pug
 
-  nav#nav.main-nav(itemscope='' itemtype='http://schema.org/SiteNavigationElement')&attributes(attributes)
-    ul#main-menu.sm.sm-clean(itemprop='about' itemscope='' itemtype='http://schema.org/ItemList')
+  nav#nav.main-nav&attributes(attributes)
+    ul#main-menu.sm.sm-clean
       each menuItem in mainMenu
-        li(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
+        li
           if (selectedID === menuItem.id)
-            a.current(href=menuItem.url itemprop='url')=menuItem.name
+            a.current(href=menuItem.url)=menuItem.name
           else
-            a(href=menuItem.url itemprop='url')=menuItem.name
-          meta(itemprop='name' content=menuItem.name)
+            a(href=menuItem.url)=menuItem.name
           if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
-            ul(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
+            ul
               each menuItem2 in menuItem.childs
-                li(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
-                  a(href=menuItem2.url itemprop='url')=menuItem2.name
-                  meta(itemprop='name' content=menuItem2.name)
+                li
+                  a(href=menuItem2.url)=menuItem2.name
                   if (typeof(menuItem2.childs) !== 'undefined' && menuItem2.childs)
-                    ul(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
+                    ul
                       each menuItem3 in menuItem2.childs
-                        li(itemprop='itemListElement' itemscope='' itemtype='http://schema.org/ItemList')
-                          a(href=menuItem3.url itemprop='url')=menuItem3.name
-                          meta(itemprop='name' content=menuItem3.name)
+                        li
+                          a(href=menuItem3.url)=menuItem3.name
