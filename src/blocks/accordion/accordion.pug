@@ -1,0 +1,26 @@
+//- Структура данных — в accordion.data.pug
+
+mixin accordion(mods)
+  //- Вызов:
+        +accordion()
+  -
+    const baseName = 'accordion'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  //- подключаем файл со структурой данных блока
+  include accordion.data.pug
+
+  .accordion(class=allMods)&attributes(attributes)
+    each accordion in accordionData
+      .accordion__item
+        .accordion__header
+          button.accordion__trigger(type='button')!=accordion.question
+        .accordion__panel
+          p.accordion__text!=accordion.answer

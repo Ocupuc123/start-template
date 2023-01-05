@@ -59,9 +59,9 @@
     "webpack-stream": "latest"
   },
   "dependencies": {
+    "accordion-js": "latest",
     "autosize": "latest",
     "baron": "latest",
-    "bootstrap": "latest",
     "choices.js": "latest",
     "closest": "latest",
     "jquery": "latest",
