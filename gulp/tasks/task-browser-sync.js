@@ -1,15 +1,14 @@
 import gulp from 'gulp';
 import fs from 'node:fs';
 import server from 'browser-sync';
-import { pugMixins } from './pug-mixins.mjs';
-import { pugToHtml } from './pug-to-html.mjs';
-import { pugToHtmlFast } from './pug-to-html.mjs';
-import { styles } from './styles.mjs';
-import { svgSprite } from './svg-sprite.mjs';
-import { images } from './images.mjs';
-import { scripts } from './scripts.mjs';
-import { writeSassImportsFile } from './write-sass-imports-file.mjs';
-import { writeJsImportsFile } from './write-js-imports-file.mjs';
+import { pugMixins } from './task-pug-mixins.js';
+import { pugToHtml, pugToHtmlFast } from './task-pug-to-html.js';
+import { styles } from './task-styles.js';
+import { svgSprite } from './task-svg-sprite.js';
+import { images } from './task-images.js';
+import { scripts } from './task-scripts.js';
+import { writeSassImportsFile } from './task-sass-imports.js';
+import { writeJsImportsFile } from './task-js-imports.js';
 
 const browserSync = (callback) => {
   server.init({

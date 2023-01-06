@@ -11,9 +11,17 @@ import prettyHtml from 'gulp-pretty-html';
 import browsersync from 'browser-sync';
 import getClassesFromHtml from 'get-classes-from-html';
 import through from 'through2';
-import config from '../config.mjs';
+import config from '../../config.js';
 
 const blocksFromHtml = [];
+
+const prettyHtmlOption = {
+  // eslint-disable-next-line camelcase
+  indent_size: 2,
+  // eslint-disable-next-line camelcase
+  indent_char: ' ',
+  unformatted: ['code', 'em', 'strong', 'span', 'i', 'b', 'br'],
+};
 
 const getClassesToBlocksList = () => through.obj(function (file, enc, cb) {
   if (file.isNull()) {
@@ -69,13 +77,7 @@ const pugToHtml = ()=> gulp.src('src/**/*.pug')
   .pipe(pugLinter({ reporter: 'default' }))
   .pipe(filter('src/*.pug'))
   .pipe(pug())
-  .pipe(prettyHtml({
-    // eslint-disable-next-line camelcase
-    indent_size: 2,
-    // eslint-disable-next-line camelcase
-    indent_char: ' ',
-    unformatted: ['code', 'em', 'strong', 'span', 'i', 'b', 'br'],
-  }))
+  .pipe(prettyHtml(prettyHtmlOption))
   .pipe(getClassesToBlocksList())
   .pipe(gulp.dest('build'))
   .on('end', browsersync.reload);
@@ -92,13 +94,7 @@ const pugToHtmlFast = ()=> gulp.src('src/**/*.pug', { since: gulp.lastRun(pugToH
   .pipe(pugLinter({ reporter: 'default' }))
   .pipe(filter('src/*.pug'))
   .pipe(pug())
-  .pipe(prettyHtml({
-    // eslint-disable-next-line camelcase
-    indent_size: 2,
-    // eslint-disable-next-line camelcase
-    indent_char: ' ',
-    unformatted: ['code', 'em', 'strong', 'span', 'i', 'b', 'br'],
-  }))
+  .pipe(prettyHtml(prettyHtmlOption))
   .pipe(getClassesToBlocksList())
   .pipe(gulp.dest('build'))
   .on('end', browsersync.reload);

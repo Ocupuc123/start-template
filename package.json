@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Стартовый проект. Gulp + bem + pug",
   "main": "gulpfile.mjs",
+  "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp development",
     "build": "cross-env NODE_ENV=production gulp production"

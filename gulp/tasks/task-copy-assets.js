@@ -1,5 +1,5 @@
 import cpy from 'cpy';
-import config from '../config.mjs';
+import config from '../../config.js';
 
 const copyAssets = ((cb) => {
   for (const item in config.addAssets) {
