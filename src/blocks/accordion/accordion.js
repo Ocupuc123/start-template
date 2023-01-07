@@ -1,3 +1,5 @@
+// https://github.com/michu2k/Accordion
+
 import Accordion from 'accordion-js';
 
 const accordions = Array.from(document.querySelectorAll('.accordion'));

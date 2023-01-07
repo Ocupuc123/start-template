@@ -1,3 +1,5 @@
+// https://github.com/Diokuz/baron
+
 import baron from 'baron';
 
 baron({
