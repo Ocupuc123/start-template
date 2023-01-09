@@ -1,27 +1,24 @@
 //- Стандартный шаблон страницы
-block variables
 
 include ../../bemto/bemto
 include ../blocks/mixins
-
--const baseDir = './';
 
 doctype html
 html(lang='ru')
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='initial-scale=1.0, width=device-width')
-    title=title
-    link(rel='stylesheet', href=`${baseDir}css/main.css`)
+    link(rel='stylesheet' href='./css/main.css')
+
+    block meta
+      title Главная страница
 
     //- Предзагрузка шрифтов или иных ресурсов
-    //- link(rel='preload', href='fonts/Bloggersans.woff2', as='font', type='font/woff2', crossorigin='anonymous')
+    //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')
 
   body
-    block header
-      include ../blocks/header/header
+    +page-header()
     block content
-    block footer
-      include ../blocks/footer/footer
+    +page-footer()
     block scripts
-      script(src=`${baseDir}js/main.js`)
+      script(src='./js/main.js')
