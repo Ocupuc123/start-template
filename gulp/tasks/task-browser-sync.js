@@ -69,7 +69,7 @@ const browserSync = (callback) => {
   ));
 
   // Картинки: все события
-  gulp.watch(['src/images/**/*.{gif,jpg,png,jpeg,webp,svg}', '!src/images/favicons/*.*', '!src/images/icons/svg/*.svg'], { events: ['all'], delay: 100 }, gulp.series(
+  gulp.watch(['src/blocks/**/img/*.{gif,jpg,png,jpeg,svg}', 'src/images/**/*.{gif,jpg,png,jpeg,svg}', '!src/images/favicons/*.*', '!src/images/icons/svg/*.svg'], { events: ['all'], delay: 100 }, gulp.series(
     images
   ));
 

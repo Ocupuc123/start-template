@@ -6,7 +6,7 @@ import cheerio from 'gulp-cheerio';
 import replace from 'gulp-replace';
 
 
-const svgSprite = () => gulp.src('src/images/icons/svg/*.svg')
+const svgSprite = () => gulp.src('src/images/icons/*.svg')
   .pipe(plumber())
   .pipe(
     cheerio({
