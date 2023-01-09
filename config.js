@@ -22,7 +22,7 @@ const config = {
   ],
   'addAssets': {
     'src/fonts/*.*': 'fonts/',
-    'src/images/favicons/*.{png,ico,svg,xml,webmanifest}': 'images/favicons/',
+    'src/images/favicons/*.*': 'images/favicons/',
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'images/',
   },
 };
