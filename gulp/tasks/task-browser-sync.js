@@ -45,7 +45,7 @@ const browserSync = (callback) => {
   gulp.watch('src/blocks/**/*.pug', { events: ['unlink'] }, pugMixins);
 
   // Шаблоны pug: все события
-  gulp.watch(['src/pug/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(
+  gulp.watch(['src/layouts/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(
     pugToHtml,
     gulp.parallel(writeSassImportsFile, writeJsImportsFile),
     gulp.parallel(styles, scripts)
