@@ -42,7 +42,7 @@
     "gulp-sass-glob": "latest",
     "gulp-svg-sprite": "latest",
     "gulp-svgmin": "latest",
-    "mkdirp": "^1.0.4",
+    "mkdirp": "latest",
     "normalize.css": "latest",
     "postcss": "latest",
     "postcss-scss": "latest",
@@ -69,6 +69,7 @@
     "lodash.debounce": "latest",
     "lodash.throttle": "latest",
     "slick-carousel": "latest",
-    "smartmenus": "latest"
+    "smartmenus": "latest",
+    "swiper": "latest"
   }
 }

@@ -12,7 +12,7 @@ mixin main-nav(selectedID)
   include main-nav.data.pug
 
   nav#nav.main-nav&attributes(attributes)
-    ul#main-menu.sm.sm-clean
+    ul.sm.sm-clean
       each menuItem in mainMenu
         li
           if (selectedID === menuItem.id)

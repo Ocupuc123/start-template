@@ -12,7 +12,6 @@ const config = {
     'src/scss/functions.scss',
     'src/scss/fonts.scss',
     'src/scss/normalize.scss',
-    'node_modules/smartmenus/dist/css/sm-core-css',
   ],
   'addJsBefore': [
     // './utils/some.js',

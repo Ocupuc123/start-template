@@ -84,7 +84,7 @@
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["rfs-fluid-value"]
+        "ignoreFunctions": ["color.adjust"]
       }
     ]
   },
