@@ -3,7 +3,7 @@ const config = {
     'no-js',
   ],
   'alwaysAddBlocks': [
-    // 'form-validation',
+    // 'bootstrap',
     // 'logo',
   ],
   'addStyle': [
