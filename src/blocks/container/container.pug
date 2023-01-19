@@ -1,0 +1,21 @@
+//- Все примеси в этом файле должны начинаться c имени блока (container)
+
+mixin container(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +container('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' container--' + modsList[i].trim();
+      }
+    }
+
+  .container(class=allMods)&attributes(attributes)
+    block
