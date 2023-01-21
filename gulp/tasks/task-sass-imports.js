@@ -1,9 +1,8 @@
 import fs from 'node:fs';
 import config from '../../config.js';
 import { getDirectories } from '../utils/get-directories.js';
-import { blocksFromHtml } from './task-pug-to-html.js';
-
-const doNotEditMessage = '// ВНИМАНИЕ! Этот файл генерируется автоматически.\n// Любые изменения будут потеряны при следующей компиляции.\n\n';
+import blocksFromHtml from '../utils/blocks-from-html.js';
+import doNotEditMessage from '../utils/do-not-edit-message.js';
 
 const writeSassImportsFile = (cb) => {
   const scssImportsList = [];

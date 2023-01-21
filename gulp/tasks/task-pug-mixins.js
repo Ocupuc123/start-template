@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import { getDirectories } from '../utils/get-directories.js';
-
-const doNotEditMessage = '//- ВНИМАНИЕ! Этот файл генерируется автоматически.\n//- Любые изменения будут потеряны при следующей компиляции.\n\n';
+import doNotEditMessage from '../utils/do-not-edit-message.js';
 
 const dirBlocks = 'src/blocks/';
 

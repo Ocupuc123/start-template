@@ -1,0 +1,11 @@
+//- Все примеси в этом файле должны начинаться c имени блока (sprite-svg)
+
+mixin sprite-svg(name)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //- Вызов:
+        +sprite-svg('Название иконки')
+
+  svg
+    use(xlink:href=`./images/sprite.svg#${name}`)

@@ -3,6 +3,7 @@ const config = {
     'no-js',
   ],
   'alwaysAddBlocks': [
+    // 'sprite-svg',
     // 'bootstrap',
     // 'logo',
   ],
@@ -21,7 +22,7 @@ const config = {
   ],
   'addAssets': {
     'src/fonts/*.*': 'fonts/',
-    'src/images/favicons/*.*': 'images/favicons/',
+    'src/favicon/*.*': 'images/favicon/',
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'images/',
   },
 };

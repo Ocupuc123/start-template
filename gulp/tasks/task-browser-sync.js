@@ -2,10 +2,10 @@ import gulp from 'gulp';
 import fs from 'node:fs';
 import server from 'browser-sync';
 import { pugMixins } from './task-pug-mixins.js';
-import { pugToHtml, pugToHtmlFast } from './task-pug-to-html.js';
+import { pugToHtml } from './task-pug-to-html.js';
 import { styles } from './task-styles.js';
-import { svgSprite } from './task-svg-sprite.js';
-import { images } from './task-images.js';
+import { generateSvgSprite } from './task-svg-sprite.js';
+import { copyImages } from './task-copy-images.js';
 import { scripts } from './task-scripts.js';
 import { writeSassImportsFile } from './task-sass-imports.js';
 import { writeJsImportsFile } from './task-js-imports.js';
@@ -19,9 +19,9 @@ const browserSync = (callback) => {
 
   // Страницы: изменение, добавление
   gulp.watch(['src/*.pug', '!src/blocks/mixins.pug'], { events: ['change', 'add'], delay: 100 }, gulp.series(
-    pugToHtmlFast,
-    gulp.parallel(writeSassImportsFile, writeJsImportsFile),
-    gulp.parallel(styles, scripts),
+    pugToHtml,
+    gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
+    gulp.parallel(styles, scripts)
   ));
 
   // Страницы: удаление
@@ -69,13 +69,13 @@ const browserSync = (callback) => {
   ));
 
   // Картинки: все события
-  gulp.watch(['src/blocks/**/img/*.{gif,jpg,png,jpeg,svg}', 'src/images/**/*.{gif,jpg,png,jpeg,svg}', '!src/images/favicons/*.*', '!src/images/icons/svg/*.svg'], { events: ['all'], delay: 100 }, gulp.series(
-    images
+  gulp.watch(['src/blocks/**/img/*.{jpg,jpeg,png,svg}'], { events: ['all'], delay: 100 }, gulp.series(
+    copyImages
   ));
 
   // Спрайт SVG
-  gulp.watch('src/images/icons/svg/*.svg', { events: ['all'], delay: 100 }, gulp.series(
-    svgSprite
+  gulp.watch('src/blocks/sprite-svg/svg/*.svg', { events: ['all'], delay: 100 }, gulp.series(
+    generateSvgSprite
   ));
 
   return callback();
