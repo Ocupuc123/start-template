@@ -1,6 +1,7 @@
 // В этом файле должны быть стили для БЭМ-блока field-num, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "sass:color";
 
 .field-num {
   $block-name: &; // #{$block-name}__element
@@ -91,7 +92,7 @@
     }
 
     #{$block-name}__input {
-      background-color: lighten($color-danger, 35%);
+      background-color: color.adjust($color-danger, $lightness: 35%);
       border-color: $color-danger;
     }
   }

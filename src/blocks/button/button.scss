@@ -35,10 +35,7 @@
   &:focus {
     color: $text-color;
     text-decoration: none;
-    /* stylelint-disable-next-line function-no-unknown */
     background-color: color.adjust($gray-lightest, $blackness: 15%);
-
-    /* stylelint-disable-next-line function-no-unknown */
     border-color: color.adjust($gray-lighter, $blackness: 12%);
   }
 
@@ -72,9 +69,7 @@
     &:hover,
     &:focus {
       color: #fff;
-      /* stylelint-disable-next-line function-no-unknown */
       background-color: color.adjust($color-main, $blackness: 10%);
-      /* stylelint-disable-next-line function-no-unknown */
       border-color: color.adjust($color-main, $blackness: 12%);
     }
 

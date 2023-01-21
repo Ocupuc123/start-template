@@ -1,6 +1,7 @@
 // В этом файле должны быть стили для БЭМ-блока field-file, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "sass:color";
 
 .field-file {
   $block-name: &; // #{$block-name}__element
@@ -59,11 +60,9 @@
       content: attr(data-button-text);
     }
 
-    &:hover,
-    &:focus {
-      &::before {
-        background-color: darken($gray-lightest, 10%); // как у обычных кнопок
-      }
+    &:hover::before,
+    &:focus::before {
+      background-color: color.adjust($gray-lightest, $blackness: 10%); // как у обычных кнопок
     }
   }
 
@@ -81,7 +80,7 @@
     }
 
     #{$block-name}__name-text {
-      background-color: lighten($color-danger, 35%);
+      background-color: color.adjust($color-danger, $lightness: 35%);
       border-color: $color-danger;
     }
   }
