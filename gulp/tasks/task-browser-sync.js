@@ -18,7 +18,7 @@ const browserSync = (callback) => {
   });
 
   // Страницы: изменение, добавление
-  gulp.watch(['src/*.pug', '!src/blocks/mixins.pug'], { events: ['change', 'add'], delay: 100 }, gulp.series(
+  gulp.watch('src/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
     pugToHtml,
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
     gulp.parallel(styles, scripts)

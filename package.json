@@ -1,16 +1,16 @@
 {
   "name": "pug-bem-start-project",
-  "version": "1.0.0",
-  "description": "Стартовый проект. Gulp + bem + pug",
-  "main": "gulpfile.mjs",
+  "version": "2.0.0",
+  "description": "Startkit for HTML/CSS/JS pages layout.",
+  "author": "Evgeny Ovchinnikov",
+  "license": "ISC",
+  "main": "gulpfile.js",
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp development",
     "build": "cross-env NODE_ENV=production gulp production",
     "create": "node createBlock.js"
   },
-  "author": "Evgeny Ovchinnikov",
-  "license": "ISC",
   "browserslist": [
     "defaults"
   ],

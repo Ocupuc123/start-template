@@ -1,4 +1,7 @@
-import cpy from 'cpy';
+/* global process */
+
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
 import blocksFromHtml from '../utils/blocks-from-html.js';
 import config from '../../config.js';
 import { fileExist } from '../utils/file-exist.js';
@@ -20,11 +23,17 @@ const copyImages = (cb) => {
     }
   });
 
-  if(copiedImages.length) {
-    (async () => {
-      await cpy(copiedImages, 'build/images');
-      cb();
-    })();
+  if (copiedImages.length) {
+
+    if (process.env.NODE_ENV === 'development') {
+      return gulp.src(copiedImages)
+        .pipe(gulp.dest('build/images'));
+    } else {
+      return gulp.src(copiedImages)
+        .pipe(imagemin())
+        .pipe(gulp.dest('build/images'));
+    }
+
   } else {
     cb();
   }
