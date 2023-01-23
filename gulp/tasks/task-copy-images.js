@@ -25,14 +25,9 @@ const copyImages = (cb) => {
 
   if (copiedImages.length) {
 
-    if (process.env.NODE_ENV === 'development') {
-      return gulp.src(copiedImages)
-        .pipe(gulp.dest('build/images'));
-    } else {
-      return gulp.src(copiedImages)
-        .pipe(imagemin())
-        .pipe(gulp.dest('build/images'));
-    }
+    return gulp.src(copiedImages)
+      .pipe(imagemin())
+      .pipe(gulp.dest('build/images'));
 
   } else {
     cb();
