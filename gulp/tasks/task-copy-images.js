@@ -3,8 +3,8 @@
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import gulpif from 'gulp-if';
-import blocksFromHtml from '../utils/blocks-from-html.js';
 import config from '../../config.js';
+import { blocksFromHtml } from '../utils/get-classes-to-blocks-list.js';
 import { fileExist } from '../utils/file-exist.js';
 
 const copyImages = (cb) => {

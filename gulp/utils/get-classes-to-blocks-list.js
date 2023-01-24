@@ -1,8 +1,9 @@
 /* global Buffer */
 import through from 'through2';
 import getClassesFromHtml from 'get-classes-from-html';
-import blocksFromHtml from '../utils/blocks-from-html.js';
 import config from '../../config.js';
+
+const blocksFromHtml = [];
 
 const getClassesToBlocksList = () => through.obj(function (file, enc, cb) {
   if (file.isNull()) {
@@ -46,4 +47,4 @@ const getClassesToBlocksList = () => through.obj(function (file, enc, cb) {
   cb();
 });
 
-export { getClassesToBlocksList };
+export { getClassesToBlocksList, blocksFromHtml };

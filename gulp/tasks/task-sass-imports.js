@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import config from '../../config.js';
 import { getDirectories } from '../utils/get-directories.js';
-import blocksFromHtml from '../utils/blocks-from-html.js';
+import { blocksFromHtml } from '../utils/get-classes-to-blocks-list.js';
 import doNotEditMessage from '../utils/do-not-edit-message.js';
 
 const writeSassImportsFile = (cb) => {
