@@ -30,6 +30,7 @@
     "gulp-dependents": "latest",
     "gulp-filter": "latest",
     "gulp-group-css-media-queries": "latest",
+    "gulp-if": "latest",
     "gulp-imagemin": "latest",
     "gulp-plumber": "latest",
     "gulp-postcss": "latest",

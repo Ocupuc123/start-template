@@ -2,6 +2,7 @@
 
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
+import gulpif from 'gulp-if';
 import blocksFromHtml from '../utils/blocks-from-html.js';
 import config from '../../config.js';
 import { fileExist } from '../utils/file-exist.js';
@@ -26,7 +27,7 @@ const copyImages = (cb) => {
   if (copiedImages.length) {
 
     return gulp.src(copiedImages)
-      .pipe(imagemin())
+      .pipe(gulpif(process.env.NODE_ENV === 'production', imagemin()))
       .pipe(gulp.dest('build/images'));
 
   } else {
