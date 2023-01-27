@@ -2,7 +2,8 @@ import gulp from 'gulp';
 import fs from 'node:fs';
 import server from 'browser-sync';
 import { pugMixins } from './task-pug-mixins.js';
-import { pugToHtml } from './task-pug-to-html.js';
+import { compilePug } from './task-compile-pug.js';
+import { pugLint } from './task-pug-lint.js';
 import { styles } from './task-styles.js';
 import { generateSvgSprite } from './task-svg-sprite.js';
 import { copyImages } from './task-copy-images.js';
@@ -18,14 +19,15 @@ const browserSync = (callback) => {
   });
 
   // Страницы: изменение, добавление
-  gulp.watch('src/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
-    pugToHtml,
+  gulp.watch('src/pages/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
+    compilePug,
+    pugLint,
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
     gulp.parallel(styles, scripts)
   ));
 
   // Страницы: удаление
-  gulp.watch('src/*.pug').on('unlink', (path) => {
+  gulp.watch('src/pages/*.pug').on('unlink', (path) => {
     const filePathInBuildDir = path.replace(/src/gi, 'build').replace(/.pug/gi, '.html');
 
     fs.unlink(filePathInBuildDir, (err) => {
@@ -36,17 +38,17 @@ const browserSync = (callback) => {
   });
 
   // Разметка Блоков: изменение
-  gulp.watch('src/blocks/**/*.pug', { events: ['change'], delay: 100 }, pugToHtml);
+  gulp.watch('src/blocks/**/*.pug', { events: ['change'], delay: 100 }, gulp.series(compilePug, pugLint));
 
   // Разметка Блоков: добавление
-  gulp.watch('src/blocks/**/*.pug', { events: ['add'], delay: 100 }, gulp.series(pugMixins, pugToHtml));
+  gulp.watch('src/blocks/**/*.pug', { events: ['add'], delay: 100 }, gulp.series(pugMixins, compilePug));
 
   // Разметка Блоков: удаление
   gulp.watch('src/blocks/**/*.pug', { events: ['unlink'] }, pugMixins);
 
   // Шаблоны pug: все события
   gulp.watch(['src/layouts/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(
-    pugToHtml,
+    compilePug,
     gulp.parallel(writeSassImportsFile, writeJsImportsFile),
     gulp.parallel(styles, scripts)
   ));

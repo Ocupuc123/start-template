@@ -1,0 +1,7 @@
+@mixin section-padding-vertical {
+  padding: $section-padding-vertical-xl 0;
+
+  @include media-breakpoint-down-sm {
+    padding: $section-padding-vertical-sm 0;
+  }
+}

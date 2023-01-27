@@ -1,7 +1,0 @@
-@mixin section {
-  padding: 50px 0;
-
-  @include media-breakpoint-down-sm {
-    padding: 30px 0;
-  }
-}

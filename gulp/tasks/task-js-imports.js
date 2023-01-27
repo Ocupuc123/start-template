@@ -7,7 +7,8 @@ import doNotEditMessage from '../utils/do-not-edit-message.js';
 const writeJsImportsFile = (cb) => {
   const jsImportsList = [];
   const allBlocksWithJsFiles = getDirectories('js');
-  let jsImports = doNotEditMessage.replace(/\n /gm, '\n  ');
+  const message = `/*${doNotEditMessage.replace(/\n /gm, '\n * ').replace(/\n\n$/, '\n */\n\n')}`;
+  let jsImports = message;
 
   if (config.addJsBefore.length > 0) {
     config.addJsBefore.forEach((src) => {

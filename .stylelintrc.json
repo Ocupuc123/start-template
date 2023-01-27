@@ -7,18 +7,12 @@
       "dollar-variables",
       {
         "type": "at-rule",
-        "name": "include",
-        "hasBlock": false
+        "name": "include"
       },
       "declarations",
       {
         "type": "at-rule",
         "name": "media"
-      },
-      {
-        "type": "at-rule",
-        "name": "include",
-        "hasBlock": true
       },
       {
         "type": "rule",
@@ -84,12 +78,8 @@
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["color.adjust"]
+        "ignoreFunctions": ["color.adjust", "vw"]
       }
     ]
-  },
-  "overrides": [{
-    "files": ["src/scss/*/**.scss"],
-    "customSyntax": "postcss-scss"
-  }]
+  }
 }

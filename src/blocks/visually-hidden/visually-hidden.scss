@@ -1,0 +1,7 @@
+// В этом файле должны быть стили для БЭМ-блока visually-hidden, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.visually-hidden {
+  @include visually-hidden;
+}

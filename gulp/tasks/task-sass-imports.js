@@ -7,7 +7,8 @@ import doNotEditMessage from '../utils/do-not-edit-message.js';
 const writeSassImportsFile = (cb) => {
   const scssImportsList = [];
   const allBlocksWithScssFiles = getDirectories('scss');
-  let styleImports = doNotEditMessage.replace(/\n /gm, '\n  ');
+  const message = `/*${doNotEditMessage.replace(/\n /gm, '\n * ').replace(/\n\n$/, '\n */\n\n')}`;
+  let styleImports = message;
 
   if (config.addStyle.length > 0) {
     config.addStyle.forEach((src) => {
