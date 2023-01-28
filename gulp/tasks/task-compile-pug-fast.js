@@ -6,7 +6,7 @@ import browsersync from 'browser-sync';
 import prettyHtmlOption from '../utils/pretty-html-options.js';
 import { getClassesToBlocksList } from '../utils/get-classes-to-blocks-list.js';
 
-const compilePug = ()=> gulp.src('src/pages/**/*.pug')
+const compilePugFast = ()=> gulp.src('src/pages/**/*.pug', { since: gulp.lastRun(compilePugFast) })
   .pipe(plumber())
   .pipe(pug())
   .pipe(prettyHtml(prettyHtmlOption))
@@ -14,4 +14,4 @@ const compilePug = ()=> gulp.src('src/pages/**/*.pug')
   .pipe(gulp.dest('build'))
   .on('end', browsersync.reload);
 
-export { compilePug };
+export { compilePugFast };
