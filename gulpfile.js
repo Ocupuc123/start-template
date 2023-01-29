@@ -1,21 +1,21 @@
 import gulp from 'gulp';
-import clean from './gulp/tasks/task-clean.js';
 import { browserSync } from './gulp/tasks/task-browser-sync.js';
-import { pugMixins } from './gulp/tasks/task-pug-mixins.js';
+import { cleanBuildDirectory } from './gulp/tasks/task-clean-build-directory.js';
+import { compileSass } from './gulp/tasks/task-compile-sass.js';
+import { compileScripts } from './gulp/tasks/task-compile-scripts.js';
 import { compilePugFast } from './gulp/tasks/task-compile-pug-fast.js';
-import { styles } from './gulp/tasks/task-styles.js';
 import { copyAssets } from './gulp/tasks/task-copy-assets.js';
-import { generateSvgSprite } from './gulp/tasks/task-svg-sprite.js';
 import { copyImages } from './gulp/tasks/task-copy-images.js';
-import { scripts } from './gulp/tasks/task-scripts.js';
-import { writeSassImportsFile } from './gulp/tasks/task-sass-imports.js';
-import { writeJsImportsFile } from './gulp/tasks/task-js-imports.js';
+import { writePugMixinsFile } from './gulp/tasks/task-write-pug-mixins-file.js';
+import { writeSassImportsFile } from './gulp/tasks/task-write-sass-imports-file.js';
+import { writeJsImportsFile } from './gulp/tasks/task-write-js-imports-file.js';
+import { generateSvgSprite } from './gulp/tasks/task-generate-svg-sprite.js';
 
 const build = gulp.series(
-  gulp.parallel(clean, pugMixins),
+  gulp.parallel(cleanBuildDirectory, writePugMixinsFile),
   gulp.parallel(compilePugFast, copyAssets, generateSvgSprite),
   gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
-  gulp.parallel(styles,scripts)
+  gulp.parallel(compileSass, compileScripts)
 );
 
 const development = gulp.series(build, browserSync);

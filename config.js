@@ -1,11 +1,10 @@
 const config = {
   'ignoredBlocks': [
-    'no-js',
+    // 'no-js',
   ],
   'alwaysAddBlocks': [
     // 'sprite-svg',
     // 'bootstrap',
-    // 'logo',
   ],
   'addStyle': [
     'src/scss/variables.scss',
@@ -22,7 +21,7 @@ const config = {
   ],
   'addAssets': {
     'src/fonts/*.*': 'fonts/',
-    'src/favicon/*.*': 'images/favicon/',
+    'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'images/favicon/',
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'images/',
   },
 };

@@ -11,7 +11,7 @@ import browsersync from 'browser-sync';
 
 const sass = gulpSass(dartSass);
 
-const styles = ()=> gulp.src('src/scss/main.scss')
+const compileSass = ()=> gulp.src('src/scss/main.scss')
   .pipe(plumber())
   .pipe(sassGlob())
   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -24,4 +24,4 @@ const styles = ()=> gulp.src('src/scss/main.scss')
   .pipe(gulp.dest('build'))
   .pipe(browsersync.stream());
 
-export { styles };
+export { compileSass };
