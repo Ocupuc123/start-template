@@ -4,10 +4,10 @@ import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import gulpif from 'gulp-if';
 import config from '../../config.js';
-import { blocksFromHtml } from '../utils/get-classes-to-blocks-list.js';
-import { fileExist } from '../utils/file-exist.js';
+import { blocksFromHtml } from '../utils.js';
+import { fileExist } from '../utils.js';
 
-const copyImages = (cb) => {
+export const copyImages = (cb) => {
   const copiedImages = [];
 
   blocksFromHtml.forEach((block) => {
@@ -34,5 +34,3 @@ const copyImages = (cb) => {
     cb();
   }
 };
-
-export { copyImages };

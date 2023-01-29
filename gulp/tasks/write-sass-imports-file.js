@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import config from '../../config.js';
-import { getDirectories } from '../utils/get-directories.js';
-import { blocksFromHtml } from '../utils/get-classes-to-blocks-list.js';
-import doNotEditMessage from '../utils/do-not-edit-message.js';
+import { getDirectories } from '../utils.js';
+import { blocksFromHtml } from '../utils.js';
+import { doNotEditMessage } from '../utils.js';
 
-const writeSassImportsFile = (cb) => {
+export const writeSassImportsFile = (cb) => {
   const scssImportsList = [];
   const allBlocksWithScssFiles = getDirectories('scss');
   const message = `/*${doNotEditMessage.replace(/\n /gm, '\n * ').replace(/\n\n$/, '\n */\n\n')}`;
@@ -44,5 +44,3 @@ const writeSassImportsFile = (cb) => {
   console.log('---------- Write new main.scss');
   return cb();
 };
-
-export { writeSassImportsFile };

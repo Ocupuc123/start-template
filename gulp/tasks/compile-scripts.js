@@ -6,7 +6,7 @@ import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
 import browsersync from 'browser-sync';
 
-const compileScripts = () => gulp.src('src/js/entry.js')
+export const compileScripts = () => gulp.src('src/js/entry.js')
   .pipe(plumber())
   .pipe(webpackStream({
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
@@ -20,5 +20,3 @@ const compileScripts = () => gulp.src('src/js/entry.js')
   }))
   .pipe(gulp.dest('build/js'))
   .on('end', browsersync.reload);
-
-export { compileScripts };

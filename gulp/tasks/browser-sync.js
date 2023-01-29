@@ -1,17 +1,17 @@
 import gulp from 'gulp';
 import fs from 'node:fs';
 import server from 'browser-sync';
-import { writePugMixinsFile } from './task-write-pug-mixins-file.js';
-import { compilePug } from './task-compile-pug.js';
-import { compilePugFast } from './task-compile-pug-fast.js';
-import { generateSvgSprite } from './task-generate-svg-sprite.js';
-import { copyImages } from './task-copy-images.js';
-import { compileSass } from './task-compile-sass.js';
-import { compileScripts } from './task-compile-scripts.js';
-import { writeSassImportsFile } from './task-write-sass-imports-file.js';
-import { writeJsImportsFile } from './task-write-js-imports-file.js';
+import { writePugMixinsFile } from './write-pug-mixins-file.js';
+import { compilePug } from './compile-pug.js';
+import { compilePugFast } from './compile-pug-fast.js';
+import { generateSvgSprite } from './generate-svg-sprite.js';
+import { copyImages } from './copy-images.js';
+import { compileSass } from './compile-sass.js';
+import { compileScripts } from './compile-scripts.js';
+import { writeSassImportsFile } from './write-sass-imports-file.js';
+import { writeJsImportsFile } from './write-js-imports-file.js';
 
-const browserSync = (callback) => {
+export const browserSync = (cb) => {
   server.init({
     server: 'build',
     notify: false,
@@ -79,7 +79,5 @@ const browserSync = (callback) => {
     generateSvgSprite
   ));
 
-  return callback();
+  return cb();
 };
-
-export { browserSync };

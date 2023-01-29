@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import config from '../../config.js';
-import { getDirectories } from '../utils/get-directories.js';
-import { blocksFromHtml } from '../utils/get-classes-to-blocks-list.js';
-import doNotEditMessage from '../utils/do-not-edit-message.js';
+import { getDirectories } from '../utils.js';
+import { blocksFromHtml } from '../utils.js';
+import { doNotEditMessage } from '../utils.js';
 
-const writeJsImportsFile = (cb) => {
+export const writeJsImportsFile = (cb) => {
   const jsImportsList = [];
   const allBlocksWithJsFiles = getDirectories('js');
   const message = `/*${doNotEditMessage.replace(/\n /gm, '\n * ').replace(/\n\n$/, '\n */\n\n')}`;
@@ -49,5 +49,3 @@ const writeJsImportsFile = (cb) => {
   console.log('---------- Write new entry.js');
   return cb();
 };
-
-export { writeJsImportsFile };

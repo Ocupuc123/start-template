@@ -4,9 +4,9 @@ import plumber from 'gulp-plumber';
 import cheerio from 'gulp-cheerio';
 import replace from 'gulp-replace';
 import config from '../../config.js';
-import { fileExist } from '../utils/file-exist.js';
+import { fileExist } from '../utils.js';
 
-const generateSvgSprite = (cb) => {
+export const generateSvgSprite = (cb) => {
   const spriteSvgPath = 'src/blocks/sprite-svg/svg/';
 
   if (config.alwaysAddBlocks.indexOf('sprite-svg') > -1 && fileExist(spriteSvgPath)) {
@@ -35,5 +35,3 @@ const generateSvgSprite = (cb) => {
     cb();
   }
 };
-
-export { generateSvgSprite };
