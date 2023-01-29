@@ -4,8 +4,7 @@ import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import gulpif from 'gulp-if';
 import config from '../../config.js';
-import { blocksFromHtml } from '../utils.js';
-import { fileExist } from '../utils.js';
+import { blocksFromHtml, fileExist } from '../utils.js';
 
 export const copyImages = (cb) => {
   const copiedImages = [];

@@ -1,8 +1,6 @@
 import fs from 'node:fs';
 import config from '../../config.js';
-import { getDirectories } from '../utils.js';
-import { blocksFromHtml } from '../utils.js';
-import { doNotEditMessage } from '../utils.js';
+import { getDirectories, blocksFromHtml, doNotEditMessage } from '../utils.js';
 
 export const writeJsImportsFile = (cb) => {
   const jsImportsList = [];

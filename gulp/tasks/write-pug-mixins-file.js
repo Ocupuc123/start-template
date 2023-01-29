@@ -1,6 +1,5 @@
 import fs from 'node:fs';
-import { doNotEditMessage } from '../utils.js';
-import { getDirectories } from '../utils.js';
+import { doNotEditMessage, getDirectories } from '../utils.js';
 
 const dirBlocks = 'src/blocks/';
 
