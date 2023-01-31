@@ -2,12 +2,18 @@
 
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
+import notify from 'gulp-notify';
 import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
 import browsersync from 'browser-sync';
 
 export const compileScripts = () => gulp.src('src/js/entry.js')
-  .pipe(plumber())
+  .pipe(plumber({
+    errorHandler: notify.onError({
+      title: 'JS',
+      message: 'Error: <%= error.message %>'
+    })
+  }))
   .pipe(webpackStream({
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
     plugins: [

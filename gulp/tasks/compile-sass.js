@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
+import notify from 'gulp-notify';
 import sassGlob from 'gulp-sass-glob';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
@@ -12,9 +13,14 @@ import browsersync from 'browser-sync';
 const sass = gulpSass(dartSass);
 
 export const compileSass = ()=> gulp.src('src/scss/main.scss')
-  .pipe(plumber())
+  .pipe(plumber({
+    errorHandler: notify.onError({
+      title: 'SASS',
+      message: 'Error: <%= error.message %>'
+    })
+  }))
   .pipe(sassGlob())
-  .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+  .pipe(sass({outputStyle: 'compressed'}))
   .pipe(mqpacker())
   .pipe(autoprefixer({
     cascade: true,

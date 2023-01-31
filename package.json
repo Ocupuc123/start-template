@@ -29,6 +29,7 @@
     "gulp-group-css-media-queries": "latest",
     "gulp-if": "latest",
     "gulp-imagemin": "latest",
+    "gulp-notify": "latest",
     "gulp-plumber": "latest",
     "gulp-postcss": "latest",
     "gulp-pretty-html": "latest",
