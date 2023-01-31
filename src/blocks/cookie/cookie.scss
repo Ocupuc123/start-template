@@ -21,7 +21,7 @@
   transition: all $transition-time;
   pointer-events: none;
 
-  @include media-breakpoint-down-lg {
+  @include media-breakpoint-down(lg) {
     right: 15px;
     bottom: 15px;
     left: 15px;
@@ -44,7 +44,7 @@
     padding-right: 30px;
     font-size: 14px;
 
-    @include media-breakpoint-down-lg {
+    @include media-breakpoint-down(lg) {
       margin-bottom: 20px;
       padding-right: 0;
     }

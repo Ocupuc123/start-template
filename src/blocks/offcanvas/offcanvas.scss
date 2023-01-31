@@ -5,7 +5,7 @@
 .offcanvas {
   $offcanvas: &; // #{$offcanvas}__element
 
-  @include media-breakpoint-down-lg {
+  @include media-breakpoint-down(lg) {
     position: fixed;
     top: 0;
     right: 0;
@@ -42,7 +42,7 @@
     padding: 0.5rem 1rem;
     border-bottom: 1px solid $border-color;
 
-    @include media-breakpoint-up-lg {
+    @include media-breakpoint-up(lg) {
       display: none;
     }
   }
@@ -58,7 +58,7 @@
 
   // .offcanvas__body
   &__body {
-    @include media-breakpoint-down-lg {
+    @include media-breakpoint-down(lg) {
       flex-grow: 1;
       padding: 1rem;
       overflow-y: auto;
@@ -69,7 +69,7 @@
   &__footer {
     padding: 2rem;
 
-    @include media-breakpoint-up-lg {
+    @include media-breakpoint-up(lg) {
       display: none;
     }
   }
@@ -104,7 +104,7 @@
 }
 
 .offcanvas-backdrop {
-  @include media-breakpoint-down-lg {
+  @include media-breakpoint-down(lg) {
     position: fixed;
     top: 0;
     left: 0;

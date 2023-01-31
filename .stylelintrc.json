@@ -2,6 +2,10 @@
   "extends": ["stylelint-config-htmlacademy", "stylelint-config-standard", "stylelint-config-standard-scss", "stylelint-config-rational-order"],
   "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
+    "max-nesting-depth": [2, {
+      "ignore": ["blockless-at-rules"],
+      "ignoreAtRules": ["include", "media"]
+    }],
     "order/order": [
       "custom-properties",
       "dollar-variables",
