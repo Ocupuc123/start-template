@@ -11,7 +11,7 @@ mixin main-nav(selectedID)
   //- подключаем файл со структурой данных блока
   include main-nav.data.pug
 
-  nav#nav.main-nav&attributes(attributes)
+  nav.main-nav&attributes(attributes)
     ul.sm.sm-clean
       each menuItem in mainMenu
         li

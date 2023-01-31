@@ -5,6 +5,7 @@ block meta
 
 block content
   main
-    .container
-      +burger('Открыть главное меню', 'nav', 'main-nav--open')
-      +main-nav('0')
+    +container
+      +burger('Открыть главное меню')(data-bs-toggle='offcanvas' data-bs-target='.offcanvas' aria-controls='offcanvas')
+      +offcanvas()
+        +main-nav('1')

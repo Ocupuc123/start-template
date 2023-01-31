@@ -1,0 +1,128 @@
+// В этом файле должны быть стили для БЭМ-блока offcanvas, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.offcanvas {
+  $offcanvas: &; // #{$offcanvas}__element
+
+  @include media-breakpoint-down-lg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1045;
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+    max-width: 100%;
+    background-color: #fff;
+    background-clip: padding-box;
+    outline: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &.showing,
+  &.hiding,
+  &.show {
+    visibility: visible;
+  }
+
+  &.showing,
+  &.show:not(.hiding) {
+    transform: none;
+  }
+
+  // .offcanvas__header
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid $border-color;
+
+    @include media-breakpoint-up-lg {
+      display: none;
+    }
+  }
+
+  // .offcanvas__logo
+  &__logo {
+    width: 150px;
+
+    img {
+      max-height: 45px;
+    }
+  }
+
+  // .offcanvas__body
+  &__body {
+    @include media-breakpoint-down-lg {
+      flex-grow: 1;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+  }
+
+  // .offcanvas__footer
+  &__footer {
+    padding: 2rem;
+
+    @include media-breakpoint-up-lg {
+      display: none;
+    }
+  }
+
+  // .offcanvas__phones
+  &__phones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    font-size: 20px;
+
+    a {
+      color: $text-color;
+      font-weight: 700;
+    }
+  }
+
+  // .offcanvas__mails
+  &__mails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 20px;
+
+    a {
+      color: $text-color;
+    }
+  }
+}
+
+.offcanvas-backdrop {
+  @include media-breakpoint-down-lg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+  }
+}
+
+.fade {
+  transition: opacity 0.15s linear;
+}
+
+.offcanvas-backdrop.fade {
+  opacity: 0;
+}
+
+.offcanvas-backdrop.show {
+  opacity: 0.5;
+}
