@@ -8,8 +8,7 @@ mixin modal(id, title, mods)
   //-   mods    {string} - список модификаторов
   //- Вызов:
         +modal('modal-demo-01', 'Заголовок', 'some')
-          .modal__body
-            p С «Шапкой», «подвалом» и внутр. отступами на контенте.
+          p С «Шапкой», «подвалом» и внутр. отступами на контенте.
           footer.modal__footer
             button.btn(type='button' data-modal='close') Закрыть
         +modal('modal-demo-02')
@@ -39,6 +38,6 @@ mixin modal(id, title, mods)
           +close('Закрыть', 'sm')(data-modal='close')
         if title
           header.modal__header
-            h5.modal__title!=title
+            .modal__title!=title
         .modal__body
           block

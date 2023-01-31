@@ -144,6 +144,10 @@ $sm-clean__item-height: $sm-clean__line-height + $sm-clean__collapsible-item-pad
 $sm-clean__toggle-size: floor($sm-clean__item-height * 0.8);
 $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 
+.sm {
+  z-index: auto;
+}
+
 // Main menu box
 .sm-clean {
   // round the corners of the last item
