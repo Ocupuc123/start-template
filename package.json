@@ -38,6 +38,7 @@
     "gulp-replace": "latest",
     "gulp-sass": "latest",
     "gulp-sass-glob": "latest",
+    "gulp-sourcemaps": "latest",
     "gulp-svg-sprite": "latest",
     "gulp-svgmin": "latest",
     "mkdirp": "latest",
