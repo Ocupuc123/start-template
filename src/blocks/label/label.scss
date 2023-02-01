@@ -3,19 +3,19 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .label {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   margin: 0 0.1em;
-  vertical-align: baseline;
-  line-height: 1;
   padding: 0.25em 0.4em 0.2em;
-  background-color: $gray-lightest;
   color: $text-color;
-  text-decoration: none;
-  text-transform: none;
-  font-weight: 700;
+  font-weight: 400;
   font-size: $font-size-sm;
+  line-height: 1;
   white-space: nowrap;
+  text-transform: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  background-color: $gray-lightest;
   border-radius: $border-radius;
 
   &:hover,
