@@ -1,4 +1,4 @@
-/* global Buffer */
+/* global Buffer process */
 /* eslint-disable camelcase */
 
 import fs from 'node:fs';
@@ -58,8 +58,7 @@ export const getClassesToBlocksList = () => through.obj(function (file, enc, cb)
         blocksFromHtml.push(item);
       }
     }
-    // eslint-disable-next-line no-console
-    console.log(`---------- Used HTML blocks: ${blocksFromHtml.join(', ')}`);
+
     file.contents = new Buffer.from(data);
     this.push(file);
   } catch (err) {
