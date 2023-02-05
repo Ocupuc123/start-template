@@ -1,30 +1,6 @@
-import { getScrollSize } from '../../js/utils/getScrollSize.js';
+import { createBackdrop, removeBackdrop } from '../../js/utils/backdrop.js';
 
-const bodyPaddingRightOriginal = parseInt(window.getComputedStyle(document.body, null).getPropertyValue('padding-right'), 10);
-const backdrop = document.createElement('div');
-
-document.addEventListener('click', (evt) => {
-  const target = evt.target.closest('a[data-modal], button[data-modal]');
-
-  if (target && target.dataset.modal === 'open') {
-    showModal( document.getElementById((target.hash || target.dataset.modalTarget).slice(1)) );
-  }
-
-  if (target && target.dataset.modal === 'close' || evt.target.matches('[aria-modal]')) {
-    closeAllModals();
-  }
-});
-
-document.addEventListener('keydown', (evt) => {
-  if (evt.code === 'Escape') {
-    closeAllModals();
-  }
-});
-
-function showModal(targetModalNode) {
-  if ((document.body.clientHeight - document.documentElement.clientHeight) > 0) {
-    document.body.style.paddingRight = `${bodyPaddingRightOriginal + getScrollSize() }px`;
-  }
+const showModal = (targetModalNode)=> {
   document.body.classList.add('modal-open');
 
   targetModalNode.classList.add('modal--show');
@@ -33,11 +9,11 @@ function showModal(targetModalNode) {
   targetModalNode.ariaHidden = null;
   targetModalNode.setAttribute('role', 'dialog');
 
-  backdrop.className = 'modal-backdrop';
-  document.body.append(backdrop);
-}
+  createBackdrop('modal-backdrop');
 
-function closeAllModals() {
+};
+
+const closeAllModals = ()=> {
   document.body.classList.remove('modal-open');
   document.body.style.paddingRight = '';
 
@@ -48,6 +24,27 @@ function closeAllModals() {
     modal.ariaHidden = true;
     modal.removeAttribute('role');
   });
+  // eslint-disable-next-line no-use-before-define
+  document.removeEventListener('keydown', escapeKeydownHandler);
+  removeBackdrop();
+};
 
-  backdrop.remove();
-}
+const escapeKeydownHandler = (evt) => {
+  if (evt.code === 'Escape') {
+    closeAllModals();
+  }
+};
+
+document.addEventListener('click', (evt) => {
+  const target = evt.target.closest('a[data-modal], button[data-modal]');
+
+  if (target && target.dataset.modal === 'open') {
+    showModal(document.getElementById((target.hash || target.dataset.modalTarget).slice(1)));
+
+    document.addEventListener('keydown', escapeKeydownHandler);
+  }
+
+  if (target && target.dataset.modal === 'close' || evt.target.matches('[aria-modal]')) {
+    closeAllModals();
+  }
+});

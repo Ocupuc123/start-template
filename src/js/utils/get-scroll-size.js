@@ -1,4 +1,4 @@
-const getScrollSize = ()=> {
+export const getScrollSize = ()=> {
   const outer = document.createElement('div');
   const inner = document.createElement('div');
   outer.style.overflow = 'scroll';
@@ -9,5 +9,3 @@ const getScrollSize = ()=> {
   document.body.removeChild(outer);
   return scrollbarSize;
 };
-
-export {getScrollSize};

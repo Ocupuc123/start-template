@@ -6,7 +6,7 @@ mixin burger(label, targetId, switchableClass)
   //- Вызов:
   //-  +burger('Показать пример кода', 'burger-code', 'blocks-library__code--shown')
   //-  +burger('Показать ничто')(data-some="SOME")
-  //-  +burger('Открыть главное меню')(data-bs-toggle='offcanvas' data-bs-target='.offcanvas' aria-controls='offcanvas')
+  //-  +burger('Открыть главное меню')(data-offcanvas='open')
 
   -
     label = label || 'Toggle block ' + targetId
