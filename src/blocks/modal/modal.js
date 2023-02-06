@@ -1,6 +1,14 @@
-import { createBackdrop, removeBackdrop } from '../../js/utils/backdrop.js';
+import { getScrollSize } from '../../js/utils/get-scroll-size.js';
 
-const showModal = (targetModalNode)=> {
+const bodyPaddingRightOriginal = parseInt(window.getComputedStyle(document.body, null).getPropertyValue('padding-right'), 10);
+const backdrop = document.createElement('div');
+
+const showModal = (targetModalNode) => {
+
+  if ((document.body.clientHeight - document.documentElement.clientHeight) > 0) {
+    document.body.style.paddingRight = `${bodyPaddingRightOriginal + getScrollSize() }px`;
+  }
+
   document.body.classList.add('modal-open');
 
   targetModalNode.classList.add('modal--show');
@@ -9,7 +17,8 @@ const showModal = (targetModalNode)=> {
   targetModalNode.ariaHidden = null;
   targetModalNode.setAttribute('role', 'dialog');
 
-  createBackdrop('modal-backdrop');
+  backdrop.className = 'modal-backdrop';
+  document.body.append(backdrop);
 
 };
 
@@ -24,9 +33,11 @@ const closeAllModals = ()=> {
     modal.ariaHidden = true;
     modal.removeAttribute('role');
   });
+
+  backdrop.remove();
+
   // eslint-disable-next-line no-use-before-define
   document.removeEventListener('keydown', escapeKeydownHandler);
-  removeBackdrop();
 };
 
 const escapeKeydownHandler = (evt) => {
