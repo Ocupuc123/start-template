@@ -24,7 +24,6 @@
     "get-classes-from-html": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
-    "gulp-cheerio": "latest",
     "gulp-clean-css": "latest",
     "gulp-group-css-media-queries": "latest",
     "gulp-if": "latest",
