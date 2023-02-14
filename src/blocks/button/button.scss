@@ -25,7 +25,13 @@
   border: 1px solid $gray-lighter;
   border-radius: $border-radius;
   cursor: pointer;
+  transition: background-color $transition-time, color $transition-time, border-color $transition-time, box-shadow $transition-time;
   user-select: none;
+
+  &:active,
+  &:focus {
+    @include field-focus;
+  }
 
   &:hover,
   &:focus {
@@ -35,11 +41,6 @@
     border-color: color.adjust($gray-lighter, $blackness: 12%);
   }
 
-  &:active,
-  &:focus {
-    @include field-focus;
-  }
-
   &--disabled,
   &:disabled {
     color: $text-color;
@@ -47,20 +48,15 @@
     cursor: not-allowed;
     opacity: $opacity;
 
-    @at-root a.btn--disabled {
+    @at-root a.button--disabled {
       pointer-events: none;
     }
   }
 
-  &__icon {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  &--main {
+  &--theme-main {
     color: #fff;
     background-color: $color-main;
-    border: 1px solid $color-main;
+    border-color: $color-main;
 
     &:hover,
     &:focus {
@@ -77,7 +73,7 @@
     }
   }
 
-  &--outline {
+  &--style-outline {
     color: $color-main;
     background-color: transparent;
   }
