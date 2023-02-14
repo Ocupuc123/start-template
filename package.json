@@ -35,7 +35,6 @@
     "gulp-pretty-html": "latest",
     "gulp-pug": "latest",
     "gulp-rename": "latest",
-    "gulp-replace": "latest",
     "gulp-sass": "latest",
     "gulp-sass-glob": "latest",
     "gulp-sourcemaps": "latest",
