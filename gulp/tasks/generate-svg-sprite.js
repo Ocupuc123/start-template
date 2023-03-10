@@ -17,7 +17,7 @@ export const generateSvgSprite = (cb) => {
           }
         }
       }))
-      .pipe(gulp.dest('src/blocks/sprite-svg/img/'));
+      .pipe(gulp.dest('build/images/'));
   } else {
     cb();
   }
