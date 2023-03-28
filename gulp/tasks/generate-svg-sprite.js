@@ -11,6 +11,21 @@ export const generateSvgSprite = (cb) => {
     return gulp.src(`${spriteSvgPath }*.svg`)
       .pipe(plumber())
       .pipe(gulpSvgSprite({
+        shape: {
+          transform: [{
+            svgo: {
+              plugins: [
+                'preset-default',
+                {
+                  name: 'removeAttrs',
+                  params: {
+                    attrs: '(fill|stroke)'
+                  },
+                },
+              ]
+            }
+          }]
+        },
         mode: {
           symbol: {
             sprite: '../sprite.svg'

@@ -7,5 +7,5 @@ mixin sprite-svg(name)
   //- Вызов:
         +sprite-svg('Название иконки')
 
-  svg
+  svg.sprite-svg
     use(xlink:href=`./images/sprite.svg#${name}`)
