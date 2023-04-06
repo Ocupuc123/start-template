@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "accordion-js": "latest",
+    "aos": "latest",
     "autosize": "latest",
     "baron": "latest",
     "bootstrap": "latest",
