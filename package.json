@@ -67,6 +67,7 @@
     "jquery": "latest",
     "lodash.debounce": "latest",
     "lodash.throttle": "latest",
+    "micromodal": "^0.4.10",
     "normalize.css": "latest",
     "slick-carousel": "latest",
     "smartmenus": "latest",

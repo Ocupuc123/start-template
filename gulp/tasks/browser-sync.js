@@ -1,3 +1,4 @@
+import config from '../../config.js';
 import gulp from 'gulp';
 import fs from 'node:fs';
 import server from 'browser-sync';
@@ -7,6 +8,7 @@ import { compilePugFast } from './compile-pug-fast.js';
 import { generateSvgSprite } from './generate-svg-sprite.js';
 import { copyImages } from './copy-images.js';
 import { compileSass } from './compile-sass.js';
+import { compileBootstrapSass } from './compile-bootstrap-sass.js';
 import { compileScripts } from './compile-scripts.js';
 import { writeSassImportsFile } from './write-sass-imports-file.js';
 import { writeJsImportsFile } from './write-js-imports-file.js';
@@ -30,7 +32,9 @@ export const browserSync = (cb) => {
     const filePathInBuildDir = path.replace(/src/gi, 'build').replace(/.pug/gi, '.html');
 
     fs.unlink(filePathInBuildDir, (err) => {
-      if (err) {throw err;}
+      if (err) {
+        throw err;
+      }
       // eslint-disable-next-line no-console
       console.log(`---------- Delete:  ${filePathInBuildDir}`);
     });
@@ -52,14 +56,21 @@ export const browserSync = (cb) => {
     gulp.parallel(compileSass, compileScripts)
   ));
 
+  if (config.useBootstrap) {
+    // Стили Bootstrap: изменение
+    gulp.watch('src/blocks/bootstrap/*.scss', { events: ['change'], delay: 100 }, gulp.series(
+      compileBootstrapSass
+    ));
+  }
+
   // Стили Блоков: изменение
-  gulp.watch('src/blocks/**/*.scss', { events: ['change'], delay: 100 }, gulp.series(
+  gulp.watch(['src/blocks/**/*.scss', '!src/blocks/bootstrap/*.scss'], { events: ['change'], delay: 100 }, gulp.series(
     writeSassImportsFile,
     compileSass
   ));
 
   // Стилевые глобальные файлы: все события
-  gulp.watch(['src/scss/**/*.scss', '!src/scss/main.scss'], { events: ['all'], delay: 100 }, gulp.series(
+  gulp.watch(['src/scss/**/*.scss', '!src/scss/main.scss', '!src/blocks/bootstrap/*.scss'], { events: ['all'], delay: 100 }, gulp.series(
     compileSass
   ));
 

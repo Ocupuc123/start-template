@@ -1,10 +1,11 @@
 const config = {
+  'useBootstrap': true,
   'ignoredBlocks': [
     // 'no-js',
   ],
   'alwaysAddBlocks': [
+    // 'aos'
     // 'sprite-svg',
-    // 'bootstrap',
   ],
   'addStyle': [
     'src/scss/variables.scss',

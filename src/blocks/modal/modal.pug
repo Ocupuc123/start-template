@@ -1,43 +1,12 @@
-//- Все примеси в этом файле должны начинаться c имени блока (modal)
-
-mixin modal(id, title, mods)
-
-  //- Принимает:
-  //-   id      {string} - идентификатор
-  //-   title   {string} - заголовок
-  //-   mods    {string} - список модификаторов
-  //- Вызов:
-        +modal('modal-demo-01', 'Заголовок', 'some')
-          p С «Шапкой», «подвалом» и внутр. отступами на контенте.
-          footer.modal__footer
-            button.btn(type='button' data-modal='close') Закрыть
-        +modal('modal-demo-02')
-          p Без «шапки», «подвала» и внутр. отступов на контенте.
-
-        Показать модальное окно:
-          button.btn(type='button' data-modal-target='#modal-demo-01' data-modal='open') Показать
-          a.btn(href='#modal-demo-01' data-modal='open') Показать
-
-        Скрыть все модальные окна:
-          button(type='button' data-modal='close') Скрыть
-
+mixin modal()
   -
-    // список модификаторов
-    var allMods = '';
-    if(typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' modal--' + modsList[i].trim();
-      }
-    }
+    const id = attributes.id
+    delete attributes.id
 
-  section.modal(id=id, class=allMods, tabindex='-1' aria-hidden='true')&attributes(attributes)
-    .modal__dialog
-      .modal__content
+  .modal.modal--animation-slide(id=id aria-hidden='true')&attributes(attributes)
+    .modal__overlay(tabindex='-1' data-micromodal-close='')
+      .modal__container(aria-modal='true')
         .modal__close
-          +close('Закрыть', 'sm')(data-modal='close')
-        if title
-          header.modal__header
-            .modal__title!=title
-        .modal__body
+          +close('Закрыть')(data-micromodal-close='')
+        .modal__content
           block
