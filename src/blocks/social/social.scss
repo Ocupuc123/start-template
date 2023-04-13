@@ -9,40 +9,15 @@
 
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
-
-  &__link-wrap {
-    margin-right: 10px;
-  }
 
   &__link {
     display: block;
-    padding: 5px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
     background-color: $gray;
-
-    #{$social}__link-wrap--fb & {
-      background-color: $color-fb;
-    }
-
-    #{$social}__link-wrap--vk & {
-      background-color: $color-vk;
-    }
-
-    #{$social}__link-wrap--tw & {
-      background-color: $color-tw;
-    }
-
-    #{$social}__link-wrap--gh & {
-      background-color: $color-gh;
-    }
-
-    svg {
-      display: block;
-      width: 16px;
-      height: 16px;
-      fill: #fff;
-    }
+    border-radius: 50%;
   }
 }
