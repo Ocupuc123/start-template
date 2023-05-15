@@ -48,7 +48,6 @@ a {
   &[href^="tel:"] {
     // На больших экранах телефоны-ссылки делаем обычным текстом
     @include media-breakpoint-up(lg) {
-      color: inherit;
       white-space: nowrap;
       cursor: default;
     }
