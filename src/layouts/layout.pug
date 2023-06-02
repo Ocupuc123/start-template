@@ -4,7 +4,7 @@ include ../../bemto/bemto
 include ../blocks/mixins
 
 doctype html
-html(lang='ru')
+html.page(lang='ru')
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='initial-scale=1.0, width=device-width')
@@ -17,9 +17,12 @@ html(lang='ru')
     //- Предзагрузка шрифтов или иных ресурсов
     //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')
 
-  body
-    +page-header()
-    block content
-    +page-footer()
+  body.page__body
+    .page__slideout-panel
+      +page-header
+      block content
+      +page-footer
+    aside.page__slideout-menu
+      +mobile-menu
     block scripts
       script(src='./js/main.js')

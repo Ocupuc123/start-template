@@ -1,3 +1,131 @@
 .main-nav {
-  $main-nav: &; // #{$main-nav}__element
+  .sub-arrow {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+    z-index: 1;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H204v153h-51V204H0v-51h153V0h51v153h153v51z'/%3E%3C/svg%3E") center no-repeat, $gray-lightest;
+    background-size: 14px 14px;
+    border: 0;
+    border-radius: $border-radius;
+    outline: none;
+    box-shadow: none;
+
+    &.active {
+      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H0v-51h357v51z'/%3E%3C/svg%3E") center no-repeat, $gray-lightest;
+      background-size: 14px 14px;
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ul {
+    @include list-reset;
+  }
+
+  li {
+    position: relative;
+  }
+
+  & > ul ul a {
+    display: inline-flex;
+    width: 100%;
+    padding: 10px 55px 10px 15px;
+  }
+
+  & > ul > li > a {
+    display: inline-flex;
+    width: 100%;
+    padding: 8px 55px 8px 15px;
+    font-size: 20px;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+
+  & > ul > li.active > a {
+    color: $color-main;
+  }
+
+  & > ul ul {
+    display: none;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include media-breakpoint-up(lg) {
+    .sub-arrow {
+      top: 50%;
+      right: 0;
+      width: 0;
+      height: 0;
+      margin-top: rem(-2);
+      background: transparent;
+      border-color: $heading-color transparent transparent;
+      border-style: solid dashed dashed;
+      border-width: rem(4);
+      border-radius: 0;
+
+      &.active {
+        background-color: transparent;
+        background-image: none;
+      }
+    }
+
+    & > ul > li > a {
+      padding: rem(8) rem(15);
+      font-size: rem(20);
+    }
+
+    & > ul ul a {
+      padding: rem(8) rem(15);
+      transition: background-color $transition-time, color $transition-time;
+
+      &:hover {
+        color: $color-main;
+        background-color: $gray-lightest;
+      }
+    }
+
+    & > ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    & > ul ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+      min-width: rem(200);
+      max-width: rem(300);
+      padding: rem(10) 0;
+      white-space: nowrap;
+      background-color: #fff;
+      border: rem(1) solid $border-color;
+      border-radius: rem(3);
+
+      .sub-arrow {
+        right: rem(10);
+        transform: rotate(-90deg);
+      }
+    }
+
+    & > ul ul ul {
+      top: 0;
+      left: 100%;
+      margin-left: rem(-10);
+    }
+
+    li:hover > ul {
+      display: block;
+    }
+  }
 }

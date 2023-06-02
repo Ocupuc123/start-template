@@ -1,0 +1,45 @@
+// В этом файле должны быть стили для БЭМ-блока mobile-menu, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.mobile-menu {
+  $mobile-menu: &; // #{$mobile-menu}__element
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__contacts {
+    width: 100%;
+    padding: 25px 15px;
+    color: $heading-color;
+    border-top: 1px solid $border-color;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &__menu {
+    flex-grow: 1;
+    width: 100%;
+    padding: 30px 0;
+  }
+
+  &__phone {
+    font-size: 24px;
+  }
+
+  &__mail {
+    font-size: 20px;
+  }
+}

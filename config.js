@@ -1,11 +1,12 @@
-const config = {
+export default {
   'useBootstrap': true,
   'ignoredBlocks': [
     // 'no-js',
   ],
   'alwaysAddBlocks': [
+    'sprite-svg',
+    'slideout'
     // 'aos'
-    // 'sprite-svg',
   ],
   'addStyle': [
     'src/scss/variables.scss',
@@ -26,5 +27,3 @@ const config = {
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'images/',
   },
 };
-
-export default config;

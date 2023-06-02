@@ -19,5 +19,5 @@ mixin page-header(text, mods)
     }
 
   header.page-header(class=allMods)&attributes(attributes)
-    .page-header__inner
-      block
+    +container
+      +main-nav('1')

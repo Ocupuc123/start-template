@@ -70,8 +70,7 @@
     "lodash.throttle": "latest",
     "micromodal": "latest",
     "normalize.css": "latest",
-    "slick-carousel": "latest",
-    "smartmenus": "latest",
+    "slideout": "latest",
     "swiper": "latest"
   }
 }

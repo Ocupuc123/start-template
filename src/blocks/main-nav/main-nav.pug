@@ -12,20 +12,35 @@ mixin main-nav(selectedID)
   include main-nav.data.pug
 
   nav.main-nav&attributes(attributes)
-    ul.sm.sm-clean
+    ul
       each menuItem in mainMenu
-        li
-          if (selectedID === menuItem.id)
-            a.current(href=menuItem.url)=menuItem.name
-          else
+        if selectedID === menuItem.id
+          li.active
             a(href=menuItem.url)=menuItem.name
-          if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
-            ul
-              each menuItem2 in menuItem.childs
-                li
-                  a(href=menuItem2.url)=menuItem2.name
-                  if (typeof(menuItem2.childs) !== 'undefined' && menuItem2.childs)
-                    ul
-                      each menuItem3 in menuItem2.childs
-                        li
-                          a(href=menuItem3.url)=menuItem3.name
+            if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
+              button.sub-arrow(type='button')
+              ul
+                each menuItem2 in menuItem.childs
+                  li
+                    a(href=menuItem2.url)=menuItem2.name
+                    if (typeof(menuItem2.childs) !== 'undefined' && menuItem2.childs)
+                      button.sub-arrow(type='button')
+                      ul
+                        each menuItem3 in menuItem2.childs
+                          li
+                            a(href=menuItem3.url)=menuItem3.name
+        else
+          li
+            a(href=menuItem.url)=menuItem.name
+            if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
+              button.sub-arrow(type='button')
+              ul
+                each menuItem2 in menuItem.childs
+                  li
+                    a(href=menuItem2.url)=menuItem2.name
+                    if (typeof(menuItem2.childs) !== 'undefined' && menuItem2.childs)
+                      button.sub-arrow(type='button')
+                      ul
+                        each menuItem3 in menuItem2.childs
+                          li
+                            a(href=menuItem3.url)=menuItem3.name

@@ -16,20 +16,16 @@ body {
 
 html {
   height: 100%;
-  font-size: vw(16, $layout-width);
+  font-size: $font-size;
   line-height: $line-height;
   -webkit-tap-highlight-color: transparent;
 
-  @include media-breakpoint-down(xl) {
+  @include media-breakpoint-up(lg) {
     font-size: vw(16, $screen-xl);
   }
 
-  @include media-breakpoint-down(md) {
-    font-size: vw(16, $screen-md);
-  }
-
-  @include media-breakpoint-down(sm) {
-    font-size: vw(16, 320);
+  @include media-breakpoint-up(xl) {
+    font-size: vw(16, $layout-width);
   }
 
   @media (prefers-reduced-motion: no-preference) {

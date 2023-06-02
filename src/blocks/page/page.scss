@@ -1,0 +1,28 @@
+// В этом файле должны быть стили для БЭМ-блока page, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.page {
+  $page: &; // #{$page}__element
+
+  &__slideout-panel {
+    .slideout-open & {
+      @include media-breakpoint-down(lg) {
+        box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+      }
+    }
+  }
+
+  &__slideout-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    display: none;
+    width: 256px;
+    min-height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f5f5f5;
+  }
+}
