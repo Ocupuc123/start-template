@@ -4,7 +4,7 @@
 
 .container {
   width: 100%;
-  max-width: $screen-xl * 1px;
+  max-width: rem(calc($layout-container-width + ($layout-container-gap * 2)));
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 rem($layout-container-gap);
 }

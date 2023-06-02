@@ -9,7 +9,6 @@
 body {
   height: 100%;
   color: $text-color;
-  font-size: $font-size;
   font-family: $font-famaly;
   text-align: left;
   background-color: $body-bg;
@@ -17,8 +16,21 @@ body {
 
 html {
   height: 100%;
+  font-size: vw(16, $layout-width);
   line-height: $line-height;
   -webkit-tap-highlight-color: transparent;
+
+  @include media-breakpoint-down(xl) {
+    font-size: vw(16, $screen-xl);
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: vw(16, $screen-md);
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: vw(16, 320);
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
@@ -66,7 +78,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  margin: 0 0 1em;
+  margin: 0 0 rem(20);
   color: $heading-color;
   font-weight: $heading-font-weight;
   line-height: 1.2;
@@ -74,46 +86,30 @@ h6,
 
 h1,
 .h1 {
-  font-size: $font-size-h1;
+  font-size: rem($font-size-h1);
 }
 
 h2,
 .h2 {
-  font-size: $font-size-h2;
+  font-size: rem($font-size-h2);
 }
 
 h3,
 .h3 {
-  font-size: $font-size-h3;
+  font-size: rem($font-size-h3);
 }
 
 h4,
 .h4 {
-  font-size: $font-size-h4;
+  font-size: rem($font-size-h4);
 }
 
 h5,
 .h5 {
-  font-size: $font-size-h5;
+  font-size: rem($font-size-h5);
 }
 
 h6,
 .h6 {
-  font-size: $font-size-h6;
-}
-
-p {
-  margin: 0 0 1rem;
-}
-
-ul,
-ol {
-  margin: 1rem 0;
-  padding-left: 1.5em;
-
-  ul,
-  ol {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+  font-size: rem($font-size-h6);
 }
