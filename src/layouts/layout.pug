@@ -18,7 +18,7 @@ html.page(lang='ru')
     //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')
 
   body.page__body
-    .page__slideout-panel
+    .page__slideout-panel(data-slideout-ignore='')
       +page-header
       block content
       +page-footer

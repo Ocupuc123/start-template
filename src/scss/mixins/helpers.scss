@@ -1,3 +1,19 @@
+@mixin aspect-ratio($width, $height) {
+  &::before {
+    display: block;
+    float: left;
+    width: 100%;
+    padding-top: calc(100% * #{$height} / #{$width});
+    content: "";
+  }
+
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
 @mixin absolute-center {
   position: absolute;
   top: 50%;

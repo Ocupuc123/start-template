@@ -1,5 +1,5 @@
 export default {
-  'useBootstrap': true,
+  'useBootstrap': false,
   'ignoredBlocks': [
     // 'no-js',
   ],
