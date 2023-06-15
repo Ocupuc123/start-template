@@ -21,10 +21,6 @@ html {
   -webkit-tap-highlight-color: transparent;
 
   @include media-breakpoint-up(lg) {
-    font-size: vw(16, $screen-xl);
-  }
-
-  @include media-breakpoint-up(xl) {
     font-size: vw(16, $layout-width);
   }
 
