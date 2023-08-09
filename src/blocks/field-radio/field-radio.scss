@@ -58,8 +58,8 @@
     }
 
     @at-root input:disabled ~ &:before {
-      background: $gray-lighter;
-      border-color: $gray-light;
+      background: $text-color;
+      border-color: $text-color;
     }
 
     &::after {
@@ -79,7 +79,7 @@
       }
 
       @at-root input:checked:disabled ~ & {
-        background-color: $gray-light;
+        background-color: $text-color;
       }
     }
   }

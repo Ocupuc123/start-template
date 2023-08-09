@@ -7,22 +7,7 @@ $line-height: 1.5;
 $link-text-decoration: none;
 $link-text-decoration-hover: none;
 
-// Базовые цвета https://colorscheme.ru/color-converter.html
-$black: hsl(0deg 0% 0%);
-$gray-darkest: hsl(0deg 0% 10%);
-$gray-darker: hsl(0deg 0% 20%);
-$gray-darken: hsl(0deg 0% 30%);
-$gray-dark: hsl(0deg 0% 40%);
-$gray: hsl(0deg 0% 50%);
-$gray-light: hsl(0deg 0% 60%);
-$gray-lighten: hsl(0deg 0% 70%);
-$gray-lighter: hsl(0deg 0% 80%);
-$gray-lightest: hsl(0deg 0% 90%);
-$white: hsl(0deg 0% 100%);
-$color-vk: #4a76a8;
-$color-fb: #4267b2;
-$color-tw: #40a2f5;
-$color-gh: #24292e;
+// Базовые цвета
 $color-main: #0275d9;
 $color-success: #5cb75c;
 $color-danger: #d8544f;
@@ -35,7 +20,7 @@ $text-color: #333;
 $heading-color: #202020;
 $link-color: $color-main;
 $link-color-hover: color.adjust($link-color, $blackness: 15%);
-$border-color: $gray-lightest;
+$border-color: $text-color;
 
 // Базовая типографика
 $heading-font-weight: 700;

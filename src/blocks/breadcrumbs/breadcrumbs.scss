@@ -28,7 +28,7 @@
     &:not(:last-child)::after {
       display: inline-block;
       margin-left: 0.8em;
-      color: $gray;
+      color: $text-color;
       content: ">";
     }
   }

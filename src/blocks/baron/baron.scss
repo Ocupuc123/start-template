@@ -35,7 +35,7 @@
     bottom: 0;
     z-index: 3;
     width: $scrollbar-width;
-    background-color: $gray-lightest;
+    background-color: $text-color;
     opacity: 0;
 
     #{$block-name}--scrollbar & {
@@ -57,13 +57,13 @@
     display: none;
     box-sizing: border-box;
     width: ($scrollbar-width - 2);
-    background: $gray-lighten;
+    background: $text-color;
     opacity: 1;
     pointer-events: auto;
 
     #{$block-name}--dragging &,
     &:hover {
-      background-color: $gray-light;
+      background-color: $text-color;
     }
 
     #{$block-name}--scrollbar & {

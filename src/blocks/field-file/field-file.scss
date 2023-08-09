@@ -44,7 +44,7 @@
     cursor: pointer;
 
     @at-root input:disabled ~ & {
-      background: $gray-lighter;
+      background: $text-color;
       cursor: not-allowed;
     }
 
@@ -53,7 +53,7 @@
       margin-right: $field-padding-horizontal;
       padding: $field-padding-vertical  $field-padding-horizontal;
       line-height: $line-height;
-      background-color: $gray-lightest;
+      background-color: $text-color;
       border-right: 1px solid $border-color;
       border-top-left-radius: $border-radius;
       border-bottom-left-radius: $border-radius;
@@ -62,7 +62,7 @@
 
     &:hover::before,
     &:focus::before {
-      background-color: color.adjust($gray-lightest, $blackness: 10%); // как у обычных кнопок
+      background-color: color.adjust($text-color, $blackness: 10%); // как у обычных кнопок
     }
   }
 

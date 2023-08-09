@@ -20,9 +20,9 @@ html {
   line-height: $line-height;
   -webkit-tap-highlight-color: transparent;
 
-  @include media-breakpoint-up(lg) {
-    font-size: vw(16, $layout-width);
-  }
+  // @include media-breakpoint-up(lg) {
+  //   font-size: vw(16, $layout-width);
+  // }
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
@@ -53,7 +53,8 @@ a {
     // На больших экранах телефоны-ссылки делаем обычным текстом
     @include media-breakpoint-up(lg) {
       white-space: nowrap;
-      cursor: default;
+
+      // cursor: default;
     }
   }
 }

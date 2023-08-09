@@ -24,7 +24,7 @@
     height: $toggler-part-height;
     color: transparent;
     font-size: 0;
-    background: $gray-dark;
+    background: $text-color;
     transition: background $transition-time $transition-time;
 
     &::before,
@@ -33,7 +33,7 @@
       left: 0;
       width: 100%;
       height: $toggler-part-height;
-      background: $gray-dark;
+      background: $text-color;
       transform-origin: 50% 50%;
       transition: top $transition-time $transition-time, transform $transition-time;
       content: "";

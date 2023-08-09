@@ -6,13 +6,12 @@ include ../blocks/mixins
 doctype html
 html.page(lang='ru')
   head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='initial-scale=1.0, width=device-width')
-    link(rel='stylesheet' href='./css/bootstrap.css')
-    link(rel='stylesheet' href='./css/main.css')
-
     block meta
       title Главная страница
+    meta(charset='UTF-8')
+    meta(name='description' content='Описание')
+    meta(name='viewport' content='initial-scale=1.0, width=device-width')
+    link(rel='stylesheet' href='./css/main.css')
 
     //- Предзагрузка шрифтов или иных ресурсов
     //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')

@@ -20,9 +20,9 @@
   text-decoration: none;
   text-overflow: ellipsis;
   vertical-align: middle;
-  background-color: $gray-lightest;
+  background-color: $text-color;
   background-image: none;
-  border: 1px solid $gray-lighter;
+  border: 1px solid $text-color;
   border-radius: $border-radius;
   cursor: pointer;
   transition: background-color $transition-time, color $transition-time, border-color $transition-time, box-shadow $transition-time;
@@ -37,14 +37,14 @@
   &:focus {
     color: $text-color;
     text-decoration: none;
-    background-color: color.adjust($gray-lightest, $blackness: 15%);
-    border-color: color.adjust($gray-lighter, $blackness: 12%);
+    background-color: color.adjust($text-color, $blackness: 15%);
+    border-color: color.adjust($text-color, $blackness: 12%);
   }
 
   &--disabled,
   &:disabled {
     color: $text-color;
-    background-color: $gray-lightest;
+    background-color: $text-color;
     cursor: not-allowed;
     opacity: $opacity;
 

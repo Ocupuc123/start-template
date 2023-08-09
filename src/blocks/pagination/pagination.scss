@@ -27,14 +27,14 @@
     }
 
     &--active {
-      background-color: $gray-lightest;
+      background-color: $text-color;
     }
 
     @at-root a#{&} {
       /* stylelint-disable-next-line max-nesting-depth */
       &:hover,
       &:focus {
-        background-color: $gray-lightest;
+        background-color: $text-color;
       }
     }
 

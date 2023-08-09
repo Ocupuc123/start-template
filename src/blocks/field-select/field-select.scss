@@ -50,7 +50,7 @@
 
     &[disabled],
     &[readonly] {
-      background-color: $gray-lightest;
+      background-color: $text-color;
       cursor: default;
     }
   }
@@ -150,7 +150,7 @@
 
       /* stylelint-disable-next-line max-nesting-depth */
       &.is-highlighted {
-        background: $gray-lightest;
+        background: $text-color;
       }
     }
   }
@@ -177,7 +177,7 @@
   &.is-disabled {
 
     #{$block-name}__inner {
-      background-color: $gray-lighter;
+      background-color: $text-color;
       cursor: default;
     }
   }

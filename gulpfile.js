@@ -1,9 +1,6 @@
 import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import config from './config.js';
 import { browserSync } from './gulp/tasks/browser-sync.js';
 import { cleanBuildDirectory } from './gulp/tasks/clean-build-directory.js';
-import { compileBootstrapSass } from './gulp/tasks/compile-bootstrap-sass.js';
 import { compileSass } from './gulp/tasks/compile-sass.js';
 import { compileScripts } from './gulp/tasks/compile-scripts.js';
 import { compilePugFast } from './gulp/tasks/compile-pug-fast.js';
@@ -18,7 +15,7 @@ const build = gulp.series(
   gulp.parallel(cleanBuildDirectory, writePugMixinsFile),
   gulp.parallel(compilePugFast, copyAssets, generateSvgSprite),
   gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
-  gulp.parallel(compileSass, compileScripts, gulpif(config.useBootstrap === true, gulp.parallel(compileSass, compileScripts, compileBootstrapSass),gulp.parallel(compileSass, compileScripts)))
+  gulp.parallel(compileSass, compileScripts)
 );
 
 export const development = gulp.series(build, browserSync);

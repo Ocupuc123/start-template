@@ -1,11 +1,11 @@
 export default {
-  'useBootstrap': false,
   'ignoredBlocks': [
     // 'no-js',
   ],
   'alwaysAddBlocks': [
     'sprite-svg',
-    'slideout'
+    // 'slideout',
+    // 'form-validation'
     // 'aos'
   ],
   'addStyle': [
@@ -14,16 +14,20 @@ export default {
     'src/scss/functions.scss',
     'src/scss/fonts.scss',
     'src/scss/normalize.scss',
+    // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addJsBefore': [
     // './utils/some.js',
+    // для 'node_modules/somePackage/dist/somePackage.js',
   ],
   'addJsAfter': [
     './main.js',
   ],
   'addAssets': {
     'src/fonts/*.*': 'fonts/',
-    'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'images/favicon/',
+    // 'src/resources/mail.*': '/',
+    // 'src/resources/phpmailer/*.*': 'phpmailer/',
+    // 'src/favicon/*.{png,ico,svg,xml,webmanifest}': 'images/favicon/',
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'images/',
   },
 };

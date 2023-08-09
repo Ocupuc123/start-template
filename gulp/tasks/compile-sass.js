@@ -5,7 +5,7 @@ import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import sourcemaps from 'gulp-sourcemaps';
 import sassGlob from 'gulp-sass-glob';
-import dartSass from 'sass';
+import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import rename from 'gulp-rename';
