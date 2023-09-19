@@ -6,7 +6,7 @@
   $block-name: &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: $typo-margin-vertical;
+  margin-bottom: var(--typo-margin-vertical);
 
   &__title {
     @include field-name;
@@ -14,14 +14,14 @@
 
   &__input-wrap {
     & + & {
-      margin-top: $typo-margin-vertical;
+      margin-top: var(--typo-margin-vertical);
     }
 
     &--error {
 
       #{$block-name}__name-text,
       #{$block-name}__help-text {
-        color: $color-danger;
+        color: var(--color-danger);
       }
     }
   }
@@ -32,7 +32,7 @@
     margin-right: 0.6em;
     padding-left: 2em;
     font-weight: 400;
-    line-height: $line-height;
+    line-height: var(--line-height);
   }
 
   &__name-text {
@@ -49,7 +49,7 @@
       width: 20px;
       height: 20px;
       border: 2px solid currentcolor;
-      border-radius: $border-radius;
+      border-radius: var(--border-radius);
       content: "";
     }
 
@@ -58,8 +58,8 @@
     }
 
     @at-root input:disabled ~ &:before {
-      background: $text-color;
-      border-color: $text-color;
+      background: var(--text-color);
+      border-color: var(--text-color);
     }
 
     &::after {
@@ -72,7 +72,7 @@
       border-left: 2px solid currentcolor;
       transform: rotate(-45deg);
       opacity: 0;
-      transition: opacity $transition-time;
+      transition: opacity var(--transition-time);
       content: "";
 
       @at-root input:checked ~ & {
@@ -80,7 +80,7 @@
       }
 
       @at-root input:checked:disabled ~ & {
-        border-color: $text-color;
+        border-color: var(--text-color);
       }
     }
 

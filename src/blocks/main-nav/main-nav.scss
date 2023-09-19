@@ -8,15 +8,15 @@
     height: 34px;
     margin: 0;
     padding: 0;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H204v153h-51V204H0v-51h153V0h51v153h153v51z'/%3E%3C/svg%3E") center no-repeat, $text-color;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H204v153h-51V204H0v-51h153V0h51v153h153v51z'/%3E%3C/svg%3E") center no-repeat, #f3f3f3;
     background-size: 14px 14px;
     border: 0;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     outline: none;
     box-shadow: none;
 
     &.active {
-      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H0v-51h357v51z'/%3E%3C/svg%3E") center no-repeat, $text-color;
+      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H0v-51h357v51z'/%3E%3C/svg%3E") center no-repeat, #f3f3f3;
       background-size: 14px 14px;
     }
   }
@@ -46,12 +46,12 @@
     font-size: 20px;
 
     &:hover {
-      color: $color-main;
+      color: var(--color-main);
     }
   }
 
   & > ul > li.active > a {
-    color: $color-main;
+    color: var(--color-main);
   }
 
   & > ul ul {
@@ -65,11 +65,11 @@
       right: 0;
       width: 0;
       height: 0;
-      margin-top: rem(-2);
+      margin-top: -2px;
       background: transparent;
-      border-color: $heading-color transparent transparent;
+      border-color: var(--heading-color) transparent transparent;
       border-style: solid dashed dashed;
-      border-width: rem(4);
+      border-width: 4px;
       border-radius: 0;
 
       &.active {
@@ -79,17 +79,17 @@
     }
 
     & > ul > li > a {
-      padding: rem(8) rem(15);
-      font-size: rem(20);
+      padding: 8px 15px;
+      font-size: 20px;
     }
 
     & > ul ul a {
-      padding: rem(8) rem(15);
-      transition: background-color $transition-time, color $transition-time;
+      padding: 8px 15px;
+      transition: background-color var(--transition-time), color var(--transition-time);
 
       &:hover {
-        color: $color-main;
-        background-color: $text-color;
+        color: var(--color-main);
+        background-color: #f3f3f3;
       }
     }
 
@@ -104,16 +104,16 @@
       top: 100%;
       left: 0;
       z-index: 1;
-      min-width: rem(200);
-      max-width: rem(300);
-      padding: rem(10) 0;
+      min-width: 200px;
+      max-width: 300px;
+      padding: 10px 0;
       white-space: nowrap;
       background-color: #fff;
-      border: rem(1) solid $border-color;
-      border-radius: rem(3);
+      border: 1px solid var(--border-color);
+      border-radius: 3px;
 
       .sub-arrow {
-        right: rem(10);
+        right: 10px;
         transform: rotate(-90deg);
       }
     }
@@ -121,7 +121,7 @@
     & > ul ul ul {
       top: 0;
       left: 100%;
-      margin-left: rem(-10);
+      margin-left: -10px;
     }
 
     li:hover > ul {

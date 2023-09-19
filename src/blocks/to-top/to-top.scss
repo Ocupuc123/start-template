@@ -2,7 +2,7 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, $media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-$transition-time: 0.3s !default;
+var(--transition-time): 0.3s !default;
 
 .to-top {
   $block-name: &; // #{$block-name}__element
@@ -25,7 +25,7 @@ $transition-time: 0.3s !default;
   transform: rotate(180deg);
   visibility: hidden;
   opacity: 0;
-  transition: opacity $transition-time;
+  transition: opacity var(--transition-time);
 
   &--visible {
     visibility: visible;

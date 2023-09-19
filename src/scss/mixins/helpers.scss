@@ -52,6 +52,30 @@
   list-style: none;
 }
 
+@mixin btn-reset {
+  width: auto;
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin input-reset {
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  appearance: none;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+}
+
 @mixin visually-hidden {
   position: absolute;
   width: 1px;
@@ -61,4 +85,17 @@
   overflow: hidden;
   border: 0;
   clip: rect(0 0 0 0);
+}
+
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin section-paddings {
+  padding-top: var(--section-padding-top-horizontal);
+  padding-bottom: var(--section-padding-bottom-horizontal);
 }

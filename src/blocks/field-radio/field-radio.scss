@@ -6,7 +6,7 @@
   $block-name: &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: $typo-margin-vertical;
+  margin-bottom: var(--typo-margin-vertical);
 
   &__title {
     @include field-name;
@@ -14,14 +14,14 @@
 
   &__input-wrap {
     & + & {
-      margin-top: $typo-margin-vertical;
+      margin-top: var(--typo-margin-vertical);
     }
 
     &--error {
 
       #{$block-name}__name-text,
       #{$block-name}__help-text {
-        color: $color-danger;
+        color: var(--color-danger);
       }
     }
   }
@@ -32,7 +32,7 @@
     margin-right: 0.6em;
     padding-left: 1.5em;
     font-weight: 400;
-    line-height: $line-height;
+    line-height: var(--line-height);
   }
 
   &__name-text {
@@ -58,8 +58,8 @@
     }
 
     @at-root input:disabled ~ &:before {
-      background: $text-color;
-      border-color: $text-color;
+      background: var(--text-color);
+      border-color: var(--text-color);
     }
 
     &::after {
@@ -71,7 +71,7 @@
       background-color: currentcolor;
       border-radius: 50%;
       opacity: 0;
-      transition: opacity $transition-time;
+      transition: opacity var(--transition-time);
       content: "";
 
       @at-root input:checked ~ & {
@@ -79,7 +79,7 @@
       }
 
       @at-root input:checked:disabled ~ & {
-        background-color: $text-color;
+        background-color: var(--text-color);
       }
     }
   }

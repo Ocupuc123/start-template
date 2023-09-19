@@ -6,7 +6,7 @@
   $block-name: &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: $typo-margin-vertical;
+  margin-bottom: var(--typo-margin-vertical);
 
   &__title {
     @include field-name;
@@ -14,18 +14,18 @@
 
   &__input-wrap {
     & + & {
-      margin-top: $typo-margin-vertical;
+      margin-top: var(--typo-margin-vertical);
     }
 
     &--error {
 
       #{$block-name}__name-text,
       #{$block-name}__help-text {
-        color: $color-danger;
+        color: var(--color-danger);
       }
 
       #{$block-name}__name-text:after {
-        background: $color-danger;
+        background: var(--color-danger);
       }
     }
   }
@@ -36,7 +36,7 @@
     margin-right: 0.6em;
     padding-left: 3.2em;
     font-weight: 400;
-    line-height: $line-height;
+    line-height: var(--line-height);
   }
 
   &__name-text {
@@ -53,7 +53,7 @@
       width: 35px;
       height: 18px;
       background-color: #fff;
-      border: 1px solid $border-color;
+      border: 1px solid var(--border-color);
       content: "";
 
       @at-root input:focus ~ & {
@@ -62,8 +62,8 @@
     }
 
     @at-root input:disabled ~ &:before {
-      background: $text-color;
-      border-color: $text-color;
+      background: var(--text-color);
+      border-color: var(--text-color);
     }
 
     &::after {
@@ -72,8 +72,8 @@
       left: 2px;
       width: 14px;
       height: 14px;
-      background-color: $text-color;
-      border: 1px solid $border-color;
+      background-color: var(--text-color);
+      border: 1px solid var(--border-color);
       transition: all 0.3s;
       content: "";
     }
@@ -83,7 +83,7 @@
     }
 
     @at-root input:disabled ~ &:after {
-      background-color: $text-color;
+      background-color: var(--text-color);
     }
   }
 

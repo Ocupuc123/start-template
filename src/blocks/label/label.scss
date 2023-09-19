@@ -7,25 +7,25 @@
   display: inline-block;
   margin: 0 0.1em;
   padding: 0.25em 0.4em 0.2em;
-  color: $text-color;
+  color: var(--text-color);
   font-weight: 400;
-  font-size: $font-size-sm;
+  font-size: var(--font-size-sm);
   line-height: 1;
   white-space: nowrap;
   text-transform: none;
   text-decoration: none;
   vertical-align: baseline;
-  background-color: $text-color;
-  border-radius: $border-radius;
+  background-color: var(--text-color);
+  border-radius: var(--border-radius);
 
   &:hover,
   &:focus {
-    color: $text-color;
+    color: var(--text-color);
     text-decoration: none;
   }
 
   // &--main {
-  //   background-color: $color-main;
+  //   background-color: var(--color-main);
   //   color: #fff;
 
   //   &:hover,

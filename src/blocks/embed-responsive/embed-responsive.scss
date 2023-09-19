@@ -8,8 +8,8 @@
   position: relative;
   display: block;
   width: 100%;
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
+  margin-top: var(--typo-margin-vertical);
+  margin-bottom: var(--typo-margin-vertical);
   padding: 0;
   overflow: hidden;
 

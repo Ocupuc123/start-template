@@ -21,21 +21,21 @@
     position: relative;
     display: block;
     width: 90%;
-    height: $toggler-part-height;
+    height: var(--toggler-part-height);
     color: transparent;
     font-size: 0;
-    background: $text-color;
-    transition: background $transition-time $transition-time;
+    background: var(--text-color);
+    transition: background var(--transition-time);
 
     &::before,
     &::after {
       position: absolute;
       left: 0;
       width: 100%;
-      height: $toggler-part-height;
-      background: $text-color;
+      height: var(--toggler-part-height);
+      background: var(--text-color);
       transform-origin: 50% 50%;
-      transition: top $transition-time $transition-time, transform $transition-time;
+      transition: top var(--transition-time) var(--transition-time), transform var(--transition-time);
       content: "";
     }
 
@@ -52,13 +52,13 @@
 
     #{$burger}__line {
       background: transparent;
-      transition: background $transition-time 0s;
+      transition: background var(--transition-time) 0s;
 
       /* stylelint-disable-next-line max-nesting-depth */
       &::before,
       &::after {
         top: 0;
-        transition: top $transition-time, transform $transition-time $transition-time;
+        transition: top var(--transition-time), transform var(--transition-time) var(--transition-time);
       }
 
       /* stylelint-disable-next-line max-nesting-depth */

@@ -5,17 +5,17 @@
 .breadcrumbs {
   @include list-reset;
 
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
-  color: $text-color;
+  margin-top: var(--typo-margin-vertical);
+  margin-bottom: var(--typo-margin-vertical);
+  color: var(--text-color);
 
   a {
-    color: $text-color;
+    color: var(--text-color);
     text-decoration: none;
 
     &:hover,
     &:focus {
-      color: $text-color;
+      color: var(--text-color);
       text-decoration: none;
     }
   }
@@ -28,7 +28,7 @@
     &:not(:last-child)::after {
       display: inline-block;
       margin-left: 0.8em;
-      color: $text-color;
+      color: var(--text-color);
       content: ">";
     }
   }

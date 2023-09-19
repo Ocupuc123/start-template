@@ -7,7 +7,7 @@
   $block-name: &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: $typo-margin-vertical;
+  margin-bottom: var(--typo-margin-vertical);
 
   &__name {
     @include field-name;
@@ -19,15 +19,15 @@
   &__select {
     display: inline-block;
     width: 100%;
-    padding: $field-padding-vertical $field-padding-horizontal;
+    padding: var(--field-padding-vertical) var(--field-padding-horizontal);
     padding-right: 35px;
     font-size: inherit;
     font-family: inherit;
-    line-height: $line-height;
+    line-height: var(--line-height);
     vertical-align: middle;
     background-color: #fff;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     appearance: none;
 
     &[multiple] {
@@ -50,7 +50,7 @@
 
     &[disabled],
     &[readonly] {
-      background-color: $text-color;
+      background-color: var(--text-color);
       cursor: default;
     }
   }
@@ -60,20 +60,20 @@
   }
 
   &--error {
-    color: $color-danger;
+    color: var(--color-danger);
 
     #{$block-name}__name,
     #{$block-name}__select,
     #{$block-name}__help-text {
-      color: $color-danger;
+      color: var(--color-danger);
     }
 
     #{$block-name}__select,
     .choices__inner,
     .choices:after {
       /* stylelint-disable-next-line function-no-unknown */
-      background-color: color.adjust($color-danger, $lightness: 35%);
-      border-color: $color-danger;
+      background-color: color.adjust(var(--color-danger), $lightness: 35%);
+      border-color: var(--color-danger);
     }
   }
 }
@@ -90,8 +90,8 @@
     right: 16px;
     width: 14px;
     height: 14px;
-    border-bottom: 1px solid $border-color;
-    border-left: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
     transform: rotate(-45deg);
     transition: all 0.3s;
     content: "";
@@ -114,12 +114,12 @@
   }
 
   &__inner {
-    padding: $field-padding-vertical 40px $field-padding-vertical $field-padding-horizontal;
+    padding: var(--field-padding-vertical) 40px var(--field-padding-vertical) var(--field-padding-horizontal);
     font-size: 1em;
     line-height: 1.5;
     background: #fff;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     cursor: pointer;
 
     #{$block-name}__item--selectable {
@@ -140,25 +140,25 @@
     overflow: hidden;
     word-break: break-all;
     background-color: #fff;
-    border: 1px solid $border-color;
-    border-bottom-right-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
+    border: 1px solid var(--border-color);
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
 
     #{$block-name}__item {
-      padding: $field-padding-vertical $field-padding-horizontal;
+      padding: var(--field-padding-vertical) var(--field-padding-horizontal);
       cursor: pointer;
 
       /* stylelint-disable-next-line max-nesting-depth */
       &.is-highlighted {
-        background: $text-color;
+        background: var(--text-color);
       }
     }
   }
 
   &__heading {
-    padding: $field-padding-vertical $field-padding-horizontal;
+    padding: var(--field-padding-vertical) var(--field-padding-horizontal);
     font-weight: 700;
-    font-size: $font-size-sm;
+    font-size: var(--font-size-sm);
     cursor: default;
     opacity: 0.5;
   }
@@ -177,7 +177,7 @@
   &.is-disabled {
 
     #{$block-name}__inner {
-      background-color: $text-color;
+      background-color: var(--text-color);
       cursor: default;
     }
   }

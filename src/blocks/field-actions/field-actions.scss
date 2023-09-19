@@ -4,15 +4,15 @@
 
 .field-actions {
   display: block;
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
+  margin-top: var(--typo-margin-vertical);
+  margin-bottom: var(--typo-margin-vertical);
 
   &__text {
     display: block;
-    margin-top: $typo-margin-vertical;
-    margin-bottom: $typo-margin-vertical;
-    color: $text-color-muted;
-    font-size: $font-size-sm;
+    margin-top: var(--typo-margin-vertical);
+    margin-bottom: var(--typo-margin-vertical);
+    color: var(--text-color) -muted;
+    font-size: var(--font-size-sm);
     line-height: 1.2em;
   }
 }

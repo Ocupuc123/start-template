@@ -5,20 +5,20 @@
 .pagination {
   display: flex;
   flex-wrap: wrap;
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
+  margin-top: var(--typo-margin-vertical);
+  margin-bottom: var(--typo-margin-vertical);
 
   &__item {
     display: block;
     min-width: 2em;
     padding: 0.3em 0.6em;
-    color: $text-color;
+    color: var(--text-color);
     text-align: center;
     text-decoration: none;
 
     &:hover,
     &:focus {
-      color: $text-color;
+      color: var(--text-color);
       text-decoration: none;
     }
 
@@ -27,14 +27,14 @@
     }
 
     &--active {
-      background-color: $text-color;
+      background-color: var(--text-color);
     }
 
     @at-root a#{&} {
       /* stylelint-disable-next-line max-nesting-depth */
       &:hover,
       &:focus {
-        background-color: $text-color;
+        background-color: var(--text-color);
       }
     }
 

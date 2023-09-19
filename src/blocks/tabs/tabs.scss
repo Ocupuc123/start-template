@@ -5,8 +5,8 @@
 .tabs {
   $block-name: &; // #{$block-name}__element
 
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
+  margin-top: var(--typo-margin-vertical);
+  margin-bottom: var(--typo-margin-vertical);
 
   &__links {
     display: flex;
@@ -20,7 +20,7 @@
       display: none;
       flex-grow: 1;
       height: 1px;
-      background-color: $border-color;
+      background-color: var(--border-color);
       content: "";
 
       @include media-breakpoint-up(md) {
@@ -32,8 +32,8 @@
   &__link-wrap {
     position: relative;
     margin: 0 0.3em 0.3em 0;
-    color: $text-color-muted;
-    border: 1px solid $border-color;
+    color: var(--text-color) -muted;
+    border: 1px solid var(--border-color);
 
     @include media-breakpoint-up(md) {
       margin: 0;
@@ -44,7 +44,7 @@
     }
 
     &--active {
-      color: $text-color;
+      color: var(--text-color);
 
       @include media-breakpoint-up(md) {
         border-bottom: 1px solid transparent;
@@ -58,10 +58,10 @@
 
   &__link {
     display: block;
-    padding: $field-padding-vertical $field-padding-horizontal;
+    padding: var(--field-padding-vertical) var(--field-padding-horizontal);
     color: currentcolor;
     text-decoration: none;
-    background-color: $text-color;
+    background-color: var(--text-color);
 
     &:hover,
     &:focus {
@@ -71,8 +71,8 @@
 
   &__content-wrapper {
     display: block;
-    padding: $field-padding-vertical $field-padding-horizontal;
-    border: 1px solid $border-color;
+    padding: var(--field-padding-vertical) var(--field-padding-horizontal);
+    border: 1px solid var(--border-color);
 
     @include media-breakpoint-up(md) {
       border-top: none;

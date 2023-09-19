@@ -8,24 +8,24 @@
   box-sizing: border-box;
   max-width: 100%;
   margin: 0;
-  padding: $field-padding-vertical  $field-padding-horizontal;
+  padding: var(--field-padding-vertical)  var(--field-padding-horizontal);
   overflow: hidden;
-  color: $text-color;
+  color: var(--text-color);
   font-size: 1em;
   font-family: inherit;
-  line-height: $line-height;
+  line-height: var(--line-height);
   white-space: nowrap;
   text-align: center;
   text-transform: none;
   text-decoration: none;
   text-overflow: ellipsis;
   vertical-align: middle;
-  background-color: $text-color;
+  background-color: var(--text-color);
   background-image: none;
-  border: 1px solid $text-color;
-  border-radius: $border-radius;
+  border: 1px solid var(--text-color);
+  border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background-color $transition-time, color $transition-time, border-color $transition-time, box-shadow $transition-time;
+  transition: background-color var(--transition-time), color var(--transition-time), border-color var(--transition-time), box-shadow var(--transition-time);
   user-select: none;
 
   &:active,
@@ -35,18 +35,18 @@
 
   &:hover,
   &:focus {
-    color: $text-color;
+    color: var(--text-color);
     text-decoration: none;
-    background-color: color.adjust($text-color, $blackness: 15%);
-    border-color: color.adjust($text-color, $blackness: 12%);
+    background-color: color.adjust(var(--text-color), $blackness: 15%);
+    border-color: color.adjust(var(--text-color), $blackness: 12%);
   }
 
   &--disabled,
   &:disabled {
-    color: $text-color;
-    background-color: $text-color;
+    color: var(--text-color);
+    background-color: var(--text-color);
     cursor: not-allowed;
-    opacity: $opacity;
+    opacity: var(--opacity);
 
     @at-root a.button--disabled {
       pointer-events: none;
@@ -55,26 +55,26 @@
 
   &--theme-main {
     color: #fff;
-    background-color: $color-main;
-    border-color: $color-main;
+    background-color: var(--color-main);
+    border-color: var(--color-main);
 
     &:hover,
     &:focus {
       color: #fff;
-      background-color: color.adjust($color-main, $blackness: 10%);
-      border-color: color.adjust($color-main, $blackness: 12%);
+      background-color: color.adjust(var(--color-main), $blackness: 10%);
+      border-color: color.adjust(var(--color-main), $blackness: 12%);
     }
 
     &--disabled,
     &:disabled {
       color: #fff;
-      background-color: $color-main;
-      border-color: $color-main;
+      background-color: var(--color-main);
+      border-color: var(--color-main);
     }
   }
 
   &--style-outline {
-    color: $color-main;
+    color: var(--color-main);
     background-color: transparent;
   }
 }

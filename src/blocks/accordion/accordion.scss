@@ -7,7 +7,7 @@
 
   // .accordion__item
   &__item {
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
 
     &.js-enabled #{$accordion}__panel {
       visibility: hidden;
@@ -51,10 +51,10 @@
       right: 5px;
       width: 16px;
       height: 16px;
-      border-bottom: 2px solid $border-color;
-      border-left: 2px solid $border-color;
+      border-bottom: 2px solid var(--border-color);
+      border-left: 2px solid var(--border-color);
       transform: rotate(-45deg);
-      transition: transform $transition-time;
+      transition: transform var(--transition-time);
       content: "";
     }
 

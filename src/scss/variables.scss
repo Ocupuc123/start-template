@@ -1,54 +1,56 @@
-@use "sass:color";
-
-// Настройка страницы
-$font-famaly: "Arial", sans-serif;
-$font-size: 1rem;
-$line-height: 1.5;
-$link-text-decoration: none;
-$link-text-decoration-hover: none;
-
-// Базовые цвета
-$color-main: #0275d9;
-$color-success: #5cb75c;
-$color-danger: #d8544f;
-$color-warning: #efac4d;
-$text-color-muted: #c2c2c2;
-
-// Семантические цвета
-$body-bg: #fff;
-$text-color: #333;
-$heading-color: #202020;
-$link-color: $color-main;
-$link-color-hover: color.adjust($link-color, $blackness: 15%);
-$border-color: $text-color;
-
-// Базовая типографика
-$heading-font-weight: 700;
-$font-size-h1: 40;
-$font-size-h2: 32;
-$font-size-h3: 24;
-$font-size-h4: 18;
-$font-size-h5: 16;
-$font-size-h6: 16;
-$font-size-sm: 0.75em;
-
 // Ширины
-$layout-width: 1920;
-$layout-container-width: 1200;
-$layout-container-gap: 15;
 $screen-xs: 0;
 $screen-sm: 480;
 $screen-md: 768;
 $screen-lg: 1025;
 $screen-xl: 1440;
 
-// Разное
-$transition-time: 0.2s;
-$border-radius: 3px;
-$shadow: 0 5px 9px rgb(0 0 0 / 10%);
-$toggler-part-height: 2px;
-$z-index-modal: 100;
-$typo-margin-vertical: 1em;
-$field-padding-vertical: 5px;
-$field-padding-horizontal: 12px;
-$opacity: 0.7;
+:root {
+  // Настройка страницы
+  --font-famaly: "Arial", sans-serif;
+  --font-size: 1rem;
+  --line-height: 1.5;
+  --link-text-decoration: none;
+
+  // Базовые цвета
+  --color-main: #0275d9;
+  --color-success: #5cb75c;
+  --color-danger: #d8544f;
+  --color-warning: #efac4d;
+  --text-color-muted: #c2c2c2;
+
+  // Семантические цвета
+  --body-bg: #fff;
+  --text-color: #333;
+  --heading-color: #202020;
+  --link-color: var(--color-main);
+  --link-color-hover: var(--color-main);
+  --border-color: #f3f3f3;
+
+  // Базовая типографика
+  --heading-font-weight: 700;
+  --font-size-h1: 40px;
+  --font-size-h2: 32px;
+  --font-size-h3: 24px;
+  --font-size-h4: 18px;
+  --font-size-h5: 16px;
+  --font-size-h6: 16px;
+  --font-size-sm: 0.75em;
+
+  // Ширины
+  --container-width: 1200px;
+  --container-gap: 15px;
+
+  // Разное
+  --transition-time: 0.2s;
+  --border-radius: 3px;
+  --shadow: 0 5px 9px rgb(0 0 0 / 10%);
+  --toggler-part-height: 2px;
+  --z-index-modal: 100;
+  --typo-margin-vertical: 1em;
+  --field-padding-vertical: 5px;
+  --field-padding-horizontal: 12px;
+  --section-padding-top-horizontal: 80px;
+  --section-padding-bottom-horizontal: 80px;
+  --opacity: 0.7;
+}

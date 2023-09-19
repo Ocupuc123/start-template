@@ -7,7 +7,7 @@
   $block-name: &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: $typo-margin-vertical;
+  margin-bottom: var(--typo-margin-vertical);
 
   &__name {
     @include field-name;
@@ -39,30 +39,30 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     background-color: #fff;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     cursor: pointer;
 
     @at-root input:disabled ~ & {
-      background: $text-color;
+      background: var(--text-color);
       cursor: not-allowed;
     }
 
     &::before {
       display: block;
-      margin-right: $field-padding-horizontal;
-      padding: $field-padding-vertical  $field-padding-horizontal;
-      line-height: $line-height;
-      background-color: $text-color;
-      border-right: 1px solid $border-color;
-      border-top-left-radius: $border-radius;
-      border-bottom-left-radius: $border-radius;
+      margin-right: var(--field-padding-horizontal);
+      padding: var(--field-padding-vertical)  var(--field-padding-horizontal);
+      line-height: var(--line-height);
+      background-color: var(--text-color);
+      border-right: 1px solid var(--border-color);
+      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
       content: attr(data-button-text);
     }
 
     &:hover::before,
     &:focus::before {
-      background-color: color.adjust($text-color, $blackness: 10%); // как у обычных кнопок
+      background-color: color.adjust(var(--text-color), $blackness: 10%); // как у обычных кнопок
     }
   }
 
@@ -76,12 +76,12 @@
     #{$block-name}__name-text,
     #{$block-name}__input,
     #{$block-name}__help-text {
-      color: $color-danger;
+      color: var(--color-danger);
     }
 
     #{$block-name}__name-text {
-      background-color: color.adjust($color-danger, $lightness: 35%);
-      border-color: $color-danger;
+      background-color: color.adjust(var(--color-danger), $lightness: 35%);
+      border-color: var(--color-danger);
     }
   }
 }

@@ -11,13 +11,13 @@
     justify-content: space-between;
     width: 100%;
     padding: 10px 15px;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
   }
 
   &__contacts {
     padding: 25px 15px;
-    color: $heading-color;
-    border-top: 1px solid $border-color;
+    color: var(--heading-color);
+    border-top: 1px solid var(--border-color);
 
     a {
       color: inherit;

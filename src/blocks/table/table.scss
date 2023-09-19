@@ -5,9 +5,9 @@
 .table {
   display: table;
   width: 100%;
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
-  border: 1px solid $border-color;
+  margin-top: var(--typo-margin-vertical);
+  margin-bottom: var(--typo-margin-vertical);
+  border: 1px solid var(--border-color);
   border-collapse: collapse;
 
   th {
@@ -16,22 +16,22 @@
 
   td,
   th {
-    padding: $field-padding-vertical $field-padding-horizontal;
+    padding: var(--field-padding-vertical) var(--field-padding-horizontal);
     vertical-align: top;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--border-color);
 
     &:not(:first-child) {
-      border-left: 1px solid $border-color;
+      border-left: 1px solid var(--border-color);
     }
   }
 
   // caption {
   //   caption-side: top;
   //   text-align: left;
-  //   padding: 0.4rem $field-padding-horizontal;
-  //   border-bottom: 1px solid $border-color;
-  //   font-size: $font-size-sm;
+  //   padding: 0.4rem var(--field-padding-horizontal);
+  //   border-bottom: 1px solid var(--border-color);
+  //   font-size: var(--font-size-sm);
   //   line-height: 1em;
-  //   color: $text-color-muted;
+  //   color: var(--text-color)-muted;
   // }
 }

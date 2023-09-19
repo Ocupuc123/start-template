@@ -9,15 +9,13 @@
 
   &__overlay {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-y: auto;
     background-color: rgb(0 0 0 / 50%);
+    inset: 0;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -30,9 +28,8 @@
 
   &__content {
     padding: 30px;
-    overflow-y: auto;
     background-color: #fff;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
   }
 
   &__title {

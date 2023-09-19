@@ -8,20 +8,20 @@
 
 body {
   height: 100%;
-  color: $text-color;
-  font-family: $font-famaly;
+  color: var(--text-color);
+  font-family: var(--font-famaly);
   text-align: left;
-  background-color: $body-bg;
+  background-color: var(--body-bg);
 }
 
 html {
   height: 100%;
-  font-size: $font-size;
-  line-height: $line-height;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
   -webkit-tap-highlight-color: transparent;
 
   // @include media-breakpoint-up(lg) {
-  //   font-size: vw(16, $layout-width);
+  //   font-size: vw(16, 1920);
   // }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -39,18 +39,17 @@ video {
 }
 
 a {
-  color: $link-color;
-  text-decoration: $link-text-decoration;
-  transition: color $transition-time;
+  color: var(--link-color);
+  text-decoration: var(--link-text-decoration);
+  transition: color var(--transition-time);
 
   &:hover,
   &:focus {
-    color: $link-color-hover;
-    text-decoration: $link-text-decoration-hover;
+    color: var(--link-color-hover);
+    text-decoration: none;
   }
 
   &[href^="tel:"] {
-    // На больших экранах телефоны-ссылки делаем обычным текстом
     @include media-breakpoint-up(lg) {
       white-space: nowrap;
 
@@ -71,38 +70,38 @@ h5,
 .h5,
 h6,
 .h6 {
-  margin: 0 0 rem(20);
-  color: $heading-color;
-  font-weight: $heading-font-weight;
+  margin: 0 0 30px;
+  color: var(--heading-color);
+  font-weight: var(--heading-font-weight);
   line-height: 1.2;
 }
 
 h1,
 .h1 {
-  font-size: rem($font-size-h1);
+  font-size: var(--font-size-h1);
 }
 
 h2,
 .h2 {
-  font-size: rem($font-size-h2);
+  font-size: var(--font-size-h2);
 }
 
 h3,
 .h3 {
-  font-size: rem($font-size-h3);
+  font-size: var(--font-size-h3);
 }
 
 h4,
 .h4 {
-  font-size: rem($font-size-h4);
+  font-size: var(--font-size-h4);
 }
 
 h5,
 .h5 {
-  font-size: rem($font-size-h5);
+  font-size: var(--font-size-h5);
 }
 
 h6,
 .h6 {
-  font-size: rem($font-size-h6);
+  font-size: var(--font-size-h6);
 }
