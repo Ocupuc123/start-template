@@ -1,4 +1,3 @@
-import config from '../../config.js';
 import gulp from 'gulp';
 import fs from 'node:fs';
 import server from 'browser-sync';
