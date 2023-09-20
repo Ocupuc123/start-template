@@ -2,8 +2,6 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-@import "node_modules/swiper/swiper-bundle";
-
 .swiper {
   $swiper: &; // #{$swiper}__element
 }

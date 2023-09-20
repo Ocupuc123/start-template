@@ -3,7 +3,7 @@ export default {
     // 'no-js',
   ],
   'alwaysAddBlocks': [
-    'sprite-svg',
+    // 'sprite-svg',
     // 'slideout',
     // 'form-validation'
     // 'aos'
@@ -14,6 +14,7 @@ export default {
     'src/scss/functions.scss',
     'src/scss/fonts.scss',
     'src/scss/normalize.scss',
+    // 'node_modules/swiper/swiper-bundle',
     // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addJsBefore': [
