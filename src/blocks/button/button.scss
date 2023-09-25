@@ -1,7 +1,6 @@
 // В этом файле должны быть стили для БЭМ-блока button, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "sass:color";
 
 .button {
   display: inline-block;
@@ -20,9 +19,9 @@
   text-decoration: none;
   text-overflow: ellipsis;
   vertical-align: middle;
-  background-color: var(--text-color);
+  background-color: #dadada;
   background-image: none;
-  border: 1px solid var(--text-color);
+  border: 1px solid #dadada;
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color var(--transition-time), color var(--transition-time), border-color var(--transition-time), box-shadow var(--transition-time);
@@ -37,14 +36,14 @@
   &:focus {
     color: var(--text-color);
     text-decoration: none;
-    background-color: color.adjust(var(--text-color), $blackness: 15%);
-    border-color: color.adjust(var(--text-color), $blackness: 12%);
+    background-color: #dadada;
+    border-color: #dadada;
   }
 
   &--disabled,
   &:disabled {
-    color: var(--text-color);
-    background-color: var(--text-color);
+    color: #dadada;
+    background-color: #dadada;
     cursor: not-allowed;
     opacity: var(--opacity);
 
@@ -61,8 +60,8 @@
     &:hover,
     &:focus {
       color: #fff;
-      background-color: color.adjust(var(--color-main), $blackness: 10%);
-      border-color: color.adjust(var(--color-main), $blackness: 12%);
+      background-color: var(--link-color-hover);
+      border-color: var(--link-color-hover);
     }
 
     &--disabled,
@@ -71,10 +70,5 @@
       background-color: var(--color-main);
       border-color: var(--color-main);
     }
-  }
-
-  &--style-outline {
-    color: var(--color-main);
-    background-color: transparent;
   }
 }

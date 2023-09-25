@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @mixin field-text {
   display: inline-block;
   width: 100%;
@@ -54,7 +56,7 @@
 
 @mixin field-focus {
   outline: 0;
-  box-shadow: 0 0 0 2px rgb(var(--color-main) var(--opacity));
+  box-shadow: 0 0 0 2px color.adjust($color-main, $blackness: 20%, $alpha: -0.4);
 }
 
 @mixin field-name {

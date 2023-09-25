@@ -1,3 +1,10 @@
+@use "sass:color";
+
+// Базовые цвета
+$color-main: #0275d9;
+$link-color: $color-main;
+$link-color-hover: color.adjust($color-main, $blackness: 20%);
+
 // Ширины
 $screen-xs: 0;
 $screen-sm: 480;
@@ -13,7 +20,7 @@ $screen-xl: 1440;
   --link-text-decoration: none;
 
   // Базовые цвета
-  --color-main: #0275d9;
+  --color-main: #{$color-main};
   --color-success: #5cb75c;
   --color-danger: #d8544f;
   --color-warning: #efac4d;
@@ -23,8 +30,8 @@ $screen-xl: 1440;
   --body-bg: #fff;
   --text-color: #333;
   --heading-color: #202020;
-  --link-color: var(--color-main);
-  --link-color-hover: var(--color-main);
+  --link-color: #{$color-main};
+  --link-color-hover: #{$link-color-hover};
   --border-color: #f3f3f3;
 
   // Базовая типографика
