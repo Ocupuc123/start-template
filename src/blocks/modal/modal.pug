@@ -1,9 +1,15 @@
-mixin modal()
+mixin modal(id, mods)
   -
-    const id = attributes.id
-    delete attributes.id
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' modal--' + modsList[i].trim();
+      }
+    }
 
-  .modal.modal--animation-slide(id=id aria-hidden='true')&attributes(attributes)
+  .modal.modal--animation-slide(class=allMods id=id aria-hidden='true')&attributes(attributes)
     .modal__overlay(tabindex='-1' data-micromodal-close='')
       .modal__container(aria-modal='true')
         .modal__close

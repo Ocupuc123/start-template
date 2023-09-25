@@ -1,7 +1,6 @@
 // В этом файле должны быть стили для БЭМ-блока alert, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "sass:color";
 
 .alert {
   position: relative;
@@ -9,7 +8,7 @@
   margin-bottom: var(--typo-margin-vertical);
   padding: 0.7em 1.5em 0.7em 1.4em;
   color: var(--text-color);
-  background-color: color.adjust(var(--color-warning), $lightness: 30%);
+  background-color: var(--color-warning);
   border-radius: var(--border-radius);
 
   & > * {
@@ -44,7 +43,7 @@
 
   &--warning {
     color: var(--text-color);
-    background-color: color.adjust(var(--color-warning), $lightness: 30%);
+    background-color: var(--color-warning);
   }
 
   &--danger {

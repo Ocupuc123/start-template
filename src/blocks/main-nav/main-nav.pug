@@ -11,7 +11,7 @@ mixin main-nav(selectedID)
   //- подключаем файл со структурой данных блока
   include main-nav.data.pug
 
-  nav.main-nav&attributes(attributes)
+  nav.main-nav(data-da='.mobile-menu__menu,1024')&attributes(attributes)
     ul
       each menuItem in mainMenu
         if selectedID === menuItem.id

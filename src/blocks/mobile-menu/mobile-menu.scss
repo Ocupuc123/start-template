@@ -5,17 +5,17 @@
 .mobile-menu {
   $mobile-menu: &; // #{$mobile-menu}__element
 
+  &__logo {
+    max-width: 120px;
+  }
+
   &__head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px 15px;
+    padding-bottom: 15px;
     border-bottom: 1px solid var(--border-color);
   }
 
   &__contacts {
-    padding: 25px 15px;
+    padding: 25px 0;
     color: var(--heading-color);
     border-top: 1px solid var(--border-color);
 

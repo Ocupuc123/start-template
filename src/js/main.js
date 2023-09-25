@@ -1,5 +1,5 @@
 // import { showMore } from './vendors/show-more.js';
-// import { useDynamicAdapt } from './vendors/dynamic-adapt.js';
+import { useDynamicAdapt } from './vendors/dynamic-adapt.js';
 // import Swiper from 'swiper/bundle';
 // import HandyCollapse from 'handy-collapse';
 // import Slideout from 'slideout';
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //   }
   // });
 
-  // useDynamicAdapt();
+  useDynamicAdapt();
 
   // new Swiper('.swiper', {
   //   slidesPerView: 1,

@@ -72,7 +72,6 @@
     "lodash.throttle": "latest",
     "micromodal": "latest",
     "normalize.css": "latest",
-    "slideout": "latest",
     "swiper": "latest"
   }
 }

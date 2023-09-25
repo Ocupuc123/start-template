@@ -1,7 +1,6 @@
 // В этом файле должны быть стили для БЭМ-блока field-text, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "sass:color";
 
 .field-text {
   $field-text: &; // #{$field-text}__element
@@ -21,10 +20,7 @@
     @include field-text;
 
     @at-root textarea#{&} {
-      $textarea-height: (var(--line-height) * 2) + (var(--field-padding-vertical) * 2);
-
       height: auto;
-      min-height: calc(#{$textarea-height} + 2px);
       resize: vertical;
     }
 
@@ -39,7 +35,7 @@
       color: var(--color-danger);
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23B81111'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23B81111' stroke='none'/%3E%3C/svg%3E");
       border-color: var(--color-danger);
-      box-shadow: 0 0 0 2px rgb(var(--color-danger) var(--opacity));
+      box-shadow: 0 0 0 2px var(--color-danger);
     }
 
     &.just-validate-success-field {
@@ -48,7 +44,7 @@
     }
 
     &.just-validate-success-field:focus {
-      box-shadow: 0 0 0 2px rgb(var(--color-success) var(--opacity));
+      box-shadow: 0 0 0 2px var(--color-success);
     }
   }
 
@@ -65,7 +61,7 @@
     }
 
     #{$field-text}__input {
-      background-color: color.adjust(var(--color-danger), $lightness: 35%);
+      background-color: var(--color-danger);
       border-color: var(--color-danger);
     }
   }

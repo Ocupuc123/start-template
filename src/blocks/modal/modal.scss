@@ -13,7 +13,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: auto;
     background-color: rgb(0 0 0 / 50%);
     inset: 0;
     -webkit-tap-highlight-color: transparent;
@@ -24,6 +23,7 @@
     width: 100%;
     max-width: 500px;
     max-height: 100vh;
+    overflow-y: auto;
   }
 
   &__content {
@@ -34,8 +34,8 @@
 
   &__title {
     margin-bottom: 20px;
-    font-weight: $heading-font-weight;
-    font-size: $font-size-h3;
+    font-weight: var(--heading-font-weight);
+    font-size: var(--font-size-h3);
   }
 
   &__close {
@@ -74,6 +74,30 @@
     #{$modal}__container,
     #{$modal}__overlay {
       will-change: transform;
+    }
+  }
+
+  &--offcanvas {
+    #{$modal}__overlay {
+      justify-content: flex-end;
+    }
+    #{$modal}__container {
+      max-width: 300px;
+    }
+    #{$modal}__content {
+      height: 100%;
+      min-height: 100vh;
+      border-radius: 0;
+    }
+    &#{$modal}--animation-slide[aria-hidden="false"] {
+      #{$modal}__container {
+        animation: modal-slide-in-left 0.3s;
+      }
+    }
+    &#{$modal}--animation-slide[aria-hidden="true"] {
+      #{$modal}__container {
+        animation: modal-slide-out-left 0.3s;
+      }
     }
   }
 }
@@ -120,5 +144,25 @@
 
   to {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes modal-slide-in-left {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes modal-slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
   }
 }
