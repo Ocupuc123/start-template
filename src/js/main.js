@@ -2,7 +2,6 @@
 import { useDynamicAdapt } from './vendors/dynamic-adapt.js';
 // import Swiper from 'swiper/bundle';
 // import HandyCollapse from 'handy-collapse';
-// import Slideout from 'slideout';
 // import 'img-comparison-slider';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,25 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //       slidesPerView: 4,
   //     }
   //   }
-  // });
-
-  // const slideoutToggleButtonElement = document.querySelector('.slideout-toggler');
-  // const slideoutCloseButtonElement = document.querySelector('.slideout-close');
-
-  // const slideoutInit = new Slideout({
-  //   'panel': document.querySelector('.page__slideout-panel'),
-  //   'menu': document.querySelector('.page__slideout-menu'),
-  //   'padding': 256,
-  //   'tolerance': 70,
-  //   'side': 'right',
-  // });
-
-  // slideoutToggleButtonElement.addEventListener('click', () => {
-  //   slideoutInit.toggle();
-  // });
-
-  // slideoutCloseButtonElement.addEventListener('click', () => {
-  //   slideoutInit.close();
   // });
 
 });
