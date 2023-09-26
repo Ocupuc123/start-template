@@ -98,4 +98,14 @@
 @mixin section-paddings {
   padding-top: var(--section-padding-top-horizontal);
   padding-bottom: var(--section-padding-bottom-horizontal);
+
+  @include media-breakpoint-down(lg) {
+    --section-padding-top-horizontal: 60px;
+    --section-padding-bottom-horizontal: 60px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    --section-padding-top-horizontal: 40px;
+    --section-padding-bottom-horizontal: 40px;
+  }
 }
