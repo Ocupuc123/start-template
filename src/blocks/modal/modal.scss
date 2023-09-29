@@ -78,6 +78,10 @@
   }
 
   &--offcanvas {
+    #{$modal}__close {
+      top: 58px;
+      right: 15px;
+    }
     #{$modal}__overlay {
       justify-content: flex-end;
     }
@@ -87,6 +91,7 @@
     #{$modal}__content {
       height: 100%;
       min-height: 100vh;
+      padding-top: 65px;
       border-radius: 0;
     }
     &#{$modal}--animation-slide[aria-hidden="false"] {
