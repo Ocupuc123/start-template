@@ -15,6 +15,9 @@
     "defaults"
   ],
   "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "babel-loader": "latest",
     "browser-sync": "latest",
     "cpy": "latest",
     "cross-env": "latest",
@@ -57,7 +60,8 @@
     "stylelint-order": "latest",
     "stylelint-scss": "latest",
     "webpack": "latest",
-    "webpack-stream": "latest"
+    "webpack-cli": "latest",
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "accordion-js": "latest",

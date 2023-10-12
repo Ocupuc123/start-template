@@ -20,4 +20,6 @@ html.page(lang='ru')
     block content
     +page-footer
     block scripts
-      script(src='./js/main.js')
+      if process.env.NODE_ENV === 'development'
+        script(src='js/vendors.min.js')
+      script(src='./js/scripts.min.js')
