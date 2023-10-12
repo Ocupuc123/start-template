@@ -3,10 +3,11 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .tabs {
-  $block-name: &; // #{$block-name}__element
 
-  margin-top: var(--typo-margin-vertical);
-  margin-bottom: var(--typo-margin-vertical);
+  $block-name:                &; // #{$block-name}__element
+
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
 
   &__links {
     display: flex;
@@ -16,26 +17,30 @@
     padding: 0;
     list-style: none;
 
-    &::after {
+    &:after {
+      content: '';
       display: none;
       flex-grow: 1;
       height: 1px;
-      background-color: var(--border-color);
-      content: "";
+      background-color: $border-color;
 
-      @include media-breakpoint-up(md) {
+      @media (min-width: $screen-md) {
         display: block;
       }
+    }
+
+    .no-js & {
+      display: none;
     }
   }
 
   &__link-wrap {
     position: relative;
     margin: 0 0.3em 0.3em 0;
-    color: var(--text-color) -muted;
-    border: 1px solid var(--border-color);
+    border: 1px solid $border-color;
+    color: $text-color-muted;
 
-    @include media-breakpoint-up(md) {
+    @media (min-width: $screen-md) {
       margin: 0;
 
       &:not(:last-child) {
@@ -44,9 +49,9 @@
     }
 
     &--active {
-      color: var(--text-color);
+      color: $text-color;
 
-      @include media-breakpoint-up(md) {
+      @media (min-width: $screen-md) {
         border-bottom: 1px solid transparent;
       }
 
@@ -58,36 +63,42 @@
 
   &__link {
     display: block;
-    padding: var(--field-padding-vertical) var(--field-padding-horizontal);
-    color: currentcolor;
+    padding: $field-padding-vertical $field-padding-horizontal;
+    color: currentColor;
     text-decoration: none;
-    background-color: var(--text-color);
+    background-color: $gray-lightest;
 
     &:hover,
     &:focus {
-      color: currentcolor;
+      color: currentColor;
     }
   }
 
   &__content-wrapper {
     display: block;
-    padding: var(--field-padding-vertical) var(--field-padding-horizontal);
-    border: 1px solid var(--border-color);
+    border: 1px solid $border-color;
+    padding: $field-padding-vertical $field-padding-horizontal;
 
-    @include media-breakpoint-up(md) {
+    @media (min-width: $screen-md) {
       border-top: none;
     }
   }
 
   &__content-item {
-    display: none;
+
+    .js & {
+      display: none;
+    }
 
     & > *:last-child { // stylelint-disable-line  selector-combinator-blacklist
       margin-bottom: 0;
     }
 
     &--active {
-      display: block;
+
+      .js & {
+        display: block;
+      }
     }
   }
 }

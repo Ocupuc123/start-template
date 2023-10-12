@@ -5,11 +5,12 @@ mixin field-checkbox(checkboxes, title)
   //- Принимает:
   //-   checkboxes {array}
   //-     {object}
-  //-       title:      {string} - текст рядом с чекбоксом
-  //-       helpText:   {string} - пояснение под полем
-  //-       mods:       {string} - модификаторы обертки чекбокса
-  //-       attrs:      {object} - любые атрибуты для input
-  //-       name:       {string}
+  //-       title: ''         {string} - текст рядом с чекбоксом
+  //-       helpText: ''      {string} - пояснение под полем
+  //-       mods: ''          {string} - модификаторы обертки чекбокса
+  //-       attrs:            {object} - любые атрибуты для input
+  //-         name:           {string}
+  //-     ...
   //- Вызов:
         +field-checkbox([
           {
@@ -42,7 +43,7 @@ mixin field-checkbox(checkboxes, title)
 
   .field-checkbox&attributes(attributes)
     if(typeof(title) !== 'undefined' && title)
-      .field-checkbox__title!=title
+      .field-checkbox__title!= title
     each checkbox in checkboxes
       -
         var allMods = '';
@@ -55,7 +56,7 @@ mixin field-checkbox(checkboxes, title)
       .field-checkbox__input-wrap(class=allMods)
         label.field-checkbox__name
           input.field-checkbox__input(type='checkbox')&attributes(checkbox.attrs)
-          span.field-checkbox__name-text!=checkbox.title
+          span.field-checkbox__name-text!= checkbox.title
         if(typeof(checkbox.helpText) !== 'undefined' && checkbox.helpText)
           .field-checkbox__help-text-wrap
-            .field-checkbox__help-text!=checkbox.helpText
+            .field-checkbox__help-text!= checkbox.helpText

@@ -1,131 +1,167 @@
+// В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
 .main-nav {
-  .sub-arrow {
-    position: absolute;
-    top: 6px;
-    right: 15px;
-    z-index: 1;
-    width: 34px;
-    height: 34px;
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  z-index: 10;
+
+  // первый уровень
+  &__list {
     margin: 0;
     padding: 0;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H204v153h-51V204H0v-51h153V0h51v153h153v51z'/%3E%3C/svg%3E") center no-repeat, #f3f3f3;
-    background-size: 14px 14px;
-    border: 0;
-    border-radius: var(--border-radius);
-    outline: none;
-    box-shadow: none;
+    list-style: none;
 
-    &.active {
-      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H0v-51h357v51z'/%3E%3C/svg%3E") center no-repeat, #f3f3f3;
-      background-size: 14px 14px;
-    }
-  }
+    // мобильный вид списка
+    @media (max-width: ($menu-desktop-width - 1)) {
 
-  a {
-    color: inherit;
-  }
+      // открытие/закрытие меню только в случае работающего JS
 
-  ul {
-    @include list-reset;
-  }
+      .js & {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s;
 
-  li {
-    position: relative;
-  }
+        &--lvl-2 {
+          max-height: none;
+        }
+      }
 
-  & > ul ul a {
-    display: inline-flex;
-    width: 100%;
-    padding: 10px 55px 10px 15px;
-  }
+      .js #{$block-name}--open & {
+        max-height: 1000px;
+        transition: max-height 0.6s;
 
-  & > ul > li > a {
-    display: inline-flex;
-    width: 100%;
-    padding: 8px 55px 8px 15px;
-    font-size: 20px;
-
-    &:hover {
-      color: var(--color-main);
-    }
-  }
-
-  & > ul > li.active > a {
-    color: var(--color-main);
-  }
-
-  & > ul ul {
-    display: none;
-  }
-
-  /* stylelint-disable-next-line order/order */
-  @include media-breakpoint-up(lg) {
-    .sub-arrow {
-      top: 50%;
-      right: 0;
-      width: 0;
-      height: 0;
-      margin-top: -2px;
-      background: transparent;
-      border-color: var(--heading-color) transparent transparent;
-      border-style: solid dashed dashed;
-      border-width: 4px;
-      border-radius: 0;
-
-      &.active {
-        background-color: transparent;
-        background-image: none;
+        &--lvl-2 {
+          max-height: none;
+        }
       }
     }
 
-    & > ul > li > a {
-      padding: 8px 15px;
-      font-size: 20px;
-    }
-
-    & > ul ul a {
-      padding: 8px 15px;
-      transition: background-color var(--transition-time), color var(--transition-time);
-
-      &:hover {
-        color: var(--color-main);
-        background-color: #f3f3f3;
-      }
-    }
-
-    & > ul {
+    // настольный вид списка
+    @media (min-width: $menu-desktop-width) {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+
+      &--lvl-2 {
+        display: block;
+      }
+
+      &--lvl-3 {
+        display: block;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &--active {
+
+      & > #{$block-name}__link { // stylelint-disable-line  selector-combinator-blacklist
+        color: #000;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background-color: #fff;
+
+    &:hover,
+    &:focus {
+      z-index: 1;
+      text-decoration: none;
+      background-color: $gray-lightest;
     }
 
-    & > ul ul {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1;
+    &--lvl-2 {
       min-width: 200px;
-      max-width: 300px;
-      padding: 10px 0;
-      white-space: nowrap;
-      background-color: #fff;
-      border: 1px solid var(--border-color);
-      border-radius: 3px;
 
-      .sub-arrow {
-        right: 10px;
-        transform: rotate(-90deg);
+      @media (max-width: ($menu-desktop-width - 1)) {
+        padding-left: 2em;
       }
     }
 
-    & > ul ul ul {
-      top: 0;
-      left: 100%;
-      margin-left: -10px;
+    &--lvl-3 {
+      min-width: 200px;
+
+      @media (max-width: ($menu-desktop-width - 1)) {
+        padding-left: 3em;
+      }
+    }
+  }
+
+  &__sublist-wrapper {
+
+    &--lvl-2 {
+
+      @media (min-width: $menu-desktop-width) {
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: opacity $transition-time;
+
+        // stylelint-disable
+        #{$block-name}__item--show-child > &,
+        #{$block-name}__item:hover & {
+          height: auto;
+          overflow: visible;
+          opacity: 1;
+        }
+        // stylelint-enable
+      }
     }
 
-    li:hover > ul {
-      display: block;
+    &--lvl-3 {
+
+      @media (min-width: $menu-desktop-width) {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 100%;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: opacity $transition-time;
+
+        // stylelint-disable
+        #{$block-name}__item--show-child > &,
+        #{$block-name}__item--lvl-2:hover & {
+          height: auto;
+          overflow: visible;
+          opacity: 1;
+        }
+        // stylelint-enable
+      }
+    }
+  }
+
+
+
+  // переключатель
+
+  &__toggler {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    background: none;
+
+    @media (min-width: $menu-desktop-width) {
+      display: none;
+    }
+
+    .no-js & {
+      display: none;
     }
   }
 }

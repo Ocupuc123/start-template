@@ -3,19 +3,19 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .breadcrumbs {
-  @include list-reset;
-
-  margin-top: var(--typo-margin-vertical);
-  margin-bottom: var(--typo-margin-vertical);
-  color: var(--text-color);
+  list-style: none;
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+  padding: 0;
+  color: $text-color;
 
   a {
-    color: var(--text-color);
+    color: $text-color;
     text-decoration: none;
 
     &:hover,
     &:focus {
-      color: var(--text-color);
+      color: $text-color;
       text-decoration: none;
     }
   }
@@ -25,11 +25,11 @@
     margin-right: 0.6em;
     white-space: nowrap;
 
-    &:not(:last-child)::after {
+    &:not(:last-child):after {
+      content: '>';
       display: inline-block;
       margin-left: 0.8em;
-      color: var(--text-color);
-      content: ">";
+      color: $gray;
     }
   }
 }

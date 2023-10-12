@@ -3,10 +3,11 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-num {
-  $block-name: &; // #{$block-name}__element
+
+  $block-name:                &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: var(--typo-margin-vertical);
+  margin-bottom: $typo-margin-vertical;
 
   &__name {
     @include field-name;
@@ -17,18 +18,17 @@
   }
 
   &__input-and-btns {
-    position: relative;
     display: block;
+    position: relative;
     width: 140px;
   }
 
   &__input {
     @include field-text;
-
-    padding: var(--field-padding-vertical) 45px;
+    padding: $field-padding-vertical 45px;
     text-align: center;
 
-    #{$block-name}:not(#{$block-name}--disabled) button:focus ~ & {
+    #{$block-name}:not(#{$block-name}--disabled) button:focus ~ & { // stylelint-disable-line
       @include field-focus;
     }
   }
@@ -38,22 +38,34 @@
     top: 1px;
     bottom: 1px;
     width: 40px;
-    padding: 0;
-    color: transparent;
-    font-size: 0;
-    background: transparent;
     border: none;
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
+    padding: 0;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    font: 0/0 a; // stylelint-disable-line
+    color: transparent;
+    background: transparent;
 
     &:hover,
     &:focus {
-      background-color: var(--text-color);
+      background-color: $gray-lightest;
       cursor: pointer;
     }
 
     &:focus {
       outline: none;
+    }
+
+    &--plus {
+      right: 1px;
+      background: svg-load('../field-num/bg-img/plus.svg') center no-repeat;
+      background-size: 14px 14px;
+    }
+
+    &--minus {
+      left: 1px;
+      background: svg-load('../field-num/bg-img/minus.svg') center no-repeat;
+      background-size: 14px 14px;
     }
 
     #{$block-name}--disabled & {
@@ -64,35 +76,25 @@
         background-color: transparent;
       }
     }
-
-    &--plus {
-      right: 1px;
-      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H204v153h-51V204H0v-51h153V0h51v153h153v51z'/%3E%3C/svg%3E") center no-repeat;
-      background-size: 14px 14px;
-    }
-
-    &--minus {
-      left: 1px;
-      background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 357'%3E%3Cpath d='M357 204H0v-51h357v51z'/%3E%3C/svg%3E") center no-repeat;
-      background-size: 14px 14px;
-    }
   }
 
   &__help-text {
     @include field-help-text;
   }
 
+
+
   &--error {
 
     #{$block-name}__name,
     #{$block-name}__input,
     #{$block-name}__help-text {
-      color: var(--color-danger);
+      color: $color-danger;
     }
 
     #{$block-name}__input {
-      background-color: var(--color-danger);
-      border-color: var(--color-danger);
+      border-color: $color-danger;
+      background-color: lighten($color-danger, 35%);
     }
   }
 }

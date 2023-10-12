@@ -8,21 +8,17 @@
 
 body {
   height: 100%;
-  color: var(--text-color);
-  font-family: var(--font-famaly);
+  color: $text-color;
+  font-family: $font-family;
   text-align: left;
-  background-color: var(--body-bg);
+  background-color: $body-bg;
 }
 
 html {
   height: 100%;
-  font-size: var(--font-size);
-  line-height: var(--line-height);
+  font-size: $font-size;
+  line-height: $line-height;
   -webkit-tap-highlight-color: transparent;
-
-  // @include media-breakpoint-up(lg) {
-  //   font-size: vw(16, 1920);
-  // }
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
@@ -39,21 +35,19 @@ video {
 }
 
 a {
-  color: var(--link-color);
-  text-decoration: var(--link-text-decoration);
-  transition: color var(--transition-time);
+  color: $link-color;
+  text-decoration: none;
+  transition: color $transition-time;
 
   &:hover,
   &:focus {
-    color: var(--link-color-hover);
+    color: $link-color--hover;
     text-decoration: none;
   }
 
   &[href^="tel:"] {
-    @include media-breakpoint-up(lg) {
+    @media (min-width: $screen-lg) {
       white-space: nowrap;
-
-      // cursor: default;
     }
   }
 }
@@ -64,6 +58,17 @@ a {
 
 .hidden {
   display: none;
+}
+
+.container {
+  width: 100%;
+  max-width: calc($container-width + ($container-gap * 2));
+  margin: 0 auto;
+  padding: 0 $container-gap;
+
+  @include mobile-l {
+    padding: 0 calc($container-gap / 2);
+  }
 }
 
 h1,
@@ -79,37 +84,37 @@ h5,
 h6,
 .h6 {
   margin: 0 0 30px;
-  color: var(--heading-color);
-  font-weight: var(--heading-font-weight);
+  color: currentcolor;
+  font-weight: 700;
   line-height: 1.2;
 }
 
 h1,
 .h1 {
-  font-size: var(--font-size-h1);
+  font-size: $font-size-h1;
 }
 
 h2,
 .h2 {
-  font-size: var(--font-size-h2);
+  font-size: $font-size-h2;
 }
 
 h3,
 .h3 {
-  font-size: var(--font-size-h3);
+  font-size: $font-size-h3;
 }
 
 h4,
 .h4 {
-  font-size: var(--font-size-h4);
+  font-size: $font-size-h4;
 }
 
 h5,
 .h5 {
-  font-size: var(--font-size-h5);
+  font-size: $font-size-h5;
 }
 
 h6,
 .h6 {
-  font-size: var(--font-size-h6);
+  font-size: $font-size-h6;
 }

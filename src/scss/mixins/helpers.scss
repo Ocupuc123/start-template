@@ -1,3 +1,33 @@
+@mixin laptop {
+  @media (max-width: $screen-xxl - 1) {
+    @content;
+  }
+}
+
+@mixin tablet-l {
+  @media (max-width: $screen-xl - 1) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $screen-lg - 1) {
+    @content;
+  }
+}
+
+@mixin mobile-l {
+  @media (max-width: $screen-md - 1) {
+    @content;
+  }
+}
+
+@mixin mobile-s {
+  @media (max-width: $screen-sm - 1) {
+    @content;
+  }
+}
+
 @mixin aspect-ratio($width, $height) {
   position: relative;
   display: block;
@@ -95,17 +125,8 @@
   }
 }
 
-@mixin section-paddings {
-  padding-top: var(--section-padding-top-horizontal);
-  padding-bottom: var(--section-padding-bottom-horizontal);
+@function rem($value) {
+  $rem-value: calc($value / 16) + rem;
 
-  @include media-breakpoint-down(lg) {
-    --section-padding-top-horizontal: 60px;
-    --section-padding-bottom-horizontal: 60px;
-  }
-
-  @include media-breakpoint-down(sm) {
-    --section-padding-top-horizontal: 40px;
-    --section-padding-bottom-horizontal: 40px;
-  }
+  @return $rem-value;
 }

@@ -20,7 +20,7 @@ mixin label(text, mods, tag)
     }
 
   if(typeof(tag) !== 'undefined' && tag)
-    #{tag}.label(class=allMods)&attributes(attributes)!=text
+    #{tag}.label(class=allMods)&attributes(attributes)!= text
       block
   else
-    span.label(class=allMods)&attributes(attributes)!=text
+    span.label(class=allMods)&attributes(attributes)!= text

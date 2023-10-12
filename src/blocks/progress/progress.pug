@@ -7,19 +7,19 @@ mixin progress(percent, text, mods)
   //-   text     {string} - текст на заполненной части (если пуст, текстового узда не будет)
   //-   mods     {string} - список модификаторов
   //- Вызов:
-    +progress('30', '30%', 'success')(aria-valuemin='0' aria-valuemax='100')
-    +progress('10')(style='height: 10px')
+        +progress('30', '30%', 'success')(aria-valuemin='0', aria-valuemax='100')
+        +progress('10')(style='height: 10px')
   -
     // список модификаторов
-    let allMods = '';
+    var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
-      const modsList = mods.split(',');
-      for (let i = 0; i < modsList.length; i++) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
         allMods = allMods + ' progress--' + modsList[i].trim();
       }
     }
 
   .progress(class=allMods)
-    .progress__bar(role='progressbar' style='width: ' + percent + '%;', aria-valuenow=percent)&attributes(attributes)
+    .progress__bar(role='progressbar', style='width: ' + percent + '%;', aria-valuenow=percent)&attributes(attributes)
       if(typeof(text) !== 'undefined' && text)
-        span.progress__bartext!=text
+        span.progress__bartext!= text

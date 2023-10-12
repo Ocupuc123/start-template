@@ -53,10 +53,10 @@ mixin field-file(props)
 
   .field-file(class=allMods)&attributes(attributes)
     if(typeof(props.title) !== 'undefined' && props.title)
-      .field-file__name!=props.title
+      .field-file__name!= props.title
     label.field-file__input-wrap
       input.field-file__input(type='file', data-multiple-caption=flesSelectedText)&attributes(props.attrs)
-      .field-file__name-text(data-button-text=selectText)=nothingText
+      .field-file__name-text(data-button-text=selectText)= nothingText
       if(typeof(props.helpText) !== 'undefined' && props.helpText)
-        .field-file__help-text!=props.helpText
+        .field-file__help-text!= props.helpText
       block

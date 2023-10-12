@@ -5,41 +5,42 @@
 .pagination {
   display: flex;
   flex-wrap: wrap;
-  margin-top: var(--typo-margin-vertical);
-  margin-bottom: var(--typo-margin-vertical);
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
 
   &__item {
     display: block;
     min-width: 2em;
+    // border: 1px solid $border-color;
     padding: 0.3em 0.6em;
-    color: var(--text-color);
-    text-align: center;
     text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: var(--text-color);
-      text-decoration: none;
-    }
+    text-align: center;
+    color: $text-color;
 
     & + & {
       border-left: 0;
     }
 
-    &--active {
-      background-color: var(--text-color);
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $text-color;
     }
 
     @at-root a#{&} {
-      /* stylelint-disable-next-line max-nesting-depth */
+
       &:hover,
       &:focus {
-        background-color: var(--text-color);
+        background-color: $gray-lightest;
       }
     }
 
     @at-root span#{&} {
       cursor: default;
+    }
+
+    &--active {
+      background-color: $gray-lightest;
     }
   }
 }

@@ -2,45 +2,45 @@
 
 mixin pagination(mods)
 
-  //-  Принимает:
-  //-  mods  {string} - список модификаторов
-  //-  Вызов:
-    +pagination()
-      +pagination-item('1', '/1')
-      +pagination-item('...')
-      +pagination-item('4', '/4')
-      +pagination-item('5', '/5', true)
-      +pagination-item('6', '/6')
-      +pagination-item('...')
-      +pagination-item('999', '/999')
-
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +pagination()
+          +pagination-item('1', '/1')
+          +pagination-item('...')
+          +pagination-item('4', '/4')
+          +pagination-item('5', '/5', true)
+          +pagination-item('6', '/6')
+          +pagination-item('...')
+          +pagination-item('999', '/999')
   -
-
-    let allMods = '';
+    // список модификаторов
+    var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
-      const modsList = mods.split(',');
-      for (let i = 0; i < modsList.length; i++) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
         allMods = allMods + ' pagination--' + modsList[i].trim();
       }
     }
 
-  .pagination(class=allMods, aria-label='Постраничная навигация')&attributes(attributes)
+  .pagination(class=allMods, aria-label='Page navigation')&attributes(attributes)
     block
+
+
 
 mixin pagination-item(text, href, active, mods)
 
   //- Принимает:
-  //-  text   {string} - содержимое пункта
-  //-  href   {string} - ссылка этого пункта (если пустая, то это не ссылка, а span)
-  //-  active {bool}   - флаг «это активный пункт»
-  //-  mods   {string} - список модификаторов
-
+  //-   text   {string} - содержимое пункта
+  //-   href   {string} - ссылка этого пункта (если пустая, то это не ссылка, а span)
+  //-   active {bool}   - флаг «это активный пункт»
+  //-   mods   {string} - список модификаторов
   -
-
-    let allMods = '';
+    // список модификаторов
+    var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
-      const modsList = mods.split(',');
-      for (let i = 0; i < modsList.length; i++) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
         allMods = allMods + ' pagination__item--' + modsList[i].trim();
       }
     }
@@ -49,6 +49,6 @@ mixin pagination-item(text, href, active, mods)
     }
 
   if(typeof(href) !== 'undefined' && href)
-    a.pagination__item(class=allMods, href=href)&attributes(attributes)!=text
+    a.pagination__item(class=allMods, href=href)&attributes(attributes)!= text
   else
-    span.pagination__item(class=allMods)&attributes(attributes)!=text
+    span.pagination__item(class=allMods)&attributes(attributes)!= text

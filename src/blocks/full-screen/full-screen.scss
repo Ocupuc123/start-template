@@ -1,0 +1,44 @@
+// В этом файле должны быть стили для БЭМ-блока full-screen, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.full-screen {
+  $full-screen: &; // #{$full-screen}__element
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__screen {
+    position: relative;
+    flex: 1 0 100%;
+  }
+
+  &__scroll {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+  }
+
+  &__drag-scroll {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $color-main;
+    cursor: pointer;
+  }
+}

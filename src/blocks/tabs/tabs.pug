@@ -41,9 +41,11 @@ mixin tabs(props, mods)
         -
           var isActive = (typeof(tab.isActive) !== 'undefined' && tab.isActive) ? '  tabs__link-wrap--active' : ''
         li.tabs__link-wrap(class=isActive, role='presentation')
-          a.tabs__link(href='#'+tab.id, data-toggle='tab', role='tab')!=tab.text
+          a.tabs__link(href='#'+tab.id, data-toggle='tab', role='tab')!= tab.text
     .tabs__content-wrapper
       block
+
+
 
 mixin tabs-item(id, isActive, mods)
 

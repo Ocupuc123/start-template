@@ -3,71 +3,67 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .burger {
-  $burger: &; // #{$burger}__element
-
-  @include flex-all-center;
-
   position: relative;
   z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
+  border: none;
   padding: 0;
   background: transparent;
-  border: none;
-  cursor: pointer;
   user-select: none;
+  cursor: pointer;
 
-  &__line {
-    position: relative;
+  > span { // stylelint-disable-line  selector-combinator-blacklist
     display: block;
+    position: relative;
     width: 90%;
-    height: var(--toggler-part-height);
-    color: transparent;
+    height: $toggler-part-height;
     font-size: 0;
-    background: var(--text-color);
-    transition: background var(--transition-time);
+    color: transparent;
+    background: $gray-dark;
+    transition: background $transition-time $transition-time;
 
-    &::before,
-    &::after {
+    &:before,
+    &:after {
+      content: '';
       position: absolute;
       left: 0;
       width: 100%;
-      height: var(--toggler-part-height);
-      background: var(--text-color);
+      height: $toggler-part-height;
+      background: $gray-dark;
       transform-origin: 50% 50%;
-      transition: top var(--transition-time) var(--transition-time), transform var(--transition-time);
-      content: "";
+      transition: top $transition-time $transition-time, transform $transition-time;
     }
 
-    &::before {
+    &:before {
       top: -10px;
     }
 
-    &::after {
+    &:after {
       top: 10px;
     }
   }
 
   &--close {
 
-    #{$burger}__line {
+    > span { // stylelint-disable-line  selector-combinator-blacklist
+      transition: background $transition-time 0s;
       background: transparent;
-      transition: background var(--transition-time) 0s;
 
-      /* stylelint-disable-next-line max-nesting-depth */
-      &::before,
-      &::after {
+      &:before,
+      &:after {
         top: 0;
-        transition: top var(--transition-time), transform var(--transition-time) var(--transition-time);
+        transition: top $transition-time, transform $transition-time $transition-time;
       }
 
-      /* stylelint-disable-next-line max-nesting-depth */
-      &::before {
+      &:before {
         transform: rotate3d(0, 0, 1, 45deg);
       }
 
-      /* stylelint-disable-next-line max-nesting-depth */
-      &::after {
+      &:after {
         transform: rotate3d(0, 0, 1, -45deg);
       }
     }

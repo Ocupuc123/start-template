@@ -22,6 +22,7 @@ mixin form(mods)
             })
 
   -
+    // список модификаторов
     var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
@@ -32,6 +33,8 @@ mixin form(mods)
 
   form.form(class=allMods)&attributes(attributes)
     block
+
+
 
 mixin fieldset(legend, mods)
 
@@ -48,6 +51,7 @@ mixin fieldset(legend, mods)
           })
 
   -
+    // список модификаторов
     var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
@@ -57,5 +61,5 @@ mixin fieldset(legend, mods)
     }
 
   fieldset.form__fieldset(class=allMods)&attributes(attributes)
-    legend.form__legend!=legend
+    legend.form__legend!= legend
     block

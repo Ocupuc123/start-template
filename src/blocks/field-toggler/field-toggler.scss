@@ -3,40 +3,42 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-toggler {
-  $block-name: &; // #{$block-name}__element
+
+  $block-name:                &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: var(--typo-margin-vertical);
+  margin-bottom: $typo-margin-vertical;
 
   &__title {
     @include field-name;
   }
 
   &__input-wrap {
+
     & + & {
-      margin-top: var(--typo-margin-vertical);
+      margin-top: $typo-margin-vertical;
     }
 
     &--error {
 
       #{$block-name}__name-text,
       #{$block-name}__help-text {
-        color: var(--color-danger);
+        color: $color-danger;
       }
 
       #{$block-name}__name-text:after {
-        background: var(--color-danger);
+        background: $color-danger;
       }
     }
   }
 
   &__name {
-    position: relative;
     display: inline-block;
-    margin-right: 0.6em;
+    position: relative;
     padding-left: 3.2em;
+    margin-right: 0.6em;
     font-weight: 400;
-    line-height: var(--line-height);
+    line-height: $line-height;
   }
 
   &__name-text {
@@ -46,15 +48,15 @@
       cursor: not-allowed;
     }
 
-    &::before {
+    &:before {
+      content: '';
       position: absolute;
       top: 3px;
       left: 0;
       width: 35px;
       height: 18px;
       background-color: #fff;
-      border: 1px solid var(--border-color);
-      content: "";
+      border: 1px solid $border-color;
 
       @at-root input:focus ~ & {
         @include field-focus;
@@ -62,20 +64,20 @@
     }
 
     @at-root input:disabled ~ &:before {
-      background: var(--text-color);
-      border-color: var(--text-color);
+      border-color: $gray-light;
+      background: $gray-lighter;
     }
 
-    &::after {
+    &:after {
+      content: '';
       position: absolute;
       top: 5px;
       left: 2px;
       width: 14px;
       height: 14px;
-      background-color: var(--text-color);
-      border: 1px solid var(--border-color);
+      background-color: $gray-lightest;
+      border: 1px solid $border-color;
       transition: all 0.3s;
-      content: "";
     }
 
     @at-root input:checked ~ &:after {
@@ -83,7 +85,7 @@
     }
 
     @at-root input:disabled ~ &:after {
-      background-color: var(--text-color);
+      background-color: $gray-light;
     }
   }
 

@@ -3,18 +3,19 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-file {
-  $block-name: &; // #{$block-name}__element
+
+  $block-name:                &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: var(--typo-margin-vertical);
+  margin-bottom: $typo-margin-vertical;
 
   &__name {
     @include field-name;
   }
 
   &__input-wrap {
-    position: relative;
     display: block;
+    position: relative;
   }
 
   &__input {
@@ -23,45 +24,48 @@
     height: 0;
     opacity: 0;
 
-    &:active ~ #{$block-name}__name-text,
-    &:focus ~ #{$block-name}__name-text {
+    &:active ~ .field-file__name-text,
+    &:focus ~ .field-file__name-text {
       @include field-focus;
     }
   }
 
   &__name-text {
-    position: relative;
     display: flex;
     align-items: baseline;
+    position: relative;
     width: 100%;
-    overflow: hidden;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: #fff;
     white-space: nowrap;
     text-overflow: ellipsis;
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
     cursor: pointer;
+    overflow: hidden;
 
     @at-root input:disabled ~ & {
-      background: var(--text-color);
+      background: $gray-lighter;
       cursor: not-allowed;
     }
 
-    &::before {
-      display: block;
-      margin-right: var(--field-padding-horizontal);
-      padding: var(--field-padding-vertical)  var(--field-padding-horizontal);
-      line-height: var(--line-height);
-      background-color: var(--text-color);
-      border-right: 1px solid var(--border-color);
-      border-top-left-radius: var(--border-radius);
-      border-bottom-left-radius: var(--border-radius);
+    &:before {
       content: attr(data-button-text);
+      display: block;
+      background-color: $gray-lightest;
+      border-right: 1px solid $border-color;
+      margin-right: $field-padding-horizontal;
+      line-height: $line-height;
+      padding: $field-padding-vertical  $field-padding-horizontal;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
     }
 
-    &:hover::before,
-    &:focus::before {
-      background-color: var(--text-color); // как у обычных кнопок
+    &:hover,
+    &:focus {
+
+      &:before {
+        background-color: darken($gray-lightest, 10%); // как у обычных кнопок
+      }
     }
   }
 
@@ -69,18 +73,20 @@
     @include field-help-text;
   }
 
+
+
   &--error {
 
     #{$block-name}__name,
     #{$block-name}__name-text,
     #{$block-name}__input,
     #{$block-name}__help-text {
-      color: var(--color-danger);
+      color: $color-danger;
     }
 
     #{$block-name}__name-text {
-      background-color: var(--color-danger);
-      border-color: var(--color-danger);
+      border-color: $color-danger;
+      background-color: lighten($color-danger, 35%);
     }
   }
 }

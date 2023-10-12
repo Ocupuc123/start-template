@@ -3,5 +3,6 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .page-footer {
-  $page-footer: &; // #{$page-footer}__element
+
+  $block-name:                &; // #{$block-name}__element
 }

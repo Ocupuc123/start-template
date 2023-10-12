@@ -3,21 +3,51 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .social {
-  $social: &; // #{$social}__
 
-  @include list-reset;
+  $block-name:                &; // #{$block-name}__
 
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   align-items: center;
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+  padding: 0;
+  list-style: none;
+
+  &__link-wrap {
+    margin-right: 10px;
+  }
 
   &__link {
     display: block;
-    width: 30px;
-    height: 30px;
-    color: #fff;
-    background-color: var(--text-color);
-    border-radius: 50%;
+    padding: 5px;
+    background-color: $gray;
+
+    #{$block-name}__link-wrap--fb & {
+      background-color: $color-fb;
+    }
+
+    // #{$block-name}__link-wrap--vk & {
+    //   background-color: $color-vk;
+    // }
+
+    // #{$block-name}__link-wrap--tw & {
+    //   background-color: $color-tw;
+    // }
+
+    // #{$block-name}__link-wrap--gh & {
+    //   background-color: $color-gh;
+    // }
+
+    svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+    }
+  }
+
+  &__text {
+    @include hide-text;
   }
 }

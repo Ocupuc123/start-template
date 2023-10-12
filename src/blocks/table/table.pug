@@ -5,26 +5,25 @@ mixin table(mods)
   //- Принимает:
   //-   mods  {string} - список модификаторов
   //- Вызов:
-    +table()
-      tr
-        th Имя
-        th Фамилия
-        th Мыло
-      tr
-        td Иннокентий
-        td Иванов
-        td Хозяйственное
-      tr
-        td Васисуалий
-        td Римский-Корсаков
-        td Душистое
-
+        +table()
+          tr
+            th Имя
+            th Фамилия
+            th Мыло
+          tr
+            td Иннокентий
+            td Иванов
+            td Хозяйственное
+          tr
+            td Васисуалий
+            td Римский-Корсаков
+            td Душистое
   -
-
-    let allMods = '';
+    // список модификаторов
+    var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
-      const modsList = mods.split(',');
-      for (let i = 0; i < modsList.length; i++) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
         allMods = allMods + ' table--' + modsList[i].trim();
       }
     }

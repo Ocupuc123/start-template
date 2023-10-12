@@ -3,10 +3,11 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-text {
-  $field-text: &; // #{$field-text}__element
+
+  $block-name:                &; // #{$block-name}__element
 
   display: block;
-  margin-bottom: var(--typo-margin-vertical);
+  margin-bottom: $typo-margin-vertical;
 
   &__name {
     @include field-name;
@@ -20,31 +21,11 @@
     @include field-text;
 
     @at-root textarea#{&} {
+      $textarea-height: ($line-height * 2) + ($field-padding-vertical * 2);
+
       height: auto;
+      min-height: calc(#{$textarea-height} + 2px);
       resize: vertical;
-    }
-
-    &.just-validate-error-field,
-    &.just-validate-success-field {
-      background-repeat: no-repeat;
-      background-position: right calc(0.375em + 0.1875rem) center;
-      background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-    }
-
-    &.just-validate-error-field {
-      color: var(--color-danger);
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23B81111'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23B81111' stroke='none'/%3E%3C/svg%3E");
-      border-color: var(--color-danger);
-      box-shadow: 0 0 0 2px var(--color-danger);
-    }
-
-    &.just-validate-success-field {
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");
-      border-color: var(--color-success);
-    }
-
-    &.just-validate-success-field:focus {
-      box-shadow: 0 0 0 2px var(--color-success);
     }
   }
 
@@ -52,17 +33,19 @@
     @include field-help-text;
   }
 
+
+
   &--error {
 
-    #{$field-text}__name,
-    #{$field-text}__input,
-    #{$field-text}__help-text {
-      color: var(--color-danger);
+    #{$block-name}__name,
+    #{$block-name}__input,
+    #{$block-name}__help-text {
+      color: $color-danger;
     }
 
-    #{$field-text}__input {
-      background-color: var(--color-danger);
-      border-color: var(--color-danger);
+    #{$block-name}__input {
+      border-color: $color-danger;
+      background-color: lighten($color-danger, 35%);
     }
   }
 }

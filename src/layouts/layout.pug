@@ -1,6 +1,5 @@
 //- Стандартный шаблон страницы
 
-include ../../bemto/bemto
 include ../blocks/mixins
 
 doctype html
@@ -20,7 +19,5 @@ html.page(lang='ru')
     +page-header
     block content
     +page-footer
-    +modal('mobile-menu', 'offcanvas')
-      +mobile-menu
     block scripts
       script(src='./js/main.js')

@@ -5,22 +5,24 @@ mixin breadcrumbs(mods)
   //- Принимает:
   //-   mods  {string} - список модификаторов
   //- Вызов:
-    +breadcrumbs()
-      +breadcrumbs-item('Главная', '/home')
-      +breadcrumbs-item('Услуги', '/services')
-      +breadcrumbs-item('Стриптиз')
-
+        +breadcrumbs()
+          +breadcrumbs-item('Главная', '/home')
+          +breadcrumbs-item('Услуги', '/services')
+          +breadcrumbs-item('Стриптиз')
   -
-    let allMods = '';
+    // список модификаторов
+    var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
-      const modsList = mods.split(',');
-      for (let i = 0; i < modsList.length; i++) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
         allMods = allMods + ' breadcrumbs--' + modsList[i].trim();
       }
     }
 
-  ol.breadcrumbs(class=allMods, aria-label='Breadcrumb' role='navigation')&attributes(attributes)
+  ul.breadcrumbs(class=allMods, aria-label='Breadcrumb', role='navigation')&attributes(attributes)
     block
+
+
 
 mixin breadcrumbs-item(text, href, mods)
 
@@ -30,16 +32,16 @@ mixin breadcrumbs-item(text, href, mods)
   //-   mods   {string} - список модификаторов
   -
     // список модификаторов
-    let allMods = '';
+    var allMods = '';
     if(typeof(mods) !== 'undefined' && mods) {
-      const modsList = mods.split(',');
-      for (let i = 0; i < modsList.length; i++) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
         allMods = allMods + ' breadcrumbs__item--' + modsList[i].trim();
       }
     }
 
   li.breadcrumbs__item(class=allMods)&attributes(attributes)
     if(typeof(href) !== 'undefined' && href)
-      a(href=href)!=text
+      a(href=href)!= text
     else
-      span!=text
+      span!= text

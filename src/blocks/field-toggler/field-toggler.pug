@@ -9,7 +9,8 @@ mixin field-toggler(togglers, title, isRadio)
   //-       helpText: ''      {string} - пояснение под полем
   //-       mods: ''          {string} - модификаторы обёртки переключателя
   //-       attrs:            {object} - любые атрибуты для input
-  //-       name:             {string}
+  //-         name:           {string}
+  //-     ...
   //-   title: ''             {string} - общее название группы переключателей
   //-   isRadio: false        {bool}   - флаг «это радиокнопки, а не чекбоксы»
   //- Вызов:
@@ -49,7 +50,7 @@ mixin field-toggler(togglers, title, isRadio)
 
   .field-toggler&attributes(attributes)
     if(typeof(title) !== 'undefined' && title)
-      .field-toggler__title!=title
+      .field-toggler__title!= title
     each toggler in togglers
       -
         var allMods = '';
@@ -62,7 +63,7 @@ mixin field-toggler(togglers, title, isRadio)
       .field-toggler__input-wrap(class=allMods)
         label.field-toggler__name
           input.field-toggler__input(type=type)&attributes(toggler.attrs)
-          span.field-toggler__name-text!=toggler.title
+          span.field-toggler__name-text!= toggler.title
         if(typeof(toggler.helpText) !== 'undefined' && toggler.helpText)
           .field-toggler__help-text-wrap
-            .field-toggler__help-text!=toggler.helpText
+            .field-toggler__help-text!= toggler.helpText

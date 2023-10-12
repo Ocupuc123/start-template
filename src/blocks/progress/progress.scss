@@ -3,19 +3,19 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .progress {
-  margin-top: var(--typo-margin-vertical);
-  margin-bottom: var(--typo-margin-vertical);
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
   text-align: center;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
 
   &__bar {
+    background-color: $gray-lightest;
+    border-radius: $border-radius;
     max-width: 100%;
     min-height: 1px;
     white-space: nowrap;
-    background-color: var(--text-color);
-    border-radius: var(--border-radius);
-    transition: width var(--transition-time);
+    transition: width $transition-time;
   }
 
   &__bartext {

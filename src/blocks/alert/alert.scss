@@ -4,30 +4,30 @@
 
 .alert {
   position: relative;
-  margin-top: var(--typo-margin-vertical);
-  margin-bottom: var(--typo-margin-vertical);
+  margin-top: $typo-margin-vertical;
+  margin-bottom: $typo-margin-vertical;
   padding: 0.7em 1.5em 0.7em 1.4em;
-  color: var(--text-color);
-  background-color: var(--color-warning);
-  border-radius: var(--border-radius);
+  border-radius: $border-radius;
+  color: $text-color;
+  background-color: lighten($color-warning, 30%);
 
-  & > * {
+  & > * { // stylelint-disable-line  selector-combinator-blacklist
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  & > * + * {
-    margin-top: var(--typo-margin-vertical);
+  & > * + * { // stylelint-disable-line  selector-combinator-blacklist
+    margin-top: $typo-margin-vertical;
   }
 
   &__header {
     display: block;
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: inherit;
-    font-weight: 400;
     font-size: $font-size-h3;
+    font-weight: 400;
     line-height: 1.2;
+    color: inherit;
 
     & + * {
       margin-top: 0;
@@ -41,38 +41,40 @@
     margin: 0;
   }
 
-  &--warning {
-    color: var(--text-color);
-    background-color: var(--color-warning);
-  }
 
-  &--danger {
-    color: #fff;
-    background-color: var(--color-danger);
 
-    a {
-      color: inherit;
-      text-decoration: underline;
+  // &--warning {
+  //   background-color: lighten($color-warning, 30%);
+  //   color: $text-color;
+  // }
 
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
-    }
-  }
+  // &--danger {
+  //   background-color: $color-danger;
+  //   color: #fff;
 
-  &--success {
-    color: #fff;
-    background-color: var(--color-success);
+  //   a {
+  //     color: inherit;
+  //     text-decoration: underline;
 
-    a {
-      color: inherit;
-      text-decoration: underline;
+  //     &:hover,
+  //     &:focus {
+  //       text-decoration: none;
+  //     }
+  //   }
+  // }
 
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
-    }
-  }
+  // &--success {
+  //   background-color: $color-success;
+  //   color: #fff;
+
+  //   a {
+  //     color: inherit;
+  //     text-decoration: underline;
+
+  //     &:hover,
+  //     &:focus {
+  //       text-decoration: none;
+  //     }
+  //   }
+  // }
 }

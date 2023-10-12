@@ -3,8 +3,8 @@
 mixin field-actions(text, mods)
 
   //- Принимает:
-  //-   text: {string} - текст пояснения
-  //-   mods: {string} - модификаторы блока
+  //-     text: ''  {string} - текст пояснения
+  //-     mods: ''  {string} - модификаторы блока
   //- Вызов:
         +field-actions('* — обязательные поля', 'some-mod')
           p КнопкиТут
@@ -20,5 +20,5 @@ mixin field-actions(text, mods)
 
   .field-actions(class=allMods)&attributes(attributes)
     if(typeof(text) !== 'undefined' && text)
-      .field-actions__text!=text
+      .field-actions__text!= text
     block

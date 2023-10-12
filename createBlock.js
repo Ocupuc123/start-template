@@ -1,3 +1,4 @@
+/* eslint-disable check-file/filename-naming-convention */
 /* global process */
 // Генератор файлов блока
 // Использование: node createBlock.js [имя блока] [доп. расширения через пробел]
