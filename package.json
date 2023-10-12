@@ -61,7 +61,7 @@
     "stylelint-scss": "latest",
     "webpack": "latest",
     "webpack-cli": "latest",
-    "webpack-stream": "^7.0.0"
+    "webpack-stream": "latest"
   },
   "dependencies": {
     "accordion-js": "latest",
