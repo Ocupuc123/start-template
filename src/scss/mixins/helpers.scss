@@ -1,28 +1,28 @@
-@mixin laptop {
+@mixin laptop-viewport {
   @media (max-width: $screen-xxl - 1) {
     @content;
   }
 }
 
-@mixin tablet-l {
+@mixin tablet-l-viewport {
   @media (max-width: $screen-xl - 1) {
     @content;
   }
 }
 
-@mixin tablet {
+@mixin tablet-viewport {
   @media (max-width: $screen-lg - 1) {
     @content;
   }
 }
 
-@mixin mobile-l {
+@mixin mobile-l-viewport {
   @media (max-width: $screen-md - 1) {
     @content;
   }
 }
 
-@mixin mobile-s {
+@mixin mobile-s-viewport {
   @media (max-width: $screen-sm - 1) {
     @content;
   }
@@ -125,8 +125,22 @@
   }
 }
 
+$browser-context: 16;
+
 @function rem($value) {
-  $rem-value: calc($value / 16) + rem;
+  $rem-value: calc($value / $browser-context) + rem;
 
   @return $rem-value;
+}
+
+@function em($value) {
+  $em-value: calc($value / $browser-context) + em;
+
+  @return $em-value;
+}
+
+@function vw($value, $viewport: 1920) {
+  $vw-context: ($viewport * 0.01) * 1px;
+
+  @return calc(($value / $vw-context) * 1vw);
 }

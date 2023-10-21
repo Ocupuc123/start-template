@@ -1,5 +1,7 @@
 // import * as functions from './files/functions.js';
 
+// import './files/gsap.js';
+
 /* Добавление класса touch для HTML если браузер мобильный */
 // functions.addTouchClass();
 
