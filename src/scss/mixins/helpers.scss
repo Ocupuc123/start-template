@@ -28,6 +28,26 @@
   }
 }
 
+@mixin section-padding-top {
+  @include laptop-viewport {
+    padding-top: 60px;
+  }
+
+  @include mobile-l-viewport {
+    padding-top: 40px;
+  }
+}
+
+@mixin section-padding-bottom {
+  @include laptop-viewport {
+    padding-bottom: 60px;
+  }
+
+  @include mobile-l-viewport {
+    padding-bottom: 40px;
+  }
+}
+
 @mixin aspect-ratio($width, $height) {
   position: relative;
   display: block;
