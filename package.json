@@ -80,6 +80,7 @@
     "lodash.throttle": "latest",
     "micromodal": "latest",
     "normalize.css": "latest",
+    "rfs": "latest",
     "swiper": "latest"
   }
 }

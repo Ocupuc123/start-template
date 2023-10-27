@@ -1,4 +1,5 @@
 @import "node_modules/normalize.css/normalize";
+@import "node_modules/rfs/scss";
 
 *,
 *::before,
@@ -83,20 +84,21 @@ h5,
 .h5,
 h6,
 .h6 {
-  margin: 0 0 30px;
-  color: currentcolor;
-  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: $heading-color;
+  font-weight: $heading-font-weight;
   line-height: 1.2;
 }
 
 h1,
 .h1 {
-  font-size: $font-size-h1;
+  @include font-size($font-size-h1);
 }
 
 h2,
 .h2 {
-  font-size: $font-size-h2;
+  @include font-size($font-size-h2);
 }
 
 h3,

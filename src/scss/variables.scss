@@ -26,7 +26,8 @@ $color-gh:                    #24292e;
 
 // Семантические цвета
 
-$text-color:                  $gray-darkest;
+$text-color:                  $gray-darker;
+$heading-color:               $gray-darkest;
 $text-color-muted:            $gray;
 $body-bg:                     $white;
 
@@ -48,13 +49,11 @@ $font-size-h5:                16px;
 $font-size-h6:                16px;
 
 $font-size-sm:                0.75em;
-
 $line-height:                 1.5;
-
 $typo-margin-vertical:        1em;
+$heading-font-weight:         700;
 
 $font-family:                 -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-$font-family--monospace:     SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 
 
 // Ширины
@@ -83,3 +82,5 @@ $toggler-part-height:         2px;
 
 $z-index-modal:               100;
 $aos-distance:                100px;
+$rfs-breakpoint:              $screen-lg;
+
