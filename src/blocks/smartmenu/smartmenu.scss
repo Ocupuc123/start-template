@@ -280,7 +280,7 @@ $sm__toggle-spacing: floor($sm__item-height * 0.1);
   // Sub menus box
   ul {
     // Add indentation for sub menus text for deeper levels
-    @include sm-mint__sub-items-indentation($sm__collapsible-sub-item-indentation);
+    @include sm__sub-items-indentation($sm__collapsible-sub-item-indentation);
 
     background: $sm__collapsible-sub-bg;
 
