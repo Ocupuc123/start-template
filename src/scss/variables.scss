@@ -84,3 +84,19 @@ $z-index-modal:               100;
 $aos-distance:                100px;
 $rfs-breakpoint:              $screen-lg;
 
+// Smartmenu
+$sm__desktop-vp:                        $screen-lg;
+
+$sm__font-size-base:                    16px;
+$sm__line-height:                       16px;
+$sm__font-weight:                       400;
+$sm__text-transform:                    none;
+
+$sm__color-link:                        $gray-darkest;
+$sm__desktop-bg:                        transparent;
+$sm__desktop-item-color:                $sm__color-link;
+
+$sm__border-radius-base:                $border-radius;
+$sm__desktop-item-padding-vertical:     10px;
+$sm__desktop-item-padding-horizontal:   15px;
+

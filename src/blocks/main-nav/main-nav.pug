@@ -11,9 +11,8 @@ mixin main-nav(selectedID)
   //- подключаем файл со структурой данных блока
   include main-nav.data.pug
 
-  nav.main-nav#nav&attributes(attributes)
-    +burger('Показать главное меню', 'nav', 'main-nav--open')(class='main-nav__toggler')
-    ul.main-nav__list
+  nav.main-nav&attributes(attributes)
+    ul.smartmenu
       each menuItem in mainMenu
         +main-nav-item(selectedID, menuItem, 1)
           if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
@@ -27,27 +26,15 @@ mixin main-nav(selectedID)
 
 mixin main-nav-item(selectedID, item, level)
   -
-    var thisItemClass = 'main-nav__item';
-    var thisLinkClass = 'main-nav__link';
+    var thisLinkClass = '';
     if(selectedID == item.id) {
-      thisItemClass += '  main-nav__item--active';
-    }
-    if(item.childs) {
-      thisItemClass += '  main-nav__item--has-child';
-    }
-    if(level > 1) {
-      thisItemClass += '  main-nav__item--lvl-' + level;
-      thisLinkClass += '  main-nav__link--lvl-' + level;
+      thisLinkClass += 'current';
     }
 
-  li(class= thisItemClass)
-    a(class= thisLinkClass, href=item.url)= item.name
+  li
+    a(class= thisLinkClass, href=item.url)=item.name
     block
 
 mixin main-nav-sublist-wrapper(level)
-  -
-    var divClass = 'main-nav__sublist-wrapper  main-nav__sublist-wrapper--lvl-' + level;
-    var listClass = 'main-nav__list  main-nav__list--lvl-' + level;
-  div(class= divClass)
-    ul(class= listClass)
-      block
+  ul(class= listClass)
+    block

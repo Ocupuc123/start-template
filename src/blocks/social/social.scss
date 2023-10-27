@@ -3,8 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .social {
-
-  $block-name:                &; // #{$block-name}__
+  $block-name: &; // #{$block-name}__
 
   display: flex;
   flex-wrap: wrap;
@@ -48,6 +47,6 @@
   }
 
   &__text {
-    @include hide-text;
+    @include visually-hidden;
   }
 }
