@@ -13,7 +13,7 @@ import { writeJsImportsFile } from './write-js-imports-file.js';
 
 export const browserSync = (cb) => {
   server.init({
-    server: 'build',
+    server: 'build/',
     notify: false,
     cors: true
   });
