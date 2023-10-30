@@ -29,7 +29,7 @@
 }
 
 @mixin section-padding-top {
-  @include laptop-viewport {
+  @include tablet-l-viewport {
     padding-top: 60px;
   }
 
@@ -39,7 +39,7 @@
 }
 
 @mixin section-padding-bottom {
-  @include laptop-viewport {
+  @include tablet-l-viewport {
     padding-bottom: 60px;
   }
 
