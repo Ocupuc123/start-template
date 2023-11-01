@@ -1,10 +1,10 @@
-@mixin laptop-viewport {
+@mixin laptop-l-viewport {
   @media (max-width: $screen-xxl - 1) {
     @content;
   }
 }
 
-@mixin tablet-l-viewport {
+@mixin laptop-viewport {
   @media (max-width: $screen-xl - 1) {
     @content;
   }
