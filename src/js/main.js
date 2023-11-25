@@ -20,7 +20,7 @@
 
 /* Библиотека AOS JS */
 // Документация: https://michalsnik.github.io/aos/
-import './files/aos.js';
+// import './files/aos.js';
 
 /* Модуль показать еще */
 // Документация: https://github.com/tomickigrzegorz/show-more
@@ -28,7 +28,7 @@ import './files/aos.js';
 
 /* Модуль слайдера */
 // Документация: https://swiperjs.com/swiper-api
-import './files/swiper.js';
+// import './files/swiper.js';
 
 /* Модуль полноэкранного скролла на базе слайдера */
 // Документация: https://swiperjs.com/swiper-api
