@@ -8,5 +8,3 @@
   <code>svg(width='32', height='32')</code>
   <code>  use(xlink:href='img/sprite.svg#icon-boo')</code>
 </pre>
-
-<p class="alert alert--warning">При использовании блока в проекте в сборку берётся <a href="https://www.npmjs.com/package/svg4everybody">svg4everybody</a>.</p>
