@@ -1,7 +1,7 @@
-import { getScrollSize } from '../../js/utils/get-scrol-size.js';
+import { getScrollbarSize } from '../../js/functions/get-scrollbar-size.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const bodyPaddingRightOriginal = parseInt(window.getComputedStyle(document.body, null).getPropertyValue('padding-right'));
+  const bodyPaddingRightOriginal = parseInt(window.getComputedStyle(document.body, null).getPropertyValue('padding-right'), 10);
   const backdrop = document.createElement('div');
 
   document.addEventListener('click', (event) => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showModal(targetModalNode) {
       if ((document.body.clientHeight - document.documentElement.clientHeight) > 0) {
-        document.body.style.paddingRight = `${bodyPaddingRightOriginal + getScrollSize() }px`;
+        document.body.style.paddingRight = `${bodyPaddingRightOriginal + getScrollbarSize() }px`;
       }
       document.body.classList.add('modal-open');
 

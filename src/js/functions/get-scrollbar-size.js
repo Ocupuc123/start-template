@@ -1,4 +1,4 @@
-export const getScrollSize = function () {
+export const getScrollbarSize = function () {
   const outer = document.createElement('div');
   const inner = document.createElement('div');
   outer.style.overflow = 'scroll';

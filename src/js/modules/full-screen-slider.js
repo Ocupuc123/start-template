@@ -1,6 +1,6 @@
 import Swiper from 'swiper/bundle';
 
-const initSlidersScroll = () => {
+document.addEventListener('DOMContentLoaded', () => {
   const fullScreen = document.querySelector('.full-screen');
 
   const setScrollType = (slider) => {
@@ -67,9 +67,4 @@ const initSlidersScroll = () => {
       }
     }
   });
-
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  initSlidersScroll();
 });

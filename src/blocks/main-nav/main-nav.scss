@@ -3,8 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .main-nav {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   position: relative;
   z-index: 10;
@@ -17,26 +16,21 @@
 
     // мобильный вид списка
     @media (max-width: ($menu-desktop-width - 1)) {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s;
 
-      // открытие/закрытие меню только в случае работающего JS
-
-      .js & {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s;
-
-        &--lvl-2 {
-          max-height: none;
-        }
-      }
-
-      .js #{$block-name}--open & {
+      #{$block-name}--open & {
         max-height: 1000px;
         transition: max-height 0.6s;
 
         &--lvl-2 {
           max-height: none;
         }
+      }
+
+      &--lvl-2 {
+        max-height: none;
       }
     }
 
@@ -60,7 +54,7 @@
 
     &--active {
 
-      & > #{$block-name}__link { // stylelint-disable-line  selector-combinator-blacklist
+      & > #{$block-name}__link {
         color: #000;
       }
     }
@@ -98,69 +92,54 @@
   }
 
   &__sublist-wrapper {
-
     &--lvl-2 {
-
       @media (min-width: $menu-desktop-width) {
         position: absolute;
-        z-index: 1;
         top: 100%;
         left: 0;
+        z-index: 1;
         height: 0;
-        opacity: 0;
         overflow: hidden;
+        opacity: 0;
         transition: opacity $transition-time;
 
-        // stylelint-disable
         #{$block-name}__item--show-child > &,
         #{$block-name}__item:hover & {
           height: auto;
           overflow: visible;
           opacity: 1;
         }
-        // stylelint-enable
       }
     }
 
     &--lvl-3 {
-
       @media (min-width: $menu-desktop-width) {
         position: absolute;
-        z-index: 1;
         top: 0;
         left: 100%;
-        opacity: 0;
+        z-index: 1;
         height: 0;
         overflow: hidden;
+        opacity: 0;
         transition: opacity $transition-time;
 
-        // stylelint-disable
         #{$block-name}__item--show-child > &,
         #{$block-name}__item--lvl-2:hover & {
           height: auto;
           overflow: visible;
           opacity: 1;
         }
-        // stylelint-enable
       }
     }
   }
 
-
-
-  // переключатель
-
   &__toggler {
     display: inline-block;
-    border: none;
     padding: 0;
     background: none;
+    border: none;
 
     @media (min-width: $menu-desktop-width) {
-      display: none;
-    }
-
-    .no-js & {
       display: none;
     }
   }

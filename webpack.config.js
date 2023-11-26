@@ -11,7 +11,6 @@ export default {
   output: {
     path: path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), './build/js'),
     filename: '[name].min.js',
-    chunkFilename: '[name].min.js'
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -31,19 +30,6 @@ export default {
       }
     ]
   },
-  // eslint-disable-next-line no-undef
-  optimization: process.env.NODE_ENV === 'development' ? {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          name: 'vendors',
-          test: /node_modules/,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
-  } : {},
   performance: {
     hints: false
   }

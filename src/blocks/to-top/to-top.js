@@ -1,53 +1,55 @@
+class Animation {
+  constructor({ timing, draw, duration }) {
+    this.timing = timing;
+    this.draw = draw;
+    this.duration = duration;
+    this.start = performance.now();
+    this.animate = this.animate.bind(this);
+    requestAnimationFrame(this.animate);
+  }
+
+  animate(time) {
+    let timeFraction = (time - this.start) / this.duration;
+    if (timeFraction > 1) {
+      timeFraction = 1;
+    }
+    const progress = this.timing(timeFraction);
+    this.draw(progress);
+    if (timeFraction < 1) {
+      requestAnimationFrame(this.animate);
+    }
+  }
+}
+
+const visibilityToggle = () => {
+  const toTopElement = document.querySelector('.to-top');
+  if (window.scrollY >= 500) {
+    toTopElement.classList.toggle('to-top--visible', true);
+  } else {
+    toTopElement.classList.toggle('to-top--visible', false);
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  const toTopElement = document.querySelector('.to-top');
 
-  if(document.getElementById('to-top')) {
-
-    document.getElementById('to-top').addEventListener('click', (e) => {
+  if (toTopElement) {
+    toTopElement.addEventListener('click', (e) => {
       e.preventDefault();
-      const scroll = window.pageYOffset;
+      const scroll = window.scrollY;
       const targetTop = 0;
       const scrollDiff = (scroll - targetTop) * -1;
-      animate({
+      new Animation({
         duration: 500,
-        timing: function(timeFraction) {
-          return Math.pow(timeFraction, 4); // https://learn.javascript.ru/js-animation
-        },
-        draw: function(progress) {
+        timing: (timeFraction) => Math.pow(timeFraction, 4),
+        draw: (progress) => {
           const scrollNow = scroll + progress * scrollDiff;
-          window.scrollTo(0,scrollNow);
+          window.scrollTo(0, scrollNow);
         }
       });
-    }, false);
+    });
 
     window.addEventListener('scroll', visibilityToggle);
     visibilityToggle();
-
   }
-
-  function visibilityToggle() {
-    if(window.pageYOffset >= 500) {
-      document.getElementById('to-top').classList.add('to-top--visible');
-    } else {
-      document.getElementById('to-top').classList.remove('to-top--visible');
-    }
-  }
-
-  function animate(_ref) {
-    const timing = _ref.timing,
-      draw = _ref.draw,
-      duration = _ref.duration;
-    const start = performance.now();
-    requestAnimationFrame(function animate(time) {
-      let timeFraction = (time - start) / duration;
-      if (timeFraction > 1) {
-        timeFraction = 1;
-      }
-      const progress = timing(timeFraction);
-      draw(progress);
-      if (timeFraction < 1) {
-        requestAnimationFrame(animate);
-      }
-    });
-  }
-
 });

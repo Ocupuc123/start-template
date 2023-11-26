@@ -5,7 +5,7 @@ mixin to-top(mods)
   //- Принимает:
   //-   mods    {string} - список модификаторов
   //- Вызов:
-        +to-top()
+    +to-top
 
   -
     // список модификаторов
@@ -17,4 +17,5 @@ mixin to-top(mods)
       }
     }
 
-  a.to-top#to-top(class=allMods, href='#')&attributes(attributes) ↑
+  button.to-top(class=allMods, type='button')&attributes(attributes)
+    .visually-hidden Наверх

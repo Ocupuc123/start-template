@@ -72,6 +72,7 @@
     "closest": "latest",
     "gsap": "latest",
     "handy-collapse": "latest",
+    "hc-sticky": "^2.2.7",
     "img-comparison-slider": "latest",
     "inputmask": "latest",
     "jquery": "latest",
