@@ -5,7 +5,6 @@
   "disallowIdAttributeWithStaticValue": true,
   "disallowLegacyMixinCall": true,
   "disallowMultipleLineBreaks": true,
-  "disallowSpaceAfterCodeOperator": true,
   "disallowSpacesInsideAttributeBrackets": true,
   "disallowStringConcatenation": true,
   "requireClassLiteralsBeforeAttributes": true,

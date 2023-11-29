@@ -15,7 +15,8 @@ export const browserSync = (cb) => {
   server.init({
     server: 'build/',
     notify: false,
-    cors: true
+    cors: true,
+    ui: false
   });
 
   // Страницы: изменение, добавление
