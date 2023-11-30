@@ -1,3 +1,4 @@
+import jQuery from 'jquery';
 import smartmenus from 'smartmenus';
 
 jQuery(() => {
