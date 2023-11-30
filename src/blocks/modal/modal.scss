@@ -14,6 +14,11 @@
   height: 100%;
   overflow: hidden;
   outline: 0;
+  -webkit-overflow-scrolling: touch;
+
+  .modal-open & {
+    overflow: hidden auto;
+  }
 
   &__dialog {
     position: relative;
@@ -88,11 +93,6 @@
 
 .modal-open {
   overflow: hidden;
-
-  .modal {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
 }
 
 

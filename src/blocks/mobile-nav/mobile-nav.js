@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
       targetModalNode.classList.add('mobile-nav--show');
       targetModalNode.style.display = 'block';
       targetModalNode.ariaModal = true;
-      targetModalNode.ariaHidden = null;
       targetModalNode.setAttribute('role', 'dialog');
 
       backdrop.className = 'mobile-nav-backdrop';
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNav.classList.remove('mobile-nav--show');
       mobileNav.style.display = 'none';
       mobileNav.ariaModal = null;
-      mobileNav.ariaHidden = true;
       mobileNav.removeAttribute('role');
 
       backdrop.remove();

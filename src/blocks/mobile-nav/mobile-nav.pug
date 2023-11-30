@@ -1,14 +1,13 @@
 //- Все примеси в этом файле должны начинаться c имени блока (mobile-nav)
 
 mixin mobile-nav(text, mods)
-
   //- Принимает:
   //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
   //- Вызов:
-        +mobile-nav(id='mobile-nav', 'Текст', 'some-mod')
-      Показать мобильное меню:
-        +burger('Открыть главное меню')(data-mobile-nav-target='#mobile-nav', data-mobile-nav='open')
+      +mobile-nav(id='mobile-nav', 'Текст', 'some-mod')
+    Показать мобильное меню:
+      +burger('Открыть главное меню')(data-mobile-nav-target='#mobile-nav', data-mobile-nav='open')
 
   -
     // список модификаторов
@@ -20,13 +19,13 @@ mixin mobile-nav(text, mods)
       }
     }
 
-  section.mobile-nav(id=id, class=allMods, tabindex='-1', aria-hidden='true')&attributes(attributes)
+  .mobile-nav(id=id, class=allMods, tabindex='-1')&attributes(attributes)
     .mobile-nav__dialog
       .mobile-nav__content
         .mobile-nav__header
-          +logo(class='mobile-nav__logo')
-            img(src='./images/main-logo.svg' alt='')
-          +close('Закрыть')(class='mobile-nav__close', data-mobile-nav='close')
+          +logo.mobile-nav__logo
+            img(src='./images/main-logo.svg', alt='')
+          +close('Закрыть').mobile-nav__close(data-mobile-nav='close')
         .mobile-nav__body
           .mobile-nav__menu
         .mobile-nav__footer

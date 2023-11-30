@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
       targetModalNode.classList.add('modal--show');
       targetModalNode.style.display = 'block';
       targetModalNode.ariaModal = true;
-      targetModalNode.ariaHidden = null;
       targetModalNode.setAttribute('role', 'dialog');
 
       backdrop.className = 'modal-backdrop';
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('modal--show');
         modal.style.display = 'none';
         modal.ariaModal = null;
-        modal.ariaHidden = true;
         modal.removeAttribute('role');
       });
 
