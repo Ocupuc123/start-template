@@ -1,6 +1,4 @@
-/* stylelint-disable scss/dollar-variable-pattern */
 /* stylelint-disable scss/dollar-variable-colon-space-after */
-@use "sass:color";
 
 $black:                       #000;
 $gray-darkest:                #1a1a1a;
@@ -30,7 +28,7 @@ $heading-color:               $gray-darkest;
 $text-color-muted:            $gray;
 $body-bg:                     $white;
 $link-color:                  $color-main;
-$link-color--hover:           color.adjust($color-main, $lightness: -15%);
+$link-color-hover:            $link-color;
 $border-color:                $gray-lighten;
 
 
