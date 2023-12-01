@@ -1,4 +1,4 @@
-/* global Buffer process */
+/* global Buffer */
 /* eslint-disable camelcase */
 
 import fs from 'node:fs';
@@ -9,12 +9,6 @@ import config from '../config.js';
 export const blocksFromHtml = [];
 
 export const doNotEditMessage = '\n ВНИМАНИЕ! Этот файл генерируется автоматически.\n Любые изменения этого файла будут потеряны при следующей компиляции.\n Любое изменение проекта без возможности компиляции ДОЛЬШЕ И ДОРОЖЕ в 2-5 раз.\n\n';
-
-export const prettyHtmlOption = {
-  indent_size: 2,
-  indent_char: ' ',
-  unformatted: ['code', 'em', 'strong', 'span', 'i', 'b', 'br'],
-};
 
 export const fileExist = (filepath) => {
   let flag = true;

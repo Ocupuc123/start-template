@@ -29,5 +29,6 @@ export default {
   },
   'settings': {
     'useWebpConverter': false,
+    'imageminQuality': 90,
   }
 };

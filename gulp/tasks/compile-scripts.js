@@ -7,7 +7,9 @@ import notify from 'gulp-notify';
 import browsersync from 'browser-sync';
 
 export const compileScripts = () => {
-  const gulpEsbuild = createGulpEsbuild({ incremental: process.env.NODE_ENV === 'development' });
+  const isProduction = process.env.NODE_ENV === 'production';
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const gulpEsbuild = createGulpEsbuild({ incremental: isDevelopment });
 
   return gulp.src('src/js/entry.js')
     .pipe(plumber({
@@ -22,8 +24,8 @@ export const compileScripts = () => {
       format: 'esm',
       // splitting: true,
       platform: 'browser',
-      minify: process.env.NODE_ENV !== 'development',
-      sourcemap: process.env.NODE_ENV === 'development',
+      minify: isProduction,
+      sourcemap: isDevelopment,
       target: browserslistToEsbuild(),
     }))
     .pipe(gulp.dest('build/js'))

@@ -16,20 +16,25 @@ import browsersync from 'browser-sync';
 
 const sass = gulpSass(dartSass);
 
-export const compileSass = ()=> gulp.src('src/scss/main.scss')
-  .pipe(plumber({
-    errorHandler: notify.onError({
-      title: 'SASS',
-      message: 'Error: <%= error.message %>'
-    })
-  }))
-  .pipe(gulpif(process.env.NODE_ENV === 'development', sourcemaps.init()))
-  .pipe(sassGlob())
-  .pipe(sass(gulpif(process.env.NODE_ENV === 'production', { outputStyle: 'compressed' })))
-  .pipe(gulpif(process.env.NODE_ENV === 'production', mqpacker()))
-  .pipe(autoprefixer({ cascade: true, }))
-  .pipe(gulpif(process.env.NODE_ENV === 'production', cleanCSS({ level: 1 })))
-  .pipe(rename({ dirname: 'css' }))
-  .pipe(gulpif(process.env.NODE_ENV === 'development', sourcemaps.write()))
-  .pipe(gulp.dest('build'))
-  .pipe(browsersync.stream());
+export const compileSass = () => {
+  const isProduction = process.env.NODE_ENV === 'production';
+  const isDevelopment = process.env.NODE_ENV === 'development';
+
+  return gulp.src('src/scss/main.scss')
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        title: 'SASS',
+        message: 'Error: <%= error.message %>'
+      })
+    }))
+    .pipe(gulpif(isDevelopment, sourcemaps.init()))
+    .pipe(sassGlob())
+    .pipe(sass(gulpif(isProduction, { outputStyle: 'compressed' })))
+    .pipe(gulpif(isProduction, mqpacker()))
+    .pipe(autoprefixer({ cascade: true, }))
+    .pipe(gulpif(isProduction, cleanCSS({ level: 1 })))
+    .pipe(rename({ dirname: 'css' }))
+    .pipe(gulpif(isDevelopment, sourcemaps.write()))
+    .pipe(gulp.dest('build'))
+    .pipe(browsersync.stream());
+};
