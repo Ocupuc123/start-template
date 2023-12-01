@@ -1,4 +1,6 @@
+/* global process */
 import gulp from 'gulp';
+import gulpif from 'gulp-if';
 import imagemin from 'gulp-imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminOptipng from 'imagemin-optipng';
@@ -28,10 +30,10 @@ export const copyImages = (cb) => {
   if (copiedImages.length) {
 
     return gulp.src(copiedImages)
-      .pipe(imagemin([
-        imageminMozjpeg({quality: 80, progressive: true}),
-        imageminOptipng({optimizationLevel: 2}),
-      ]))
+      .pipe(gulpif(process.env.NODE_ENV === 'production', imagemin([
+        imageminMozjpeg({ quality: 80, progressive: true }),
+        imageminOptipng({ optimizationLevel: 2 }),
+      ])))
       .pipe(gulp.dest('build/images'))
       .pipe(webp())
       .pipe(gulp.dest('build/images'));
