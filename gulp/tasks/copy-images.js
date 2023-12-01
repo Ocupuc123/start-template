@@ -9,6 +9,7 @@ import config from '../../config.js';
 import { blocksFromHtml, fileExist } from '../utils.js';
 
 export const copyImages = (cb) => {
+  const useWebpConverter = config.settings.useWebpConverter;
   const copiedImages = [];
 
   copiedImages.push('src/images/*.{png,jpg,jpeg,svg}');
@@ -35,8 +36,8 @@ export const copyImages = (cb) => {
         imageminOptipng({ optimizationLevel: 2 }),
       ])))
       .pipe(gulp.dest('build/images'))
-      .pipe(webp())
-      .pipe(gulp.dest('build/images'));
+      .pipe(gulpif(useWebpConverter, webp()))
+      .pipe(gulpif(useWebpConverter, gulp.dest('build/images')));
 
   } else {
     cb();

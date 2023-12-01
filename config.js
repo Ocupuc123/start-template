@@ -27,4 +27,7 @@ export default {
     // 'src/favicon/**': 'favicons/',
     // 'node_modules/somePackage/images/**': 'images/',
   },
+  'settings': {
+    'useWebpConverter': false,
+  }
 };
