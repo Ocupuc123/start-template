@@ -9,6 +9,12 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp development",
     "build": "cross-env NODE_ENV=production gulp production",
+    "lint": "npm-run-all -pc lint:**",
+    "lint:markup": "html-validator --continue",
+    "lint:html": "linthtml build/**/*.html --config .linthtmlrc",
+    "lint:styles": "stylelint \"src/**/*.scss\"",
+    "lint:scripts": "eslint . --ignore-path .eslintignore",
+    "lint:pug": "glob-exec \"src/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\"",
     "create-block": "node createBlock.js"
   },
   "browserslist": [
@@ -19,6 +25,7 @@
     "not < 0.2%"
   ],
   "devDependencies": {
+    "@linthtml/linthtml": "latest",
     "@prettier/plugin-pug": "latest",
     "browser-sync": "latest",
     "browserslist-to-esbuild": "latest",
@@ -28,6 +35,7 @@
     "eslint": "latest",
     "eslint-config-htmlacademy": "latest",
     "get-classes-from-html": "latest",
+    "glob-exec": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "latest",
@@ -49,7 +57,9 @@
     "gulp-webp": "latest",
     "imagemin-mozjpeg": "latest",
     "imagemin-optipng": "latest",
+    "linthtml-config-htmlacademy": "latest",
     "mkdirp": "latest",
+    "npm-run-all": "latest",
     "postcss": "latest",
     "postcss-scss": "latest",
     "prettier": "latest",
@@ -62,7 +72,8 @@
     "stylelint-config-standard": "latest",
     "stylelint-config-standard-scss": "latest",
     "stylelint-order": "latest",
-    "stylelint-scss": "latest"
+    "stylelint-scss": "latest",
+    "w3c-html-validator": "latest"
   },
   "dependencies": {
     "accordion-js": "latest",

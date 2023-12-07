@@ -3,7 +3,7 @@ export default {
     // 'no-js',
   ],
   'alwaysAddBlocks': [
-    // 'sprite-svg',
+    'sprite-svg',
   ],
   'addStyle': [
     'src/scss/variables.scss',

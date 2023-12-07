@@ -10,14 +10,10 @@ import { compileSass } from './compile-sass.js';
 import { compileScripts } from './compile-scripts.js';
 import { writeSassImportsFile } from './write-sass-imports-file.js';
 import { writeJsImportsFile } from './write-js-imports-file.js';
+import { ServerConfig } from '../configs.js';
 
 export const browserSync = (cb) => {
-  server.init({
-    server: 'build/',
-    notify: false,
-    cors: true,
-    ui: false
-  });
+  server.init(ServerConfig);
 
   // Страницы: изменение, добавление
   gulp.watch('src/pages/**/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
