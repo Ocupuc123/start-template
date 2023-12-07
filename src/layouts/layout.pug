@@ -15,9 +15,12 @@ html.page(lang='ru')
     //- Предзагрузка шрифтов или иных ресурсов
     //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')
 
-  body.page__body
-    +page-header
-    block content
-    +page-footer
+  body
+    .page__inner
+      .page__content
+        +page-header
+        block content
+      .page__footer-wrapper
+        +page-footer
     block scripts
       script(src='./js/scripts.min.js')
