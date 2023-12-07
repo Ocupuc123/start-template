@@ -3,8 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .tabs {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
@@ -17,12 +16,12 @@
     padding: 0;
     list-style: none;
 
-    &:after {
-      content: '';
+    &::after {
       display: none;
       flex-grow: 1;
       height: 1px;
       background-color: $border-color;
+      content: "";
 
       @media (min-width: $screen-md) {
         display: block;
@@ -37,8 +36,8 @@
   &__link-wrap {
     position: relative;
     margin: 0 0.3em 0.3em 0;
-    border: 1px solid $border-color;
     color: $text-color-muted;
+    border: 1px solid $border-color;
 
     @media (min-width: $screen-md) {
       margin: 0;
@@ -64,20 +63,20 @@
   &__link {
     display: block;
     padding: $field-padding-vertical $field-padding-horizontal;
-    color: currentColor;
+    color: currentcolor;
     text-decoration: none;
     background-color: $gray-lightest;
 
     &:hover,
     &:focus {
-      color: currentColor;
+      color: currentcolor;
     }
   }
 
   &__content-wrapper {
     display: block;
-    border: 1px solid $border-color;
     padding: $field-padding-vertical $field-padding-horizontal;
+    border: 1px solid $border-color;
 
     @media (min-width: $screen-md) {
       border-top: none;
@@ -85,20 +84,14 @@
   }
 
   &__content-item {
+    display: none;
 
-    .js & {
-      display: none;
-    }
-
-    & > *:last-child { // stylelint-disable-line  selector-combinator-blacklist
+    & > *:last-child {
       margin-bottom: 0;
     }
 
     &--active {
-
-      .js & {
-        display: block;
-      }
+      display: block;
     }
   }
 }

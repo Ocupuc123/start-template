@@ -3,17 +3,16 @@
 //- Структура меню — в main-nav.data.pug
 
 mixin main-nav(selectedID)
-
   //- Принимает:
   //-   selectedID {string} - id пункта меню (по умолчанию — из main-nav.data.pug)
   //- Вызов:
-        +main-nav('1')
+    +main-nav('1')
 
   //- подключаем файл со структурой данных блока
   include main-nav.data.pug
 
-  nav.main-nav#nav&attributes(attributes)
-    +burger('Показать главное меню', 'nav', 'main-nav--open')(class='main-nav__toggler')
+  nav#nav.main-nav&attributes(attributes)
+    +burger('Показать главное меню', 'nav', 'main-nav--open').main-nav__toggler
     ul.main-nav__list
       each menuItem in mainMenu
         +main-nav-item(selectedID, menuItem, 1)
@@ -41,14 +40,14 @@ mixin main-nav-item(selectedID, item, level)
       thisLinkClass += '  main-nav__link--lvl-' + level;
     }
 
-  li(class= thisItemClass)
-    a(class= thisLinkClass, href=item.url)= item.name
+  li(class=thisItemClass)
+    a(class=thisLinkClass, href=item.url)= item.name
     block
 
 mixin main-nav-sublist-wrapper(level)
   -
     var divClass = 'main-nav__sublist-wrapper  main-nav__sublist-wrapper--lvl-' + level;
     var listClass = 'main-nav__list  main-nav__list--lvl-' + level;
-  div(class= divClass)
-    ul(class= listClass)
+  div(class=divClass)
+    ul(class=listClass)
       block

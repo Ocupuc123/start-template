@@ -11,24 +11,28 @@
   &__item {
     display: block;
     min-width: 2em;
+
     // border: 1px solid $border-color;
     padding: 0.3em 0.6em;
-    text-decoration: none;
-    text-align: center;
     color: $text-color;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $text-color;
+      text-decoration: none;
+    }
 
     & + & {
       border-left: 0;
     }
 
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      color: $text-color;
+    &--active {
+      background-color: $gray-lightest;
     }
 
     @at-root a#{&} {
-
       &:hover,
       &:focus {
         background-color: $gray-lightest;
@@ -37,10 +41,6 @@
 
     @at-root span#{&} {
       cursor: default;
-    }
-
-    &--active {
-      background-color: $gray-lightest;
     }
   }
 }

@@ -1,14 +1,13 @@
 //- Все примеси в этом файле должны начинаться c имени блока (label)
 
 mixin label(text, mods, tag)
-
   //- Принимает:
   //-   text  {string} - текст кнопки
   //-   mods  {string} - список модификаторов
   //-   tag   {string} - тег (если не span)
   //- Вызов:
-        +label('Лейбл')
-        +label('Лейбл', 'danger', 'div')
+    +label('Лейбл')
+    +label('Лейбл', 'danger', 'div')
   -
     // список модификаторов
     var allMods = '';
@@ -19,7 +18,7 @@ mixin label(text, mods, tag)
       }
     }
 
-  if(typeof(tag) !== 'undefined' && tag)
+  if (typeof(tag) !== 'undefined' && tag)
     #{tag}.label(class=allMods)&attributes(attributes)!= text
       block
   else

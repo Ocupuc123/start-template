@@ -1,18 +1,17 @@
 //- Все примеси в этом файле должны начинаться c имени блока (pagination)
 
 mixin pagination(mods)
-
   //- Принимает:
   //-   mods  {string} - список модификаторов
   //- Вызов:
-        +pagination()
-          +pagination-item('1', '/1')
-          +pagination-item('...')
-          +pagination-item('4', '/4')
-          +pagination-item('5', '/5', true)
-          +pagination-item('6', '/6')
-          +pagination-item('...')
-          +pagination-item('999', '/999')
+    +pagination()
+      +pagination-item('1', '/1')
+      +pagination-item('...')
+      +pagination-item('4', '/4')
+      +pagination-item('5', '/5', true)
+      +pagination-item('6', '/6')
+      +pagination-item('...')
+      +pagination-item('999', '/999')
   -
     // список модификаторов
     var allMods = '';
@@ -26,10 +25,7 @@ mixin pagination(mods)
   .pagination(class=allMods, aria-label='Page navigation')&attributes(attributes)
     block
 
-
-
 mixin pagination-item(text, href, active, mods)
-
   //- Принимает:
   //-   text   {string} - содержимое пункта
   //-   href   {string} - ссылка этого пункта (если пустая, то это не ссылка, а span)
@@ -48,7 +44,7 @@ mixin pagination-item(text, href, active, mods)
       allMods = allMods + ' pagination__item--active';
     }
 
-  if(typeof(href) !== 'undefined' && href)
+  if (typeof(href) !== 'undefined' && href)
     a.pagination__item(class=allMods, href=href)&attributes(attributes)!= text
   else
     span.pagination__item(class=allMods)&attributes(attributes)!= text

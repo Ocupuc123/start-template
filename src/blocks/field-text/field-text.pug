@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field-text)
 
 mixin field-text(props)
-
   //- Принимает:
   //-   props {
   //-     title: ''         {string} - текст с названием (выводится над полем)
@@ -13,16 +12,16 @@ mixin field-text(props)
   //-       type:           {string}
   //-       placeholder:    {string}
   //- Вызов:
-        +field-text({
-          title: 'Название',
-          isTextarea: true,
-          helpText: 'Подсказка',
-          mods: '',
-          val: '',
-          attrs: {
-            name: 'comment',
-          }
-        })
+    +field-text({
+      title: 'Название',
+      isTextarea: true,
+      helpText: 'Подсказка',
+      mods: '',
+      val: '',
+      attrs: {
+        name: 'comment',
+      }
+    })
 
   -
     if(typeof(props) === 'undefined') {
@@ -37,13 +36,15 @@ mixin field-text(props)
     }
 
   label.field-text(class=allMods)&attributes(attributes)
-    if(typeof(props.title) !== 'undefined' && props.title)
+    if (typeof(props.title) !== 'undefined' && props.title)
       span.field-text__name!= props.title
     span.field-text__input-wrap
-      if(typeof(props.isTextarea) !== 'undefined' && props.isTextarea)
+      if (typeof(props.isTextarea) !== 'undefined' && props.isTextarea)
         textarea.field-text__input&attributes(props.attrs)= props.val
       else
-        input.field-text__input(type=(typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text', value=props.val)&attributes(props.attrs)
-      if(typeof(props.helpText) !== 'undefined' && props.helpText)
+        input.field-text__input(
+          type=typeof props.attrs !== 'undefined' && props.attrs.type ? props.attrs.type : 'text',
+          value=props.val)&attributes(props.attrs)
+      if (typeof(props.helpText) !== 'undefined' && props.helpText)
         span.field-text__help-text!= props.helpText
       block

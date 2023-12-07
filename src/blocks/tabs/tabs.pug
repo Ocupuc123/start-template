@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (tabs)
 
 mixin tabs(props, mods)
-
   //- Принимает:
   //-   props        {array}
   //-     {object}
@@ -10,21 +9,21 @@ mixin tabs(props, mods)
   //-       isActive {bool}   - флаг «это активная»
   //-   mods         {string} - список модификаторов
   //- Вызов:
-        +tabs([
-          {
-            'id': 'tab00',
-            'text': 'Вкладка ноль',
-            'isActive': true,
-          },
-          {
-            'id': 'tab01',
-            'text': 'Вкладка один',
-          },
-          ], 'some-mod')
-          +tabs-item('tab00', true, 'some')
-            p Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.0
-          +tabs-item('tab01')
-            p За словесными горами в стране, гласных и согласных живут рыбные тексты.1
+    +tabs([
+      {
+        'id': 'tab00',
+        'text': 'Вкладка ноль',
+        'isActive': true,
+      },
+      {
+        'id': 'tab01',
+        'text': 'Вкладка один',
+      },
+      ], 'some-mod')
+      +tabs-item('tab00', true, 'some')
+        p Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.0
+      +tabs-item('tab01')
+        p За словесными горами в стране, гласных и согласных живут рыбные тексты.1
   -
     // список модификаторов
     var allMods = '';
@@ -41,24 +40,21 @@ mixin tabs(props, mods)
         -
           var isActive = (typeof(tab.isActive) !== 'undefined' && tab.isActive) ? '  tabs__link-wrap--active' : ''
         li.tabs__link-wrap(class=isActive, role='presentation')
-          a.tabs__link(href='#'+tab.id, data-toggle='tab', role='tab')!= tab.text
+          a.tabs__link(href='#' + tab.id, data-toggle='tab', role='tab')!= tab.text
     .tabs__content-wrapper
       block
 
-
-
 mixin tabs-item(id, isActive, mods)
-
   //- Принимает:
   //-   isActive {bool}   - флаг «это активная»
   //-   mods     {string} - список модификаторов
   //- Вызов:
-        +tabs-item('tab01', true, 'some-mod')
-          p Вкладка
-        +tabs-item('tab02', false)
-          p Вкладка
-        +tabs-item('tab03', false)
-          p Вкладка
+    +tabs-item('tab01', true, 'some-mod')
+      p Вкладка
+    +tabs-item('tab02', false)
+      p Вкладка
+    +tabs-item('tab03', false)
+      p Вкладка
 
   -
     // список модификаторов

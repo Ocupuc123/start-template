@@ -1,6 +1,7 @@
 // В этом файле должны быть стили для БЭМ-блока btn, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "sass:color";
 
 .btn {
   display: inline-block;
@@ -21,9 +22,9 @@
   vertical-align: middle;
   background-color: $gray-lightest;
   background-image: none;
+  border: 0;
 
   // border: 1px solid $gray-lighter;
-  border: 0;
   border-radius: $border-radius;
   cursor: pointer;
   user-select: none;
@@ -32,14 +33,10 @@
   &:focus {
     color: $text-color;
     text-decoration: none;
-    background-color: darken($gray-lightest, 10%);
+    background-color: color.adjust($gray-lightest, $lightness: -10%);
 
-    // border-color: darken($gray-lighter, 12%);
+    // border-color: color.adjust($gray-lighter, $lightness: -12%);
   }
-
-  // &:visited {
-  //   color: $text-color;
-  // }
 
   &:active,
   &:focus {
@@ -74,8 +71,8 @@
   //   &:hover,
   //   &:focus {
   //     color: #fff;
-  //     background-color: darken($color-main, 10%);
-  //     // border-color: darken($color-main, 12%);
+  //     background-color: color.adjust($color-main, $lightness: -10%);
+  //     // border-color: color.adjust($color-main, $lightness: -10%);
   //   }
 
   //   &--disabled,

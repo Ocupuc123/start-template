@@ -3,8 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-toggler {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   display: block;
   margin-bottom: $typo-margin-vertical;
@@ -14,7 +13,6 @@
   }
 
   &__input-wrap {
-
     & + & {
       margin-top: $typo-margin-vertical;
     }
@@ -33,10 +31,10 @@
   }
 
   &__name {
-    display: inline-block;
     position: relative;
-    padding-left: 3.2em;
+    display: inline-block;
     margin-right: 0.6em;
+    padding-left: 3.2em;
     font-weight: 400;
     line-height: $line-height;
   }
@@ -48,8 +46,7 @@
       cursor: not-allowed;
     }
 
-    &:before {
-      content: '';
+    &::before {
       position: absolute;
       top: 3px;
       left: 0;
@@ -57,6 +54,7 @@
       height: 18px;
       background-color: #fff;
       border: 1px solid $border-color;
+      content: "";
 
       @at-root input:focus ~ & {
         @include field-focus;
@@ -64,12 +62,11 @@
     }
 
     @at-root input:disabled ~ &:before {
-      border-color: $gray-light;
       background: $gray-lighter;
+      border-color: $gray-light;
     }
 
-    &:after {
-      content: '';
+    &::after {
       position: absolute;
       top: 5px;
       left: 2px;
@@ -78,6 +75,7 @@
       background-color: $gray-lightest;
       border: 1px solid $border-color;
       transition: all 0.3s;
+      content: "";
     }
 
     @at-root input:checked ~ &:after {

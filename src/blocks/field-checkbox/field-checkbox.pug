@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field-checkbox)
 
 mixin field-checkbox(checkboxes, title)
-
   //- Принимает:
   //-   checkboxes {array}
   //-     {object}
@@ -12,37 +11,37 @@ mixin field-checkbox(checkboxes, title)
   //-         name:           {string}
   //-     ...
   //- Вызов:
-        +field-checkbox([
-          {
-            title: 'Чекбокс0',
-            helpText: 'Подсказка',
-            attrs: {
-              name: 'check0',
-            }
-          },
-        ])
-        +field-checkbox([
-          {
-            title: 'Чекбокс1',
-            helpText: 'Подсказка',
-            mods: 'error',
-            attrs: {
-              name: 'check1',
-              checked: true,
-            }
-          },
-          {
-            title: 'Чекбокс2',
-            helpText: 'Подсказка',
-            mods: 'error',
-            attrs: {
-              name: 'check2',
-            }
-          },
-        ], 'ОбщееНазваниеБлока')
+    +field-checkbox([
+      {
+        title: 'Чекбокс0',
+        helpText: 'Подсказка',
+        attrs: {
+          name: 'check0',
+        }
+      },
+    ])
+    +field-checkbox([
+      {
+        title: 'Чекбокс1',
+        helpText: 'Подсказка',
+        mods: 'error',
+        attrs: {
+          name: 'check1',
+          checked: true,
+        }
+      },
+      {
+        title: 'Чекбокс2',
+        helpText: 'Подсказка',
+        mods: 'error',
+        attrs: {
+          name: 'check2',
+        }
+      },
+    ], 'ОбщееНазваниеБлока')
 
   .field-checkbox&attributes(attributes)
-    if(typeof(title) !== 'undefined' && title)
+    if (typeof(title) !== 'undefined' && title)
       .field-checkbox__title!= title
     each checkbox in checkboxes
       -
@@ -57,6 +56,6 @@ mixin field-checkbox(checkboxes, title)
         label.field-checkbox__name
           input.field-checkbox__input(type='checkbox')&attributes(checkbox.attrs)
           span.field-checkbox__name-text!= checkbox.title
-        if(typeof(checkbox.helpText) !== 'undefined' && checkbox.helpText)
+        if (typeof(checkbox.helpText) !== 'undefined' && checkbox.helpText)
           .field-checkbox__help-text-wrap
             .field-checkbox__help-text!= checkbox.helpText

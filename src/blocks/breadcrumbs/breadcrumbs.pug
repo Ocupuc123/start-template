@@ -1,14 +1,13 @@
 //- Все примеси в этом файле должны начинаться c имени блока (breadcrumbs)
 
 mixin breadcrumbs(mods)
-
   //- Принимает:
   //-   mods  {string} - список модификаторов
   //- Вызов:
-        +breadcrumbs()
-          +breadcrumbs-item('Главная', '/home')
-          +breadcrumbs-item('Услуги', '/services')
-          +breadcrumbs-item('Стриптиз')
+    +breadcrumbs()
+      +breadcrumbs-item('Главная', '/home')
+      +breadcrumbs-item('Услуги', '/services')
+      +breadcrumbs-item('Стриптиз')
   -
     // список модификаторов
     var allMods = '';
@@ -22,10 +21,7 @@ mixin breadcrumbs(mods)
   ul.breadcrumbs(class=allMods, aria-label='Breadcrumb', role='navigation')&attributes(attributes)
     block
 
-
-
 mixin breadcrumbs-item(text, href, mods)
-
   //- Принимает:
   //-   text   {string} - содержимое пункта
   //-   href   {string} - ссылка этого пункта (если пустая, то это не ссылка, а span)
@@ -41,7 +37,7 @@ mixin breadcrumbs-item(text, href, mods)
     }
 
   li.breadcrumbs__item(class=allMods)&attributes(attributes)
-    if(typeof(href) !== 'undefined' && href)
+    if (typeof(href) !== 'undefined' && href)
       a(href=href)!= text
     else
       span!= text

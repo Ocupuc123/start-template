@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const valueStep = input.getAttribute('step') ? +input.getAttribute('step') : 1;
       field.addEventListener('click', (event) =>{
         if(event.target.classList.contains('field-num__btn') && !input.getAttribute('disabled')) {
-          let num = parseInt(input.value);
+          let num = parseInt(input.value, 10);
           if(isNaN(num)) {
             num = 0;
           }

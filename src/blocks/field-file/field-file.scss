@@ -1,10 +1,12 @@
+/* stylelint-disable selector-class-pattern */
 // В этом файле должны быть стили для БЭМ-блока field-file, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-.field-file {
+@use "sass:color";
 
-  $block-name:                &; // #{$block-name}__element
+.field-file {
+  $block-name: &; // #{$block-name}__element
 
   display: block;
   margin-bottom: $typo-margin-vertical;
@@ -14,8 +16,46 @@
   }
 
   &__input-wrap {
-    display: block;
     position: relative;
+    display: block;
+  }
+
+  &__name-text {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    @at-root input:disabled ~ & {
+      background: $gray-lighter;
+      cursor: not-allowed;
+    }
+
+    &::before {
+      display: block;
+      margin-right: $field-padding-horizontal;
+      padding: $field-padding-vertical  $field-padding-horizontal;
+      line-height: $line-height;
+      background-color: $gray-lightest;
+      border-right: 1px solid $border-color;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+      content: attr(data-button-text);
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        background-color: color.adjust($gray-lightest, $lightness: -10%);
+      }
+    }
   }
 
   &__input {
@@ -30,49 +70,9 @@
     }
   }
 
-  &__name-text {
-    display: flex;
-    align-items: baseline;
-    position: relative;
-    width: 100%;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    background-color: #fff;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    cursor: pointer;
-    overflow: hidden;
-
-    @at-root input:disabled ~ & {
-      background: $gray-lighter;
-      cursor: not-allowed;
-    }
-
-    &:before {
-      content: attr(data-button-text);
-      display: block;
-      background-color: $gray-lightest;
-      border-right: 1px solid $border-color;
-      margin-right: $field-padding-horizontal;
-      line-height: $line-height;
-      padding: $field-padding-vertical  $field-padding-horizontal;
-      border-top-left-radius: $border-radius;
-      border-bottom-left-radius: $border-radius;
-    }
-
-    &:hover,
-    &:focus {
-
-      &:before {
-        background-color: darken($gray-lightest, 10%); // как у обычных кнопок
-      }
-    }
-  }
-
   &__help-text {
     @include field-help-text;
   }
-
 
 
   &--error {
@@ -85,8 +85,8 @@
     }
 
     #{$block-name}__name-text {
+      background-color: color.adjust($color-danger, $lightness: 35%);
       border-color: $color-danger;
-      background-color: lighten($color-danger, 35%);
     }
   }
 }

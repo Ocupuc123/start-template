@@ -3,8 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-checkbox {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   display: block;
   margin-bottom: $typo-margin-vertical;
@@ -14,7 +13,6 @@
   }
 
   &__input-wrap {
-
     & + & {
       margin-top: $typo-margin-vertical;
     }
@@ -29,10 +27,10 @@
   }
 
   &__name {
-    display: inline-block;
     position: relative;
-    padding-left: 1.5em;
+    display: inline-block;
     margin-right: 0.6em;
+    padding-left: 1.5em;
     font-weight: 400;
     line-height: $line-height;
   }
@@ -64,15 +62,15 @@
       cursor: not-allowed;
     }
 
-    &:before {
-      content: '';
+    &::before {
       position: absolute;
       top: 5px;
       left: 0;
       width: 14px;
       height: 14px;
-      border: 2px solid currentColor;
+      border: 2px solid currentcolor;
       border-radius: $border-radius;
+      content: "";
     }
 
     @at-root input:focus ~ &:before {
@@ -80,23 +78,23 @@
     }
 
     @at-root input:disabled ~ &:before {
-      border-color: $gray-light;
       background: $gray-lighter;
+      border-color: $gray-light;
     }
 
-    &:after {
-      content: '';
+    &::after {
       position: absolute;
       top: 6px;
       left: 3px;
       width: 14px;
       height: 6px;
-      opacity: 0;
-      border-left: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
-      transform: rotate(-45deg);
-      transition: opacity $transition-time;
+      border-bottom: 2px solid currentcolor;
+      border-left: 2px solid currentcolor;
       box-shadow: 1px 2px 0 #fff, inset 0 -2px 0 #fff;
+      transform: rotate(-45deg);
+      opacity: 0;
+      transition: opacity $transition-time;
+      content: "";
 
       @at-root input:checked ~ & {
         opacity: 1;
@@ -118,13 +116,13 @@
     padding: 0;
     transform: translateY(-50%);
 
+    // сокрытие инпута в случае использования своего чекбокса
+    opacity: 0;
+
     &:focus,
     &:active {
       @include field-focus;
     }
-
-    // сокрытие инпута в случае использования своего чекбокса
-    opacity: 0;
   }
 
   &__help-text-wrap {

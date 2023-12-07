@@ -10,6 +10,10 @@
   border: 1px solid $border-color;
   border-collapse: collapse;
 
+  th {
+    text-align: inherit;
+  }
+
   td,
   th {
     padding: $field-padding-vertical $field-padding-horizontal;
@@ -19,10 +23,6 @@
     &:not(:first-child) {
       border-left: 1px solid $border-color;
     }
-  }
-
-  th {
-    text-align: inherit;
   }
 
   // caption {

@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field-num)
 
 mixin field-num(props)
-
   //- Принимает:
   //-   props {
   //-     title: ''         {string} - текст с названием (выводится над полем)
@@ -11,24 +10,24 @@ mixin field-num(props)
   //-     attrs:            {object} - любые атрибуты для input
   //-       placeholder:    {string}
   //- Вызов:
-        +field-num({
-          title: 'Количество',
-          helpText: 'От 1 до 10, шаг 1',
-          mods: '',
-          val: '9',
-          attrs: {
-            name: 'quantity',
-            max: '10',
-            min: '1',
-            step: '1',
-          }
-        })
-        +field-num({
-          mods: 'error',
-          attrs: {
-            name: 'quantity',
-          }
-        })
+    +field-num({
+      title: 'Количество',
+      helpText: 'От 1 до 10, шаг 1',
+      mods: '',
+      val: '9',
+      attrs: {
+        name: 'quantity',
+        max: '10',
+        min: '1',
+        step: '1',
+      }
+    })
+    +field-num({
+      mods: 'error',
+      attrs: {
+        name: 'quantity',
+      }
+    })
 
   -
     if(typeof(props) === 'undefined') { var props = {}; }
@@ -44,13 +43,13 @@ mixin field-num(props)
     if(isNaN(val)) val = 0;
 
   .field-num(class=allMods)&attributes(attributes)
-    if(typeof(props.title) !== 'undefined' && props.title)
+    if (typeof(props.title) !== 'undefined' && props.title)
       span.field-num__name!= props.title
     span.field-num__input-wrap
       span.field-num__input-and-btns
         button.field-num__btn.field-num__btn--minus(type='button') -
         button.field-num__btn.field-num__btn--plus(type='button') +
         input.field-num__input(type='number', value=val)&attributes(props.attrs)
-      if(typeof(props.helpText) !== 'undefined' && props.helpText)
+      if (typeof(props.helpText) !== 'undefined' && props.helpText)
         span.field-num__help-text!= props.helpText
       block

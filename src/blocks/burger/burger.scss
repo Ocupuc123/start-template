@@ -10,25 +10,24 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border: none;
   padding: 0;
   background: transparent;
-  user-select: none;
+  border: none;
   cursor: pointer;
+  user-select: none;
 
-  > span { // stylelint-disable-line  selector-combinator-blacklist
-    display: block;
+  > span {
     position: relative;
+    display: block;
     width: 90%;
     height: $toggler-part-height;
-    font-size: 0;
     color: transparent;
+    font-size: 0;
     background: $gray-dark;
     transition: background $transition-time $transition-time;
 
-    &:before,
-    &:after {
-      content: '';
+    &::before,
+    &::after {
       position: absolute;
       left: 0;
       width: 100%;
@@ -36,34 +35,34 @@
       background: $gray-dark;
       transform-origin: 50% 50%;
       transition: top $transition-time $transition-time, transform $transition-time;
+      content: "";
     }
 
-    &:before {
+    &::before {
       top: -10px;
     }
 
-    &:after {
+    &::after {
       top: 10px;
     }
   }
 
   &--close {
-
-    > span { // stylelint-disable-line  selector-combinator-blacklist
-      transition: background $transition-time 0s;
+    > span {
       background: transparent;
+      transition: background $transition-time 0s;
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         top: 0;
         transition: top $transition-time, transform $transition-time $transition-time;
       }
 
-      &:before {
+      &::before {
         transform: rotate3d(0, 0, 1, 45deg);
       }
 
-      &:after {
+      &::after {
         transform: rotate3d(0, 0, 1, -45deg);
       }
     }

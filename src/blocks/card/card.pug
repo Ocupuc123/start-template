@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (card)
 
 mixin card(data, mods)
-
   //- Принимает:
   //- data {
   //-   url:   {string},  - адрес для ссылки
@@ -13,19 +12,19 @@ mixin card(data, mods)
   //- }
   //- mods {string}       - модификаторы
   //- Вызов:
-        +card({
-          url: 'good01',
-          img: 'img/demo-product.jpg',
-          name: 'Товар1',
-          descr: 'Описание1',
-          price: 7777,
-          new: true,
-        }, 'mod')
-        +card({
-          img: 'img/demo-product.jpg',
-          name: 'Товар2',
-          price: 12000,
-        })
+    +card({
+      url: 'good01',
+      img: 'img/demo-product.jpg',
+      name: 'Товар1',
+      descr: 'Описание1',
+      price: 7777,
+      new: true,
+    }, 'mod')
+    +card({
+      img: 'img/demo-product.jpg',
+      name: 'Товар2',
+      price: 12000,
+    })
 
   -
     // список модификаторов
@@ -60,4 +59,4 @@ mixin card(data, mods)
           p.card__descr!= data.descr
         p.card__price!= price
 
-    +btn('Купить', '')(class='card__buy')
+    +btn('Купить', '').card__buy

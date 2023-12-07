@@ -1,15 +1,14 @@
 //- Все примеси в этом файле должны начинаться c имени блока (sprite-svg)
 
 mixin sprite-svg(props)
-
   //- Принимает:
   //-   props    {string} - список параметров
   //- Вызов:
-        +sprite-svg({
-          width: 32,
-          height: 32,
-          name: 'имя_иконки',
-        })
+    +sprite-svg({
+      width: 32,
+      height: 32,
+      name: 'имя_иконки',
+    })
 
   -
     // список модификаторов
@@ -22,5 +21,5 @@ mixin sprite-svg(props)
       }
     }
 
-  svg(class=allMods width!=props.width, height!=props.height)&attributes(attributes)
+  svg(class=allMods, width!=props.width, height!=props.height)&attributes(attributes)
     use(xlink:href=`./images/sprite.svg#${props.name}`)

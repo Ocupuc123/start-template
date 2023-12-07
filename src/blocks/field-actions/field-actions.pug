@@ -1,13 +1,12 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field-actions)
 
 mixin field-actions(text, mods)
-
   //- Принимает:
   //-     text: ''  {string} - текст пояснения
   //-     mods: ''  {string} - модификаторы блока
   //- Вызов:
-        +field-actions('* — обязательные поля', 'some-mod')
-          p КнопкиТут
+    +field-actions('* — обязательные поля', 'some-mod')
+      p КнопкиТут
 
   -
     var allMods = '';
@@ -19,6 +18,6 @@ mixin field-actions(text, mods)
     }
 
   .field-actions(class=allMods)&attributes(attributes)
-    if(typeof(text) !== 'undefined' && text)
+    if (typeof(text) !== 'undefined' && text)
       .field-actions__text!= text
     block

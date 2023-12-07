@@ -1,15 +1,14 @@
 //- Все примеси в этом файле должны начинаться c имени блока (logo)
 
 mixin logo(href, mods)
-
   //- Принимает:
   //-   href  {string} - ссылка логотипа
   //-   mods  {string} - список модификаторов
   //- Вызов:
-        +logo('/')
-          img(src='img/demo-logo.svg', alt='Project_name', width='64', height='15')
-        +logo(false, 'mod')
-          img(src='img/demo-logo.svg', alt='Project_name', width='64', height='15')
+    +logo('/')
+      img(src='img/demo-logo.svg', alt='Project_name', width='64', height='15')
+    +logo(false, 'mod')
+      img(src='img/demo-logo.svg', alt='Project_name', width='64', height='15')
   -
     // список модификаторов
     var allMods = '';

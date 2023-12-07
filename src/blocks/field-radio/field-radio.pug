@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field-radio)
 
 mixin field-radio(radiobuttons, title)
-
   //- Принимает:
   //-   radiobuttons {array}
   //-     {object}
@@ -12,28 +11,28 @@ mixin field-radio(radiobuttons, title)
   //-         name:           {string}
   //-         ...
   //- Вызов:
-        +field-radio([
-          {
-            title: 'Радиокнопка1',
-            helpText: 'Подсказка',
-            mods: '',
-            attrs: {
-              name: 'radio',
-              checked: true,
-            }
-          },
-          {
-            title: 'Радиокнопка2',
-            helpText: 'Подсказка',
-            mods: '',
-            attrs: {
-              name: 'radio',
-            }
-          },
-        ], 'ОбщееНазваниеБлока')
+    +field-radio([
+      {
+        title: 'Радиокнопка1',
+        helpText: 'Подсказка',
+        mods: '',
+        attrs: {
+          name: 'radio',
+          checked: true,
+        }
+      },
+      {
+        title: 'Радиокнопка2',
+        helpText: 'Подсказка',
+        mods: '',
+        attrs: {
+          name: 'radio',
+        }
+      },
+    ], 'ОбщееНазваниеБлока')
 
   .field-radio&attributes(attributes)
-    if(typeof(title) !== 'undefined' && title)
+    if (typeof(title) !== 'undefined' && title)
       .field-radio__title!= title
     each checkbox in radiobuttons
       -
@@ -48,6 +47,6 @@ mixin field-radio(radiobuttons, title)
         label.field-radio__name
           input.field-radio__input(type='radio')&attributes(checkbox.attrs)
           span.field-radio__name-text!= checkbox.title
-        if(typeof(checkbox.helpText) !== 'undefined' && checkbox.helpText)
+        if (typeof(checkbox.helpText) !== 'undefined' && checkbox.helpText)
           .field-radio__help-text-wrap
             .field-radio__help-text!= checkbox.helpText

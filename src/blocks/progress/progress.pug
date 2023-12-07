@@ -1,14 +1,13 @@
 //- Все примеси в этом файле должны начинаться c имени блока (progress)
 
 mixin progress(percent, text, mods)
-
   //- Принимает:
   //-   percent  {string} - процент заполнения
   //-   text     {string} - текст на заполненной части (если пуст, текстового узда не будет)
   //-   mods     {string} - список модификаторов
   //- Вызов:
-        +progress('30', '30%', 'success')(aria-valuemin='0', aria-valuemax='100')
-        +progress('10')(style='height: 10px')
+    +progress('30', '30%', 'success')(aria-valuemin='0', aria-valuemax='100')
+    +progress('10')(style='height: 10px')
   -
     // список модификаторов
     var allMods = '';
@@ -21,5 +20,5 @@ mixin progress(percent, text, mods)
 
   .progress(class=allMods)
     .progress__bar(role='progressbar', style='width: ' + percent + '%;', aria-valuenow=percent)&attributes(attributes)
-      if(typeof(text) !== 'undefined' && text)
+      if (typeof(text) !== 'undefined' && text)
         span.progress__bartext!= text

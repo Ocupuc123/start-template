@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field-toggler)
 
 mixin field-toggler(togglers, title, isRadio)
-
   //- Принимает:
   //-   togglers {array}
   //-     {object}
@@ -14,33 +13,33 @@ mixin field-toggler(togglers, title, isRadio)
   //-   title: ''             {string} - общее название группы переключателей
   //-   isRadio: false        {bool}   - флаг «это радиокнопки, а не чекбоксы»
   //- Вызов:
-        +field-toggler([
-          {
-            title: 'Переключатель0',
-            helpText: 'Подсказка',
-            attrs: {
-              name: 'check0',
-            }
-          },
-        ])
-        +field-toggler([
-          {
-            title: 'Переключатель1',
-            helpText: 'Подсказка',
-            attrs: {
-              name: 'check1',
-              checked: true,
-            }
-          },
-          {
-            title: 'Переключатель2',
-            helpText: 'Подсказка',
-            mods: 'some',
-            attrs: {
-              name: 'check2',
-            }
-          },
-        ], 'ОбщееНазваниеБлока', true)
+    +field-toggler([
+      {
+        title: 'Переключатель0',
+        helpText: 'Подсказка',
+        attrs: {
+          name: 'check0',
+        }
+      },
+    ])
+    +field-toggler([
+      {
+        title: 'Переключатель1',
+        helpText: 'Подсказка',
+        attrs: {
+          name: 'check1',
+          checked: true,
+        }
+      },
+      {
+        title: 'Переключатель2',
+        helpText: 'Подсказка',
+        mods: 'some',
+        attrs: {
+          name: 'check2',
+        }
+      },
+    ], 'ОбщееНазваниеБлока', true)
 
   -
     if(typeof(isRadio) !== 'undefined' && isRadio)
@@ -49,7 +48,7 @@ mixin field-toggler(togglers, title, isRadio)
       var type = 'checkbox';
 
   .field-toggler&attributes(attributes)
-    if(typeof(title) !== 'undefined' && title)
+    if (typeof(title) !== 'undefined' && title)
       .field-toggler__title!= title
     each toggler in togglers
       -
@@ -64,6 +63,6 @@ mixin field-toggler(togglers, title, isRadio)
         label.field-toggler__name
           input.field-toggler__input(type=type)&attributes(toggler.attrs)
           span.field-toggler__name-text!= toggler.title
-        if(typeof(toggler.helpText) !== 'undefined' && toggler.helpText)
+        if (typeof(toggler.helpText) !== 'undefined' && toggler.helpText)
           .field-toggler__help-text-wrap
             .field-toggler__help-text!= toggler.helpText

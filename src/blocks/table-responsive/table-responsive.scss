@@ -6,31 +6,35 @@
   width: 100%;
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
-  border-collapse: collapse;
   border: 1px solid $border-color;
+  border-collapse: collapse;
 
   caption {
-    caption-side: top;
-    text-align: left;
-    border: 1px solid $border-color;
-    border-bottom: 0;
     padding: 0.4em $field-padding-horizontal;
+    color: $text-color-muted;
     font-size: $font-size-sm;
     line-height: 1em;
-    color: $text-color-muted;
+    text-align: left;
+    caption-side: top;
+    border: 1px solid $border-color;
+    border-bottom: 0;
 
     @media (max-width: ($screen-md - 1)) {
       display: block;
       margin-top: 1em;
       margin-bottom: 0.5em;
-      border: 0;
       padding: 0;
-      font-family: $font-family;
-      font-size: $font-size-h3;
+      color: currentcolor;
       font-weight: 700;
+      font-size: $font-size-h3;
+      font-family: $font-family;
       line-height: 1.2;
-      color: currentColor;
+      border: 0;
     }
+  }
+
+  th {
+    text-align: inherit;
   }
 
   td,
@@ -42,10 +46,6 @@
     &:not(:first-child) {
       border-left: 1px solid $border-color;
     }
-  }
-
-  th {
-    text-align: inherit;
   }
 
   @media (max-width: ($screen-md - 1)) {
@@ -65,7 +65,7 @@
         border: 1px solid $border-color;
         border-bottom: 0;
 
-        &:not(:last-child) { // stylelint-disable-line  max-nesting-depth
+        &:not(:last-child) {
           margin-bottom: 1em * $line-height;
         }
       }
@@ -73,13 +73,13 @@
       td {
         display: block;
         width: 100%;
-        border-right: 0 !important; // stylelint-disable-line  declaration-no-important
-        border-left: 0 !important; // stylelint-disable-line  declaration-no-important
+        border-right: 0;
+        border-left: 0;
 
-        &:before { // stylelint-disable-line  max-nesting-depth
-          content: attr(data-label);
+        &::before {
           display: block;
           font-weight: 700;
+          content: attr(data-label);
         }
       }
     }

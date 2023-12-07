@@ -3,8 +3,7 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .field-radio {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   display: block;
   margin-bottom: $typo-margin-vertical;
@@ -14,7 +13,6 @@
   }
 
   &__input-wrap {
-
     & + & {
       margin-top: $typo-margin-vertical;
     }
@@ -29,8 +27,8 @@
   }
 
   &__name {
-    display: inline-block;
     position: relative;
+    display: inline-block;
     margin-right: 0.6em;
     padding-left: 1.5em;
     font-weight: 400;
@@ -49,11 +47,11 @@
     //   left: 0;
     //   width: 14px;
     //   height: 14px;
-    //   background-image: svg-load('../blocks/field-radio/bg-img/radiobutton.svg');
+    //   background-image: url('../images/radiobutton.svg');
     //   background-size: 100%;
     // }
     // @at-root input:checked ~ &:before {
-    //   background-image: svg-load('../blocks/field-radio/bg-img/radiobutton--checked.svg');
+    //   background-image: url('../images/radiobutton--checked.svg');
     // }
 
     // / своя радиокнопка с картинкой
@@ -64,15 +62,15 @@
       cursor: not-allowed;
     }
 
-    &:before {
-      content: '';
+    &::before {
       position: absolute;
       top: 5px;
       left: 0;
       width: 14px;
       height: 14px;
-      border: 2px solid currentColor;
+      border: 2px solid currentcolor;
       border-radius: 50%;
+      content: "";
     }
 
     @at-root input:focus ~ &:before {
@@ -80,21 +78,21 @@
     }
 
     @at-root input:disabled ~ &:before {
-      border-color: $gray-light;
       background: $gray-lighter;
+      border-color: $gray-light;
     }
 
-    &:after {
-      content: '';
+    &::after {
       position: absolute;
       top: 9px;
       left: 4px;
       width: 6px;
       height: 6px;
-      opacity: 0;
+      background-color: currentcolor;
       border-radius: 50%;
-      background-color: currentColor;
+      opacity: 0;
       transition: opacity $transition-time;
+      content: "";
 
       @at-root input:checked ~ & {
         opacity: 1;
@@ -116,13 +114,13 @@
     padding: 0;
     transform: translateY(-50%);
 
+    // сокрытие инпута в случае использования своей радиокнопки
+    opacity: 0;
+
     &:focus,
     &:active {
       @include field-focus;
     }
-
-    // сокрытие инпута в случае использования своей радиокнопки
-    opacity: 0;
   }
 
   &__help-text-wrap {

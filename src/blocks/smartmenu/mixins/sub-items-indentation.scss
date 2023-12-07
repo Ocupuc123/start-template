@@ -1,6 +1,4 @@
-// Generate rules to indent sub menus text
-//
-// We'll use left border to avoid messing with the padding.
+/* stylelint-disable */
 
 @mixin sm__sub-items-indentation($amount, $chainable: "ul ", $level: 4, $chain: "") {
   @for $i from 1 through $level {

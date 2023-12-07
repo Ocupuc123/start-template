@@ -88,7 +88,7 @@
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["color.adjust", "vw"]
+        "ignoreFunctions": ["color.adjust", "vw", "darken", "lighten"]
       }
     ]
   }

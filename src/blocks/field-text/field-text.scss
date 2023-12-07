@@ -1,10 +1,10 @@
 // В этом файле должны быть стили для БЭМ-блока field-text, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "sass:color";
 
 .field-text {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   display: block;
   margin-bottom: $typo-margin-vertical;
@@ -34,7 +34,6 @@
   }
 
 
-
   &--error {
 
     #{$block-name}__name,
@@ -44,8 +43,8 @@
     }
 
     #{$block-name}__input {
+      background-color: color.adjust($color-danger, $lightness: 35%);
       border-color: $color-danger;
-      background-color: lighten($color-danger, 35%);
     }
   }
 }

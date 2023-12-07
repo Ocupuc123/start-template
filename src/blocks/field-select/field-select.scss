@@ -1,10 +1,10 @@
 // В этом файле должны быть стили для БЭМ-блока field-select, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "sass:color";
 
 .field-select {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   display: block;
   margin-bottom: $typo-margin-vertical;
@@ -13,7 +13,7 @@
     @include field-name;
   }
 
-  &__select-wrap {}
+  // &__select-wrap {}
 
   // Оформление штатного селекта
   // &__select {
@@ -55,8 +55,6 @@
     @include field-help-text;
   }
 
-
-
   &--error {
     color: $color-danger;
 
@@ -69,20 +67,30 @@
     #{$block-name}__select,
     .choices__inner,
     .choices:after {
+      background-color: color.adjust($color-danger, $lightness: 35%);
       border-color: $color-danger;
-      background-color: lighten($color-danger, 35%);
     }
   }
 }
 
-
-
-/** @define choices */
 .choices {
-
-  $block-name:                &; // #{$block-name}__element
+  $block-name: &; // #{$block-name}__element
 
   position: relative;
+
+  &::after {
+    position: absolute;
+    top: 7px;
+    right: 16px;
+    width: 14px;
+    height: 14px;
+    border-bottom: 1px solid $border-color;
+    border-left: 1px solid $border-color;
+    transform: rotate(-45deg);
+    transition: all 0.3s;
+    content: "";
+    pointer-events: none;
+  }
 
   &:focus {
     outline: 0;
@@ -95,21 +103,7 @@
     }
   }
 
-  &:after {
-    content: '';
-    position: absolute;
-    top: 7px;
-    right: 16px;
-    width: 14px;
-    height: 14px;
-    border-left: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
-    pointer-events: none;
-    transform: rotate(-45deg);
-    transition: all 0.3s;
-  }
-
-  &.is-open:after {
+  &.is-open::after {
     transform: translateY(7px) rotate(135deg);
   }
 
@@ -118,35 +112,35 @@
   }
 
   &__inner {
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
     padding: $field-padding-vertical 40px $field-padding-vertical $field-padding-horizontal;
-    background: #fff;
     font-size: 1em;
     line-height: 1.5;
+    background: #fff;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
     cursor: pointer;
 
     #{$block-name}__item--selectable {
       max-width: 100%;
-      white-space: nowrap;
       overflow: hidden;
+      white-space: nowrap;
       text-overflow: ellipsis;
     }
   }
 
   &__list--dropdown {
-    display: none;
     position: absolute;
-    z-index: 1;
     top: 100%;
+    z-index: 1;
+    display: none;
     width: 100%;
     margin-top: -1px;
-    border: 1px solid $border-color;
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
-    background-color: #fff;
-    word-break: break-all;
     overflow: hidden;
+    word-break: break-all;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
 
     #{$block-name}__item {
       padding: $field-padding-vertical $field-padding-horizontal;
@@ -160,10 +154,10 @@
 
   &__heading {
     padding: $field-padding-vertical $field-padding-horizontal;
-    font-size: $font-size-sm;
     font-weight: 700;
-    opacity: 0.5;
+    font-size: $font-size-sm;
     cursor: default;
+    opacity: 0.5;
   }
 
   &.is-open {

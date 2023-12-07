@@ -3,11 +3,11 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .breadcrumbs {
-  list-style: none;
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
   padding: 0;
   color: $text-color;
+  list-style: none;
 
   a {
     color: $text-color;
@@ -25,11 +25,11 @@
     margin-right: 0.6em;
     white-space: nowrap;
 
-    &:not(:last-child):after {
-      content: '>';
+    &:not(:last-child)::after {
       display: inline-block;
       margin-left: 0.8em;
       color: $gray;
+      content: ">";
     }
   }
 }

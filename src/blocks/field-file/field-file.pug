@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field-file)
 
 mixin field-file(props)
-
   //- Принимает:
   //-   props {object}
   //-     title: ''           {string} - текст с названием (выводится над полем)
@@ -14,20 +13,20 @@ mixin field-file(props)
   //-       nothingText:      {string} - текст, показываемый, пока ничего не выбрано
   //-       flesSelectedText: {string} - текст, показываемый, если выбрано более одного файла («файлов выбрано: 2»)
   //- Вызов:
-        +field-file({
-          title: 'Название',
-          helpText: 'Подсказка',
-          mods: '',
-          attrs: {
-            name: 'commentFile',
-            multiple: true,
-          },
-          text: {
-            selectText: 'Выберите файл(ы)',
-            nothingText: 'Ничего не выбрано',
-            flesSelectedText: 'Выбрано файлов:',
-          },
-        })
+    +field-file({
+      title: 'Название',
+      helpText: 'Подсказка',
+      mods: '',
+      attrs: {
+        name: 'commentFile',
+        multiple: true,
+      },
+      text: {
+        selectText: 'Выберите файл(ы)',
+        nothingText: 'Ничего не выбрано',
+        flesSelectedText: 'Выбрано файлов:',
+      },
+    })
 
   -
     if(typeof(props) === 'undefined') {
@@ -52,11 +51,11 @@ mixin field-file(props)
     }
 
   .field-file(class=allMods)&attributes(attributes)
-    if(typeof(props.title) !== 'undefined' && props.title)
+    if (typeof(props.title) !== 'undefined' && props.title)
       .field-file__name!= props.title
     label.field-file__input-wrap
       input.field-file__input(type='file', data-multiple-caption=flesSelectedText)&attributes(props.attrs)
       .field-file__name-text(data-button-text=selectText)= nothingText
-      if(typeof(props.helpText) !== 'undefined' && props.helpText)
+      if (typeof(props.helpText) !== 'undefined' && props.helpText)
         .field-file__help-text!= props.helpText
       block
