@@ -26,7 +26,6 @@
   ],
   "devDependencies": {
     "@linthtml/linthtml": "latest",
-    "@prettier/plugin-pug": "latest",
     "browser-sync": "latest",
     "browserslist-to-esbuild": "latest",
     "cpy": "latest",
@@ -62,7 +61,6 @@
     "npm-run-all": "latest",
     "postcss": "latest",
     "postcss-scss": "latest",
-    "prettier": "latest",
     "pug": "latest",
     "pug-lint": "latest",
     "sass": "latest",
