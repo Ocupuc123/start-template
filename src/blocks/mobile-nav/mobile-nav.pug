@@ -19,15 +19,15 @@ mixin mobile-nav(text, mods)
       }
     }
 
-  .mobile-nav(id=id, class=allMods, tabindex='-1')&attributes(attributes)
+  .mobile-nav(id=id, class=allMods, tabindex="-1")&attributes(attributes)
     .mobile-nav__dialog
       .mobile-nav__content
         .mobile-nav__header
           +logo.mobile-nav__logo
-            img(src='./images/main-logo.svg', alt='')
-          +close('Закрыть').mobile-nav__close(data-mobile-nav='close')
+            img(src="./images/main-logo.svg", alt="")
+          +close('Закрыть').mobile-nav__close(data-mobile-nav="close")
         .mobile-nav__body
           .mobile-nav__menu
         .mobile-nav__footer
           .mobile-nav__phone
-            a(href='tel:+79366668264') +7 (936) 666-82-64
+            a(href="tel:+79366668264") +7 (936) 666-82-64

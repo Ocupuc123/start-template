@@ -15,7 +15,8 @@
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "lint:scripts": "eslint . --ignore-path .eslintignore",
     "lint:pug": "glob-exec \"src/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\"",
-    "create-block": "node createBlock.js"
+    "create-block": "node createBlock.js",
+    "prettier:pug": "npx prettier --write \"**/*.pug\" --plugin=\"@prettier/plugin-pug\""
   },
   "browserslist": [
     "last 2 versions",
@@ -26,6 +27,7 @@
   ],
   "devDependencies": {
     "@linthtml/linthtml": "latest",
+    "@prettier/plugin-pug": "latest",
     "browser-sync": "latest",
     "browserslist-to-esbuild": "latest",
     "cpy": "latest",
@@ -61,6 +63,7 @@
     "npm-run-all": "latest",
     "postcss": "latest",
     "postcss-scss": "latest",
+    "prettier": "latest",
     "pug": "latest",
     "pug-lint": "latest",
     "sass": "latest",

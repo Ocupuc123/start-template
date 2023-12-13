@@ -45,7 +45,7 @@ mixin field-radio(radiobuttons, title)
         }
       .field-radio__input-wrap(class=allMods)
         label.field-radio__name
-          input.field-radio__input(type='radio')&attributes(checkbox.attrs)
+          input.field-radio__input(type="radio")&attributes(checkbox.attrs)
           span.field-radio__name-text!= checkbox.title
         if (typeof(checkbox.helpText) !== 'undefined' && checkbox.helpText)
           .field-radio__help-text-wrap

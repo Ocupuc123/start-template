@@ -17,10 +17,10 @@ mixin accordion(mods)
   //- подключаем файл со структурой данных блока
   include accordion.data.pug
 
-  .accordion(class=allMods, itemscope='', itemtype='https://schema.org/FAQPage')&attributes(attributes)
+  .accordion(class=allMods, itemscope="", itemtype="https://schema.org/FAQPage")&attributes(attributes)
     each accordion in accordionData
-      .accordion__item(itemscope='', itemprop='mainEntity', itemtype='https://schema.org/Question')
+      .accordion__item(itemscope="", itemprop="mainEntity", itemtype="https://schema.org/Question")
         .accordion__header
-          button.accordion__trigger(type='button', itemprop='name')!= accordion.question
-        .accordion__panel(itemscope='', itemprop='acceptedAnswer', itemtype='https://schema.org/Answer')
-          p.accordion__text(itemprop='text')!= accordion.answer
+          button.accordion__trigger(type="button", itemprop="name")!= accordion.question
+        .accordion__panel(itemscope="", itemprop="acceptedAnswer", itemtype="https://schema.org/Answer")
+          p.accordion__text(itemprop="text")!= accordion.answer

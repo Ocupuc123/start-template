@@ -35,12 +35,12 @@ mixin tabs(props, mods)
     }
 
   .tabs(class=allMods)&attributes(attributes)
-    ul.tabs__links(role='tablist')
+    ul.tabs__links(role="tablist")
       each tab in props
         -
           var isActive = (typeof(tab.isActive) !== 'undefined' && tab.isActive) ? '  tabs__link-wrap--active' : ''
-        li.tabs__link-wrap(class=isActive, role='presentation')
-          a.tabs__link(href='#' + tab.id, data-toggle='tab', role='tab')!= tab.text
+        li.tabs__link-wrap(class=isActive, role="presentation")
+          a.tabs__link(href="#" + tab.id, data-toggle="tab", role="tab")!= tab.text
     .tabs__content-wrapper
       block
 
@@ -68,5 +68,5 @@ mixin tabs-item(id, isActive, mods)
     if(typeof(isActive) !== 'undefined' && isActive)
       allMods = allMods + '  tabs__content-item--active';
 
-  .tabs__content-item(class=allMods, id=id, role='tabpanel')&attributes(attributes)
+  .tabs__content-item(class=allMods, id=id, role="tabpanel")&attributes(attributes)
     block

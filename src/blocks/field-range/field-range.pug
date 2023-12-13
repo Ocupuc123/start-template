@@ -38,7 +38,7 @@ mixin field-range(props)
     if (typeof(props.title) !== 'undefined' && props.title)
       span.field-range__name!= props.title
     span.field-range__input-wrap
-      input.field-range__input(type='range')&attributes(props.attrs)
+      input.field-range__input(type="range")&attributes(props.attrs)
       if (typeof(props.helpText) !== 'undefined' && props.helpText)
         span.field-range__help-text!= props.helpText
       block

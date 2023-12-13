@@ -1,7 +1,6 @@
 //- Все примеси в этом файле должны начинаться c имени блока (to-top)
 
 mixin to-top(mods)
-
   //- Принимает:
   //-   mods    {string} - список модификаторов
   //- Вызов:
@@ -17,5 +16,5 @@ mixin to-top(mods)
       }
     }
 
-  button.to-top(class=allMods, type='button')&attributes(attributes)
+  button.to-top(class=allMods, type="button")&attributes(attributes)
     .visually-hidden Наверх

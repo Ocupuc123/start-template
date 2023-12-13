@@ -3,14 +3,14 @@
 include ../blocks/mixins
 
 doctype html
-html.page(lang='ru')
+html.page(lang="ru")
   head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width,initial-scale=1")
     block meta
       title Главная страница
-    meta(name='description', content='Описание')
-    link(rel='stylesheet', href='./css/main.css')
+    meta(name="description", content="Описание")
+    link(rel="stylesheet", href="./css/main.css")
 
     //- Предзагрузка шрифтов или иных ресурсов
     //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')
@@ -23,4 +23,4 @@ html.page(lang='ru')
       .page__footer-wrapper
         +page-footer
     block scripts
-      script(src='./js/scripts.min.js')
+      script(src="./js/scripts.min.js")
