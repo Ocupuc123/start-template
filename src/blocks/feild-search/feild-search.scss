@@ -1,0 +1,37 @@
+// В этом файле должны быть стили для БЭМ-блока feild-search, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "sass:color";
+
+.feild-search {
+  $feild-search: &; // #{$feild-search}__element
+
+  &__input-wrap {
+    position: relative;
+    display: block;
+  }
+
+  &__input {
+    @include field-text;
+  }
+
+  &__btn {
+    @include btn-reset;
+    @include flex-all-center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    color: $color-main;
+  }
+
+  &--error {
+    #{$feild-search}__input {
+      color: $color-danger;
+      background-color: color.adjust($color-danger, $lightness: 35%);
+      border-color: $color-danger;
+    }
+  }
+}

@@ -22,4 +22,4 @@ mixin sprite-svg(props)
     }
 
   svg(class=allMods, width!=props.width, height!=props.height)&attributes(attributes)
-    use(xlink:href=`./images/sprite.svg#${props.name}`)
+    use(href=`./images/sprite.svg#${props.name}`)

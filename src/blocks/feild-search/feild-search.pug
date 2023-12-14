@@ -1,0 +1,25 @@
+//- Все примеси в этом файле должны начинаться c имени блока (feild-search)
+
+mixin feild-search(props, mods)
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+    +feild-search({placeholder: 'Поиск по сайту'}, 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' feild-search--' + modsList[i].trim();
+      }
+    }
+
+  form.feild-search(class=allMods, action="#", method="GET")&attributes(attributes)
+    label.feild-search__input-wrap
+      input.feild-search__input(type="search", autocomplete="off", name="query")&attributes(props)
+      button.feild-search__btn(type="submit")
+        span.visually-hidden Поиск по сайту
+        +sprite-svg({ width: 20, height: 20, name: 'search', })
