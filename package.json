@@ -10,7 +10,7 @@
     "start": "cross-env NODE_ENV=development gulp development",
     "build": "cross-env NODE_ENV=production gulp production",
     "lint": "npm-run-all -pc lint:**",
-    "lint:markup": "html-validator --continue",
+    "lint:markup": "html-validator --continue '--ignore=Trailing slash on void elements'",
     "lint:html": "linthtml build/**/*.html --config .linthtmlrc",
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "lint:scripts": "eslint . --ignore-path .eslintignore",

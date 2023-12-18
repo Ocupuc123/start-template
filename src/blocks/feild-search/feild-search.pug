@@ -5,7 +5,7 @@ mixin feild-search(props, mods)
   //-   text    {string} - текст
   //-   mods    {string} - список модификаторов
   //- Вызов:
-    +feild-search({placeholder: 'Поиск по сайту'}, 'some-mod')
+    +feild-search({placeholder: 'Поиск'}, 'some-mod')
 
   -
     // список модификаторов
@@ -18,8 +18,9 @@ mixin feild-search(props, mods)
     }
 
   form.feild-search(class=allMods, action="#", method="GET")&attributes(attributes)
-    label.feild-search__input-wrap
-      input.feild-search__input(type="search", autocomplete="off", name="query")&attributes(props)
+    span.feild-search__input-wrap
+      label.visually-hidden(for="search") Поиск
+      input#search.feild-search__input(type="search", autocomplete="off", name="query")&attributes(props)
       button.feild-search__btn(type="submit")
         span.visually-hidden Поиск по сайту
         +sprite-svg({ width: 20, height: 20, name: 'search', })
