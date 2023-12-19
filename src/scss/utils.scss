@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  max-width: calc($container-width + ($container-gap * 2));
+  margin: 0 auto;
+  padding: 0 $container-gap;
+
+  @include mobile-l-viewport {
+    padding: 0 calc($container-gap / 2);
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll-lock-ios {
+  position: fixed;
+  overflow: hidden;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}

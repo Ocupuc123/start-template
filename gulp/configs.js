@@ -9,7 +9,8 @@ export const ServerConfig = {
   server: 'build/',
   notify: false,
   cors: true,
-  ui: false
+  ui: false,
+  open: false
 };
 
 export const SvgSpriteConfig = {

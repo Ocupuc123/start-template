@@ -55,6 +55,9 @@ $screen-md:                   768px;
 $screen-lg:                   1024px;
 $screen-xl:                   1440px;
 $screen-xxl:                  1800px;
+
+// Контейнер
+
 $container-width:             1170px;
 $container-gap:               30px;
 
@@ -71,3 +74,8 @@ $toggler-part-height:         2px;
 $z-index-modal:               100;
 $aos-distance:                100px;
 $rfs-breakpoint:              $screen-lg;
+
+// Retina
+
+$retina-dpi:                  144dpi;
+$retina-dppx:                 1.5dppx;

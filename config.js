@@ -7,9 +7,12 @@ export default {
   ],
   'addStyle': [
     'src/scss/variables.scss',
-    'src/scss/mixins.scss',
+    'src/scss/mixins/form-mixins.scss',
+    'src/scss/mixins/helpers.scss',
     'src/scss/fonts.scss',
     'src/scss/normalize.scss',
+    'src/scss/headings.scss',
+    'src/scss/utils.scss',
     // 'node_modules/aos/src/sass/aos',
     // 'node_modules/swiper/swiper-bundle',
     // для 'node_modules/somePackage/dist/somePackage.css',
