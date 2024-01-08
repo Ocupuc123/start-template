@@ -1,18 +1,21 @@
-import gsap from 'gsap';
-import ScrollTrigger from '../../../node_modules/gsap/ScrollTrigger.js';
+/* eslint-disable no-undef */
+import '../libs/gsap/gsap.min.js';
+import '../libs/gsap/ScrollTrigger.min.js';
+import '../libs/gsap/ScrollSmoother.min.js';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-// gsap.fromTo('.class', { opacity: 0, y: 200 }, {
-//   y: 0,
-//   opacity: 1,
+ScrollSmoother.create({
+  wrapper: '.page__inner',
+  content: '.page__content',
+  smooth: 1,
+  effects: true
+});
 
-//   scrollTrigger: {
-//     trigger: '.class',
-//     start: '+200',
-//     scrub: true,
-//     onEnter: (self) => {
-//       self.trigger.classList.add('trigger');
-//     }
-//   }
-// });
+gsap.fromTo('.section-2', { opacity: 0 }, {
+  opacity: 1,
+  scrollTrigger: {
+    trigger: '.section-2',
+    scrub: true
+  }
+});
