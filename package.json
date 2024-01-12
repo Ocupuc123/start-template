@@ -79,7 +79,6 @@
   "dependencies": {
     "accordion-js": "latest",
     "aos": "latest",
-    "autosize": "latest",
     "baron": "latest",
     "choices.js": "latest",
     "closest": "latest",
