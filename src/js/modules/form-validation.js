@@ -1,5 +1,5 @@
 import JustValidate from 'just-validate';
-import Inputmask from '/node_modules/inputmask/lib/inputmask.js';
+import Inputmask from '../../../node_modules/inputmask/lib/inputmask.js';
 
 const validateForms = (selector, rules, afterSend) => {
   const form = document.querySelector(selector);
