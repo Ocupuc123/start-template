@@ -77,11 +77,13 @@
     "w3c-html-validator": "latest"
   },
   "dependencies": {
+    "@studio-freight/lenis": "latest",
     "accordion-js": "latest",
     "aos": "latest",
     "baron": "latest",
     "choices.js": "latest",
     "closest": "latest",
+    "gsap": "latest",
     "handy-collapse": "latest",
     "hc-sticky": "latest",
     "img-comparison-slider": "latest",
