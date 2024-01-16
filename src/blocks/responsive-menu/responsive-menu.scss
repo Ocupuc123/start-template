@@ -19,7 +19,7 @@ $line-height-desktop: 1.2;
 
   @include tablet-viewport {
     flex-direction: column;
-    gap: 0;
+    gap: 5px 0;
     align-items: flex-start;
 
     .expand-button {
@@ -87,6 +87,10 @@ $line-height-desktop: 1.2;
         width: 100%;
         min-height: $expand-button-size;
       }
+    }
+
+    .has-submenu > a {
+      padding-right: calc($expand-button-size + 10px);
     }
 
     li {
