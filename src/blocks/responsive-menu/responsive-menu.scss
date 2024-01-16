@@ -1,0 +1,216 @@
+$submenu-width: 250px;
+$submenu-border-radius: 6px;
+$sublink-color: $gray-darkest;
+$sublink-font-size: 14px;
+$expand-button-size: 35px;
+$menu-link-color: $gray-darkest;
+$font-size-desktop: 16px;
+$font-size-mobile: 18px;
+$font-weight-desktop: 400;
+$line-height-desktop: 1.2;
+
+.responsive-menu {
+  @include list-reset;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 30px;
+  align-items: center;
+
+  @include tablet-viewport {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+
+    .expand-button {
+      @include btn-reset;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: $expand-button-size;
+      height: $expand-button-size;
+      color: transparent;
+      font-size: 0;
+      background-color: $gray-lightest;
+      border-radius: 3px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 14px;
+        height: 2px;
+        margin: -1px 0 0 -7px;
+        background-color: $menu-link-color;
+        content: "";
+      }
+
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      &[aria-expanded="true"]::after {
+        opacity: 0;
+      }
+    }
+
+    & > li > a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: $expand-button-size;
+      color: $menu-link-color;
+      font-size: $font-size-mobile;
+    }
+
+    ul {
+      max-height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      list-style: none;
+      transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+      transition-duration: $transition-time;
+      transition-property: max-height;
+
+      &.expanded {
+        max-height: 500px;
+        transition-timing-function: ease-in;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+        min-height: $expand-button-size;
+      }
+    }
+
+    li {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $menu-desktop-width) {
+    .has-submenu {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .expand-button {
+      @include btn-reset;
+      @include flex-all-center;
+
+      position: relative;
+      width: 7px;
+      height: 7px;
+      margin-top: -4px;
+      margin-left: 10px;
+      color: transparent;
+      font-size: 0;
+      vertical-align: middle;
+      pointer-events: none;
+
+      &::before {
+        width: 100%;
+        height: 100%;
+        border-color: $menu-link-color;
+        border-style: solid;
+        border-width: 0 0 1px 1px;
+        transform: rotate(-45deg);
+        content: "";
+      }
+    }
+
+    & > li > a {
+      display: inline-flex;
+      padding: 10px 0;
+      color: $menu-link-color;
+      font-weight: $font-weight-desktop;
+      font-size: $font-size-desktop;
+      line-height: $line-height-desktop;
+    }
+
+    ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      width: $submenu-width;
+      margin: 0;
+      padding: 10px 0;
+      list-style: none;
+      background-color: #fff;
+      border-radius: $submenu-border-radius;
+      box-shadow: $shadow;
+
+      .expand-button {
+        margin-top: 0;
+        margin-right: 20px;
+
+        &::before {
+          transform: rotate(-135deg);
+        }
+      }
+
+      a {
+        display: inline-flex;
+        width: 100%;
+        padding: 5px 20px;
+        color: $sublink-color;
+        font-size: $sublink-font-size;
+
+        &:hover {
+          color: $link-color-hover;
+        }
+      }
+
+      ul {
+        top: 0;
+        left: 100%;
+      }
+
+      li {
+        width: 100%;
+      }
+    }
+
+    li:hover > ul {
+      display: block;
+      animation: submenu-fade-in $transition-time;
+    }
+
+    li > ul li:hover > ul {
+      animation: submenu-fade-in-left $transition-time;
+    }
+  }
+
+  li {
+    position: relative;
+  }
+}
+
+@keyframes submenu-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes submenu-fade-in-left {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

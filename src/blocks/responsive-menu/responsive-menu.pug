@@ -1,0 +1,32 @@
+//- Все примеси в этом файле должны начинаться c имени блока (responsive-menu)
+
+mixin responsive-menu(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +responsive-menu('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' responsive-menu--' + modsList[i].trim();
+      }
+    }
+
+  ul.responsive-menu(class=allMods)&attributes(attributes)
+    li #[a(href='#') Пункт 1]
+      ul
+        li #[a(href='#') Вложенный пункт]
+        li #[a(href='#') Вложенный пункт]
+          ul
+            li #[a(href='#') Вложенный пункт]
+            li #[a(href='#') Вложенный пункт]
+            li #[a(href='#') Вложенный пункт]
+            li #[a(href='#') Вложенный пункт]
+    li #[a(href='#') Пункт 2]
+    li #[a(href='#') Пункт 3]

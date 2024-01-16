@@ -6,15 +6,9 @@
 // import { addTouchClass } from './functions/add-touch-class.js';
 // addTouchClass();
 
-// import { addLoadedClass } from './functions/add-loaded-class.js';
-// addLoadedClass();
-
 // Использование: height: 100vh; height: calc(var(--vh, 1vh) * 100);
 // import { fullVHfix } from './functions/full-vh-fix.js';
 // fullVHfix();
-
-// import { getHeaderHeight } from './functions/get-header-height.js';
-// getHeaderHeight();
 
 // Документация: https://github.com/somewebmedia/hc-sticky
 // import './modules/hc-sticky.js';
@@ -27,9 +21,6 @@
 
 // Документация: https://swiperjs.com/swiper-api
 // import './modules/swiper.js';
-
-// Документация: https://swiperjs.com/swiper-api
-// import './modules/full-screen-slider.js';
 
 // Документация: https://github.com/sk-rt/handy-collapse
 // import './modules/handy-collapse.js';
