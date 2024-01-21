@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', () =>{
 
-  if(location.hash) {
-    showTab(location.hash);
-  }
-
   // Следим за поднимающимися кликами
   document.addEventListener('click', (event) => {
     if(event.target.dataset.toggle === 'tab') {
@@ -11,14 +7,6 @@ document.addEventListener('DOMContentLoaded', () =>{
       const target = event.target.hash === undefined ? event.target.dataset.target : event.target.hash;
       if (target !== undefined) {
         showTab(target);
-        if(history && history.pushState && history.replaceState) {
-          const stateObject = {'url' : target};
-          if (window.location.hash && stateObject.url !== window.location.hash) {
-            window.history.pushState(stateObject, document.title, window.location.pathname + target);
-          } else {
-            window.history.replaceState(stateObject, document.title, window.location.pathname + target);
-          }
-        }
       }
     }
   });
