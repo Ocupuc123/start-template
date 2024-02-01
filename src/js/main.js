@@ -1,7 +1,6 @@
 // import './modules/gsap.js';
 // import './modules/lenis.js';
 // import './modules/form-validation.js';
-// import './libs/watcher.js'
 
 // import { addTouchClass } from './functions/add-touch-class.js';
 // addTouchClass();
@@ -28,5 +27,5 @@
 // Документация: https://github.com/sneas/img-comparison-slider
 // import './modules/img-comparison-slider.js';
 
-// Документация: https://github.com/FreelancerLifeStyle/dynamic_adapt
-// import './modules/dynamic-adapt.js';
+// Документация: https://github.com/SineYlo/transfer-elements/blob/main/readme-ru.md
+// import './modules/transfer-elements.js';

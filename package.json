@@ -92,6 +92,7 @@
     "just-validate": "latest",
     "normalize.css": "latest",
     "rfs": "latest",
-    "swiper": "latest"
+    "swiper": "latest",
+    "transfer-elements": "latest"
   }
 }

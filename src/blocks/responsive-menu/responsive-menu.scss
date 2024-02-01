@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $submenu-width: 250px;
 $submenu-border-radius: 6px;
 $sublink-color: $gray-darkest;
@@ -5,9 +7,10 @@ $sublink-font-size: 14px;
 $expand-button-size: 35px;
 $menu-link-color: $gray-darkest;
 $font-size-desktop: 16px;
-$font-size-mobile: 18px;
 $font-weight-desktop: 400;
 $line-height-desktop: 1.2;
+$font-size-mobile: 18px;
+$menu-bg-mobile: rgb(244 245 250);
 
 .responsive-menu {
   @include list-reset;
@@ -21,6 +24,9 @@ $line-height-desktop: 1.2;
     flex-direction: column;
     gap: 5px 0;
     align-items: flex-start;
+    padding: 15px 0;
+    background: $menu-bg-mobile;
+    border-radius: 6px;
 
     .expand-button {
       @include btn-reset;
@@ -33,7 +39,7 @@ $line-height-desktop: 1.2;
       height: $expand-button-size;
       color: transparent;
       font-size: 0;
-      background-color: $gray-lightest;
+      background-color: transparent;
       border-radius: 3px;
 
       &::before,
@@ -41,10 +47,10 @@ $line-height-desktop: 1.2;
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 14px;
+        width: 20px;
         height: 2px;
-        margin: -1px 0 0 -7px;
-        background-color: $menu-link-color;
+        margin: -1px 0 0 -10px;
+        background-color: $color-main;
         content: "";
       }
 
@@ -62,6 +68,7 @@ $line-height-desktop: 1.2;
       align-items: center;
       width: 100%;
       min-height: $expand-button-size;
+      padding: 0 15px;
       color: $menu-link-color;
       font-size: $font-size-mobile;
     }
@@ -72,6 +79,8 @@ $line-height-desktop: 1.2;
       padding: 0;
       overflow: hidden;
       list-style: none;
+      background: color.adjust($menu-bg-mobile, $lightness: -4%);
+      border-radius: 6px;
       transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
       transition-duration: $transition-time;
       transition-property: max-height;
@@ -86,6 +95,11 @@ $line-height-desktop: 1.2;
         align-items: center;
         width: 100%;
         min-height: $expand-button-size;
+        padding: 0 15px;
+      }
+
+      ul {
+        background: color.adjust($menu-bg-mobile, $lightness: -8%);
       }
     }
 
