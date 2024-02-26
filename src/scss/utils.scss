@@ -1,11 +1,9 @@
 .container {
-  width: 100%;
-  max-width: calc($container-width + ($container-gap * 2));
-  margin: 0 auto;
-  padding: 0 $container-gap;
+  width: min($container-width, 100% - calc($container-gap * 2));
+  margin-inline: auto;
 
   @include mobile-l-viewport {
-    padding: 0 calc($container-gap / 2);
+    width: min($container-width, 100% - $container-gap);
   }
 }
 
