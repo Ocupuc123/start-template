@@ -14,7 +14,7 @@
     "lint:html": "linthtml build/**/*.html --config .linthtmlrc",
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "lint:scripts": "eslint . --ignore-path .eslintignore",
-    "lint:pug": "glob-exec \"src/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\"",
+    "lint:pug": "find src -name '*.pug' -exec pug-lint {} +",
     "create-block": "node createBlock.js",
     "prettier:pug": "npx prettier --write \"**/*.pug\" --plugin=\"@prettier/plugin-pug\""
   },
@@ -36,7 +36,6 @@
     "eslint": "latest",
     "eslint-config-htmlacademy": "latest",
     "get-classes-from-html": "latest",
-    "glob-exec": "latest",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "latest",
