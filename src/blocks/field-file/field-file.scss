@@ -26,28 +26,28 @@
     align-items: baseline;
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
-    background-color: #fff;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: #ffffff;
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    cursor: pointer;
 
     @at-root input:disabled ~ & {
-      background: $gray-lighter;
       cursor: not-allowed;
+      background: $gray-lighter;
     }
 
     &::before {
       display: block;
-      margin-right: $field-padding-horizontal;
       padding: $field-padding-vertical  $field-padding-horizontal;
+      margin-right: $field-padding-horizontal;
       line-height: $line-height;
+      content: attr(data-button-text);
       background-color: $gray-lightest;
       border-right: 1px solid $border-color;
       border-top-left-radius: $border-radius;
       border-bottom-left-radius: $border-radius;
-      content: attr(data-button-text);
     }
 
     &:hover,

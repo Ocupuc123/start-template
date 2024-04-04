@@ -10,8 +10,8 @@
 
   // первый уровень
   &__list {
-    margin: 0;
     padding: 0;
+    margin: 0;
     list-style: none;
 
     // мобильный вид списка
@@ -55,7 +55,7 @@
     &--active {
 
       & > #{$block-name}__link {
-        color: #000;
+        color: #000000;
       }
     }
   }
@@ -65,7 +65,7 @@
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;
-    background-color: #fff;
+    background-color: #ffffff;
 
     &:hover,
     &:focus {

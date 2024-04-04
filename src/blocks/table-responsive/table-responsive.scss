@@ -6,14 +6,14 @@
   width: 100%;
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
-  border: 1px solid $border-color;
   border-collapse: collapse;
+  border: 1px solid $border-color;
 
   caption {
     padding: 0.4em $field-padding-horizontal;
-    color: $text-color-muted;
     font-size: $font-size-sm;
     line-height: 1em;
+    color: $text-color-muted;
     text-align: left;
     caption-side: top;
     border: 1px solid $border-color;
@@ -21,14 +21,14 @@
 
     @media (max-width: ($screen-md - 1)) {
       display: block;
+      padding: 0;
       margin-top: 1em;
       margin-bottom: 0.5em;
-      padding: 0;
-      color: currentcolor;
-      font-weight: 700;
-      font-size: $font-size-h3;
       font-family: $font-family;
+      font-size: $font-size-h3;
+      font-weight: 700;
       line-height: 1.2;
+      color: currentColor;
       border: 0;
     }
   }

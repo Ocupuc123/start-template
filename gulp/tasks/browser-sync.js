@@ -18,8 +18,7 @@ export const browserSync = (cb) => {
   // Страницы: изменение, добавление
   gulp.watch('src/pages/**/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
     compilePugFast,
-    gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
-    gulp.parallel(compileSass, compileScripts)
+    gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts)
   ));
 
   // Страницы: удаление
@@ -47,8 +46,7 @@ export const browserSync = (cb) => {
   // Шаблоны pug: все события
   gulp.watch(['src/layouts/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(
     compilePug,
-    gulp.parallel(writeSassImportsFile, writeJsImportsFile),
-    gulp.parallel(compileSass, compileScripts)
+    gulp.parallel(writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts)
   ));
 
   // Стили Блоков: изменение

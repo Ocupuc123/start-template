@@ -4,38 +4,26 @@
 @use "sass:color";
 
 .btn {
-  display: inline-block;
-  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
   max-width: 100%;
-  margin: 0;
   padding: $field-padding-vertical  $field-padding-horizontal;
-  overflow: hidden;
   color: $text-color;
-  font-size: 1em;
-  font-family: inherit;
-  line-height: $line-height;
-  white-space: nowrap;
   text-align: center;
-  text-transform: none;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-  background-color: $gray-lightest;
-  background-image: none;
-  border: 0;
-
-  // border: 1px solid $gray-lighter;
-  border-radius: $border-radius;
   cursor: pointer;
   user-select: none;
+  background-color: $gray-lightest;
+  border: none;
+  border-radius: $border-radius;
+  outline: none;
 
   &:hover,
   &:focus {
     color: $text-color;
     text-decoration: none;
     background-color: color.adjust($gray-lightest, $lightness: -10%);
-
-    // border-color: color.adjust($gray-lighter, $lightness: -12%);
   }
 
   &:active,
@@ -46,40 +34,29 @@
   &--disabled,
   &:disabled {
     color: $text-color;
-    background-color: $gray-lightest;
     cursor: not-allowed;
+    background-color: $gray-lightest;
     opacity: $opacity;
-
-    // border-color: $gray-lighter;
 
     @at-root a.btn--disabled {
       pointer-events: none;
     }
   }
 
-  // &__icon {
-  //   display: inline-block;
-  //   vertical-align: middle;
-  // }
+  &--main {
+    color: #ffffff;
+    background-color: $color-main;
 
+    &:hover,
+    &:focus {
+      color: #ffffff;
+      background-color: color.adjust($color-main, $lightness: -10%);
+    }
 
-  // &--main {
-  //   color: #fff;
-  //   background-color: $color-main;
-  //   // border: 1px solid $color-main;
-
-  //   &:hover,
-  //   &:focus {
-  //     color: #fff;
-  //     background-color: color.adjust($color-main, $lightness: -10%);
-  //     // border-color: color.adjust($color-main, $lightness: -10%);
-  //   }
-
-  //   &--disabled,
-  //   &:disabled {
-  //     color: #fff;
-  //     background-color: $color-main;
-  //     // border-color: $color-main;
-  //   }
-  // }
+    &--disabled,
+    &:disabled {
+      color: #ffffff;
+      background-color: $color-main;
+    }
+  }
 }

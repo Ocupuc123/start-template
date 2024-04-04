@@ -4,9 +4,9 @@
 
 .alert {
   position: relative;
+  padding: 0.7em 1.5em 0.7em 1.4em;
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
-  padding: 0.7em 1.5em 0.7em 1.4em;
   color: $text-color;
   background-color: $color-warning;
   border-radius: $border-radius;
@@ -24,10 +24,10 @@
     display: block;
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: inherit;
-    font-weight: 400;
     font-size: $font-size-h3;
+    font-weight: 400;
     line-height: 1.2;
+    color: inherit;
 
     & + * {
       margin-top: 0;

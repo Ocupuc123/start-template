@@ -68,11 +68,8 @@
     "sass": "latest",
     "stylelint": "latest",
     "stylelint-config-htmlacademy": "latest",
-    "stylelint-config-rational-order": "latest",
-    "stylelint-config-standard": "latest",
-    "stylelint-config-standard-scss": "latest",
+    "stylelint-config-recess-order": "latest",
     "stylelint-order": "latest",
-    "stylelint-scss": "latest",
     "w3c-html-validator": "latest"
   },
   "dependencies": {

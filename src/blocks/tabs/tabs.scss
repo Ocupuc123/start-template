@@ -20,7 +20,7 @@
     &--active {
 
       #{$block-name}__link {
-        color: #fff;
+        color: #ffffff;
         background-color: $color-main;
       }
     }
@@ -31,8 +31,8 @@
     align-items: center;
     justify-content: center;
     padding: 15px 30px;
-    color: #353742;
     line-height: 100%;
+    color: #353742;
     text-align: center;
     background-color: #eef3f9;
     border-radius: 6px 6px 0;

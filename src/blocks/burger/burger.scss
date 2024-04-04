@@ -11,18 +11,18 @@
   width: 32px;
   height: 32px;
   padding: 0;
-  background: transparent;
-  border: none;
   cursor: pointer;
   user-select: none;
+  background: transparent;
+  border: none;
 
   > span {
     position: relative;
     display: block;
     width: 90%;
     height: $toggler-part-height;
-    color: transparent;
     font-size: 0;
+    color: transparent;
     background: $gray-dark;
     transition: background $transition-time $transition-time;
 
@@ -32,10 +32,10 @@
       left: 0;
       width: 100%;
       height: $toggler-part-height;
-      background: $gray-dark;
-      transform-origin: 50% 50%;
-      transition: top $transition-time $transition-time, transform $transition-time;
       content: "";
+      background: $gray-dark;
+      transition: top $transition-time $transition-time, transform $transition-time;
+      transform-origin: 50% 50%;
     }
 
     &::before {

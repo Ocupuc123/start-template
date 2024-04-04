@@ -15,9 +15,9 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    margin: 0;
     padding: 0;
     padding-right: $scrollbar-width;
+    margin: 0;
     overflow-y: scroll;
     border: 0;
     -webkit-overflow-scrolling: touch; // remove line to customize scrollbar in iOs
@@ -54,12 +54,12 @@
     position: absolute;
     left: ($scrollbar-width * -1 + 1);
     z-index: 1;
-    display: none;
     box-sizing: border-box;
+    display: none;
     width: ($scrollbar-width - 2);
+    pointer-events: auto;
     background: $gray-lighten;
     opacity: 1;
-    pointer-events: auto;
 
     #{$block-name}--dragging &,
     &:hover {

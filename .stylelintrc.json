@@ -1,6 +1,6 @@
 {
-  "extends": ["stylelint-config-htmlacademy", "stylelint-config-standard", "stylelint-config-standard-scss", "stylelint-config-rational-order"],
-  "plugins": ["stylelint-order", "stylelint-scss"],
+  "extends": ["stylelint-config-htmlacademy", "stylelint-config-recess-order"],
+  "plugins": ["stylelint-order"],
   "rules": {
     "max-nesting-depth": [3, {
       "ignore": ["blockless-at-rules"],
@@ -85,10 +85,11 @@
         "selector": "^&--[-a-z0-9]+"
       }
     ],
+    "at-rule-no-unknown": null,
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["color.adjust", "vw", "darken", "lighten"]
+        "ignoreFunctions": ["vw","rem","em"]
       }
     ]
   }

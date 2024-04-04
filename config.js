@@ -7,8 +7,8 @@ export default {
   ],
   'addStyle': [
     'src/scss/variables.scss',
-    'src/scss/mixins/form-mixins.scss',
-    'src/scss/mixins/helpers.scss',
+    'src/scss/mixins.scss',
+    'src/scss/functions.scss',
     'src/scss/fonts.scss',
     'src/scss/normalize.scss',
     'src/scss/headings.scss',

@@ -5,7 +5,6 @@
 .accordion {
   $accordion: &; // #{$accordion}__element
 
-  // .accordion__item
   &__item {
     border-bottom: 1px solid $border-color;
 
@@ -22,26 +21,20 @@
     }
   }
 
-  // .accordion__header
-  // &__header {
-
-  // }
-
-  // .accordion__trigger
   &__trigger {
     position: relative;
     display: block;
     width: 100%;
-    margin: 0;
     padding: 15px 0;
+    margin: 0;
     font-size: 20px;
     text-align: left;
+    cursor: pointer;
     background-color: transparent;
     border: 0;
     border-radius: 0;
     outline: none;
     box-shadow: none;
-    cursor: pointer;
 
     &::after {
       @include flex-all-center;
@@ -51,11 +44,11 @@
       right: 5px;
       width: 16px;
       height: 16px;
+      content: "";
       border-bottom: 2px solid $border-color;
       border-left: 2px solid $border-color;
-      transform: rotate(-45deg);
       transition: transform $transition-time;
-      content: "";
+      transform: rotate(-45deg);
     }
 
     &:active,
@@ -64,14 +57,12 @@
     }
   }
 
-  // .accordion__panel
   &__panel {
     overflow: hidden;
     transition-timing-function: ease;
     transition-property: height, visibility;
   }
 
-  // .accordion__text
   &__text {
     padding: 15px 0;
   }

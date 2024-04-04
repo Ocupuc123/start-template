@@ -29,8 +29,8 @@
   &__name {
     position: relative;
     display: inline-block;
-    margin-right: 0.6em;
     padding-left: 1.5em;
+    margin-right: 0.6em;
     font-weight: 400;
     line-height: $line-height;
   }
@@ -68,9 +68,9 @@
       left: 0;
       width: 14px;
       height: 14px;
-      border: 2px solid currentcolor;
-      border-radius: 50%;
       content: "";
+      border: 2px solid currentColor;
+      border-radius: 50%;
     }
 
     @at-root input:focus ~ &:before {
@@ -88,11 +88,11 @@
       left: 4px;
       width: 6px;
       height: 6px;
-      background-color: currentcolor;
+      content: "";
+      background-color: currentColor;
       border-radius: 50%;
       opacity: 0;
       transition: opacity $transition-time;
-      content: "";
 
       @at-root input:checked ~ & {
         opacity: 1;
@@ -110,12 +110,12 @@
     position: absolute;
     top: 0.8em;
     left: 0;
-    margin: 0;
     padding: 0;
-    transform: translateY(-50%);
+    margin: 0;
 
     // сокрытие инпута в случае использования своей радиокнопки
     opacity: 0;
+    transform: translateY(-50%);
 
     &:focus,
     &:active {

@@ -1,16 +1,14 @@
-/* stylelint-disable scss/dollar-variable-colon-space-after */
-
-$black:                       #000;
+$black:                       #000000;
 $gray-darkest:                #1a1a1a;
-$gray-darker:                 #333;
+$gray-darker:                 #333333;
 $gray-darken:                 #4d4d4d;
-$gray-dark:                   #666;
+$gray-dark:                   #666666;
 $gray:                        #808080;
-$gray-light:                  #999;
+$gray-light:                  #999999;
 $gray-lighten:                #b3b3b3;
-$gray-lighter:                #ccc;
+$gray-lighter:                #cccccc;
 $gray-lightest:               #e6e6e6;
-$white:                       #fff;
+$white:                       #ffffff;
 $color-main:                  #0275d9;
 $color-success:               #5cb75c;
 $color-danger:                #d8544f;
@@ -20,9 +18,7 @@ $color-fb:                    #4267b2;
 $color-tw:                    #40a2f5;
 $color-gh:                    #24292e;
 
-
 // Семантические цвета
-
 $text-color:                  $gray-darker;
 $heading-color:               $gray-darkest;
 $text-color-muted:            $gray;
@@ -31,9 +27,7 @@ $link-color:                  $color-main;
 $link-color-hover:            $link-color;
 $border-color:                $gray-lighten;
 
-
 // Базовая типографика
-
 $font-size:                   16px;
 $font-size-h1:                40px;
 $font-size-h2:                32px;
@@ -47,9 +41,8 @@ $typo-margin-vertical:        1em;
 $heading-font-weight:         700;
 $font-family:                 -apple-system, blinkmacsystemfont, "Roboto", "Ubuntu", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
 
-
 // Ширины
-
+$screen-xs:                   375px;
 $screen-sm:                   425px;
 $screen-md:                   768px;
 $screen-lg:                   1024px;
@@ -57,12 +50,10 @@ $screen-xl:                   1440px;
 $screen-xxl:                  1800px;
 
 // Контейнер
-
 $container-width:             1170px;
 $container-gap:               30px;
 
 // Разное
-
 $field-padding-vertical:      5px;
 $field-padding-horizontal:    12px;
 $border-radius:               3px;
@@ -76,6 +67,5 @@ $aos-distance:                100px;
 $rfs-breakpoint:              $screen-lg;
 
 // Retina
-
 $retina-dpi:                  144dpi;
 $retina-dppx:                 1.5dppx;

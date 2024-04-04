@@ -84,12 +84,12 @@
     right: 16px;
     width: 14px;
     height: 14px;
+    pointer-events: none;
+    content: "";
     border-bottom: 1px solid $border-color;
     border-left: 1px solid $border-color;
-    transform: rotate(-45deg);
     transition: all 0.3s;
-    content: "";
-    pointer-events: none;
+    transform: rotate(-45deg);
   }
 
   &:focus {
@@ -115,16 +115,16 @@
     padding: $field-padding-vertical 40px $field-padding-vertical $field-padding-horizontal;
     font-size: 1em;
     line-height: 1.5;
-    background: #fff;
+    cursor: pointer;
+    background: #ffffff;
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    cursor: pointer;
 
     #{$block-name}__item--selectable {
       max-width: 100%;
       overflow: hidden;
-      white-space: nowrap;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
@@ -137,7 +137,7 @@
     margin-top: -1px;
     overflow: hidden;
     word-break: break-all;
-    background-color: #fff;
+    background-color: #ffffff;
     border: 1px solid $border-color;
     border-bottom-right-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
@@ -154,8 +154,8 @@
 
   &__heading {
     padding: $field-padding-vertical $field-padding-horizontal;
-    font-weight: 700;
     font-size: $font-size-sm;
+    font-weight: 700;
     cursor: default;
     opacity: 0.5;
   }
@@ -170,8 +170,8 @@
   &.is-disabled {
 
     #{$block-name}__inner {
-      background-color: $gray-lighter;
       cursor: default;
+      background-color: $gray-lighter;
     }
   }
 }

@@ -29,8 +29,8 @@
   &__name {
     position: relative;
     display: inline-block;
-    margin-right: 0.6em;
     padding-left: 1.5em;
+    margin-right: 0.6em;
     font-weight: 400;
     line-height: $line-height;
   }
@@ -68,9 +68,9 @@
       left: 0;
       width: 14px;
       height: 14px;
-      border: 2px solid currentcolor;
-      border-radius: $border-radius;
       content: "";
+      border: 2px solid currentColor;
+      border-radius: $border-radius;
     }
 
     @at-root input:focus ~ &:before {
@@ -88,13 +88,13 @@
       left: 3px;
       width: 14px;
       height: 6px;
-      border-bottom: 2px solid currentcolor;
-      border-left: 2px solid currentcolor;
-      box-shadow: 1px 2px 0 #fff, inset 0 -2px 0 #fff;
-      transform: rotate(-45deg);
+      content: "";
+      border-bottom: 2px solid currentColor;
+      border-left: 2px solid currentColor;
+      box-shadow: 1px 2px 0 #ffffff, inset 0 -2px 0 #ffffff;
       opacity: 0;
       transition: opacity $transition-time;
-      content: "";
+      transform: rotate(-45deg);
 
       @at-root input:checked ~ & {
         opacity: 1;
@@ -112,12 +112,12 @@
     position: absolute;
     top: 0.7em;
     left: 0;
-    margin: 0;
     padding: 0;
-    transform: translateY(-50%);
+    margin: 0;
 
     // сокрытие инпута в случае использования своего чекбокса
     opacity: 0;
+    transform: translateY(-50%);
 
     &:focus,
     &:active {
