@@ -13,7 +13,7 @@ export default {
     'src/scss/normalize.scss',
     'src/scss/headings.scss',
     'src/scss/utils.scss',
-    // 'src/scss/libs/lenis.scss',
+    // 'src/scss/vendor/lenis.scss',
     // 'node_modules/aos/src/sass/aos',
     // 'node_modules/swiper/swiper-bundle',
     // для 'node_modules/somePackage/dist/somePackage.css',

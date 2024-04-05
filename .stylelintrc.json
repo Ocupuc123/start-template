@@ -89,7 +89,7 @@
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["vw","rem","em"]
+        "ignoreFunctions": ["size","size-desktop","size-tablet","no-scale","size-coefficient","size-coefficient-large"]
       }
     ]
   }

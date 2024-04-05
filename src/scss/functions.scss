@@ -1,19 +1,135 @@
-$browser-context: 16;
+// ---------------------------------
+// ❗ использование скейлинга должно быть согласовано с командой и заказчиком
 
-@function rem($value) {
-  $rem-value: calc($value / $browser-context) + rem;
+// 1) ремы в плюс
 
-  @return $rem-value;
-}
+// functions.scss
+// @function size($size-in-px) {
+//   @return calc($size-in-px / $font-size * 1rem);
+// }
 
-@function em($value) {
-  $em-value: calc($value / $browser-context) + em;
+// @function size-desktop($size-in-px) {
+//   @return calc($size-in-px / $screen-xxl * 100vw);
+// }
 
-  @return $em-value;
-}
+// normalize.scss
+// html {
+//   font-size: size-desktop($font-size);
 
-@function vw($value, $viewport: 1920) {
-  $vw-context: ($viewport * 0.01) * 1px;
+//   @include laptop-l-viewport {
+//     font-size: $font-size;
+//   }
+// }
 
-  @return calc(($value / $vw-context) * 1vw);
-}
+// ---------------------------------
+// 2) ремы в плюс от эталона и в минус, на планшете обычная верстка
+
+// functions.scss
+// @function size($size-in-px) {
+//   @return calc($size-in-px / $font-size * 1rem);
+// }
+
+// @function size-desktop($size-in-px) {
+//   @return calc($size-in-px / $screen-xxl * 100vw);
+// }
+
+// normalize.scss
+// html {
+//   font-size: size-desktop($font-size);
+
+//   @include tablet-viewport {
+//     font-size: $font-size;
+//   }
+// }
+
+// ---------------------------------
+// 3) ремы в плюс от эталона и в минус (с другим коэффициентом), на планшете обычная верстка
+// functions.scss
+// @function size($size-in-px) {
+//   @return calc($size-in-px / $font-size * 1rem);
+// }
+
+// @function size-desktop($size-in-px) {
+//   @return calc($size-in-px / $screen-xxl * 100vw);
+// }
+
+// @function size-tablet($size-in-px) {
+//   @return calc($size-in-px / $vp-1440 * 100vw);
+// }
+
+// normalize.scss
+// html {
+//   font-size: size-desktop($font-size);
+
+//   @include laptop-viewport {
+//     font-size: size-tablet($font-size);
+//   }
+
+//   @include tablet-viewport {
+//     font-size: $font-size;
+//   }
+// }
+
+// ---------------------------------
+// 4) ремы в коэффициентах
+// functions.scss
+// @function size($size-in-px) {
+//   @return calc($size-in-px / $font-size * 1rem);
+// }
+
+// @function size-coefficient($size-in-px) {
+//   @return calc($size-in-px * 0.9);
+// }
+
+// @function size-coefficient-large($size-in-px) {
+//   @return calc($size-in-px * 1.3);
+// }
+
+// normalize.scss
+// html {
+//   font-size: $font-size;
+
+//   @include laptop-viewport {
+//     font-size: size-coefficient($font-size);
+//   }
+
+//   @include tablet-viewport {
+//     font-size: $font-size;
+//   }
+
+//   @media (min-width: 1921px) {
+//     font-size: size-coefficient-large($font-size);
+//   }
+// }
+
+// ---------------------------------
+// 5) скейлинг отдельных элементов
+// functions.scss
+// @function size($size-in-px) {
+//   @return calc($size-in-px / $font-size * 1rem);
+// }
+
+// @function size-desktop($size-in-px) {
+//   @return calc($size-in-px / $screen-xxl * 100vw);
+// }
+
+// @function no-scale($size-in-px) {
+//   @return calc($size-in-px * (1921px / 1920px));
+// }
+
+// normalize.scss
+// html {
+//   font-size: size-desktop($font-size);
+
+//   @include laptop-viewport {
+//     font-size: $font-size;
+//   }
+// }
+
+// .block {
+//   margin-bottom: size(40px);
+
+//   @media (min-width: 1921px) {
+//     margin-bottom: no-scale(40px);
+//   }
+// }

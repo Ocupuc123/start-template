@@ -9,8 +9,6 @@
 body {
   min-height: 100%;
   font-family: $font-family;
-  font-size: $font-size;
-  line-height: $line-height;
   color: $text-color;
   text-align: left;
   background-color: $body-bg;
@@ -18,7 +16,13 @@ body {
 
 html {
   min-height: 100%;
+  font-size: $font-size;
+  line-height: $line-height;
+
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;

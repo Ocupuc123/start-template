@@ -4,7 +4,6 @@ import browserslistToEsbuild from 'browserslist-to-esbuild';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
-import browsersync from 'browser-sync';
 
 export const compileScripts = () => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -22,12 +21,10 @@ export const compileScripts = () => {
       bundle: true,
       outfile: 'scripts.min.js',
       format: 'esm',
-      // splitting: true,
       platform: 'browser',
       minify: isProduction,
       sourcemap: isDevelopment,
       target: browserslistToEsbuild(),
     }))
-    .pipe(gulp.dest('build/js'))
-    .pipe(browsersync.stream());
+    .pipe(gulp.dest('build/js'));
 };
