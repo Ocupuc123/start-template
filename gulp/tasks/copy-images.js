@@ -1,4 +1,4 @@
-/* global process */
+import {isProduction} from '../utils.js';
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import imagemin from 'gulp-imagemin';
@@ -9,7 +9,6 @@ import config from '../../config.js';
 import { blocksFromHtml, fileExist } from '../utils.js';
 
 export const copyImages = (cb) => {
-  const isProduction = process.env.NODE_ENV === 'production';
   const useWebpConverter = config.settings.useWebpConverter;
   const imageminQuality = config.settings.imageminQuality || 80;
   const fileExtensionsList = '{png,jpg,jpeg,svg,gif}';

@@ -1,13 +1,12 @@
 /* eslint-disable no-undef */
-import { createGulpEsbuild } from 'gulp-esbuild';
+import {createGulpEsbuild} from 'gulp-esbuild';
+import {isProduction, isDevelopment} from '../utils.js';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 
 export const compileScripts = () => {
-  const isProduction = process.env.NODE_ENV === 'production';
-  const isDevelopment = process.env.NODE_ENV === 'development';
   const gulpEsbuild = createGulpEsbuild({ incremental: isDevelopment });
 
   return gulp.src('src/js/entry.js')
