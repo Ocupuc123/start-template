@@ -1,32 +1,20 @@
-import closest from 'closest';
-
 document.addEventListener('DOMContentLoaded', () => {
+  const inputFiles = document.querySelectorAll('.field-file__input:not([disabled])');
+  const handleInputChange = (evt)=> {
+    const input = evt.target;
+    const label = input.closest('.field-file').querySelector('.field-file__name-text');
+    const labelVal = label.textContent;
 
-  /*
-    Форма: работа стилизованного input[type="file"]
-    Автор: Osvaldas Valutis, www.osvaldas.info (адаптировано под используемую разметку)
-    Available for use under the MIT License
-  */
+    let fileName = '';
+    if (input.files && input.files.length > 1) {
+      fileName = input.getAttribute('data-multiple-caption')?.replace('{count}', input.files.length) || '';
+    } else if (input.files?.length) {
+      fileName = input.files[0].name;
+    }
 
-  const inputs = document.querySelectorAll('.field-file__input:not([disabled])');
-  Array.prototype.forEach.call(inputs, (input) => {
-    const label = closest(input, '.field-file').querySelector('.field-file__name-text'),
-      labelVal = label.innerHTML;
+    label.textContent = fileName || labelVal;
+  };
 
-    input.addEventListener('change', function (e) {
-      let fileName = '';
-      if(this.files && this.files.length > 1) {
-        fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-      } else {
-        fileName = e.target.value.split('\\').pop();
-      }
-
-      if(fileName) {
-        label.innerHTML = fileName;
-      } else {
-        label.innerHTML = labelVal;
-      }
-    });
-  });
-
+  inputFiles.forEach((input) => input.addEventListener('change', handleInputChange));
 });
+
