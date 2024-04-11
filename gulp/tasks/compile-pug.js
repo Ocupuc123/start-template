@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';

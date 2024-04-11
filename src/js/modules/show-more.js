@@ -1,4 +1,4 @@
-import { showMore } from '../libs/show-more.js';
+import { showMore } from '../vendor/show-more.js';
 
 new showMore('.list', {
   config: {
