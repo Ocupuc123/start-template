@@ -32,7 +32,7 @@ export const copyImages = (cb) => {
 
   if (copiedImages.length) {
 
-    return gulp.src(copiedImages)
+    return gulp.src(copiedImages, {encoding: false})
       .pipe(gulpif(isProduction, imagemin([
         imageminMozjpeg({ quality: imageminQuality, progressive: true }),
         imageminOptipng({ optimizationLevel: 2 }),
