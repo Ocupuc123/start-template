@@ -1,16 +1,12 @@
-import {isProduction} from '../utils.js';
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
-import imagemin from 'gulp-imagemin';
-import imageminMozjpeg from 'imagemin-mozjpeg';
-import imageminOptipng from 'imagemin-optipng';
-import webp from 'gulp-webp';
+import sharpOptimizeImages from 'gulp-sharp-optimize-images';
 import config from '../../config.js';
+import { isProduction } from '../utils.js';
+import { sharpOptimizeImagesConfig } from '../configs.js';
 import { blocksFromHtml, fileExist } from '../utils.js';
 
 export const copyImages = (cb) => {
-  const useWebpConverter = config.settings.useWebpConverter;
-  const imageminQuality = config.settings.imageminQuality || 80;
   const fileExtensionsList = '{png,jpg,jpeg,svg,gif}';
   const copiedImages = [];
 
@@ -32,15 +28,9 @@ export const copyImages = (cb) => {
 
   if (copiedImages.length) {
 
-    return gulp.src(copiedImages, {encoding: false})
-      .pipe(gulpif(isProduction, imagemin([
-        imageminMozjpeg({ quality: imageminQuality, progressive: true }),
-        imageminOptipng({ optimizationLevel: 2 }),
-      ])))
-      .pipe(gulp.dest('build/images'))
-      .pipe(gulpif(useWebpConverter, webp()))
-      .pipe(gulpif(useWebpConverter, gulp.dest('build/images')));
-
+    return gulp.src(copiedImages, { encoding: false })
+      .pipe(gulpif(isProduction, sharpOptimizeImages(sharpOptimizeImagesConfig)))
+      .pipe(gulp.dest('build/images'));
   } else {
     cb();
   }

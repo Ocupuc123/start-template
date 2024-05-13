@@ -30,9 +30,5 @@ export default {
     // 'src/resources/**': '/',
     // 'src/favicon/**': 'favicons/',
     // 'node_modules/somePackage/images/**': 'images/',
-  },
-  'settings': {
-    'useWebpConverter': false,
-    'imageminQuality': 90,
   }
 };
