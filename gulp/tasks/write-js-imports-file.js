@@ -44,6 +44,6 @@ export const writeJsImportsFile = (cb) => {
 
   fs.writeFileSync('src/js/entry.js', jsImports);
   // eslint-disable-next-line no-console
-  console.log('---------- Write new entry.js');
+  console.log('\x1b[33m%s\x1b[0m', '---------- Write new entry.js');
   return cb();
 };

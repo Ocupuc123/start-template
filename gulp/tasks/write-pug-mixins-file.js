@@ -10,5 +10,7 @@ export const writePugMixinsFile = (cb) => {
     file += `include ${dirBlocks.replace(dirBlocks,'./')}${blockName}/${blockName}.pug\n`;
   });
   fs.writeFileSync('src/blocks/mixins.pug', file);
+  // eslint-disable-next-line no-console
+  console.log('\x1b[33m%s\x1b[0m', '---------- Write new mixins.pug');
   cb();
 };

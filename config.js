@@ -23,7 +23,7 @@ export default {
     // для 'node_modules/somePackage/dist/somePackage.js',
   ],
   'addJsAfter': [
-    './main.js',
+    './index.js',
   ],
   'addAssets': {
     'src/fonts/**': 'fonts/',

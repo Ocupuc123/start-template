@@ -39,6 +39,6 @@ export const writeSassImportsFile = (cb) => {
 
   fs.writeFileSync('src/scss/main.scss', styleImports);
   // eslint-disable-next-line no-console
-  console.log('---------- Write new main.scss');
+  console.log('\x1b[33m%s\x1b[0m', '---------- Write new main.scss');
   return cb();
 };
