@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (filter-toggler)
+
+mixin filter-toggler(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +filter-toggler('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' filter-toggler--' + modsList[i].trim();
+      }
+    }
+
+  .filter-toggler(class=allMods)&attributes(attributes)
+    button.filter-toggler__toggler(type='button' data-filter-toggler-open="") Показать фильтры
+    .filter-toggler__body
+      .filter-toggler__header
+        button.filter-toggler__go-back(type='button' data-filter-toggler-close="") Вернуться
+        button.filter-toggler__close(type='button' data-filter-toggler-close="") Закрыть
+      .filter-toggler__body-scroll
+        block

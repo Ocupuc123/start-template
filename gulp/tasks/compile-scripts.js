@@ -19,7 +19,6 @@ export const compileScripts = () => {
     .pipe(gulpEsbuild({
       bundle: true,
       outfile: 'scripts.min.js',
-      format: 'esm',
       platform: 'browser',
       minify: isProduction,
       sourcemap: isDevelopment,

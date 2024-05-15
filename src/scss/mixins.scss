@@ -32,32 +32,32 @@
 
 // Mobile first
 
-@mixin mobile-s-viewport-up {
-  @media (min-width: $screen-xs) {
-    @content;
-  }
-}
-
-@mixin mobile-l-viewport-up {
-  @media (min-width: $screen-sm) {
-    @content;
-  }
-}
-
-@mixin tablet-viewport-up {
-  @media (min-width: $screen-md) {
+@mixin laptop-l-viewport-up {
+  @media (min-width: $screen-xxl) {
     @content;
   }
 }
 
 @mixin laptop-viewport-up {
+  @media (min-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin tablet-viewport-up {
   @media (min-width: $screen-lg) {
     @content;
   }
 }
 
-@mixin laptop-l-viewport-up {
-  @media (min-width: $screen-xl) {
+@mixin mobile-l-viewport-up {
+  @media (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin mobile-s-viewport-up {
+  @media (min-width: $screen-sm) {
     @content;
   }
 }
