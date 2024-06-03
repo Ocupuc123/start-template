@@ -1,8 +1,10 @@
 import gulp from 'gulp';
+import sharpOptimizeImages from 'gulp-sharp-optimize-images';
 import config from '../../config.js';
-import { blocksFromHtml, fileExist } from '../utils.js';
+import { sharpOptimizeImagesConfig } from '../configs.js';
+import { blocksFromHtml, fileExist} from '../utils.js';
 
-export const copyImages = (cb) => {
+export const optimizeImages = (cb) => {
   const fileExtensionsList = '{png,jpg,jpeg,svg,gif}';
   const copiedImages = [];
 
@@ -23,8 +25,8 @@ export const copyImages = (cb) => {
   });
 
   if (copiedImages.length) {
-
     return gulp.src(copiedImages, { encoding: false })
+      .pipe(sharpOptimizeImages(sharpOptimizeImagesConfig))
       .pipe(gulp.dest('build/images'));
   } else {
     cb();

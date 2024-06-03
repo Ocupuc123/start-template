@@ -1,7 +1,6 @@
 import {isProduction, isDevelopment} from '../utils.js';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
-import notify from 'gulp-notify';
 import sourcemaps from 'gulp-sourcemaps';
 import sassGlob from 'gulp-sass-glob';
 import * as dartSass from 'sass';
@@ -16,18 +15,13 @@ import browsersync from 'browser-sync';
 const sass = gulpSass(dartSass);
 
 export const compileSass = () => gulp.src('src/scss/main.scss')
-  .pipe(plumber({
-    errorHandler: notify.onError({
-      title: 'SASS',
-      message: 'Error: <%= error.message %>'
-    })
-  }))
+  .pipe(plumber())
   .pipe(gulpif(isDevelopment, sourcemaps.init()))
   .pipe(sassGlob())
-  .pipe(sass(gulpif(isProduction, { outputStyle: 'compressed' })))
+  .pipe(sass().on('error', sass.logError))
   .pipe(gulpif(isProduction, mqpacker()))
-  .pipe(autoprefixer({ cascade: true, }))
-  .pipe(gulpif(isProduction, cleanCSS({ level: 1 })))
+  .pipe(autoprefixer())
+  .pipe(gulpif(isProduction, cleanCSS({ level: 2 })))
   .pipe(rename({ dirname: 'css' }))
   .pipe(gulpif(isDevelopment, sourcemaps.write()))
   .pipe(gulp.dest('build'))

@@ -3,7 +3,6 @@ import fs from 'node:fs';
 import server from 'browser-sync';
 import { writePugMixinsFile } from './write-pug-mixins-file.js';
 import { compilePug } from './compile-pug.js';
-import { compilePugFast } from './compile-pug-fast.js';
 import { generateSvgSprite } from './generate-svg-sprite.js';
 import { copyImages } from './copy-images.js';
 import { compileSass } from './compile-sass.js';
@@ -22,7 +21,7 @@ export const browserSync = (cb) => {
 
   // Страницы: изменение, добавление
   gulp.watch('src/pages/**/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
-    compilePugFast,
+    compilePug,
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));

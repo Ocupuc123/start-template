@@ -16,7 +16,8 @@
     "lint:scripts": "eslint . --ignore-path .eslintignore",
     "lint:pug": "find src -name '*.pug' -exec pug-lint {} +",
     "create-block": "node createBlock.js",
-    "prettier:pug": "npx prettier --write \"**/*.pug\" --plugin=\"@prettier/plugin-pug\""
+    "prettier:pug": "npx prettier --write \"**/*.pug\" --plugin=\"@prettier/plugin-pug\"",
+    "optimize": "gulp optimize"
   },
   "browserslist": [
     "defaults"
@@ -40,7 +41,6 @@
     "gulp-if": "latest",
     "gulp-notify": "latest",
     "gulp-plumber": "latest",
-    "gulp-postcss": "latest",
     "gulp-pretty-html": "latest",
     "gulp-pug": "latest",
     "gulp-rename": "latest",
@@ -53,8 +53,6 @@
     "linthtml-config-htmlacademy": "latest",
     "mkdirp": "latest",
     "npm-run-all": "latest",
-    "postcss": "latest",
-    "postcss-scss": "latest",
     "prettier": "latest",
     "pug": "latest",
     "pug-lint": "latest",

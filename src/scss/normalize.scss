@@ -23,6 +23,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
