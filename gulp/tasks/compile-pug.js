@@ -6,7 +6,7 @@ import prettyHtml from 'gulp-pretty-html';
 import { getClassesToBlocksList } from '../utils.js';
 import { PrettyHtmlConfig } from '../configs.js';
 
-export const compilePug = ()=> gulp.src('src/pages/**/*.pug', { since: gulp.lastRun(compilePug) })
+export const compilePug = ()=> gulp.src('src/pages/**/*.pug')
   .pipe(plumber({
     errorHandler: notify.onError({
       title: 'PUG',
