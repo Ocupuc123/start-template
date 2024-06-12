@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import config from '../../config.js';
-import { getDirectories, blocksFromHtml, doNotEditMessage } from '../utils.js';
+import { getDirectories, doNotEditMessage } from '../utils.js';
+import { blocksFromHtml } from './get-blocks-from-html.js';
 
 export const writeSassImportsFile = (cb) => {
   const scssImportsList = [];

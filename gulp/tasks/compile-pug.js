@@ -3,7 +3,6 @@ import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import pug from 'gulp-pug';
 import prettyHtml from 'gulp-pretty-html';
-import { getClassesToBlocksList } from '../utils.js';
 import { PrettyHtmlConfig } from '../configs.js';
 
 export const compilePug = ()=> gulp.src('src/pages/**/*.pug')
@@ -15,5 +14,4 @@ export const compilePug = ()=> gulp.src('src/pages/**/*.pug')
   }))
   .pipe(pug())
   .pipe(prettyHtml(PrettyHtmlConfig))
-  .pipe(getClassesToBlocksList())
   .pipe(gulp.dest('build'));

@@ -15,7 +15,7 @@ import { generateSvgSprite } from './gulp/tasks/generate-svg-sprite.js';
 
 const build = gulp.series(
   gulp.parallel(cleanBuildDirectory, writePugMixinsFile),
-  gulp.parallel(compilePug, copyAssets, generateSvgSprite),
+  gulp.parallel(compilePug, getBlocksFromHtml, copyAssets, generateSvgSprite),
   gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
   gulp.parallel(compileSass, compileScripts)
 );

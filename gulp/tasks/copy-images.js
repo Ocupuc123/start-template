@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import config from '../../config.js';
-import { blocksFromHtml, fileExist } from '../utils.js';
+import { fileExist } from '../utils.js';
+import { blocksFromHtml } from './get-blocks-from-html.js';
 
 export const copyImages = (cb) => {
   const fileExtensionsList = '{png,jpg,jpeg,svg,gif}';

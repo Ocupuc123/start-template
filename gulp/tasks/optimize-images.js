@@ -2,7 +2,8 @@ import gulp from 'gulp';
 import sharpOptimizeImages from 'gulp-sharp-optimize-images';
 import config from '../../config.js';
 import { sharpOptimizeImagesConfig } from '../configs.js';
-import { blocksFromHtml, fileExist} from '../utils.js';
+import { fileExist } from '../utils.js';
+import { blocksFromHtml } from './get-blocks-from-html.js';
 
 export const optimizeImages = (cb) => {
   const fileExtensionsList = '{png,jpg,jpeg,svg,gif}';
