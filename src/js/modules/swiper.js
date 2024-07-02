@@ -12,5 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
       prevEl: '.swiper-button-prev',
       nextEl: '.swiper-button-next',
     },
+    a11y: {
+      enabled: false,
+    }
   });
 });

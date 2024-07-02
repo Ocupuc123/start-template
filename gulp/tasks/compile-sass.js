@@ -11,14 +11,20 @@ import mqpacker from 'gulp-group-css-media-queries';
 import cleanCSS from 'gulp-clean-css';
 import gulpif from 'gulp-if';
 import browsersync from 'browser-sync';
+import notify from 'gulp-notify';
 
 const sass = gulpSass(dartSass);
 
 export const compileSass = () => gulp.src('src/scss/main.scss')
-  .pipe(plumber())
+  .pipe(plumber({
+    errorHandler: notify.onError({
+      title: 'SASS',
+      message: 'Error: <%= error.message %>'
+    })
+  }))
   .pipe(gulpif(isDevelopment, sourcemaps.init()))
   .pipe(sassGlob())
-  .pipe(sass().on('error', sass.logError))
+  .pipe(sass())
   .pipe(gulpif(isProduction, mqpacker()))
   .pipe(autoprefixer())
   .pipe(gulpif(isProduction, cleanCSS({ level: 2 })))

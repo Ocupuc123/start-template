@@ -45,9 +45,7 @@ export const browserSync = (cb) => {
   gulp.watch('src/blocks/**/*.pug', { events: ['change'], delay: 100 }, gulp.series(
     compilePug,
     getBlocksFromHtml,
-    copyImages,
-    writeSassImportsFile,
-    compileSass,
+    gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));
 
