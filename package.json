@@ -9,15 +9,13 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp development",
     "build": "cross-env NODE_ENV=production gulp production",
-    "lint": "npm-run-all -pc lint:**",
     "lint:markup": "html-validator --continue '--ignore=Trailing slash on void elements'",
     "lint:html": "linthtml build/**/*.html --config .linthtmlrc",
     "lint:styles": "stylelint \"src/**/*.scss\"",
-    "lint:scripts": "eslint . --ignore-path .eslintignore",
-    "lint:pug": "find src -name '*.pug' -exec pug-lint {} +",
+    "lint:scripts": "eslint \"src/**/*.js\"",
+    "lint:bem": "gulp lintBem --silent",
     "create-block": "node createBlock.js",
-    "prettier:pug": "npx prettier --write \"**/*.pug\" --plugin=\"@prettier/plugin-pug\"",
-    "optimize": "gulp optimize"
+    "optimize-images": "gulp optimize"
   },
   "browserslist": [
     "defaults"
@@ -38,6 +36,7 @@
     "gulp-clean-css": "latest",
     "gulp-esbuild": "latest",
     "gulp-group-css-media-queries": "latest",
+    "gulp-html-bemlinter": "^4.0.0",
     "gulp-if": "latest",
     "gulp-notify": "latest",
     "gulp-plumber": "latest",
@@ -49,13 +48,10 @@
     "gulp-sharp-optimize-images": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-svg-sprite": "latest",
-    "gulp-svgmin": "latest",
     "linthtml-config-htmlacademy": "latest",
     "mkdirp": "latest",
-    "npm-run-all": "latest",
     "prettier": "latest",
     "pug": "latest",
-    "pug-lint": "latest",
     "sass": "latest",
     "stylelint": "latest",
     "stylelint-config-htmlacademy": "latest",

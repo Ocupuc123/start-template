@@ -2,6 +2,10 @@
 // import './modules/lenis.js';
 // import './modules/form-validation.js';
 
+// Использование: top: var(--header-height, 60px);
+// import { getHeaderHeight } from './functions/get-header-height.js';
+// getHeaderHeight();
+
 // import { addTouchClass } from './functions/add-touch-class.js';
 // addTouchClass();
 

@@ -30,28 +30,31 @@ export const ServerConfig = {
   notify: false,
   cors: true,
   ui: false,
-  open: false
+  open: false,
+  ghostMode: false
 };
 
 export const SvgSpriteConfig = {
   shape: {
-    transform: [{
-      svgo: {
-        plugins: [
-          'preset-default',
-          {
-            name: 'removeAttrs',
-            params: {
-              attrs: '(fill|stroke)'
+    transform: [
+      {
+        svgo: {
+          plugins: [
+            'preset-default',
+            {
+              name: 'removeAttrs',
+              params: {
+                attrs: '(fill|stroke)',
+              },
             },
-          },
-        ]
-      }
-    }]
+          ],
+        },
+      },
+    ],
   },
   mode: {
-    symbol: {
-      sprite: '../sprite.svg'
-    }
-  }
+    stack: {
+      sprite: '../sprite.svg',
+    },
+  },
 };

@@ -1,6 +1,5 @@
 export const showMore = (function () {
   const createElementTemplate = (type) => document.createElement(type);
-
   const getNumber = (_ref, type) => {
     const {
       rows,
