@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import {createGulpEsbuild} from 'gulp-esbuild';
 import {isProduction, isDevelopment} from '../utils.js';
 import browserslistToEsbuild from 'browserslist-to-esbuild';

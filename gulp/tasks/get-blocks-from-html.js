@@ -7,7 +7,7 @@ import config from '../../config.js';
 
 export const blocksFromHtml = [];
 
-const getClassesToBlocksList = () => through.obj(function (file, enc, cb) {
+export const getClassesToBlocksList = () => through.obj(function (file, enc, cb) {
   if (file.isNull()) {
     cb(null, file);
     return;

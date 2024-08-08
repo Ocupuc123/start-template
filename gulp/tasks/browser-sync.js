@@ -1,7 +1,7 @@
+/* global global */
 import gulp from 'gulp';
 import fs from 'node:fs';
 import server from 'browser-sync';
-import { getBlocksFromHtml } from './get-blocks-from-html.js';
 import { writePugMixinsFile } from './write-pug-mixins-file.js';
 import { compilePug } from './compile-pug.js';
 import { generateSvgSprite } from './generate-svg-sprite.js';
@@ -23,10 +23,11 @@ export const browserSync = (cb) => {
   // Страницы: изменение, добавление
   gulp.watch('src/pages/**/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
     compilePug,
-    getBlocksFromHtml,
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
-  ));
+  )).on('all', (event, file) => {
+    global.emittyPugChangedFile = event === 'unlink' ? undefined : file
+  });
 
   // Страницы: удаление
   gulp.watch('src/pages/**/*.pug').on('unlink', (path) => {
@@ -44,7 +45,6 @@ export const browserSync = (cb) => {
   // Разметка Блоков: изменение
   gulp.watch('src/blocks/**/*.pug', { events: ['change'], delay: 100 }, gulp.series(
     compilePug,
-    getBlocksFromHtml,
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));
@@ -67,7 +67,6 @@ export const browserSync = (cb) => {
   // Шаблоны pug: все события
   gulp.watch(['src/layouts/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(
     compilePug,
-    getBlocksFromHtml,
     gulp.parallel(writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));
