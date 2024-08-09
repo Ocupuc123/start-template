@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export const sharpOptimizeImagesConfig = {
   // webp: {
   //   quality: 80,

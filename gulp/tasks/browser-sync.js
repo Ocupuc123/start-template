@@ -26,7 +26,7 @@ export const browserSync = (cb) => {
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   )).on('all', (event, file) => {
-    global.emittyPugChangedFile = event === 'unlink' ? undefined : file
+    global.emittyPugChangedFile = event === 'unlink' ? undefined : file;
   });
 
   // Страницы: удаление

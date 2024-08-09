@@ -1,4 +1,5 @@
+'use strict';
+
 module.exports = {
-  plugins: ["@prettier/plugin-pug"],
-  printWidth: 200,
+  plugins: ['@prettier/plugin-pug'],
 };
