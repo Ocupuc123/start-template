@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (marquee)
+
+mixin marquee(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +marquee('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' marquee--' + modsList[i].trim();
+      }
+    }
+
+  include marquee.data.pug
+
+  .marquee(class=allMods)&attributes(attributes)
+    .container
+      .marquee__wrapper
+        .marquee__scroller
+          each item in data
+            .marquee__scroller-item!= item.title
