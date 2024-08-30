@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-config-htmlacademy", "stylelint-config-recess-order"],
+  "extends": ["stylelint-config-recommended-scss", "stylelint-config-recess-order"],
   "plugins": ["stylelint-order"],
   "rules": {
     "max-nesting-depth": [3, {
