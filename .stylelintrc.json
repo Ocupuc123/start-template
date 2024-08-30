@@ -85,6 +85,9 @@
         "selector": "^&--[-a-z0-9]+"
       }
     ],
+    "color-hex-length": "long",
+    "selector-type-case": "lower",
+    "value-no-vendor-prefix": true,
     "at-rule-no-unknown": null,
     "function-no-unknown": [
       true,

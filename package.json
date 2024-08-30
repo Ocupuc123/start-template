@@ -54,7 +54,6 @@
     "pug": "latest",
     "sass": "latest",
     "stylelint": "latest",
-    "stylelint-config-htmlacademy": "latest",
     "stylelint-config-recess-order": "latest",
     "stylelint-config-recommended-scss": "latest",
     "stylelint-order": "latest",
