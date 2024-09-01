@@ -1,7 +1,7 @@
 /* global global */
 import gulp from 'gulp';
-import fs from 'node:fs';
 import server from 'browser-sync';
+import { unlink } from 'node:fs';
 import { writePugMixinsFile } from './write-pug-mixins-file.js';
 import { compilePug } from './compile-pug.js';
 import { generateSvgSprite } from './generate-svg-sprite.js';
@@ -31,9 +31,9 @@ export const browserSync = (cb) => {
 
   // Страницы: удаление
   gulp.watch('src/pages/**/*.pug').on('unlink', (path) => {
-    const filePathInBuildDir = path.replace(/src/gi, 'build').replace(/.pug/gi, '.html');
+    const filePathInBuildDir = path.replace(/src/gi, 'build').replace(/pages/gi, '').replace(/.pug/gi, '.html');
 
-    fs.unlink(filePathInBuildDir, (err) => {
+    unlink(filePathInBuildDir, (err) => {
       if (err) {
         throw err;
       }

@@ -1,5 +1,5 @@
-import fs from 'node:fs';
 import config from '../../config.js';
+import { writeFileSync } from 'node:fs';
 import { getDirectories, doNotEditMessage } from '../utils.js';
 import { blocksFromHtml } from './get-blocks-from-html.js';
 
@@ -38,7 +38,7 @@ export const writeSassImportsFile = (cb) => {
     styleImports += `@import "${src}";\n`;
   });
 
-  fs.writeFileSync('src/scss/main.scss', styleImports);
+  writeFileSync('src/scss/main.scss', styleImports);
   // eslint-disable-next-line no-console
   console.log('\x1b[33m%s\x1b[0m', '---------- Write new main.scss');
   return cb();

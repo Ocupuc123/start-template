@@ -1,5 +1,5 @@
 /* global process */
-import fs from 'node:fs';
+import { accessSync, constants, readdirSync, lstatSync } from 'node:fs';
 
 export const isProduction = process.env.NODE_ENV === 'production';
 export const isDevelopment = process.env.NODE_ENV === 'development';
@@ -8,7 +8,7 @@ export const doNotEditMessage =
 export const fileExist = (filepath) => {
   let flag = true;
   try {
-    fs.accessSync(filepath, fs.F_OK);
+    accessSync(filepath, constants.F_OK);
   // eslint-disable-next-line no-unused-vars
   } catch (e) {
     flag = false;
@@ -18,9 +18,8 @@ export const fileExist = (filepath) => {
 
 export const getDirectories = (ext) => {
   const source = 'src/blocks/';
-  const res = fs
-    .readdirSync(source)
-    .filter((item) => fs.lstatSync(source + item).isDirectory())
+  const res = readdirSync(source)
+    .filter((item) => lstatSync(source + item).isDirectory())
     .filter((item) => fileExist(`${source + item}/${item}.${ext}`));
   return res;
 };

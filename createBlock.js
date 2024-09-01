@@ -2,7 +2,7 @@
 // Генератор файлов блока
 // Использование: node createBlock.js [имя блока] [доп. расширения через пробел]
 
-import fs from 'node:fs';
+import { statSync, writeFile } from 'node:fs';
 import { mkdirp } from 'mkdirp';
 const blockName = process.argv[2];
 const defaultExtensions = ['scss', 'img']; // расширения по умолчанию
@@ -45,7 +45,7 @@ if (blockName) {
     }
 
     if (fileExist(filePath) === false && extension !== 'img' && extension !== 'md' && extension !== 'data') {
-      fs.writeFile(filePath, fileContent, (err) => {
+      writeFile(filePath, fileContent, (err) => {
         if (err) {
           // eslint-disable-next-line no-console
           return console.log(`Файл НЕ создан: ${err}`);
@@ -61,7 +61,7 @@ if (blockName) {
       // eslint-disable-next-line no-console
       console.log(`Файл НЕ создан: ${filePath} (уже существует)`);
     } else if (extension === 'data') {
-      fs.writeFile(`${filePath}.pug`, fileContent, (err) => {
+      writeFile(`${filePath}.pug`, fileContent, (err) => {
         if (err) {
           // eslint-disable-next-line no-console
           return console.log(`Файл НЕ создан: ${err}`);
@@ -74,7 +74,7 @@ if (blockName) {
         }
       });
     } else if (extension === 'md') {
-      fs.writeFile(`${dirPath}readme.md`, fileContent, (err) => {
+      writeFile(`${dirPath}readme.md`, fileContent, (err) => {
         if (err) {
           // eslint-disable-next-line no-console
           return console.log(`Файл НЕ создан: ${err}`);
@@ -104,7 +104,7 @@ function uniqueArray(arr) {
 
 function fileExist(path) {
   try {
-    fs.statSync(path);
+    statSync(path);
   } catch (err) {
     return !(err && err.code === 'ENOENT');
   }
