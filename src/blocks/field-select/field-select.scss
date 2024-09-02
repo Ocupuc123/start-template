@@ -146,6 +146,7 @@
       padding: $field-padding-vertical $field-padding-horizontal;
       cursor: pointer;
 
+      /* stylelint-disable-next-line max-nesting-depth */
       &.is-highlighted {
         background: $gray-lightest;
       }

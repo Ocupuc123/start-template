@@ -54,8 +54,8 @@
     "pug": "^3.0.3",
     "sass": "^1.77.8",
     "stylelint": "^16.9.0",
+    "stylelint-config-htmlacademy": "^4.2.3",
     "stylelint-config-recess-order": "^5.1.0",
-    "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-order": "^6.0.4",
     "w3c-html-validator": "^1.8.2"
   },

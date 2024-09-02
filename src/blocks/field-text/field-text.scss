@@ -1,3 +1,4 @@
+/* stylelint-disable at-rule-no-unknown */
 // В этом файле должны быть стили для БЭМ-блока field-text, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
@@ -5,7 +6,6 @@
 
 .field-text {
   $block-name: &; // #{$block-name}__element
-
   display: block;
   margin-bottom: $typo-margin-vertical;
 

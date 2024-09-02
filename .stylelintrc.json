@@ -1,11 +1,7 @@
 {
-  "extends": ["stylelint-config-recommended-scss", "stylelint-config-recess-order"],
+  "extends": ["stylelint-config-recess-order", "stylelint-config-htmlacademy"],
   "plugins": ["stylelint-order"],
   "rules": {
-    "max-nesting-depth": [3, {
-      "ignore": ["blockless-at-rules"],
-      "ignoreAtRules": ["include", "media"]
-    }],
     "order/order": [
       "custom-properties",
       "dollar-variables",
@@ -83,16 +79,6 @@
       {
         "type": "rule",
         "selector": "^&--[-a-z0-9]+"
-      }
-    ],
-    "color-hex-length": "long",
-    "selector-type-case": "lower",
-    "value-no-vendor-prefix": true,
-    "at-rule-no-unknown": null,
-    "function-no-unknown": [
-      true,
-      {
-        "ignoreFunctions": ["size","size-desktop","size-tablet","no-scale","size-coefficient","size-coefficient-large"]
       }
     ]
   }

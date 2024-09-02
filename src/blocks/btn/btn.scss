@@ -38,6 +38,7 @@
     background-color: $gray-lightest;
     opacity: $opacity;
 
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @at-root a.btn--disabled {
       pointer-events: none;
     }
