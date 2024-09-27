@@ -27,7 +27,7 @@ if (blockName) {
     } else if (extension === 'js') {
       fileContent = '';
     } else if (extension === 'data') {
-      fileContent = `-\n  const data = {\n    "src": "./images/${blockName}.png",\n    "title": "Заголовок",\n    "description": "<p>Описание</p>"\n  };\n`;
+      fileContent = '-\n  const data = {\n    "title": "Заголовок",\n    "description": "<p>Описание</p>"\n  };\n';
     } else if (extension === 'md') {
       fileContent = '';
     } else if (extension === 'pug') {
