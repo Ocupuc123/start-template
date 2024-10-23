@@ -11,7 +11,7 @@
     "build": "cross-env NODE_ENV=production gulp production",
     "lint:markup": "html-validator --continue '--ignore=Trailing slash on void elements'",
     "lint:html": "linthtml build/**/*.html --config .linthtmlrc",
-    "lint:styles": "stylelint \"src/**/*.scss\"",
+    "lint:styles": "stylelint --quiet-deprecation-warnings \"src/**/*.scss\"",
     "lint:scripts": "eslint \"src/**/*.js\"",
     "lint:bem": "gulp lintBem --silent",
     "create-block": "node createBlock.js",
