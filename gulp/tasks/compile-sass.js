@@ -24,7 +24,10 @@ export const compileSass = () => gulp.src('src/scss/main.scss')
   }))
   .pipe(gulpif(isDevelopment, sourcemaps.init()))
   .pipe(sassGlob())
-  .pipe(sass())
+  .pipe(sass({
+    quietDeps: true,
+    silenceDeprecations: ['legacy-js-api', 'import'],
+  }))
   .pipe(gulpif(isProduction, mqpacker()))
   .pipe(autoprefixer())
   .pipe(gulpif(isProduction, cleanCSS({ level: 2 })))
