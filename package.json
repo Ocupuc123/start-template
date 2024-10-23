@@ -60,20 +60,14 @@
     "w3c-html-validator": "^1.8.2"
   },
   "dependencies": {
-    "@studio-freight/lenis": "^1.0.42",
     "accordion-js": "^3.3.4",
     "aos": "^2.3.4",
-    "baron": "^3.0.3",
-    "choices.js": "^11.0.1",
-    "gsap": "^3.12.5",
     "handy-collapse": "^1.1.0",
     "hc-sticky": "^2.2.7",
-    "img-comparison-slider": "^8.0.6",
     "inputmask": "^5.0.9",
     "jquery": "^3.7.1",
     "just-validate": "^4.3.0",
     "normalize.css": "^8.0.1",
-    "rfs": "^10.0.0",
     "swiper": "^11.1.11",
     "transfer-elements": "^1.0.7"
   }

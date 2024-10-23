@@ -1,5 +1,3 @@
-// import './modules/gsap.js';
-// import './modules/lenis.js';
 // import './modules/form-validation.js';
 
 // Использование: top: var(--header-height, 60px);
@@ -27,9 +25,6 @@
 
 // Документация: https://github.com/sk-rt/handy-collapse
 // import './modules/handy-collapse.js';
-
-// Документация: https://github.com/sneas/img-comparison-slider
-// import './modules/img-comparison-slider.js';
 
 // Документация: https://github.com/SineYlo/transfer-elements/blob/main/readme-ru.md
 // import './modules/transfer-elements.js';
