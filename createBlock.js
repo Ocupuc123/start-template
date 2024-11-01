@@ -74,13 +74,13 @@ if (blockName) {
         }
       });
     } else if (extension === 'md') {
-      writeFile(`${dirPath}readme.md`, fileContent, (err) => {
+      writeFile(`${dirPath}article.md`, fileContent, (err) => {
         if (err) {
           // eslint-disable-next-line no-console
           return console.log(`Файл НЕ создан: ${err}`);
         }
         // eslint-disable-next-line no-console
-        console.log(`Файл создан: ${dirPath}readme.md`);
+        console.log(`Файл создан: ${dirPath}article.md`);
         if (fileCreateMsg) {
           // eslint-disable-next-line no-console
           console.warn(fileCreateMsg);

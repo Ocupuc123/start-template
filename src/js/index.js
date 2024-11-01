@@ -11,9 +11,6 @@
 // import { fullVHfix } from './functions/full-vh-fix.js';
 // fullVHfix();
 
-// Документация: https://github.com/somewebmedia/hc-sticky
-// import './modules/hc-sticky.js';
-
 // Документация: https://michalsnik.github.io/aos/
 // import './modules/aos.js';
 
