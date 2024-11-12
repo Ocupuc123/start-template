@@ -15,4 +15,4 @@ mixin burger(label, targetId, switchableClass)
     if (typeof(switchableClass) !== 'undefined' && switchableClass !== '') attributes['data-target-class-toggle'] = switchableClass
 
   button.burger(aria-label=label, type="button")&attributes(attributes)
-    span= label
+    span.visually-hidden!= label

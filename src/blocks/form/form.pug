@@ -5,20 +5,13 @@ mixin form(mods)
   //- Принимает:
   //-   mods    {string} - список модификаторов
   //- Вызов:
-    +form()
-      +fieldset('Название1')
-        +field-text({
-          helpText: 'Подсказка',
-          attrs: {
-            placeholder: 'Пример'
-          }
-        })
-        +field-text({
-          helpText: 'Подсказка',
-          attrs: {
-            placeholder: 'Пример'
-          }
-        })
+    +form
+      +fieldset
+        +field-text({ attrs: { id: 'name', name: 'name', placeholder: 'ФИО родителя', autocomplete: 'off', } })
+        +field-text({ attrs: { id: 'phone', name: 'phone', placeholder: '+7 (___) ___-__-__', class: 'input-mask', autocomplete: 'off' } })
+        +field-checkbox([{ title: 'Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности, согласием на передачу персональных данных, согласием на обработку персональных данных, публичной офертой.', attrs: { id: 'approval', name: 'check0', checked: true, } }])
+      +fieldaction
+        +btn('Отправить', 'main')(type="submit")
 
   -
     // список модификаторов
@@ -30,15 +23,14 @@ mixin form(mods)
       }
     }
 
-  form.form(class=allMods)&attributes(attributes)
+  form.form(class=allMods, autocomplete="off")&attributes(attributes)
     block
 
-mixin fieldset(legend, mods)
+mixin fieldset(mods)
   //- Принимает:
-  //-   legend  {string} - название группы полей
   //-   mods    {string} - список модификаторов
   //- Вызов:
-    +fieldset('Название1')
+    +fieldset('mod')
       +field-text({
         helpText: 'Подсказка',
         attrs: {
@@ -56,6 +48,9 @@ mixin fieldset(legend, mods)
       }
     }
 
-  fieldset.form__fieldset(class=allMods)&attributes(attributes)
-    legend.form__legend!= legend
+  .form__fieldset(class=allMods)&attributes(attributes)
+    block
+
+mixin fieldaction(mods)
+  .form__action
     block

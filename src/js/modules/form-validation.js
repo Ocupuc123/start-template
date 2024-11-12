@@ -1,41 +1,22 @@
 import JustValidate from 'just-validate';
-import Inputmask from '../../../node_modules/inputmask/lib/inputmask.js';
 
 const validateForms = (selector, rules, afterSend) => {
   const form = document.querySelector(selector);
-  const telSelector = form.querySelector('input[type="phone"]');
 
   if (!form) {
     return false;
   }
 
+  const validation = new JustValidate(selector, {
+    errorLabelCssClass: 'field-text__help-text',
+  });
+
   if (!rules) {
     return false;
   }
 
-  if (telSelector) {
-    const inputMask = new Inputmask('+7 (999) 999-99-99');
-    inputMask.mask(telSelector);
-
-    for (const item of rules) {
-      if (item.tel) {
-        item.rules.push({
-          rule: 'function',
-          validator: function() {
-            const phone = telSelector.inputmask.unmaskedvalue();
-            return phone.length === 10;
-          },
-          errorMessage: item.telError
-        });
-      }
-    }
-  }
-
-  const validation = new JustValidate(selector);
-
   for (const item of rules) {
-    validation
-      .addField(item.ruleSelector, item.rules);
+    validation.addField(item.ruleSelector, item.rules);
   }
 
   validation.onSuccess((ev) => {
@@ -61,18 +42,32 @@ const validateForms = (selector, rules, afterSend) => {
 
 };
 
-
 const rulesArray = [
   {
-    ruleSelector: '.field-text__input',
-    tel: true,
-    telError: 'Введите корректный телефон',
+    ruleSelector: '#phone',
     rules: [
       {
         rule: 'required',
-        value: true,
-        errorMessage: 'Заполните телефон!'
-      }
+        errorMessage: 'Введите телефон'
+      },
+    ]
+  },
+  {
+    ruleSelector: '#name',
+    rules: [
+      {
+        rule: 'required',
+        errorMessage: 'Заполните это поле'
+      },
+    ]
+  },
+  {
+    ruleSelector: '#approval',
+    rules: [
+      {
+        rule: 'required',
+        errorMessage: 'Согласие обязательно'
+      },
     ]
   },
 ];

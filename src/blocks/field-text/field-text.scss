@@ -7,7 +7,6 @@
 .field-text {
   $block-name: &; // #{$block-name}__element
   display: block;
-  margin-bottom: $typo-margin-vertical;
 
   &__name {
     @include field-name;
@@ -27,24 +26,19 @@
       min-height: calc(#{$textarea-height} + 2px);
       resize: vertical;
     }
+
+    &.just-validate-error-field {
+      color: $color-danger;
+      border-color: $color-danger;
+
+      &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba($color-danger, $opacity);
+      }
+    }
   }
 
   &__help-text {
     @include field-help-text;
-  }
-
-
-  &--error {
-
-    #{$block-name}__name,
-    #{$block-name}__input,
-    #{$block-name}__help-text {
-      color: $color-danger;
-    }
-
-    #{$block-name}__input {
-      background-color: color.adjust($color-danger, $lightness: 35%);
-      border-color: $color-danger;
-    }
   }
 }

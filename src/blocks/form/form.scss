@@ -4,27 +4,12 @@
 
 .form {
   &__fieldset {
-    min-width: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
-
-    &:not(:last-child) {
-      margin-bottom: $typo-margin-vertical;
-    }
+    display: grid;
+    gap: 20px 0;
+    align-items: flex-start;
   }
 
-  &__legend {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 0;
-    margin-bottom: $typo-margin-vertical;
-    font-family: $font-family;
-    font-size: $font-size-h3;
-    font-weight: 700;
-    line-height: $line-height;
-    color: currentColor;
-    white-space: normal;
+  &__action {
+    margin-top: $typo-margin-vertical;
   }
 }

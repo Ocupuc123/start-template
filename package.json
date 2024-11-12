@@ -64,11 +64,9 @@
     "accordion-js": "^3.3.4",
     "aos": "^2.3.4",
     "handy-collapse": "^1.1.0",
-    "inputmask": "^5.0.9",
-    "jquery": "^3.7.1",
+    "imask": "^7.6.1",
     "just-validate": "^4.3.0",
     "normalize.css": "^8.0.1",
-    "swiper": "^11.1.11",
-    "transfer-elements": "^1.0.7"
+    "swiper": "^11.1.11"
   }
 }
