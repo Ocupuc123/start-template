@@ -1,3 +1,4 @@
+/* stylelint-disable max-nesting-depth */
 // В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
@@ -5,150 +6,111 @@
 .main-nav {
   $block-name: &; // #{$block-name}__element
 
-  position: relative;
-  z-index: 10;
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 120%;
+    color: $text-color;
+    list-style: none;
+  }
 
-  // первый уровень
-  &__list {
+  .menu > .menu-item > a {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 0;
+    color: inherit;
+
+    @include hover {
+      color: $color-main;
+    }
+  }
+
+  .sub-menu {
+    display: none;
+    width: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
-
-    // мобильный вид списка
-    @media (max-width: ($menu-desktop-width - 1)) {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s;
-
-      #{$block-name}--open & {
-        max-height: 1000px;
-        transition: max-height 0.6s;
-
-        /* stylelint-disable-next-line max-nesting-depth */
-        &--lvl-2 {
-          max-height: none;
-        }
-      }
-
-      /* stylelint-disable-next-line max-nesting-depth */
-      &--lvl-2 {
-        max-height: none;
-      }
-    }
-
-    // настольный вид списка
-    @media (min-width: $menu-desktop-width) {
-      display: flex;
-      flex-wrap: wrap;
-
-      /* stylelint-disable-next-line max-nesting-depth */
-      &--lvl-2 {
-        display: block;
-      }
-
-      /* stylelint-disable-next-line max-nesting-depth */
-      &--lvl-3 {
-        display: block;
-      }
-    }
-  }
-
-  &__item {
-    position: relative;
-
-    &--active {
-
-      & > #{$block-name}__link {
-        color: #000000;
-      }
-    }
-  }
-
-  &__link {
-    position: relative;
-    display: block;
-    padding: 0.5em 1em;
-    text-decoration: none;
     background-color: #ffffff;
 
-    &:hover,
-    &:focus {
-      z-index: 1;
-      text-decoration: none;
-      background-color: $gray-lightest;
-    }
+    @include tablet-viewport-up {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: $z-index-modal;
+      width: 200px;
 
-    &--lvl-2 {
-      min-width: 200px;
-
-      /* stylelint-disable-next-line max-nesting-depth */
-      @media (max-width: ($menu-desktop-width - 1)) {
-        padding-left: 2em;
-      }
-    }
-
-    &--lvl-3 {
-      min-width: 200px;
-
-      /* stylelint-disable-next-line max-nesting-depth */
-      @media (max-width: ($menu-desktop-width - 1)) {
-        padding-left: 3em;
-      }
-    }
-  }
-
-  &__sublist-wrapper {
-    &--lvl-2 {
-      /* stylelint-disable-next-line max-nesting-depth */
-      @media (min-width: $menu-desktop-width) {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1;
-        height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: opacity $transition-time;
-
-        #{$block-name}__item--show-child > &,
-        #{$block-name}__item:hover & {
-          height: auto;
-          overflow: visible;
-          opacity: 1;
-        }
-      }
-    }
-
-    &--lvl-3 {
-      /* stylelint-disable-next-line max-nesting-depth */
-      @media (min-width: $menu-desktop-width) {
-        position: absolute;
+      .sub-menu {
         top: 0;
         left: 100%;
-        z-index: 1;
-        height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: opacity $transition-time;
+      }
 
-        #{$block-name}__item--show-child > &,
-        #{$block-name}__item--lvl-2:hover & {
-          height: auto;
-          overflow: visible;
-          opacity: 1;
-        }
+      .menu-item-has-children > a::after {
+        transform: rotate(-90deg);
       }
     }
   }
 
-  &__toggler {
-    display: inline-block;
-    padding: 0;
-    background: none;
-    border: none;
+  .sub-menu > .menu-item > a {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+    color: inherit;
+    transition: background-color $transition-time;
 
-    @media (min-width: $menu-desktop-width) {
-      display: none;
+    @include hover {
+      background-color: $gray-lightest;
     }
+  }
+
+  .menu-item {
+    position: relative;
+
+    @include tablet-viewport {
+      width: 100%;
+    }
+  }
+
+  .menu-item-has-children {
+    @include hover {
+      & > .sub-menu {
+        display: block;
+        animation: submenu-fade-in $transition-time;
+      }
+    }
+  }
+
+  .menu-item-has-children.focus {
+    @include tablet-viewport {
+      & > .sub-menu {
+        display: block;
+      }
+    }
+  }
+
+  .menu-item-has-children > a::after {
+    display: inline-flex;
+    margin-left: 0.3em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }
+}
+
+@keyframes submenu-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

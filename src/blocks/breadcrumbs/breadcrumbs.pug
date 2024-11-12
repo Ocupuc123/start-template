@@ -18,8 +18,10 @@ mixin breadcrumbs(mods)
       }
     }
 
-  ul.breadcrumbs(class=allMods, aria-label="Breadcrumb", role="navigation")&attributes(attributes)
-    block
+  .breadcrumbs
+    .container
+      ol(class=allMods)&attributes(attributes)
+        block
 
 mixin breadcrumbs-item(text, href, mods)
   //- Принимает:
@@ -36,7 +38,7 @@ mixin breadcrumbs-item(text, href, mods)
       }
     }
 
-  li.breadcrumbs__item(class=allMods)&attributes(attributes)
+  li(class=allMods)&attributes(attributes)
     if (typeof(href) !== 'undefined' && href)
       a(href=href)!= text
     else

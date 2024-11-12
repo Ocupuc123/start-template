@@ -11,43 +11,35 @@ mixin main-nav(selectedID)
   //- подключаем файл со структурой данных блока
   include main-nav.data.pug
 
-  nav#nav.main-nav&attributes(attributes)
-    +burger('Показать главное меню', 'nav', 'main-nav--open').main-nav__toggler
-    ul.main-nav__list
+  nav.main-nav&attributes(attributes)
+    ul.menu
       each menuItem in mainMenu
-        +main-nav-item(selectedID, menuItem, 1)
+        +main-nav-item(selectedID, menuItem)
           if (typeof(menuItem.childs) !== 'undefined' && menuItem.childs)
             +main-nav-sublist-wrapper(2)
               each menuItem2 in menuItem.childs
-                +main-nav-item(selectedID, menuItem2, 2)
+                +main-nav-item(selectedID, menuItem2)
                   if (typeof(menuItem2.childs) !== 'undefined' && menuItem2.childs)
                     +main-nav-sublist-wrapper(3)
                       each menuItem3 in menuItem2.childs
-                        +main-nav-item(selectedID, menuItem3, 3)
+                        +main-nav-item(selectedID, menuItem3)
 
-mixin main-nav-item(selectedID, item, level)
+mixin main-nav-item(selectedID, item)
   -
-    var thisItemClass = 'main-nav__item';
-    var thisLinkClass = 'main-nav__link';
+    var thisItemClass = 'menu-item';
     if(selectedID == item.id) {
-      thisItemClass += '  main-nav__item--active';
+      thisItemClass += ' current-menu-item';
     }
     if(item.childs) {
-      thisItemClass += '  main-nav__item--has-child';
-    }
-    if(level > 1) {
-      thisItemClass += '  main-nav__item--lvl-' + level;
-      thisLinkClass += '  main-nav__link--lvl-' + level;
+      thisItemClass += ' menu-item-has-children';
     }
 
   li(class=thisItemClass)
-    a(class=thisLinkClass, href=item.url)= item.name
+    a(href=item.url)= item.name
     block
 
-mixin main-nav-sublist-wrapper(level)
+mixin main-nav-sublist-wrapper
   -
-    var divClass = 'main-nav__sublist-wrapper  main-nav__sublist-wrapper--lvl-' + level;
-    var listClass = 'main-nav__list  main-nav__list--lvl-' + level;
-  div(class=divClass)
-    ul(class=listClass)
-      block
+    var listClass = 'sub-menu';
+  ul(class=listClass)
+    block
