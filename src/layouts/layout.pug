@@ -15,7 +15,7 @@ html.app(lang="ru")
     //- Предзагрузка шрифтов или иных ресурсов
     //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')
 
-  body
+  body(class=`${bodyClass}`)
     .app__inner
       .app__content
         +page-header
