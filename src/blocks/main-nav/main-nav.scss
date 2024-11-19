@@ -30,6 +30,10 @@
     }
   }
 
+  .menu > .current-menu-item > a {
+    color: $color-main;
+  }
+
   .sub-menu {
     display: none;
     width: 100%;
