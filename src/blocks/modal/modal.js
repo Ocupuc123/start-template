@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = event.target.closest('a[data-modal], button[data-modal]');
 
     if (target && target.dataset.modal === 'open') {
+      event.preventDefault();
       showModal(document.getElementById((target.hash || target.dataset.modalTarget).slice(1)));
     }
 
