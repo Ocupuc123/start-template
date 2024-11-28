@@ -1,0 +1,13 @@
+//- Все примеси в этом файле должны начинаться c имени блока (tippy)
+
+mixin tippy(id)
+  //- Принимает:
+    id      {string} - идентификатор
+    Вызов:
+      +tippy('tooltip-01')
+        p Простой текст тултипа
+    Показать:
+      button.tooltip-toggler(data-template="tooltip-01") Показать тултип
+
+  template(id=id, tabindex="-1")&attributes(attributes)
+    block

@@ -3,7 +3,7 @@ export default {
     // 'no-js',
   ],
   alwaysAddBlocks: [
-    // 'sprite-svg',
+    // 'tippy',
   ],
   addStyle: [
     'src/scss/variables.scss',
@@ -13,9 +13,11 @@ export default {
     'src/scss/normalize.scss',
     'src/scss/headings.scss',
     'src/scss/utils.scss',
+    'node_modules/swiper/swiper-bundle',
+    // 'node_modules/tippy.js/dist/tippy',
+    // 'node_modules/@fancyapps/ui/dist/fancybox/fancybox',
     // 'src/scss/vendor/lenis.scss',
     // 'node_modules/aos/src/sass/aos',
-    // 'node_modules/swiper/swiper-bundle',
     // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   addJsBefore: [

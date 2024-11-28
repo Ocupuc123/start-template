@@ -61,12 +61,15 @@
     "w3c-html-validator": "^1.8.2"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "accordion-js": "^3.3.4",
     "aos": "^2.3.4",
+    "countup.js": "^2.8.0",
     "handy-collapse": "^1.1.0",
     "imask": "^7.6.1",
     "just-validate": "^4.3.0",
     "normalize.css": "^8.0.1",
-    "swiper": "^11.1.11"
+    "swiper": "^11.1.11",
+    "tippy.js": "^6.3.7"
   }
 }
