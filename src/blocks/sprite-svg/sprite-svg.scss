@@ -1,5 +1,11 @@
 svg {
   width: 1em;
   height: 1em;
-  fill: currentColor;
+  fill: transparent;
+  stroke: $color-main;
+  transition: stroke $transition-time, color $transition-time;
+
+  @include hover {
+    stroke: $color-main;
+  }
 }

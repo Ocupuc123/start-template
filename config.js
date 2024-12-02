@@ -4,6 +4,7 @@ export default {
   ],
   alwaysAddBlocks: [
     // 'tippy',
+    // 'sprite-svg',
   ],
   addStyle: [
     'src/scss/variables.scss',
