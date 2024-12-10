@@ -4,44 +4,50 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .pagination {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: $typo-margin-vertical;
-  margin-bottom: $typo-margin-vertical;
+  margin-top: 50px;
 
-  &__item {
-    display: block;
-    min-width: 2em;
+  .screen-reader-text {
+    @include visually-hidden;
+  }
 
-    // border: 1px solid $border-color;
-    padding: 0.3em 0.6em;
-    color: $text-color;
-    text-align: center;
-    text-decoration: none;
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .page-numbers {
+    @include flex-all-center;
+    flex-shrink: 0;
+    min-width: 40px;
+    height: 40px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 120%;
+    color: #00121a;
+    border-radius: 30px;
+    transition: background-color $transition-time, color $transition-time;
 
     &:hover,
     &:focus {
-      color: $text-color;
+      color: #ffffff;
       text-decoration: none;
+      background-color: $color-main;
     }
 
-    & + & {
-      border-left: 0;
+    &.current {
+      color: #ffffff;
+      background-color: $color-main;
     }
 
-    &--active {
-      background-color: $gray-lightest;
+    &.next,
+    &.prev {
+      padding: 5px 15px;
     }
+  }
 
-    @at-root a#{&} {
-      &:hover,
-      &:focus {
-        background-color: $gray-lightest;
-      }
-    }
-
-    @at-root span#{&} {
-      cursor: default;
-    }
+  span.page-numbers {
+    cursor: default;
   }
 }

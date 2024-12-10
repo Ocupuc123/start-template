@@ -4,14 +4,13 @@ mixin pagination(mods)
   //- Принимает:
   //-   mods  {string} - список модификаторов
   //- Вызов:
-    +pagination()
-      +pagination-item('1', '/1')
+    +pagination
+      +pagination-item('1', '#')
+      +pagination-item('2', '', true)
+      +pagination-item('3', '#')
+      +pagination-item('4', '#')
       +pagination-item('...')
-      +pagination-item('4', '/4')
-      +pagination-item('5', '/5', true)
-      +pagination-item('6', '/6')
-      +pagination-item('...')
-      +pagination-item('999', '/999')
+      +pagination-item('5', '#')
   -
     // список модификаторов
     var allMods = '';
@@ -22,8 +21,12 @@ mixin pagination(mods)
       }
     }
 
-  .pagination(class=allMods, aria-label="Page navigation")&attributes(attributes)
-    block
+  nav.pagination(class=allMods, aria-label="Записи")&attributes(attributes)
+    h2.screen-reader-text Навигация по записям
+    .nav-links
+      a.page-numbers.prev(href="#") Назад
+      block
+      a.page-numbers.next(href="#") Далее
 
 mixin pagination-item(text, href, active, mods)
   //- Принимает:
@@ -37,14 +40,13 @@ mixin pagination-item(text, href, active, mods)
     if(typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' pagination__item--' + modsList[i].trim();
+        allMods = allMods + ' page-numbers--' + modsList[i].trim();
       }
     }
     if(typeof(active) !== 'undefined' && active) {
-      allMods = allMods + ' pagination__item--active';
+      allMods = allMods + ' current';
     }
-
   if (typeof(href) !== 'undefined' && href)
-    a.pagination__item(class=allMods, href=href)&attributes(attributes)!= text
+    a.page-numbers(class=allMods, href=href)&attributes(attributes)!= text
   else
-    span.pagination__item(class=allMods)&attributes(attributes)!= text
+    span.page-numbers(class=allMods)&attributes(attributes)!= text
