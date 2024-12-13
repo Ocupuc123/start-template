@@ -91,10 +91,8 @@
   }
 
   .menu-item-has-children.focus {
-    @include tablet-viewport {
-      & > .sub-menu {
-        display: block;
-      }
+    & > .sub-menu {
+      display: block;
     }
   }
 

@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const mainNav = document.querySelector('.main-nav');
+  const mainNav = document.querySelectorAll('.main-nav');
 
-  if (! mainNav) {
+  if (mainNav.length === 0) {
     return;
   }
 
-  const menu = mainNav.getElementsByTagName('ul')[0];
-  const links = menu.getElementsByTagName('a');
-  const linksWithChildren = menu.querySelectorAll('.menu-item-has-children > a, .page_item_has_children > a');
+  mainNav.forEach((mainNavItem) => {
+    const menu = mainNavItem.getElementsByTagName('ul')[0];
+    const links = menu.getElementsByTagName('a');
+    const linksWithChildren = menu.querySelectorAll('.menu-item-has-children > a, .page_item_has_children > a');
 
-  for (const link of links) {
-    link.addEventListener('focus', toggleFocus, { capture: true });
-    link.addEventListener('blur', toggleFocus, { capture: true });
-  }
+    for (const link of links) {
+      link.addEventListener('focus', toggleFocus, { capture: true });
+      link.addEventListener('blur', toggleFocus, { capture: true });
+    }
 
-  for (const link of linksWithChildren) {
-    link.addEventListener('touchstart', toggleFocus, { passive: false, capture: false });
-  }
+    for (const link of linksWithChildren) {
+      link.addEventListener('touchstart', toggleFocus, { passive: false, capture: false });
+    }
+  });
 
   function toggleFocus(event) {
     if (event.type === 'focus' || event.type === 'blur') {
