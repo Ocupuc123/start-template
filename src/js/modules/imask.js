@@ -8,7 +8,7 @@ const maskOptions = {
   lazy: true,
 };
 
-const phones = document.querySelectorAll('.input-mask');
+const phones = document.querySelectorAll('.phone-mask');
 
 if (phones.length > 0) {
   phones.forEach((phone) => {

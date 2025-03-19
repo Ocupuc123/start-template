@@ -1,0 +1,46 @@
+//- Все примеси в этом файле должны начинаться c имени блока (itc-select)
+
+mixin itc-select(text, mods)
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+    +itc-select('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' itc-select--' + modsList[i].trim();
+      }
+    }
+
+  //- include itc-select.data.pug
+
+  #select-1.itc-select(class=allMods)&attributes(attributes)
+    input.visually-hidden(type="hidden", name="car", value="")
+    button.itc-select__toggle(
+      type="button",
+      value="",
+      data-select="toggle",
+      data-index="-1"
+    ) Выберите из списка
+    .itc-select__dropdown
+      ul.itc-select__options
+        li.itc-select__option(
+          data-select="option",
+          data-value="volkswagen",
+          data-index="0"
+        ) Volkswagen
+        li.itc-select__option(
+          data-select="option",
+          data-value="ford",
+          data-index="1"
+        ) Ford
+        li.itc-select__option(
+          data-select="option",
+          data-value="toyota",
+          data-index="2"
+        ) Toyota

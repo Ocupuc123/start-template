@@ -1,111 +1,100 @@
+/* eslint-disable no-console */
 /* global process */
-// Генератор файлов блока
-// Использование: node createBlock.js [имя блока] [доп. расширения через пробел]
 
-import { statSync, writeFile } from 'node:fs';
+import { access, constants, writeFile } from 'node:fs/promises';
 import { mkdirp } from 'mkdirp';
+
 const blockName = process.argv[2];
-const defaultExtensions = ['scss', 'img']; // расширения по умолчанию
-const extensions = uniqueArray(defaultExtensions.concat(process.argv.slice(3)));
+const defaultExtensions = ['scss', 'img'];
+const extensions = [...new Set([...defaultExtensions, ...process.argv.slice(3)])];
 
-// Если есть имя блока
-if (blockName) {
-  const dirPath = `src/blocks/${blockName}/`; // полный путь к создаваемой папке блока
-
-  const made = mkdirp.sync(dirPath);
-  // eslint-disable-next-line no-console
-  console.log(`Создание папки: ${made}`);
-
-  // Обходим массив расширений и создаем файлы, если они еще не созданы
-  extensions.forEach((extension) => {
-    const filePath = `${dirPath + blockName}.${extension}`; // полный путь к создаваемому файлу
-    let fileContent = ''; // будущий контент файла
-    const fileCreateMsg = ''; // будущее сообщение в консоли при создании файла
-
-    if (extension === 'scss') {
-      fileContent = `// В этом файле должны быть стили для БЭМ-блока ${blockName}, его элементов,\n// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...\n// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`;
-    } else if (extension === 'js') {
-      fileContent = '';
-    } else if (extension === 'data') {
-      fileContent = '-\n  const data = {\n    "title": "Заголовок",\n    "description": "<p>Описание</p>"\n  };\n';
-    } else if (extension === 'md') {
-      fileContent = '';
-    } else if (extension === 'pug') {
-      fileContent = `//- Все примеси в этом файле должны начинаться c имени блока (${blockName})\n\nmixin ${blockName}(text, mods)\n\n  //- Принимает:\n  //-   text    {string} - текст\n  //-   mods    {string} - список модификаторов\n  //- Вызов:\n        +${blockName}('Текст', 'some-mod')\n\n  -\n    // список модификаторов\n    var allMods = '';\n    if(typeof(mods) !== 'undefined' && mods) {\n      var modsList = mods.split(',');\n      for (var i = 0; i < modsList.length; i++) {\n        allMods = allMods + ' ${blockName}--' + modsList[i].trim();\n      }\n    }\n\n  //- include ${blockName}.data.pug\n\n  .${blockName}(class=allMods)&attributes(attributes)\n    .container\n      block\n`;
-    } else if (extension === 'img') {
-      const imgFolder = `${dirPath}img/`;
-      if (fileExist(imgFolder) === false) {
-        const madeImgFolder = mkdirp.sync(imgFolder);
-        // eslint-disable-next-line no-console
-        console.log(`Создание папки: ${madeImgFolder}`);
-      } else {
-        // eslint-disable-next-line no-console
-        console.log(`Папка ${imgFolder} НЕ создана (уже существует) `);
-      }
-    }
-
-    if (fileExist(filePath) === false && extension !== 'img' && extension !== 'md' && extension !== 'data') {
-      writeFile(filePath, fileContent, (err) => {
-        if (err) {
-          // eslint-disable-next-line no-console
-          return console.log(`Файл НЕ создан: ${err}`);
-        }
-        // eslint-disable-next-line no-console
-        console.log(`Файл создан: ${filePath}`);
-        if (fileCreateMsg) {
-          // eslint-disable-next-line no-console
-          console.warn(fileCreateMsg);
-        }
-      });
-    } else if (extension !== 'img' && extension !== 'md' && extension !== 'data') {
-      // eslint-disable-next-line no-console
-      console.log(`Файл НЕ создан: ${filePath} (уже существует)`);
-    } else if (extension === 'data') {
-      writeFile(`${filePath}.pug`, fileContent, (err) => {
-        if (err) {
-          // eslint-disable-next-line no-console
-          return console.log(`Файл НЕ создан: ${err}`);
-        }
-        // eslint-disable-next-line no-console
-        console.log(`Файл создан: ${filePath}.pug`);
-        if (fileCreateMsg) {
-          // eslint-disable-next-line no-console
-          console.warn(fileCreateMsg);
-        }
-      });
-    } else if (extension === 'md') {
-      writeFile(`${dirPath}article.md`, fileContent, (err) => {
-        if (err) {
-          // eslint-disable-next-line no-console
-          return console.log(`Файл НЕ создан: ${err}`);
-        }
-        // eslint-disable-next-line no-console
-        console.log(`Файл создан: ${dirPath}article.md`);
-        if (fileCreateMsg) {
-          // eslint-disable-next-line no-console
-          console.warn(fileCreateMsg);
-        }
-      });
-    }
-  });
-} else {
-  // eslint-disable-next-line no-console
-  console.log('Отмена операции: не указан блок');
-}
-
-function uniqueArray(arr) {
-  const objectTemp = {};
-  for (let i = 0; i < arr.length; i++) {
-    const str = arr[i];
-    objectTemp[str] = true;
-  }
-  return Object.keys(objectTemp);
-}
-
-function fileExist(path) {
+async function fileExists(path) {
   try {
-    statSync(path);
-  } catch (err) {
-    return !(err && err.code === 'ENOENT');
+    await access(path, constants.F_OK);
+    return true;
+  } catch {
+    return false;
   }
 }
+
+async function createBlock() {
+  if (!blockName) {
+    console.log('Отмена операции: не указан блок');
+    return;
+  }
+
+  const dirPath = `src/blocks/${blockName}/`;
+
+  try {
+    const made = await mkdirp(dirPath);
+    console.log(`Создание папки: ${made}`);
+  } catch (err) {
+    console.error(`Ошибка создания папки: ${err}`);
+    return;
+  }
+
+  const extensionConfigs = {
+    scss: {
+      content: `// В этом файле должны быть стили для БЭМ-блока ${blockName}, его элементов,\n// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...\n// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`,
+      path: `${blockName}.scss`
+    },
+    js: {
+      content: '',
+      path: `${blockName}.js`
+    },
+    data: {
+      content: '-\n  const data = {\n    title: "Заголовок",\n    description: "Описание"\n  };\n',
+      path: `${blockName}.data.pug`
+    },
+    md: {
+      content: '',
+      path: 'article.md'
+    },
+    pug: {
+      content: `//- Все примеси в этом файле должны начинаться c имени блока (${blockName})\n\nmixin ${blockName}(text, mods)\n\n  //- Принимает:\n  //-   text    {string} - текст\n  //-   mods    {string} - список модификаторов\n  //- Вызов:\n        +${blockName}('Текст', 'some-mod')\n\n  -\n    // список модификаторов\n    var allMods = '';\n    if(typeof(mods) !== 'undefined' && mods) {\n      var modsList = mods.split(',');\n      for (var i = 0; i < modsList.length; i++) {\n        allMods = allMods + ' ${blockName}--' + modsList[i].trim();\n      }\n    }\n\n  //- include ${blockName}.data.pug\n\n  .${blockName}(class=allMods)&attributes(attributes)\n    .container\n      block\n`,
+      path: `${blockName}.pug`
+    },
+    img: {
+      isDirectory: true,
+      path: 'img/'
+    }
+  };
+
+  for (const extension of extensions) {
+    const config = extensionConfigs[extension] || {};
+
+    if (config.isDirectory) {
+      try {
+        const dir = `${dirPath}${config.path}`;
+        await mkdirp(dir);
+        console.log(`Создание папки: ${dir}`);
+      } catch (err) {
+        if (err.code !== 'EEXIST') {
+          console.error(`Ошибка: ${err}`);
+        }
+      }
+      continue;
+    }
+
+    if (!config.path) {
+      console.log(`Пропуск неизвестного расширения: ${extension}`);
+      continue;
+    }
+
+    const targetPath = `${dirPath}${config.path}`;
+
+    if (await fileExists(targetPath)) {
+      console.log(`Файл существует: ${targetPath}`);
+      continue;
+    }
+
+    try {
+      await writeFile(targetPath, config.content);
+      console.log(`Файл создан: ${targetPath}`);
+    } catch (err) {
+      console.error(`Ошибка записи: ${targetPath} - ${err}`);
+    }
+  }
+}
+
+createBlock().catch(console.error);
