@@ -44,6 +44,6 @@ block content
                   ul
                     each item in page.innerList
                       li
-                        a(href=item.src)= item.name
+                        a(href=item.src, target="_blank")= item.name
               else
-                a(href=page.src)= page.name
+                a(href=page.src, target="_blank")= page.name

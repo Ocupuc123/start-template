@@ -62,6 +62,18 @@
   }
 }
 
+// Responsive Grid Mixin
+
+@mixin responsive-grid( $cols: 2, $gap: $grid-gap, $breakpoint: $screen-lg - 1) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 100%;
+  }
+}
+
 @mixin section-padding-top {
   @include laptop-viewport {
     padding-top: 60px;
