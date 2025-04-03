@@ -1,0 +1,91 @@
+// В этом файле должны быть стили для БЭМ-блока custom-select, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.custom-select {
+  $custom-select: &; // #{$custom-select}__element
+  position: relative;
+
+  &__toggle {
+    @include field-text;
+    position: relative;
+    padding-right: 30px;
+    text-align: left;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 15px;
+      height: 15px;
+      content: "";
+      background-image: url("../images/custom-select-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform $transition-time;
+    }
+
+    // &:focus {
+    //   box-shadow: none;
+    // }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+    padding: 10px 5px 10px 10px;
+    background-color: #ffffff;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+
+  &__dropdown-list {
+    @include list-reset;
+    max-height: 200px;
+    padding-right: 5px;
+    overflow-y: auto;
+  }
+
+  &__option {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: $border-radius;
+    transition: background-color $transition-time;
+
+    input {
+      @include visually-hidden;
+    }
+
+    @include hover {
+      background-color: $gray-lightest;
+    }
+  }
+
+  &--open {
+    #{$custom-select}__toggle::after {
+      transform: rotate(180deg);
+    }
+
+    #{$custom-select}__dropdown {
+      display: block;
+      animation: dropdown-fade-in $transition-time;
+    }
+  }
+}
+
+@keyframes dropdown-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+

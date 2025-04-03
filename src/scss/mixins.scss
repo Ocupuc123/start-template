@@ -148,7 +148,7 @@
 }
 
 @mixin hover {
-  @media (any-hover: hover) {
+  @include tablet-viewport-up() {
     &:hover {
       @content;
     }

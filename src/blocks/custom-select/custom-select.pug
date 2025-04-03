@@ -1,0 +1,30 @@
+//- Все примеси в этом файле должны начинаться c имени блока (custom-select)
+
+mixin custom-select(text, mods)
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+    +custom-select('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' custom-select--' + modsList[i].trim();
+      }
+    }
+
+  include custom-select.data.pug
+
+  .custom-select(class=allMods)&attributes(attributes)
+    button.custom-select__toggle(type="button", aria-expanded="false") Выберите вариант
+    .custom-select__dropdown
+      ul.custom-select__dropdown-list.custom-scrollbar
+        each optionItem in options
+          li.custom-select__dropdown-item
+            label.custom-select__option
+              input(type="radio", name="my-option", value=optionItem.value)
+              span!= optionItem.text
