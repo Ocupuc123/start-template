@@ -51,7 +51,7 @@ async function createBlock() {
       path: 'article.md'
     },
     pug: {
-      content: `//- Все примеси в этом файле должны начинаться c имени блока (${blockName})\n\nmixin ${blockName}(props, mods)\n\n  //- Принимает:\n  //-   props   {object} - пропсы\n  //-   mods    {string} - список модификаторов\n  //- Вызов:\n        +${blockName}({title: 'Заголовок', description: 'Описание'}, 'some-mod')\n\n  -\n    // список модификаторов\n    var allMods = '';\n    if(typeof(mods) !== 'undefined' && mods) {\n      var modsList = mods.split(',');\n      for (var i = 0; i < modsList.length; i++) {\n        allMods = allMods + ' ${blockName}--' + modsList[i].trim();\n      }\n    }\n\n  //- include ${blockName}.data.pug\n\n  .${blockName}(class=allMods)&attributes(attributes)\n    .container\n      block\n`,
+      content: `//- Все примеси в этом файле должны начинаться c имени блока (${blockName})\n\nmixin ${blockName}(props, mods)\n\n  //- Принимает:\n  //-   props   {object} - пропсы\n  //-   mods    {string} - список модификаторов\n  //- Вызов:\n        +${blockName}({title: 'Заголовок', description: 'Описание'}, 'some-mod')\n\n  -\n    // список модификаторов\n    var allMods = '';\n    if(mods) {\n      allMods = mods.split(',').map(mod => '${blockName}--' + mod.trim()).join(' ');\n    }\n\n  //- include ${blockName}.data.pug\n\n  .${blockName}(class=allMods)&attributes(attributes)\n    .container\n      block\n`,
       path: `${blockName}.pug`
     },
     img: {
