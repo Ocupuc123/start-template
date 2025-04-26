@@ -8,7 +8,7 @@ import notify from 'gulp-notify';
 export const compileScripts = () => {
   const gulpEsbuild = createGulpEsbuild({ incremental: isDevelopment });
 
-  return gulp.src('src/js/entry.js')
+  return gulp.src('src/scripts/entry.js')
     .pipe(plumber({
       errorHandler: notify.onError({
         title: 'JS',

@@ -3,7 +3,7 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['src/js/vendor/**/*', 'build/**/*', 'node_modules/**/*'],
+    ignores: ['src/scripts/vendor/**/*', 'build/**/*', 'node_modules/**/*'],
   },
   {
     languageOptions: {

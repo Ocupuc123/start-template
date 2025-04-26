@@ -4,7 +4,6 @@ import server from 'browser-sync';
 import { unlink } from 'node:fs';
 import { writePugMixinsFile } from './write-pug-mixins-file.js';
 import { compilePug } from './compile-pug.js';
-import { generateSvgSprite } from './generate-svg-sprite.js';
 import { copyImages } from './copy-images.js';
 import { compileSass } from './compile-sass.js';
 import { compileScripts } from './compile-scripts.js';
@@ -43,21 +42,21 @@ export const browserSync = (cb) => {
   });
 
   // Разметка Блоков: изменение
-  gulp.watch('src/blocks/**/*.pug', { events: ['change'], delay: 100 }, gulp.series(
+  gulp.watch(['src/components/**/*.pug', '!src/components/mixins.pug'], { events: ['change'], delay: 100 }, gulp.series(
     compilePug,
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));
 
   // Разметка Блоков: добавление
-  gulp.watch('src/blocks/**/*.pug', { events: ['add'], delay: 100 }, gulp.series(
+  gulp.watch(['src/components/**/*.pug', '!src/components/mixins.pug'], { events: ['add'], delay: 100 }, gulp.series(
     writePugMixinsFile,
     compilePug,
     reload
   ));
 
   // Разметка Блоков: удаление
-  gulp.watch('src/blocks/**/*.pug', { events: ['unlink'] }, gulp.series(
+  gulp.watch(['src/components/**/*.pug', '!src/components/mixins.pug'], { events: ['unlink'] }, gulp.series(
     gulp.parallel(
       writePugMixinsFile,
       writeSassImportsFile
@@ -65,45 +64,39 @@ export const browserSync = (cb) => {
   ));
 
   // Шаблоны pug: все события
-  gulp.watch(['src/layouts/**/*.pug', '!src/blocks/mixins.pug'], gulp.series(
+  gulp.watch('src/layouts/**/*.pug', gulp.series(
     compilePug,
     gulp.parallel(writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));
 
   // Стили Блоков: изменение
-  gulp.watch(['src/blocks/**/*.scss'], { events: ['change'], delay: 100 }, gulp.series(
+  gulp.watch(['src/components/**/*.scss'], { events: ['change'], delay: 100 }, gulp.series(
     writeSassImportsFile,
     compileSass
   ));
 
   // Стили Блоков: добавление
-  gulp.watch(['src/blocks/**/*.scss'], { events: ['add'], delay: 100 }, gulp.series(
+  gulp.watch(['src/components/**/*.scss'], { events: ['add'], delay: 100 }, gulp.series(
     writeSassImportsFile,
     compileSass,
   ));
 
   // Стилевые глобальные файлы: все события
-  gulp.watch(['src/scss/**/*.scss', '!src/scss/main.scss'], { events: ['all'], delay: 100 }, gulp.series(
+  gulp.watch(['src/styles/**/*.scss', '!src/styles/main.scss'], { events: ['all'], delay: 100 }, gulp.series(
     compileSass
   ));
 
   // Скриптовые глобальные файлы: все события
-  gulp.watch(['src/js/**/*.js', '!src/js/entry.js', 'src/blocks/**/*.js'], { events: ['all'], delay: 100 }, gulp.series(
+  gulp.watch(['src/scripts/**/*.js', '!src/scripts/entry.js', 'src/components/**/*.js'], { events: ['all'], delay: 100 }, gulp.series(
     writeJsImportsFile,
     compileScripts,
     reload
   ));
 
   // Картинки: все события
-  gulp.watch(['src/blocks/**/img/*.{jpg,jpeg,png,svg}'], { events: ['all'], delay: 100 }, gulp.series(
+  gulp.watch(['src/components/**/img/*.{jpg,jpeg,png,svg,webp,gif}', 'src/assets/images/*.{jpg,jpeg,png,svg,webp,gif}'], { events: ['all'], delay: 100 }, gulp.series(
     copyImages,
-    reload
-  ));
-
-  // Спрайт SVG
-  gulp.watch('src/blocks/sprite-svg/svg/*.svg', { events: ['all'], delay: 100 }, gulp.series(
-    generateSvgSprite,
     reload
   ));
 

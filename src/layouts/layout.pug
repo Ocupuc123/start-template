@@ -1,10 +1,10 @@
 //- Стандартный шаблон страницы
 
-include ../blocks/mixins
+include ../components/mixins
 block consts
 
 doctype html
-html.app(lang="ru")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width,initial-scale=1")
@@ -18,11 +18,8 @@ html.app(lang="ru")
     //- link(rel='preload' href='fonts/Bloggersans.woff2' as='font' type='font/woff2' crossorigin='anonymous')
 
   body(class=`${bodyClass || ''}`)
-    .app__inner
-      .app__content
-        +page-header
-        block content
-      .app__footer-wrapper
-        +page-footer
+    +page-header
+    block content
+    +page-footer
     block scripts
       script(src="./js/scripts.min.js")

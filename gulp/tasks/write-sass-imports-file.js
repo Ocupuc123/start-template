@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import config from '../../config.js';
 import { writeFileSync } from 'node:fs';
 import { getDirectories, doNotEditMessage } from '../utils.js';
@@ -11,35 +12,39 @@ export const writeSassImportsFile = (cb) => {
 
   if (config.addStyle.length > 0) {
     config.addStyle.forEach((src) => {
-      src = src.replace(/src\/scss\/|.scss/gi, '');
-      scssImportsList.push(src);
+      src = src.replace(/src\/styles\/|.scss/gi, '');
+      if (!scssImportsList.includes(src)) {
+        scssImportsList.push(src);
+      }
     });
   }
 
-  allBlocksWithScssFiles.forEach((blockWithScssFile)=> {
-    if (config.alwaysAddBlocks.indexOf(blockWithScssFile) === -1) {
-      return;
-    }
-    scssImportsList.push(`../blocks/${blockWithScssFile}/${blockWithScssFile}`);
-  });
+  allBlocksWithScssFiles.forEach((blockPath) => {
+    const blockName = blockPath.split('/').pop();
+    const src = `../components/${blockPath}/${blockName}`;
 
-  allBlocksWithScssFiles.forEach((blockWithScssFile)=> {
-    const src = `../blocks/${blockWithScssFile}/${blockWithScssFile}`;
-    if (blocksFromHtml.indexOf(blockWithScssFile) === -1) {
+    if (src.includes('src/components')) {
+      console.error('Некорректный путь:', src);
       return;
     }
-    if (scssImportsList.indexOf(src) > -1) {
+
+    if (config.alwaysAddBlocks.includes(blockName)) {
+      if (!scssImportsList.includes(src)) {
+        scssImportsList.push(src);
+      }
       return;
     }
-    scssImportsList.push(src);
+
+    if (blocksFromHtml.includes(blockName) && !scssImportsList.includes(src)) {
+      scssImportsList.push(src);
+    }
   });
 
   scssImportsList.forEach((src) => {
     styleImports += `@import "${src}";\n`;
   });
 
-  writeFileSync('src/scss/main.scss', styleImports);
-  // eslint-disable-next-line no-console
+  writeFileSync('src/styles/main.scss', styleImports);
   console.log('\x1b[33m%s\x1b[0m', '---------- Write new main.scss');
   return cb();
 };

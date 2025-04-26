@@ -15,7 +15,7 @@ import notify from 'gulp-notify';
 
 const sass = gulpSass(dartSass);
 
-export const compileSass = () => gulp.src('src/scss/main.scss')
+export const compileSass = () => gulp.src('src/styles/main.scss')
   .pipe(plumber({
     errorHandler: notify.onError({
       title: 'SASS',
