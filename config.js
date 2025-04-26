@@ -24,7 +24,8 @@ export default {
   ],
   addJsAfter: ['./index.js'],
   addAssets: {
-    'src/assets/fonts/**': 'fonts/',
+    'src/assets/fonts/**/*.{woff,woff2}': 'fonts/',
+    'src/assets/images/**/*.{jpg,jpeg,png,gif,webp,svg}': 'images/',
     // 'node_modules/somePackage/images/**': 'images/',
   },
 };

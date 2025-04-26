@@ -23,7 +23,7 @@ async function createBlock() {
     return;
   }
 
-  const dirPath = `src/blocks/${blockName}/`;
+  const dirPath = `src/components/blocks/${blockName}/`;
 
   try {
     const made = await mkdirp(dirPath);
