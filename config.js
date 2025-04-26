@@ -26,6 +26,7 @@ export default {
   addAssets: {
     'src/assets/fonts/**/*.{woff,woff2}': 'fonts/',
     'src/assets/images/**/*.{jpg,jpeg,png,gif,webp,svg}': 'images/',
+    'src/assets/favicons/**/*.{png,ico,svg,xml,webmanifest}': 'favicons/',
     // 'node_modules/somePackage/images/**': 'images/',
   },
 };
