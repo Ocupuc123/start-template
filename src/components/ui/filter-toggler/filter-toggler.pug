@@ -19,7 +19,7 @@ mixin filter-toggler(text, mods)
     }
 
   .filter-toggler(class=allMods)&attributes(attributes)
-    button.filter-toggler__toggler(type='button' data-filter-toggler-open="") Показать фильтры
+    button.filter-toggler__toggler(type='button' data-filter-toggler-open="")!= text || 'Показать что-то'
     .filter-toggler__body
       .filter-toggler__header
         button.filter-toggler__go-back(type='button' data-filter-toggler-close="") Вернуться

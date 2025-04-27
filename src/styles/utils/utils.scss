@@ -1,3 +1,6 @@
+@use "../settings/variables" as *;
+@use "../utils/mixins" as *;
+
 .container {
   width: min($container-width, 100% - calc($container-gap * 2));
   margin-inline: auto;

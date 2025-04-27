@@ -3,6 +3,8 @@
 // В этом файле должны быть стили для БЭМ-блока field-radio, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "../../../styles/settings/variables" as *;
+@use "../../../styles/utils/mixins" as *;
 
 .field-radio {
   $block-name: &; // #{$block-name}__element

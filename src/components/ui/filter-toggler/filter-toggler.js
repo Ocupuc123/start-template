@@ -1,4 +1,4 @@
-import {disableBodyScroll, enableBodyScroll} from '../../js/functions/body-scroll-lock';
+import {disableBodyScroll, enableBodyScroll} from '../../../scripts/functions/body-scroll-lock';
 
 const IS_OPEN_CLASS = 'filter-toggler--is-open';
 const filterToggler = document.querySelector('.filter-toggler');

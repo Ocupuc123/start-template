@@ -41,7 +41,7 @@ export const writeSassImportsFile = (cb) => {
   });
 
   scssImportsList.forEach((src) => {
-    styleImports += `@import "${src}";\n`;
+    styleImports += `@use "${src}" as *;\n`;
   });
 
   writeFileSync('src/styles/main.scss', styleImports);

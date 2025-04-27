@@ -1,4 +1,4 @@
-import './modules/swiper.js';
+// import './modules/swiper.js';
 // import './modules/count-up.js';
 // import './modules/fancybox.js';
 // import './modules/imask.js';

@@ -1,6 +1,8 @@
 // В этом файле должны быть стили для БЭМ-блока custom-select, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "../../../styles/settings/variables" as *;
+@use "../../../styles/utils/mixins" as *;
 
 .custom-select {
   $custom-select: &; // #{$custom-select}__element

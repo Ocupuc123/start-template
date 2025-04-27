@@ -1,4 +1,4 @@
-import { getScrollbarSize } from '../../../js/functions/get-scrollbar-size.js';
+import { getScrollbarSize } from '../../../scripts/functions/get-scrollbar-size.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const bodyPaddingRightOriginal = parseInt(window.getComputedStyle(document.body, null).getPropertyValue('padding-right'), 10);

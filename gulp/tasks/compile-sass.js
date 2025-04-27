@@ -2,8 +2,7 @@ import {isProduction, isDevelopment} from '../utils.js';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import sourcemaps from 'gulp-sourcemaps';
-import sassGlob from 'gulp-sass-glob';
-import * as dartSass from 'sass';
+import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import rename from 'gulp-rename';
@@ -23,11 +22,7 @@ export const compileSass = () => gulp.src('src/styles/main.scss')
     })
   }))
   .pipe(gulpif(isDevelopment, sourcemaps.init()))
-  .pipe(sassGlob())
-  .pipe(sass({
-    quietDeps: true,
-    silenceDeprecations: ['legacy-js-api', 'import'],
-  }))
+  .pipe(sass())
   .pipe(gulpif(isProduction, mqpacker()))
   .pipe(autoprefixer())
   .pipe(gulpif(isProduction, cleanCSS({ level: 2 })))

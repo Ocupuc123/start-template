@@ -46,7 +46,7 @@ async function createBlock() {
 
   const extensionConfigs = {
     scss: {
-      content: `// В этом файле должны быть стили для БЭМ-блока ${blockName}, его элементов,\n// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...\n// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`,
+      content: `// В этом файле должны быть стили для БЭМ-блока ${blockName}, его элементов,\n// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...\n// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority\n@use "../../../styles/settings/variables" as *;\n@use "../../../styles/utils/mixins" as *;\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`,
       path: `${blockName}.scss`
     },
     js: {
