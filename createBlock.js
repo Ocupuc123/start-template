@@ -4,9 +4,18 @@
 import { access, constants, writeFile } from 'node:fs/promises';
 import { mkdirp } from 'mkdirp';
 
-const blockName = process.argv[2];
+const args = process.argv.slice(2);
+
+const uiFlagIndex = args.indexOf('-ui');
+const isUI = uiFlagIndex !== -1;
+
+if (isUI) {
+  args.splice(uiFlagIndex, 1);
+}
+
+const blockName = args[0];
 const defaultExtensions = ['scss', 'img'];
-const extensions = [...new Set([...defaultExtensions, ...process.argv.slice(3)])];
+const extensions = [...new Set([...defaultExtensions, ...args.slice(1)])];
 
 async function fileExists(path) {
   try {
@@ -23,7 +32,9 @@ async function createBlock() {
     return;
   }
 
-  const dirPath = `src/components/blocks/${blockName}/`;
+  const dirPath = isUI
+    ? `src/components/ui/${blockName}/`
+    : `src/components/blocks/${blockName}/`;
 
   try {
     const made = await mkdirp(dirPath);
@@ -43,7 +54,7 @@ async function createBlock() {
       path: `${blockName}.js`
     },
     data: {
-      content: '-\n  const data = {\n    title: "Заголовок",\n    description: "Описание"\n  };\n',
+      content: '-\n  const data = [\n    {\n      title: "Заголовок",\n      description: "Описание"\n    }\n  ];\n',
       path: `${blockName}.data.pug`
     },
     md: {

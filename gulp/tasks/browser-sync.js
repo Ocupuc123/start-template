@@ -58,7 +58,8 @@ export const browserSync = (cb) => {
   gulp.watch(['src/components/**/*.pug', '!src/components/mixins.pug'], { events: ['unlink'] }, gulp.series(
     gulp.parallel(
       writePugMixinsFile,
-      writeSassImportsFile
+      writeSassImportsFile,
+      writeJsImportsFile
     )
   ));
 

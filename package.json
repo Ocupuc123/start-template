@@ -19,6 +19,7 @@
     "defaults"
   ],
   "devDependencies": {
+    "@eslint/js": "^9.25.1",
     "@prettier/plugin-pug": "^3.0.0",
     "browser-sync": "^3.0.2",
     "browserslist-to-esbuild": "^2.1.1",
@@ -43,6 +44,7 @@
     "gulp-sass-glob": "^1.1.0",
     "gulp-sharp-optimize-images": "^4.0.3",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-zip": "^6.1.0",
     "jstransformer-markdown-it": "^3.0.0",
     "mkdirp": "^3.0.1",
     "prettier": "^3.3.3",
