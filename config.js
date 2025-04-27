@@ -1,4 +1,5 @@
 export default {
+  projectName: 'project-name',
   ignoredBlocks: [
     // 'no-js',
   ],

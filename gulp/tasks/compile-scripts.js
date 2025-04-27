@@ -1,6 +1,7 @@
 import {createGulpEsbuild} from 'gulp-esbuild';
 import {isProduction, isDevelopment} from '../utils.js';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
+import browsersync from 'browser-sync';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
@@ -23,5 +24,6 @@ export const compileScripts = () => {
       sourcemap: isDevelopment,
       target: browserslistToEsbuild(),
     }))
-    .pipe(gulp.dest('build/js'));
+    .pipe(gulp.dest('build/js'))
+    .pipe(browsersync.stream());
 };

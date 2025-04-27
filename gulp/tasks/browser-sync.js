@@ -44,7 +44,6 @@ export const browserSync = (cb) => {
   // Разметка Блоков: изменение
   gulp.watch(['src/components/**/*.pug', '!src/components/mixins.pug'], { events: ['change'], delay: 100 }, gulp.series(
     compilePug,
-    gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));
 
@@ -72,7 +71,6 @@ export const browserSync = (cb) => {
 
   // Стили Блоков: изменение
   gulp.watch(['src/components/**/*.scss'], { events: ['change'], delay: 100 }, gulp.series(
-    writeSassImportsFile,
     compileSass
   ));
 
@@ -87,11 +85,21 @@ export const browserSync = (cb) => {
     compileSass
   ));
 
-  // Скриптовые глобальные файлы: все события
-  gulp.watch(['src/scripts/**/*.js', '!src/scripts/entry.js', 'src/components/**/*.js'], { events: ['all'], delay: 100 }, gulp.series(
+  // Скриптовые файлы: изменение
+  gulp.watch('src/components/**/*.js', { events: ['change'], delay: 100 }, gulp.series(
+    compileScripts,
+  ));
+
+  // Скриптовые файлы: добавление
+  gulp.watch('src/components/**/*.js', { events: ['add'], delay: 100 }, gulp.series(
     writeJsImportsFile,
     compileScripts,
-    reload
+  ));
+
+  // Скриптовые глобальные файлы: все события
+  gulp.watch(['src/scripts/**/*.js', '!src/scripts/entry.js'], { events: ['all'], delay: 100 }, gulp.series(
+    writeJsImportsFile,
+    compileScripts,
   ));
 
   // Картинки: все события
