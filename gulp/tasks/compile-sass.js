@@ -2,7 +2,7 @@ import {isProduction, isDevelopment} from '../utils.js';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import sourcemaps from 'gulp-sourcemaps';
-import dartSass from 'sass';
+import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import rename from 'gulp-rename';
