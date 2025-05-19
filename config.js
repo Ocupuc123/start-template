@@ -7,10 +7,7 @@ export default {
     // 'tippy',
   ],
   addStyle: [
-    'src/styles/settings/index.scss',
-    'src/styles/base/index.scss',
-    'src/styles/utils/index.scss',
-    'src/styles/typograhpy/index.scss',
+    'src/styles/index.scss',
     // '../../node_modules/swiper/swiper-bundle',
     // '../../node_modules/tippy.js/dist/tippy',
     // '../../node_modules/@fancyapps/ui/dist/fancybox/fancybox',
