@@ -1,5 +1,5 @@
-@use "../settings/variables" as *;
-@use "../../../node_modules/normalize.css/normalize" as *;
+@use "./variables" as *;
+@use "../../node_modules/normalize.css/normalize" as *;
 
 *,
 *::before,

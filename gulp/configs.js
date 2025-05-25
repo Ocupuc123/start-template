@@ -1,18 +1,14 @@
 /* eslint-disable camelcase */
 export const sharpOptimizeImagesConfig = {
-  // webp: {
-  //   quality: 80,
-  //   lossless: false,
-  //   alsoProcessOriginal: false,
-  // },
+  webp: {
+    quality: 80,
+    lossless: false,
+    alsoProcessOriginal: false,
+  },
   png_to_png: {
     progressive: true,
   },
   jpg_to_jpg: {
-    mozjpeg: true,
-    progressive: true,
-  },
-  jpeg_to_jpeg: {
     mozjpeg: true,
     progressive: true,
   },
@@ -31,29 +27,4 @@ export const ServerConfig = {
   ui: false,
   open: false,
   ghostMode: false
-};
-
-export const SvgSpriteConfig = {
-  shape: {
-    transform: [
-      {
-        svgo: {
-          plugins: [
-            'preset-default',
-            {
-              name: 'removeAttrs',
-              params: {
-                attrs: '(fill|stroke)',
-              },
-            },
-          ],
-        },
-      },
-    ],
-  },
-  mode: {
-    stack: {
-      sprite: '../sprite.svg',
-    },
-  },
 };

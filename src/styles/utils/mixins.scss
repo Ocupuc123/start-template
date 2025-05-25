@@ -1,4 +1,4 @@
-@use "../settings/variables" as *;
+@use "../variables" as *;
 
 // Desktop first
 
@@ -119,9 +119,9 @@
   padding: 0;
   color: inherit;
   cursor: pointer;
+  outline: none;
   background-color: transparent;
   border: none;
-  outline: none;
 }
 
 @mixin input-reset {
@@ -145,8 +145,8 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
   border: 0;
+  clip: rect(0 0 0 0);
 }
 
 @mixin hover {

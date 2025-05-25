@@ -1,7 +1,7 @@
 // В этом файле должны быть стили для БЭМ-блока mobile-nav, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "../../../styles/settings/variables" as *;
+@use "../../../styles/variables" as *;
 @use "../../../styles/utils/mixins" as *;
 
 .mobile-nav {
@@ -38,8 +38,8 @@
     height: 100%;
     overflow-y: auto;
     pointer-events: auto;
-    background-color: #ffffff;
     outline: 0;
+    background-color: #ffffff;
   }
 
   &__header {

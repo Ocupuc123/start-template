@@ -16,11 +16,11 @@ import { archive } from './gulp/tasks/build-zip.js';
 const build = gulp.series(
   gulp.parallel(cleanBuildDirectory, writePugMixinsFile),
   gulp.parallel(compilePug, getBlocksFromHtml, copyAssets),
-  gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
+  gulp.parallel(optimizeImages, copyImages, writeSassImportsFile, writeJsImportsFile),
   gulp.parallel(compileSass, compileScripts),
 );
 
 export const development = gulp.series(build, browserSync);
 export const production = build;
-export const optimize = gulp.series(optimizeImages);
+export const optimize = gulp.series(getBlocksFromHtml, optimizeImages);
 export const buildArchive = archive;

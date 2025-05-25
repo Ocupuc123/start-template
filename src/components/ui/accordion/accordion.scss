@@ -1,7 +1,7 @@
 // В этом файле должны быть стили для БЭМ-блока accordion, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "../../../styles/settings/variables" as *;
+@use "../../../styles/variables" as *;
 @use "../../../styles/utils/mixins" as *;
 
 .accordion {
@@ -32,10 +32,10 @@
     font-size: 20px;
     text-align: left;
     cursor: pointer;
+    outline: none;
     background-color: transparent;
     border: 0;
     border-radius: 0;
-    outline: none;
     box-shadow: none;
 
     &::after {
@@ -49,8 +49,8 @@
       content: "";
       border-bottom: 2px solid $border-color;
       border-left: 2px solid $border-color;
-      transition: transform $transition-time;
       transform: rotate(-45deg);
+      transition: transform $transition-time;
     }
 
     &:active,

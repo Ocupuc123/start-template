@@ -1,11 +1,3 @@
-import { showMore } from '../vendor/show-more.js';
+import ShowMore from '../vendor/show-more.js';
 
-new showMore('.list', {
-  config: {
-    type: 'list',
-    element: 'div',
-    limit: 6,
-    more: 'Показать больше',
-    less: 'Скрыть'
-  }
-});
+new ShowMore('.js-show-more');

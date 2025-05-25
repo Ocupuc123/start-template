@@ -11,6 +11,7 @@ if (counts.length > 0) {
         enableScrollSpy: true,
         scrollSpyOnce: true,
         useGrouping: false,
+        separator: '',
       });
 
       numAnim.start();

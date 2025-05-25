@@ -1,7 +1,7 @@
 // В этом файле должны быть стили для БЭМ-блока label, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "../../../styles/settings/variables" as *;
+@use "../../../styles/variables" as *;
 @use "../../../styles/utils/mixins" as *;
 
 .label {
@@ -12,11 +12,11 @@
   font-size: $font-size-sm;
   font-weight: 700;
   line-height: 1;
+  vertical-align: baseline;
   color: $text-color;
-  text-decoration: none;
   text-transform: none;
   white-space: nowrap;
-  vertical-align: baseline;
+  text-decoration: none;
   background-color: $gray-lightest;
   border-radius: $border-radius;
 

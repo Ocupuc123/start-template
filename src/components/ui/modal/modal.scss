@@ -1,7 +1,7 @@
 // В этом файле должны быть стили для БЭМ-блока modal, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "../../../styles/settings/variables" as *;
+@use "../../../styles/variables" as *;
 @use "../../../styles/utils/mixins" as *;
 
 .modal {
@@ -40,8 +40,8 @@
     width: 100%;
     min-height: 40px;
     pointer-events: auto;
-    background-color: $white;
     outline: 0;
+    background-color: $white;
   }
 
   &__header {

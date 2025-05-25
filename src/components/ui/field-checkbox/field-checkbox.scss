@@ -3,7 +3,7 @@
 // В этом файле должны быть стили для БЭМ-блока field-checkbox, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "../../../styles/settings/variables" as *;
+@use "../../../styles/variables" as *;
 @use "../../../styles/utils/mixins" as *;
 
 .field-checkbox {
@@ -41,11 +41,11 @@
     color: #000000;
     appearance: none;
     cursor: pointer;
+    outline: 0;
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    outline: 0;
     transition: background $transition-time cubic-bezier(0.1, 0.1, 0.25, 1);
 
     &.just-validate-error-field {

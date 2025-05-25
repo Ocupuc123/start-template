@@ -4,7 +4,7 @@ import server from 'browser-sync';
 import { unlink } from 'node:fs';
 import { writePugMixinsFile } from './write-pug-mixins-file.js';
 import { compilePug } from './compile-pug.js';
-import { copyImages } from './copy-images.js';
+import { copyImages, copySingleImage } from './copy-images.js';
 import { compileSass } from './compile-sass.js';
 import { compileScripts } from './compile-scripts.js';
 import { writeSassImportsFile } from './write-sass-imports-file.js';
@@ -104,10 +104,15 @@ export const browserSync = (cb) => {
   ));
 
   // Картинки: все события
-  gulp.watch(['src/components/**/img/*.{jpg,jpeg,png,svg,webp,gif}', 'src/assets/images/*.{jpg,jpeg,png,svg,webp,gif}'], { events: ['all'], delay: 100 }, gulp.series(
-    copyImages,
-    reload
-  ));
+  gulp.watch(['src/components/**/img/*.{jpg,jpeg,png,svg,webp,gif}', 'src/assets/images/*.{jpg,jpeg,png,svg,webp,gif}'], { events: ['all'], delay: 100 }
+  ).on('all', (event, path) => {
+    if (event === 'change' || event === 'add') {
+      gulp.series(
+        () => copySingleImage(path),
+        reload
+      )();
+    }
+  });
 
   return cb();
 };

@@ -2,7 +2,6 @@
 // import './modules/count-up.js';
 // import './modules/fancybox.js';
 // import './modules/imask.js';
-
 // import './modules/form-validation.js';
 
 // Использование: top: var(--header-height, 60px);
