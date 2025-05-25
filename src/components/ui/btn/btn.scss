@@ -5,6 +5,12 @@
 @use "../../../styles/utils/mixins" as *;
 @use "sass:color";
 
+// @property --gradient-button-fill {
+//   syntax: "<color>";
+//   inherits: true;
+//   initial-value: #ffffff;
+// }
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -16,10 +22,10 @@
   text-align: center;
   cursor: pointer;
   user-select: none;
+  outline: none;
   background-color: $gray-lightest;
   border: none;
   border-radius: $border-radius;
-  outline: none;
 
   &:hover,
   &:focus {
@@ -62,4 +68,18 @@
       background-color: $color-main;
     }
   }
+
+  // &--gradient {
+  //   color: $text-color;
+  //   background:
+  //     linear-gradient(var(--gradient-button-fill, #ffffff) 0 0) padding-box,
+  //     linear-gradient(-45deg, #ff0000, #00ff00) border-box;
+  //   border: 2px solid transparent;
+  //   transition: --gradient-button-fill $transition-time;
+
+  //   &:hover,
+  //   &:focus {
+  //     --gradient-button-fill: transparent;
+  //   }
+  // }
 }
