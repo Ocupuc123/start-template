@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 export const sharpOptimizeImagesConfig = {
+  // logLevel: '',
   webp: {
     quality: 80,
     lossless: false,

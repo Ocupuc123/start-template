@@ -34,7 +34,9 @@ export const copyImages = (cb) => {
     return gulp.src(copiedImages, {
       encoding: false,
       allowEmpty: true
-    }).pipe(gulp.dest('build/images'));
+    })
+      .pipe(sharpOptimizeImages(sharpOptimizeImagesConfig))
+      .pipe(gulp.dest('build/images'));
   } else {
     return cb();
   }
