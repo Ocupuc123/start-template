@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 export const sharpOptimizeImagesConfig = {
-  // logLevel: '',
   webp: {
     quality: 80,
     lossless: false,
@@ -12,6 +11,14 @@ export const sharpOptimizeImagesConfig = {
   jpg_to_jpg: {
     mozjpeg: true,
     progressive: true,
+  },
+};
+
+export const sharpWebpConfig = {
+  webp: {
+    quality: 80,
+    lossless: false,
+    alsoProcessOriginal: false,
   },
 };
 

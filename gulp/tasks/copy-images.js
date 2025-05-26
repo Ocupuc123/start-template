@@ -1,9 +1,10 @@
 import gulp from 'gulp';
+import gulpif from 'gulp-if';
 import config from '../../config.js';
-import { fileExist, findBlockPath } from '../utils.js';
+import { fileExist, findBlockPath, isProduction, isDevelopment } from '../utils.js';
 import { blocksFromHtml } from './get-blocks-from-html.js';
 import { join } from 'node:path';
-import { sharpOptimizeImagesConfig } from '../configs.js';
+import { sharpOptimizeImagesConfig, sharpWebpConfig } from '../configs.js';
 import sharpOptimizeImages from 'gulp-sharp-optimize-images';
 
 export const copyImages = (cb) => {
@@ -35,7 +36,8 @@ export const copyImages = (cb) => {
       encoding: false,
       allowEmpty: true
     })
-      .pipe(sharpOptimizeImages(sharpOptimizeImagesConfig))
+      .pipe(gulpif(isProduction, sharpOptimizeImages(sharpOptimizeImagesConfig)))
+      .pipe(gulpif(isDevelopment, sharpOptimizeImages(sharpWebpConfig)))
       .pipe(gulp.dest('build/images'));
   } else {
     return cb();
@@ -46,5 +48,5 @@ export const copySingleImage = (filePath) => gulp.src(filePath, {
   encoding: false,
   allowEmpty: true
 })
-  .pipe(sharpOptimizeImages(sharpOptimizeImagesConfig))
+  .pipe(sharpOptimizeImages(sharpWebpConfig))
   .pipe(gulp.dest('build/images'));
