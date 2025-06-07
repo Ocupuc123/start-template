@@ -14,14 +14,6 @@ export const sharpOptimizeImagesConfig = {
   },
 };
 
-export const sharpWebpConfig = {
-  webp: {
-    quality: 80,
-    lossless: false,
-    alsoProcessOriginal: false,
-  },
-};
-
 export const PrettyHtmlConfig = {
   indent_size: 2,
   preserve_newlines: true,
