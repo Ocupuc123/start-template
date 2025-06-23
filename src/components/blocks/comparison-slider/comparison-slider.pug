@@ -1,0 +1,30 @@
+//- Все примеси в этом файле должны начинаться c имени блока (comparison-slider)
+
+mixin comparison-slider(props, mods)
+  //- Принимает:
+  //-   props   {object} - пропсы
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+    +comparison-slider({title: 'Заголовок', description: 'Описание'}, 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(mods) {
+      allMods = mods.split(',').map(mod => 'comparison-slider--' + mod.trim()).join(' ');
+    }
+
+  //- include comparison-slider.data.pug
+
+  .comparison-slider(class=allMods, data-before="До", data-after="После")&attributes(attributes)
+    .comparison-slider__before-container
+      img.comparison-slider__before-image(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHxTMRg_AGlBEi89MFsWCdac271-UdPU-ysw&s", alt="")
+    .comparison-slider__after-container
+      img.comparison-slider__after-image(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI-SaYWlXmVicHWYEEpRgrmFir507tWQk3pA&s")
+    input.comparison-slider__slider(
+      type="range",
+      min="0",
+      max="100",
+      value="50"
+    )
+    .comparison-slider__slider-button
