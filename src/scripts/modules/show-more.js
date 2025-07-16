@@ -1,3 +1,5 @@
 import ShowMore from '../vendor/show-more.js';
 
-new ShowMore('.js-show-more');
+export const initShowMore = () => {
+  new ShowMore('.js-show-more');
+};

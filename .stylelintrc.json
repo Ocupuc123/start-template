@@ -80,6 +80,7 @@
         "type": "rule",
         "selector": "^&--[-a-z0-9]+"
       }
-    ]
+    ],
+    "max-nesting-depth": null
   }
 }

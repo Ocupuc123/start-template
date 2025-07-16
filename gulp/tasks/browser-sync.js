@@ -4,6 +4,7 @@ import server from 'browser-sync';
 import { unlink } from 'node:fs';
 import { writePugMixinsFile } from './write-pug-mixins-file.js';
 import { compilePug } from './compile-pug.js';
+import { lintHTML } from './lint-html.js';
 import { copyImages, copySingleImage } from './copy-images.js';
 import { compileSass } from './compile-sass.js';
 import { compileScripts } from './compile-scripts.js';
@@ -22,6 +23,7 @@ export const browserSync = (cb) => {
   // Страницы: изменение, добавление
   gulp.watch('src/pages/**/*.pug', { events: ['change', 'add'], delay: 100 }, gulp.series(
     compilePug,
+    lintHTML,
     gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   )).on('all', (event, file) => {
@@ -44,6 +46,7 @@ export const browserSync = (cb) => {
   // Разметка Блоков: изменение
   gulp.watch(['src/components/**/*.pug', '!src/components/mixins.pug'], { events: ['change'], delay: 100 }, gulp.series(
     compilePug,
+    lintHTML,
     reload
   ));
 
@@ -51,6 +54,7 @@ export const browserSync = (cb) => {
   gulp.watch(['src/components/**/*.pug', '!src/components/mixins.pug'], { events: ['add'], delay: 100 }, gulp.series(
     writePugMixinsFile,
     compilePug,
+    lintHTML,
     reload
   ));
 
@@ -66,6 +70,7 @@ export const browserSync = (cb) => {
   // Шаблоны pug: все события
   gulp.watch('src/layouts/**/*.pug', gulp.series(
     compilePug,
+    lintHTML,
     gulp.parallel(writeSassImportsFile, writeJsImportsFile, compileSass, compileScripts),
     reload
   ));

@@ -1,5 +1,7 @@
 import HandyCollapse from 'handy-collapse';
 
-new HandyCollapse({
-  closeOthers: false
-});
+export const initHandyCollapse = () => {
+  new HandyCollapse({
+    closeOthers: false
+  });
+};
