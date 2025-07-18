@@ -81,6 +81,10 @@
         "selector": "^&--[-a-z0-9]+"
       }
     ],
-    "max-nesting-depth": null
+    "max-nesting-depth": [3, {
+      "message": "Вложения боле 3 уровней — на тёмную сторону путь",
+      "severity": "warning",
+      "ignore": ["blockless-at-rules"]
+    }]
   }
 }
