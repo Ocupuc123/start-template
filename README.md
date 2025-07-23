@@ -3,6 +3,6 @@
 [nicothin.pro](https://nicothin.pro/idiomatic-pre-CSS/)
 [codeguide.academy](http://codeguide.academy/)
 
-```npm
+```bash
 npm run create-block block-name pug data
 ```
