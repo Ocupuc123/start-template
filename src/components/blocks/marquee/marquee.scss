@@ -3,11 +3,17 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 @use "../../../styles/variables" as *;
 @use "../../../styles/utils/mixins" as *;
-$marquee-gap: 30px;
-$marquee-speed: 20s;
 
 .marquee {
+  --marquee-gap: 10px;
+  --marquee-speed: 40s;
+  --marquee-direction: forwards;
+
   $marquee: &; // #{$marquee}__element
+
+  &[data-direction="right"] {
+    --marquee-direction: reverse;
+  }
 
   &__wrapper {
     overflow-x: hidden;
@@ -16,18 +22,28 @@ $marquee-speed: 20s;
   &__scroller {
     display: flex;
     flex-wrap: nowrap;
-    gap: $marquee-gap;
+    gap: var(--marquee-gap);
     width: max-content;
-    animation: scroll $marquee-speed forwards linear infinite;
+    animation: scroll var(--marquee-speed, 40s) var(--marquee-direction) linear infinite;
   }
 
-  // &__scroller-item {
+  &__scroller-item {
+    @include flex-all-center;
+    position: relative;
+    width: 219px;
+    height: 131px;
+    background-color: #ffffff;
+    border-radius: 13px;
 
-  // }
+    img {
+      @include image-absolute-cover;
+      border-radius: inherit;
+    }
+  }
 }
 
 @keyframes scroll {
   to {
-    transform: translate(calc(-50% - calc($marquee-gap / 2)));
+    transform: translate(calc(-50% - calc(10px / 2)));
   }
 }

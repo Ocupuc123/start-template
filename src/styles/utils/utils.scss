@@ -47,3 +47,22 @@
 .scroll-lock {
   overflow: hidden;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+
+  svg {
+    width: 20px;
+  }
+
+  &::after {
+    display: none;
+    content: none;
+  }
+}

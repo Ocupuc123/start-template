@@ -1,0 +1,31 @@
+// В этом файле должны быть стили для БЭМ-блока slider-arrows, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+@use "../../../styles/variables" as *;
+@use "../../../styles/utils/mixins" as *;
+
+.slider-arrows {
+  $slider-arrows: &; // #{$slider-arrows}__element
+  display: flex;
+  gap: 0 15px;
+  align-items: center;
+
+  & > * {
+    position: static;
+    inset: auto;
+    padding: 0;
+    margin: 0;
+    transform: none;
+  }
+
+  &--dark {
+    .swiper-button-prev,
+    .swiper-button-next {
+      border-color: #b3b3b3;
+
+      path {
+        fill: #b3b3b3;
+      }
+    }
+  }
+}

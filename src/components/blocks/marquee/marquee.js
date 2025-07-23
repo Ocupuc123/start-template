@@ -1,4 +1,4 @@
-const scrollers = document.querySelectorAll('.marquee__wrapper');
+const scrollers = document.querySelectorAll('.marquee');
 
 const addAnimation = () => {
   scrollers.forEach((scroller) => {
