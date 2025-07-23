@@ -10,10 +10,6 @@
   display: inline-block;
   white-space: nowrap;
 
-  @include tablet-viewport {
-    display: none;
-  }
-
   img {
     display: block;
   }

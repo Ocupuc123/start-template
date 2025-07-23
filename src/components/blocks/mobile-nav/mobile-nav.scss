@@ -17,8 +17,25 @@
   overflow: hidden;
   outline: 0;
 
-  .logo {
-    max-width: 200px;
+  &__phone,
+  &__mail {
+    font-size: 20px;
+    font-weight: 700;
+
+    a {
+      color: $text-color;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    outline: 0;
+  }
+
+  &__phone {
+    margin-bottom: 10px;
   }
 
   &__dialog {
@@ -36,43 +53,28 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    padding: 50px 15px 30px;
     overflow-y: auto;
     pointer-events: auto;
     outline: 0;
     background-color: #ffffff;
   }
 
-  &__header {
-    position: relative;
-    flex-shrink: 0;
-    padding: 16px 40px 16px 16px;
+  &__menu {
+    margin-bottom: 30px;
   }
 
-  &__logo {
-    max-width: 150px;
-  }
-
-  &__phone {
-    font-size: 26px;
-    font-weight: 600;
-  }
-
-  &__close {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    outline: 0;
+  &__action {
+    margin-bottom: 30px;
   }
 
   &__body {
     position: relative;
     flex: 1 1 auto;
-    padding: 16px;
   }
 
   &__footer {
     flex-shrink: 0;
-    padding: 16px;
   }
 
   &--show {
