@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import path from 'node:path';
 import gulpif from 'gulp-if';
 import sharpResponsive from 'gulp-sharp-responsive';
+import svgo from 'gulp-svgmin';
 
 const TARGET_FORMATS = [undefined, 'webp'];
 const FILE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'svg', 'webp', 'gif'];
@@ -67,6 +68,10 @@ export const copyImages = (cb) => {
         (file) => !EXCLUDE_EXTENSIONS.includes(path.extname(file.path).toLowerCase()),
         sharpResponsive(createOptionsFormat()),
       ))
+      .pipe(gulpif(
+        (file) => path.extname(file.path).toLowerCase() === '.svg',
+        svgo()
+      ))
       .pipe(gulp.dest('build/images'));
   } else {
     return cb();
@@ -80,5 +85,9 @@ export const copySingleImage = (filePath) => gulp.src(filePath, {
   .pipe(gulpif(
     (file) => !EXCLUDE_EXTENSIONS.includes(path.extname(file.path).toLowerCase()),
     sharpResponsive(createOptionsFormat()),
+  ))
+  .pipe(gulpif(
+    (file) => path.extname(file.path).toLowerCase() === '.svg',
+    svgo()
   ))
   .pipe(gulp.dest('build/images'));
