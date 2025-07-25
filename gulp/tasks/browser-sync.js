@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import server from 'browser-sync';
 import { unlink } from 'node:fs';
+import { createSvgStack } from './create-svg-stack.js';
 import { writePugMixinsFile } from './write-pug-mixins-file.js';
 import { compilePug } from './compile-pug.js';
 import { lintHTML } from './lint-html.js';
@@ -121,6 +122,12 @@ export const browserSync = (cb) => {
       )();
     }
   });
+
+  // Спрайт SVG
+  gulp.watch(['src/assets/icons/**/*.svg'], { events: ['all'], delay: 100 }, gulp.series(
+    createSvgStack,
+    reload,
+  ));
 
   return cb();
 };

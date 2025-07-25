@@ -11,5 +11,5 @@ export const ServerConfig = {
   cors: true,
   ui: false,
   open: false,
-  ghostMode: false
+  ghostMode: false,
 };

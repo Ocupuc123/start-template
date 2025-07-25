@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import { browserSync } from './gulp/tasks/browser-sync.js';
 import { cleanBuildDirectory } from './gulp/tasks/clean-build-directory.js';
+import { createSvgStack } from './gulp/tasks/create-svg-stack.js';
 import { compileSass } from './gulp/tasks/compile-sass.js';
 import { compileScripts } from './gulp/tasks/compile-scripts.js';
 import { compilePug } from './gulp/tasks/compile-pug.js';
@@ -16,7 +17,7 @@ import { archive } from './gulp/tasks/build-zip.js';
 const build = gulp.series(
   gulp.parallel(cleanBuildDirectory, writePugMixinsFile),
   gulp.parallel(compilePug, getBlocksFromHtml, copyAssets),
-  gulp.parallel(copyImages, writeSassImportsFile, writeJsImportsFile),
+  gulp.parallel(copyImages, createSvgStack, writeSassImportsFile, writeJsImportsFile),
   gulp.parallel(compileSass, compileScripts, lintHTML),
 );
 
