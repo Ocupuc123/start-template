@@ -24,6 +24,5 @@ export const compileScripts = () => {
       sourcemap: isDevelopment,
       target: browserslistToEsbuild(),
     }))
-    .pipe(gulp.dest('build/js'))
-    .pipe(browsersync.stream());
+    .pipe(gulp.dest('build/js'));
 };

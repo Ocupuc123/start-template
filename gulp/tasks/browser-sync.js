@@ -94,18 +94,21 @@ export const browserSync = (cb) => {
   // Скриптовые файлы: изменение
   gulp.watch('src/components/**/*.js', { events: ['change'], delay: 100 }, gulp.series(
     compileScripts,
+    reload
   ));
 
   // Скриптовые файлы: добавление
   gulp.watch('src/components/**/*.js', { events: ['add'], delay: 100 }, gulp.series(
     writeJsImportsFile,
     compileScripts,
+    reload
   ));
 
   // Скриптовые глобальные файлы: все события
   gulp.watch(['src/scripts/**/*.js', '!src/scripts/entry.js'], { events: ['all'], delay: 100 }, gulp.series(
     writeJsImportsFile,
     compileScripts,
+    reload
   ));
 
   // Картинки: все события

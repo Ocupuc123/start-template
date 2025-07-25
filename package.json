@@ -11,6 +11,7 @@
     "build": "cross-env NODE_ENV=production gulp production",
     "lint:styles": "stylelint --quiet-deprecation-warnings \"src/**/*.scss\"",
     "lint:scripts": "eslint \"src/**/*.js\"",
+    "lint:html": "html-validator '--ignore=Trailing slash on void elements' \"build/**/!(sitemap).html\" --continue",
     "build:zip": "gulp buildArchive"
   },
   "browserslist": [
@@ -49,10 +50,11 @@
     "prettier": "^3.3.3",
     "pug": "^3.0.3",
     "sass": "^1.77.8",
-    "stylelint": "^16.9.0",
+    "stylelint": "^16.22.0",
     "stylelint-config-htmlacademy": "^4.2.3",
     "stylelint-config-recess-order": "^7.1.0",
-    "stylelint-order": "^7.0.0"
+    "stylelint-order": "^7.0.0",
+    "w3c-html-validator": "^1.9.0"
   },
   "dependencies": {
     "@fancyapps/ui": "^6.0.12",
