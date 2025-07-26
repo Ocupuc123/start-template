@@ -2,8 +2,6 @@
 // В этом файле должны быть стили для БЭМ-блока pagination, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "../../../styles/variables" as *;
-@use "../../../styles/utils/mixins" as *;
 
 .pagination {
   margin-top: 50px;

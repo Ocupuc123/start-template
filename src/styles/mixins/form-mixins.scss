@@ -1,0 +1,65 @@
+@mixin field-text {
+  display: inline-block;
+  width: 100%;
+  padding: $field-padding-vertical  $field-padding-horizontal;
+  margin: 0;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: $line-height;
+  vertical-align: middle;
+  appearance: textfield;
+  background-color: #ffffff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+
+  &:focus {
+    @include field-focus;
+  }
+
+  &[disabled],
+  &[readonly] {
+    cursor: not-allowed;
+    background-color: $gray-lighter;
+  }
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration,
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button,
+  &::-webkit-list-button {
+    appearance: none;
+  }
+
+  &[type="color"] {
+    padding: 0;
+  }
+
+  &::placeholder {
+    color: $text-color-muted;
+    opacity: 1;
+  }
+}
+
+@mixin field-help-text {
+  display: block;
+  padding-top: 0.4em;
+  font-size: $font-size-sm;
+  line-height: 1.2em;
+  color: $text-color-muted;
+
+  &:empty {
+    display: none;
+  }
+}
+
+@mixin field-focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba($color-main, $opacity);
+}
+
+@mixin field-name {
+  display: block;
+  margin-bottom: 0.4em;
+  font-weight: 700;
+  line-height: $line-height;
+}

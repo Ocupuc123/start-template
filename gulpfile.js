@@ -5,7 +5,6 @@ import { createSvgStack } from './gulp/tasks/create-svg-stack.js';
 import { compileSass } from './gulp/tasks/compile-sass.js';
 import { compileScripts } from './gulp/tasks/compile-scripts.js';
 import { compilePug } from './gulp/tasks/compile-pug.js';
-import { lintHTML } from './gulp/tasks/lint-html.js';
 import { copyAssets } from './gulp/tasks/copy-assets.js';
 import { copyImages } from './gulp/tasks/copy-images.js';
 import { getBlocksFromHtml } from './gulp/tasks/get-blocks-from-html.js';
@@ -18,7 +17,7 @@ const build = gulp.series(
   gulp.parallel(cleanBuildDirectory, writePugMixinsFile),
   gulp.parallel(compilePug, getBlocksFromHtml, copyAssets),
   gulp.parallel(copyImages, createSvgStack, writeSassImportsFile, writeJsImportsFile),
-  gulp.parallel(compileSass, compileScripts, lintHTML),
+  gulp.parallel(compileSass, compileScripts),
 );
 
 export const development = gulp.series(build, browserSync);

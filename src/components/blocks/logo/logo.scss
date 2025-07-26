@@ -1,8 +1,6 @@
 // В этом файле должны быть стили для БЭМ-блока logo, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "../../../styles/variables" as *;
-@use "../../../styles/utils/mixins" as *;
 
 .logo {
   $block-name: &; // #{$block-name}__element
@@ -10,7 +8,19 @@
   display: inline-block;
   white-space: nowrap;
 
+  @include tablet-viewport {
+    display: none;
+  }
+
   img {
     display: block;
+
+    @include tablet-viewport {
+      display: block;
+    }
+
+    @include mobile-l-viewport {
+      padding-top: 10px;
+    }
   }
 }

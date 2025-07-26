@@ -1,7 +1,7 @@
 /node_modules
 /build
 /dist
-/src/styles/main.scss
+/src/styles/styles.scss
 /src/scripts/entry.js
 /src/components/mixins.pug
 package-lock.json

@@ -1,7 +1,6 @@
 import {createGulpEsbuild} from 'gulp-esbuild';
-import {isProduction, isDevelopment} from '../utils.js';
+import {isDevelopment} from '../utils.js';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
-import browsersync from 'browser-sync';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
@@ -18,9 +17,9 @@ export const compileScripts = () => {
     }))
     .pipe(gulpEsbuild({
       bundle: true,
-      outfile: 'scripts.min.js',
+      outfile: 'scripts.js',
       platform: 'browser',
-      minify: isProduction,
+      minify: !isDevelopment,
       sourcemap: isDevelopment,
       target: browserslistToEsbuild(),
     }))

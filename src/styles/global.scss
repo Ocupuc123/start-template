@@ -1,0 +1,168 @@
+body {
+  min-height: 100%;
+  font-family: $font-family;
+  color: $text-color;
+  text-align: left;
+  background-color: $body-bg;
+}
+
+html {
+  min-height: 100%;
+  font-size: $font-size;
+  line-height: $line-height;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+img,
+svg,
+picture,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  object-fit: contain;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color $transition-time;
+
+  &:hover,
+  &:focus {
+    color: $link-color-hover;
+    text-decoration: none;
+  }
+
+  &[href^="tel:"] {
+    white-space: nowrap;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: $heading-font-weight;
+  line-height: 1.2;
+  color: $heading-color;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-h1;
+}
+
+h2,
+.h2 {
+  font-size: $font-size-h2;
+}
+
+h3,
+.h3 {
+  font-size: $font-size-h3;
+}
+
+h4,
+.h4 {
+  font-size: $font-size-h4;
+}
+
+h5,
+.h5 {
+  font-size: $font-size-h5;
+}
+
+h6,
+.h6 {
+  font-size: $font-size-h6;
+}
+
+.container {
+  width: min($container-width, 100% - calc($container-gap * 2));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgb(230 239 245);
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-main;
+    border-radius: 6px;
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll-lock-ios {
+  position: fixed;
+  overflow: hidden;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+
+  svg {
+    width: 20px;
+  }
+
+  &::after {
+    display: none;
+    content: none;
+  }
+}

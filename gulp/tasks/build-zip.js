@@ -1,9 +1,15 @@
 import gulp from 'gulp';
+import { rmSync } from 'node:fs';
 import zip from 'gulp-zip';
-import { deleteAsync } from 'del';
 import config from '../../config.js';
 
-const cleanZip = () => deleteAsync(['build/*.zip']);
+const cleanZip = (done) => {
+  rmSync('build/*.zip', {
+    force: true,
+    recursive: true,
+  });
+  done();
+};
 
 const buildZip = () => {
   const projectName = config.projectName;

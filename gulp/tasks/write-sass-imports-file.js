@@ -12,7 +12,7 @@ export const writeSassImportsFile = (cb) => {
 
   if (config.addStyle.length > 0) {
     config.addStyle.forEach((src) => {
-      src = src.replace(/src\/styles\/|.scss/gi, '');
+      src = src.replace(/src\/styles\//gi, '');
       if (!scssImportsList.includes(src)) {
         scssImportsList.push(src);
       }
@@ -21,7 +21,7 @@ export const writeSassImportsFile = (cb) => {
 
   allBlocksWithScssFiles.forEach((blockPath) => {
     const blockName = blockPath.split('/').pop();
-    const src = `../components/${blockPath}/${blockName}`;
+    const src = `../components/${blockPath}/${blockName}.scss`; // ← Добавляем .scss здесь
 
     if (src.includes('src/components')) {
       console.error('Некорректный путь:', src);
@@ -41,10 +41,10 @@ export const writeSassImportsFile = (cb) => {
   });
 
   scssImportsList.forEach((src) => {
-    styleImports += `@use "${src}" as *;\n`;
+    styleImports += `@import "${src}";\n`;
   });
 
-  writeFileSync('src/styles/main.scss', styleImports);
-  console.log('\x1b[33m%s\x1b[0m', '---------- Write new main.scss');
+  writeFileSync('src/styles/styles.scss', styleImports);
+  console.log('\x1b[33m%s\x1b[0m', '---------- Write new styles.scss');
   return cb();
 };

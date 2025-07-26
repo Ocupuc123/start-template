@@ -1,5 +1,9 @@
-import { deleteAsync } from 'del';
+import { rmSync } from 'node:fs';
 
-export const cleanBuildDirectory = (cb) => deleteAsync('build/*').then(() => {
-  cb();
-});
+export const cleanBuildDirectory = (done) => {
+  rmSync('build/', {
+    force: true,
+    recursive: true,
+  });
+  done();
+};
