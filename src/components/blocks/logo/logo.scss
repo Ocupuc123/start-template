@@ -8,19 +8,7 @@
   display: inline-block;
   white-space: nowrap;
 
-  @include tablet-viewport {
-    display: none;
-  }
-
   img {
     display: block;
-
-    @include tablet-viewport {
-      display: block;
-    }
-
-    @include mobile-l-viewport {
-      padding-top: 10px;
-    }
   }
 }
