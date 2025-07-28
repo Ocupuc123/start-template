@@ -7,6 +7,7 @@ import { compileScripts } from './gulp/tasks/compile-scripts.js';
 import { compilePug } from './gulp/tasks/compile-pug.js';
 import { copyAssets } from './gulp/tasks/copy-assets.js';
 import { copyImages } from './gulp/tasks/copy-images.js';
+import { optimizeImages } from './gulp/tasks/optimize-images.js';
 import { getBlocksFromHtml } from './gulp/tasks/get-blocks-from-html.js';
 import { writePugMixinsFile } from './gulp/tasks/write-pug-mixins-file.js';
 import { writeSassImportsFile } from './gulp/tasks/write-sass-imports-file.js';
@@ -17,7 +18,7 @@ const build = gulp.series(
   gulp.parallel(cleanBuildDirectory, writePugMixinsFile),
   gulp.parallel(compilePug, getBlocksFromHtml, copyAssets),
   gulp.parallel(copyImages, createSvgStack, writeSassImportsFile, writeJsImportsFile),
-  gulp.parallel(compileSass, compileScripts),
+  gulp.parallel(compileSass, compileScripts, optimizeImages),
 );
 
 export const development = gulp.series(build, browserSync);

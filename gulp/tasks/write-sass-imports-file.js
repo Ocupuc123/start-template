@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import config from '../../config.js';
 import { writeFileSync } from 'node:fs';
 import { getDirectories, doNotEditMessage } from '../utils.js';
@@ -21,10 +20,9 @@ export const writeSassImportsFile = (cb) => {
 
   allBlocksWithScssFiles.forEach((blockPath) => {
     const blockName = blockPath.split('/').pop();
-    const src = `../components/${blockPath}/${blockName}.scss`; // ← Добавляем .scss здесь
+    const src = `../components/${blockPath}/${blockName}.scss`;
 
     if (src.includes('src/components')) {
-      console.error('Некорректный путь:', src);
       return;
     }
 
@@ -45,6 +43,5 @@ export const writeSassImportsFile = (cb) => {
   });
 
   writeFileSync('src/styles/styles.scss', styleImports);
-  console.log('\x1b[33m%s\x1b[0m', '---------- Write new styles.scss');
   return cb();
 };

@@ -44,7 +44,6 @@
     "gulp-sass": "5.1.0",
     "gulp-sharp-responsive": "0.4.1",
     "gulp-stacksvg": "5.0.1",
-    "gulp-svgmin": "4.1.0",
     "gulp-zip": "6.1.0",
     "linthtml-config-htmlacademy": "1.1.0",
     "mkdirp": "3.0.1",

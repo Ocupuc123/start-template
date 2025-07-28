@@ -6,7 +6,6 @@ import { join } from 'node:path';
 import path from 'node:path';
 import gulpif from 'gulp-if';
 import sharpResponsive from 'gulp-sharp-responsive';
-import svgo from 'gulp-svgmin';
 
 const TARGET_FORMATS = [undefined, 'webp'];
 const FILE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'svg', 'webp', 'gif'];
@@ -36,7 +35,6 @@ function createOptionsFormat() {
 export const copyImages = (cb) => {
   const copiedImages = [];
 
-  // Добавляем основные изображения из assets
   copiedImages.push(`src/assets/images/*.{${FILE_EXTENSIONS.join(',')}}`);
 
   const addBlockImages = (blockName) => {
@@ -44,7 +42,6 @@ export const copyImages = (cb) => {
     const imgPath = join('src/components', blockPath, 'img');
 
     if (fileExist(imgPath)) {
-      // Добавляем каждое расширение отдельно
       FILE_EXTENSIONS.forEach((ext) => {
         copiedImages.push(`${imgPath.replace(/\\/g, '/')}/*.${ext}`);
       });
@@ -64,14 +61,6 @@ export const copyImages = (cb) => {
       encoding: false,
       allowEmpty: true
     })
-      .pipe(gulpif(
-        (file) => !EXCLUDE_EXTENSIONS.includes(path.extname(file.path).toLowerCase()),
-        sharpResponsive(createOptionsFormat()),
-      ))
-      .pipe(gulpif(
-        (file) => path.extname(file.path).toLowerCase() === '.svg',
-        svgo()
-      ))
       .pipe(gulp.dest('build/images'));
   } else {
     return cb();
@@ -85,9 +74,5 @@ export const copySingleImage = (filePath) => gulp.src(filePath, {
   .pipe(gulpif(
     (file) => !EXCLUDE_EXTENSIONS.includes(path.extname(file.path).toLowerCase()),
     sharpResponsive(createOptionsFormat()),
-  ))
-  .pipe(gulpif(
-    (file) => path.extname(file.path).toLowerCase() === '.svg',
-    svgo()
   ))
   .pipe(gulp.dest('build/images'));

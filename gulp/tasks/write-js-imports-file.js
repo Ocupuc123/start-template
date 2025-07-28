@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import config from '../../config.js';
 import { writeFileSync } from 'node:fs';
 import { getDirectories, doNotEditMessage } from '../utils.js';
@@ -23,7 +22,6 @@ export const writeJsImportsFile = (cb) => {
     const src = `../components/${blockPath}/${blockName}.js`;
 
     if (src.includes('src/components')) {
-      console.error('Некорректный путь JS:', src);
       return;
     }
 
@@ -52,6 +50,5 @@ export const writeJsImportsFile = (cb) => {
   });
 
   writeFileSync('src/scripts/entry.js', jsImports);
-  console.log('\x1b[33m%s\x1b[0m', '---------- Write new entry.js');
   return cb();
 };
