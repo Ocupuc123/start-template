@@ -23,10 +23,6 @@
     border-radius: 50%;
     transition: color $transition-time, background-color $transition-time, opacity $transition-time;
 
-    @include hover {
-      color: #ffffff;
-    }
-
     #{$social}__link-wrap--fb & {
       background-color: $color-fb;
     }

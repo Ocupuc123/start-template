@@ -48,7 +48,6 @@
     "linthtml-config-htmlacademy": "1.1.0",
     "mkdirp": "3.0.1",
     "postcss": "8.4.38",
-    "postcss-combine-media-query": "^2.0.0",
     "postcss-lightningcss": "1.0.0",
     "postcss-normalize": "^13.0.1",
     "prettier": "3.3.3",

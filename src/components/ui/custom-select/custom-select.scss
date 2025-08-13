@@ -61,10 +61,6 @@
     input {
       @include visually-hidden;
     }
-
-    @include hover {
-      background-color: $gray-lightest;
-    }
   }
 
   &--open {

@@ -6,7 +6,6 @@ import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import postcssNormalize from 'postcss-normalize';
 import lightningcss from 'postcss-lightningcss';
-import combineMediaQuery from 'postcss-combine-media-query';
 import browsersync from 'browser-sync';
 import notify from 'gulp-notify';
 
@@ -27,7 +26,6 @@ export const compileSass = () =>
         postcssNormalize({
           forceImport: 'sanitize.css'
         }),
-        combineMediaQuery(),
         lightningcss({
           lightningcssOptions: {
             minify: !isDevelopment,

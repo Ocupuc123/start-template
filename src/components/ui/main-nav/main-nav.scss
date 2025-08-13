@@ -25,7 +25,7 @@
     padding: 10px 0;
     color: inherit;
 
-    @include hover {
+    &:hover {
       color: $color-main;
     }
   }
@@ -68,7 +68,7 @@
     color: inherit;
     transition: background-color $transition-time;
 
-    @include hover {
+    &:hover {
       background-color: $gray-lightest;
     }
   }
@@ -82,7 +82,7 @@
   }
 
   .menu-item-has-children {
-    @include hover {
+    &:hover {
       & > .sub-menu {
         display: block;
         animation: submenu-fade-in $transition-time;
