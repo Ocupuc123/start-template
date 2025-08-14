@@ -5,6 +5,7 @@ import { blocksFromHtml } from './get-blocks-from-html.js';
 import { join } from 'node:path';
 import path from 'node:path';
 import gulpif from 'gulp-if';
+import flatten from 'gulp-flatten';
 import sharpResponsive from 'gulp-sharp-responsive';
 
 const TARGET_FORMATS = [undefined, 'webp'];
@@ -69,10 +70,12 @@ export const copyImages = (cb) => {
 
 export const copySingleImage = (filePath) => gulp.src(filePath, {
   encoding: false,
-  allowEmpty: true
+  allowEmpty: true,
+  base: 'src'
 })
   .pipe(gulpif(
     (file) => !EXCLUDE_EXTENSIONS.includes(path.extname(file.path).toLowerCase()),
     sharpResponsive(createOptionsFormat()),
   ))
+  .pipe(flatten())
   .pipe(gulp.dest('build/images'));
