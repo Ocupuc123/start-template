@@ -50,7 +50,6 @@
     "mkdirp": "3.0.1",
     "postcss": "8.4.38",
     "postcss-lightningcss": "1.0.0",
-    "postcss-normalize": "^13.0.1",
     "prettier": "3.3.3",
     "pug": "3.0.3",
     "sass": "1.77.4",
@@ -68,6 +67,7 @@
     "handy-collapse": "^1.1.0",
     "imask": "^7.6.1",
     "just-validate": "^4.3.0",
+    "normalize.css": "^8.0.1",
     "swiper": "^11.1.11",
     "tippy.js": "^6.3.7"
   }

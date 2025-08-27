@@ -88,3 +88,33 @@
     @content;
   }
 }
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgb(230 239 245);
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-main;
+    border-radius: 6px;
+  }
+}
+
+@mixin no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin scroll-lock-ios {
+  position: fixed;
+  overflow: hidden;
+}

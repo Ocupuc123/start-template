@@ -15,10 +15,10 @@ mixin slider-arrows(props, mods)
       allMods = mods.split(',').map(mod => 'slider-arrows--' + mod.trim()).join(' ');
     }
 
-  //- include slider-arrows.data.pug
-
   .slider-arrows(class=allMods)&attributes(attributes)
-    .swiper-button-prev.swiper-button-default
-      include ./img/slider-arrows-prev.svg
-    .swiper-button-next.swiper-button-default
-      include ./img/slider-arrows-next.svg
+    .slider-arrows__button.slider-arrows__button--prev
+      svg(width="12" height="25" viewBox="0 0 12 25" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M10.5 22.6895L1.5 12.1894L10.5 1.68945" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round")
+    .slider-arrows__button.slider-arrows__button--next
+      svg(width="12" height="25" viewBox="0 0 12 25" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M1.5 1.68942L10.5 12.1895L1.5 22.6895" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round")

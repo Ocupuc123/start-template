@@ -5,25 +5,30 @@
 .slider-arrows {
   $slider-arrows: &; // #{$slider-arrows}__element
   display: flex;
-  gap: 0 15px;
-  align-items: center;
+  gap: 0 8px;
 
-  & > * {
-    position: static;
-    inset: auto;
-    padding: 0;
-    margin: 0;
-    transform: none;
-  }
+  &__button {
+    @include flex-all-center;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    color: $text-color;
+    cursor: pointer;
+    background-color: #d9d9d9;
+    border-radius: 50%;
 
-  &--dark {
-    .swiper-button-prev,
-    .swiper-button-next {
-      border-color: #b3b3b3;
+    @include tablet-viewport {
+      width: 50px;
+      height: 50px;
+    }
 
-      path {
-        fill: #b3b3b3;
-      }
+    &.swiper-button-disabled {
+      cursor: default;
+      opacity: 0.8;
+    }
+
+    &.swiper-button-lock {
+      display: none;
     }
   }
 }

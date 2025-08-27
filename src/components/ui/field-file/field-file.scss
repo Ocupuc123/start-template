@@ -35,7 +35,7 @@
     /* stylelint-disable-next-line at-rule-no-unknown */
     @at-root input:disabled ~ & {
       cursor: not-allowed;
-      background: $gray-lighter;
+      background: #cccccc;
     }
 
     &::before {
@@ -44,7 +44,7 @@
       margin-right: $field-padding-horizontal;
       line-height: $line-height;
       content: attr(data-button-text);
-      background-color: $gray-lightest;
+      background-color: #e6e6e6;
       border-right: 1px solid $border-color;
       border-top-left-radius: $border-radius;
       border-bottom-left-radius: $border-radius;
@@ -53,7 +53,7 @@
     &:hover,
     &:focus {
       &::before {
-        background-color: color.adjust($gray-lightest, $lightness: -10%);
+        background-color: color.adjust(#e6e6e6, $lightness: -10%);
       }
     }
   }

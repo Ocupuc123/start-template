@@ -12,6 +12,7 @@ export default {
     'src/styles/functions.scss',
     'src/styles/global.scss',
     'src/styles/fonts.scss',
+    '../../node_modules/normalize.css/normalize'
     // '../../node_modules/swiper/swiper-bundle',
     // '../../node_modules/tippy.js/dist/tippy',
     // '../../node_modules/@fancyapps/ui/dist/fancybox/fancybox',

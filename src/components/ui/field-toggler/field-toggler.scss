@@ -63,8 +63,8 @@
     }
 
     @at-root input:disabled ~ &:before {
-      background: $gray-lighter;
-      border-color: $gray-light;
+      background: #cccccc;
+      border-color: #999999;
     }
 
     &::after {
@@ -74,7 +74,7 @@
       width: 14px;
       height: 14px;
       content: "";
-      background-color: $gray-lightest;
+      background-color: #e6e6e6;
       border: 1px solid $border-color;
       transition: all 0.3s;
     }
@@ -84,7 +84,7 @@
     }
 
     @at-root input:disabled ~ &:after {
-      background-color: $gray-light;
+      background-color: #999999;
     }
   }
 

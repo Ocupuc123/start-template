@@ -22,6 +22,7 @@ export const compileScripts = () => {
       minify: !isDevelopment,
       sourcemap: isDevelopment,
       target: browserslistToEsbuild(),
+      legalComments: 'none'
     }))
     .pipe(gulp.dest('build/js'));
 };

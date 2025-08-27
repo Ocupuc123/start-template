@@ -19,7 +19,7 @@
   &[disabled],
   &[readonly] {
     cursor: not-allowed;
-    background-color: $gray-lighter;
+    background-color: #cccccc;
   }
 
   &::-webkit-search-cancel-button,

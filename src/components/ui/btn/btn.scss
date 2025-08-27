@@ -21,7 +21,7 @@
   cursor: pointer;
   user-select: none;
   outline: none;
-  background-color: $gray-lightest;
+  background-color: #e6e6e6;
   border: none;
   border-radius: $border-radius;
 
@@ -29,7 +29,7 @@
   &:focus {
     color: $text-color;
     text-decoration: none;
-    background-color: color.adjust($gray-lightest, $lightness: -10%);
+    background-color: color.adjust(#e6e6e6, $lightness: -10%);
   }
 
   &:active,
@@ -41,7 +41,7 @@
   &:disabled {
     color: $text-color;
     cursor: not-allowed;
-    background-color: $gray-lightest;
+    background-color: #e6e6e6;
     opacity: $opacity;
 
     /* stylelint-disable-next-line at-rule-no-unknown */

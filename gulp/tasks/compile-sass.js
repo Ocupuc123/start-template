@@ -4,7 +4,6 @@ import plumber from 'gulp-plumber';
 import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
-import postcssNormalize from 'postcss-normalize';
 import lightningcss from 'postcss-lightningcss';
 import browsersync from 'browser-sync';
 import notify from 'gulp-notify';
@@ -23,9 +22,6 @@ export const compileSass = () =>
     .pipe(sass().on('error', sass.logError))
     .pipe(
       postcss([
-        postcssNormalize({
-          forceImport: 'sanitize.css'
-        }),
         lightningcss({
           lightningcssOptions: {
             minify: !isDevelopment,
