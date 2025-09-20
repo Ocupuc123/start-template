@@ -16,5 +16,17 @@ mixin page-header(mods)
       }
     }
 
-  header.page-header(class=allMods)&attributes(attributes)
+  header.page-header(
+    class=allMods,
+    data-header="",
+    data-hide-point="100"
+  )&attributes(attributes)
     .container
+      .page-header__inner
+        .page-header__logo
+          +logo('/')
+            img(src="./images/logo.svg", width="", height="", alt="картинка")
+        .page-header__offcanvas
+          +main-nav
+        .page-header__burger
+          +burger('Переключатель отображения меню')

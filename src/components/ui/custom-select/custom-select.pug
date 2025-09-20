@@ -1,30 +1,29 @@
-//- Все примеси в этом файле должны начинаться c имени блока (custom-select)
+//- Вызов:
+    +custom-select({
+      placeholder: 'Начните вводить название',
+      buttonAriaLabel: 'Открыть список городов',
+      optionsList: [
+        { text: 'Москва', value: 'moscow', isActive: false },
+        { text: 'Санкт-Петербург', value: 'spb' },
+        { text: 'Новосибирск', value: 'novosibirsk' },
+        { text: 'Екатеринбург', value: 'ekb' }
+      ]
+    })(data-select="")
 
-mixin custom-select(text, mods)
-  //- Принимает:
-  //-   text    {string} - текст
-  //-   mods    {string} - список модификаторов
-  //- Вызов:
-    +custom-select('Текст', 'some-mod')
+mixin custom-select(options = {})
+  - const selectLabel = options.label ? options.label : false
+  - const selectPlaceholder = options.placeholder ? options.placeholder : false
+  - const buttonAriaLabel = options.buttonAriaLabel ? options.buttonAriaLabel : "Выберите одну из опций"
 
-  -
-    // список модификаторов
-    var allMods = '';
-    if(typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' custom-select--' + modsList[i].trim();
-      }
-    }
-
-  include custom-select.data.pug
-
-  .custom-select(class=allMods)&attributes(attributes)
-    button.custom-select__toggle(type="button", aria-expanded="false") Выберите вариант
-    .custom-select__dropdown
-      ul.custom-select__dropdown-list.custom-scrollbar
-        each optionItem in options
-          li.custom-select__dropdown-item
-            label.custom-select__option
-              input(type="radio", name="my-option", value=optionItem.value)
-              span!= optionItem.text
+  .custom-select&attributes(attributes)
+    if selectLabel
+      span.custom-select__label= selectLabel
+    if selectPlaceholder
+      span.custom-select__placeholder= selectPlaceholder
+    button.custom-select__button(type="button", aria-label=buttonAriaLabel)
+      span.custom-select__text
+      span.custom-select__icon
+    ul.custom-select__list(role="listbox")
+      each item in options.optionsList
+        - const ariaSelected = item.isActive ? "true" : "false"
+        li.custom-select__item(class=itemClass, tabindex="0", data-select-value=item.value, aria-selected=ariaSelected, role="option")= item.text

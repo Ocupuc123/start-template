@@ -1,7 +1,82 @@
-// В этом файле должны быть стили для БЭМ-блока page-header, его элементов,
-// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
-// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-
 .page-header {
-  $page-header: &; // #{$page-header}__element
+  z-index: 30;
+  padding: 20px 0;
+  background-color: #ffffff;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    margin-right: 30px;
+  }
+
+  &__offcanvas {
+    @include tablet-viewport {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: $z-index-modal - 1;
+      display: flex;
+      visibility: hidden;
+      flex-direction: column;
+      width: 300px;
+      max-width: 100%;
+      padding: 120px 30px 40px;
+      overflow: hidden auto;
+      background-color: $body-bg;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @include tablet-viewport-up {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+    }
+
+    .page-header.is-open & {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &__offcanvas-backdrop {
+    @include tablet-viewport {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: $z-index-modal - 2;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      animation: page-header-offcanvas-backdrop 0.3s 1 ease-out forwards;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    z-index: 99;
+    display: none;
+
+    @include tablet-viewport {
+      display: block;
+    }
+  }
+
+  &--sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &.is-hidden {
+    transform: translateY(-100%);
+  }
 }

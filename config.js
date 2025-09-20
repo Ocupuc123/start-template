@@ -9,14 +9,11 @@ export default {
   addStyle: [
     'src/styles/variables.scss',
     'src/styles/mixins.scss',
+    'src/styles/keyframes.scss',
     'src/styles/functions.scss',
+    'src/styles/vendor.scss',
     'src/styles/global.scss',
     'src/styles/fonts.scss',
-    '../../node_modules/normalize.css/normalize'
-    // '../../node_modules/swiper/swiper-bundle',
-    // '../../node_modules/tippy.js/dist/tippy',
-    // '../../node_modules/@fancyapps/ui/dist/fancybox/fancybox',
-    // '../../node_modules/aos/src/sass/aos',
   ],
   addJsBefore: [
     // './utils/some.js',
