@@ -25,7 +25,7 @@
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "3.0.0",
     "@prettier/plugin-pug": "3.0.0",
-    "browser-sync": "3.0.2",
+    "browser-sync": "3.0.4",
     "browserslist-to-esbuild": "2.1.1",
     "cpy": "11.1.0",
     "cross-env": "7.0.3",
