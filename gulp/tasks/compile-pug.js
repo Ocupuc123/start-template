@@ -4,6 +4,8 @@ import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import pug from 'gulp-pug';
 import prettyHtml from 'gulp-pretty-html';
+import data from 'gulp-data';
+import { readFileSync } from 'node:fs';
 import emitty from 'emitty';
 import { getClassesToBlocksList } from './get-blocks-from-html.js';
 import { PrettyHtmlConfig } from '../configs.js';
@@ -22,6 +24,7 @@ export const compilePug = () => new Promise((resolve, reject) => {
       }),
     )
     .pipe(emittyPug.filter(global.emittyPugChangedFile))
+    .pipe(data(() => JSON.parse(readFileSync('./src/data/data.json', 'utf8'))))
     .pipe(pug())
     .pipe(getClassesToBlocksList())
     .pipe(prettyHtml(PrettyHtmlConfig))

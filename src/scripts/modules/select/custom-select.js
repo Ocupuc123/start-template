@@ -86,8 +86,6 @@ export class CustomSelect {
     const select = parent.querySelector('select');
     const changeEv = new CustomEvent('change');
     const inputEv = new CustomEvent('input');
-    select.dispatchEvent(changeEv);
-    select.dispatchEvent(inputEv);
     const form = select.closest('form');
 
     const parentMessage = parent.querySelector('.input-message');
@@ -150,6 +148,9 @@ export class CustomSelect {
         this._closeSelect();
       }
     }
+
+    select.dispatchEvent(changeEv);
+    select.dispatchEvent(inputEv);
   }
 
   _onDocumentClick({target}) {

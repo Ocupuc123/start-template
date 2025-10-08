@@ -22,22 +22,6 @@
     background-color: #808080;
     border-radius: 50%;
     transition: color $transition-time, background-color $transition-time, opacity $transition-time;
-
-    #{$social}__link-wrap--fb & {
-      background-color: $color-fb;
-    }
-
-    // #{$social}__link-wrap--vk & {
-    //   background-color: $color-vk;
-    // }
-
-    // #{$social}__link-wrap--tw & {
-    //   background-color: $color-tw;
-    // }
-
-    // #{$social}__link-wrap--gh & {
-    //   background-color: $color-gh;
-    // }
   }
 
   svg {

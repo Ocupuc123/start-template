@@ -34,6 +34,7 @@
     "eslint-config-htmlacademy": "10.0.1",
     "get-classes-from-html": "1.0.1",
     "gulp": "4.0.2",
+    "gulp-data": "1.3.1",
     "gulp-esbuild": "0.12.1",
     "gulp-flatten": "0.4.0",
     "gulp-if": "3.0.0",
