@@ -51,7 +51,7 @@ if (comparisonSliders.length > 0) {
       isDragging = true;
       e.preventDefault(); // Предотвращаем скролл страницы
       handleMove(e.touches[0].clientX);
-    }, { passive: false });
+    }, {passive: false});
 
     document.addEventListener('touchend', () => {
       isDragging = false;
@@ -62,7 +62,7 @@ if (comparisonSliders.length > 0) {
         return;
       }
       handleMove(e.touches[0].clientX);
-    }, { passive: true });
+    }, {passive: true});
 
     // Инициализация начального положения
     updateSliderPosition(50);

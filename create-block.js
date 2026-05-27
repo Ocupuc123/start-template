@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 /* global process */
 
-import { access, constants, writeFile } from 'node:fs/promises';
-import { mkdirp } from 'mkdirp';
+import {access, constants, writeFile} from 'node:fs/promises';
+import {mkdirp} from 'mkdirp';
 
 const args = process.argv.slice(2);
 
@@ -46,29 +46,29 @@ async function createBlock() {
 
   const extensionConfigs = {
     scss: {
-      content: `// В этом файле должны быть стили для БЭМ-блока ${blockName}, его элементов,\n// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...\n// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`,
-      path: `${blockName}.scss`
+      content: `@use "../../styles/variables" as *;\n@use "../../styles/mixins" as *;\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`,
+      path: `${blockName}.scss`,
     },
     js: {
       content: '',
-      path: `${blockName}.js`
+      path: `${blockName}.js`,
     },
     data: {
       content: '-\n  const data = [\n    {\n      title: "Заголовок",\n      description: "Описание"\n    }\n  ];\n',
-      path: `${blockName}.data.pug`
+      path: `${blockName}.data.pug`,
     },
     md: {
       content: '',
-      path: 'article.md'
+      path: 'article.md',
     },
     pug: {
       content: `//- Все примеси в этом файле должны начинаться c имени блока (${blockName})\n\nmixin ${blockName}(props = {}, mods)\n\n  //- Принимает:\n  //-   props   {object} - пропсы\n  //-   mods    {string} - список модификаторов\n  //- Вызов:\n        +${blockName}({title: 'Заголовок', description: 'Описание'}, 'some-mod')\n\n  -\n    // список модификаторов\n    var allMods = '';\n    if(mods) {\n      allMods = mods.split(',').map(mod => '${blockName}--' + mod.trim()).join(' ');\n    }\n\n  //- include ${blockName}.data.pug\n\n  section.${blockName}(class=allMods)&attributes(attributes)\n    .container\n      block\n`,
-      path: `${blockName}.pug`
+      path: `${blockName}.pug`,
     },
     img: {
       isDirectory: true,
-      path: 'img/'
-    }
+      path: 'img/',
+    },
   };
 
   for (const extension of extensions) {

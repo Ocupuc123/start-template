@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 import config from '../../config.js';
-import { fileExist, findBlockPath } from '../utils.js';
-import { blocksFromHtml } from './get-blocks-from-html.js';
-import { join } from 'node:path';
+import {fileExist, findBlockPath} from '../utils.js';
+import {getUsedBlocks} from './get-blocks-from-html.js';
+import {join} from 'node:path';
 import path from 'node:path';
 import gulpif from 'gulp-if';
 import flatten from 'gulp-flatten';
@@ -30,7 +30,7 @@ function createOptionsFormat() {
     );
   }
 
-  return { formats };
+  return {formats};
 }
 
 export const copyImages = (cb) => {
@@ -49,7 +49,7 @@ export const copyImages = (cb) => {
     }
   };
 
-  blocksFromHtml.forEach((blockName) => {
+  getUsedBlocks().forEach((blockName) => {
     addBlockImages(blockName);
   });
 
@@ -60,18 +60,18 @@ export const copyImages = (cb) => {
   if (copiedImages.length) {
     return gulp.src(copiedImages, {
       encoding: false,
-      allowEmpty: true
+      allowEmpty: true,
     })
       .pipe(gulp.dest('build/images'));
-  } else {
-    return cb();
   }
+  return cb();
+
 };
 
 export const copySingleImage = (filePath) => gulp.src(filePath, {
   encoding: false,
   allowEmpty: true,
-  base: 'src'
+  base: 'src',
 })
   .pipe(gulpif(
     (file) => !EXCLUDE_EXTENSIONS.includes(path.extname(file.path).toLowerCase()),

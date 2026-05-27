@@ -2,6 +2,8 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
+@use "../../../styles/variables" as *;
+
 .form {
   &__fieldset {
     display: grid;

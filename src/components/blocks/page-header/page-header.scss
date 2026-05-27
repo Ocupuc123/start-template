@@ -1,3 +1,6 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
 .page-header {
   z-index: 30;
   padding: 20px 0;
@@ -22,13 +25,13 @@
       bottom: 0;
       z-index: $z-index-modal - 1;
       display: flex;
-      visibility: hidden;
       flex-direction: column;
       width: 300px;
       max-width: 100%;
       padding: 120px 30px 40px;
       overflow: hidden auto;
       background-color: $body-bg;
+      visibility: hidden;
       transform: translateX(100%);
       transition: transform 0.3s ease-in-out;
     }
@@ -53,7 +56,7 @@
       z-index: $z-index-modal - 2;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgb(0 0 0 / 50%);
       backdrop-filter: blur(5px);
       animation: page-header-offcanvas-backdrop 0.3s 1 ease-out forwards;
     }

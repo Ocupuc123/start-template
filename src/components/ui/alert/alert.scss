@@ -2,11 +2,13 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
+@use "../../../styles/variables" as *;
+
 .alert {
   position: relative;
-  padding: 0.7em 1.5em 0.7em 1.4em;
   margin-top: $typo-margin-vertical;
   margin-bottom: $typo-margin-vertical;
+  padding: 0.7em 1.5em 0.7em 1.4em;
   color: $text-color;
   background-color: $color-warning;
   border-radius: $border-radius;
@@ -16,6 +18,7 @@
     margin-bottom: 0;
   }
 
+  /* stylelint-disable-next-line selector-max-compound-selectors */
   & > * + * {
     margin-top: $typo-margin-vertical;
   }

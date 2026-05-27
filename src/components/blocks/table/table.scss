@@ -2,6 +2,8 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
+@use "../../../styles/variables" as *;
+
 .table {
   display: table;
   width: 100%;
@@ -10,12 +12,12 @@
   border-collapse: collapse;
   border: 1px solid $border-color;
 
-  th {
+  & th {
     text-align: inherit;
   }
 
-  td,
-  th {
+  & td,
+  & th {
     padding: $field-padding-vertical $field-padding-horizontal;
     vertical-align: top;
     border-bottom: 1px solid $border-color;

@@ -1,4 +1,3 @@
-import { isDevelopment } from '../utils.js';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import * as dartSass from 'sass';
@@ -7,6 +6,7 @@ import postcss from 'gulp-postcss';
 import lightningcss from 'postcss-lightningcss';
 import browsersync from 'browser-sync';
 import notify from 'gulp-notify';
+import { isDevelopment } from '../utils.js';
 
 const sass = gulpSass(dartSass);
 
@@ -19,7 +19,7 @@ export const compileSass = () =>
         message: 'Error: <%= error.message %>'
       })
     }))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({}).on('error', sass.logError))
     .pipe(
       postcss([
         lightningcss({

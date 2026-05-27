@@ -9,17 +9,17 @@
   line-height: 120%;
   color: #00121a;
   background: #f0f5f7;
-  box-shadow: 0 0 30px 0 rgba(52, 127, 166, 0.25);
+  box-shadow: 0 0 30px 0 rgb(52 127 166 / 25%);
 
-  b,
-  strong {
+  & b,
+  & strong {
     display: block;
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 700;
   }
 
-  p {
+  & p {
     margin: 0 0 20px;
   }
 }

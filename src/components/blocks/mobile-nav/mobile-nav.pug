@@ -22,11 +22,11 @@ mixin mobile-nav(text, mods)
   .mobile-nav(id=id, class=allMods, tabindex="-1")&attributes(attributes)
     .mobile-nav__dialog
       .mobile-nav__content
-        +close('Закрыть').mobile-nav__close(data-mobile-nav="close")
+        +close("Закрыть").mobile-nav__close(data-mobile-nav="close")
         .mobile-nav__body
           .mobile-nav__menu
             noindex
-              +main-nav('3')
+              +main-nav("3")
         .mobile-nav__footer
           .mobile-nav__action
             +btn("Сделать заказ", "gradient, sm")(href="#")

@@ -2,6 +2,9 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
 .social {
   $social: &; // #{$social}__
 
@@ -24,9 +27,9 @@
     transition: color $transition-time, background-color $transition-time, opacity $transition-time;
   }
 
-  svg {
+  & svg {
     width: 1em;
     height: 1em;
-    fill: currentColor;
+    fill: currentcolor;
   }
 }

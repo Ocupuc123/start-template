@@ -3,6 +3,8 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 @use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
 
 .field-file {
   $block-name: &; // #{$block-name}__element
@@ -27,21 +29,21 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    cursor: pointer;
     background-color: #ffffff;
     border: 1px solid $border-color;
     border-radius: $border-radius;
+    cursor: pointer;
 
     /* stylelint-disable-next-line at-rule-no-unknown */
     @at-root input:disabled ~ & {
-      cursor: not-allowed;
       background: #cccccc;
+      cursor: not-allowed;
     }
 
     &::before {
       display: block;
-      padding: $field-padding-vertical  $field-padding-horizontal;
       margin-right: $field-padding-horizontal;
+      padding: $field-padding-vertical  $field-padding-horizontal;
       line-height: $line-height;
       content: attr(data-button-text);
       background-color: #e6e6e6;
@@ -62,7 +64,7 @@
     position: absolute;
     width: 0;
     height: 0;
-    opacity: 0;
+    opacity: 0%;
 
     &:active ~ .field-file__name-text,
     &:focus ~ .field-file__name-text {

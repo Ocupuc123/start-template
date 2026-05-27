@@ -1,11 +1,15 @@
 import { Buffer } from 'node:buffer';
-import gulp from 'gulp';
-import pug from 'gulp-pug';
 import through from 'through2';
 import getClassesFromHtml from 'get-classes-from-html';
 import config from '../../config.js';
 
-export const blocksFromHtml = [];
+const blocksFromHtml = [];
+
+export const getUsedBlocks = () => [...blocksFromHtml];
+
+export const resetUsedBlocks = () => {
+  blocksFromHtml.length = 0;
+};
 
 export const getClassesToBlocksList = () => through.obj(function(file, enc, cb) {
   if (file.isNull()) {
@@ -16,7 +20,6 @@ export const getClassesToBlocksList = () => through.obj(function(file, enc, cb) 
     const content = file.contents.toString();
     const classesInFile = getClassesFromHtml(content);
 
-    // Обрабатываем классы из HTML
     classesInFile.forEach((className) => {
       if (
         !className.includes('__') &&
@@ -28,7 +31,6 @@ export const getClassesToBlocksList = () => through.obj(function(file, enc, cb) 
       }
     });
 
-    // Добавляем обязательные блоки
     config.alwaysAddBlocks.forEach((block) => {
       if (!blocksFromHtml.includes(block)) {
         blocksFromHtml.push(block);
@@ -38,18 +40,9 @@ export const getClassesToBlocksList = () => through.obj(function(file, enc, cb) 
     file.contents = Buffer.from(content);
     this.push(file);
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error(`Error processing file ${file.path}:`, err);
     return cb(new Error(`Failed to process file: ${file.path}`));
   }
 
   cb();
 });
-
-export const getBlocksFromHtml = () =>
-  gulp.src('src/pages/**/*.pug')
-    .pipe(pug({
-      doctype: 'html',
-      pretty: true
-    }))
-    .pipe(getClassesToBlocksList());

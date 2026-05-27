@@ -1,16 +1,18 @@
+@use "../variables" as *;
+
 @mixin field-text {
   display: inline-block;
   width: 100%;
-  padding: $field-padding-vertical  $field-padding-horizontal;
   margin: 0;
+  padding: $field-padding-vertical  $field-padding-horizontal;
   font-family: inherit;
   font-size: 1em;
   line-height: $line-height;
   vertical-align: middle;
-  appearance: textfield;
   background-color: #ffffff;
   border: 1px solid $border-color;
   border-radius: $border-radius;
+  appearance: textfield;
 
   &:focus {
     @include field-focus;
@@ -18,8 +20,8 @@
 
   &[disabled],
   &[readonly] {
-    cursor: not-allowed;
     background-color: #cccccc;
+    cursor: not-allowed;
   }
 
   &::-webkit-search-cancel-button,
@@ -36,7 +38,7 @@
 
   &::placeholder {
     color: $text-color-muted;
-    opacity: 1;
+    opacity: 100%;
   }
 }
 

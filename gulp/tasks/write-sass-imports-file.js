@@ -1,11 +1,12 @@
 import config from '../../config.js';
 import { writeFileSync } from 'node:fs';
 import { getDirectories, doNotEditMessage } from '../utils.js';
-import { blocksFromHtml } from './get-blocks-from-html.js';
+import { getUsedBlocks } from './get-blocks-from-html.js';
 
 export const writeSassImportsFile = (cb) => {
   const scssImportsList = [];
   const allBlocksWithScssFiles = getDirectories('scss');
+  const blocksFromHtml = getUsedBlocks();
   const message = `/*${doNotEditMessage.replace(/\n /gm, '\n * ').replace(/\n\n$/, '\n */\n\n')}`;
   let styleImports = message;
 
@@ -39,7 +40,7 @@ export const writeSassImportsFile = (cb) => {
   });
 
   scssImportsList.forEach((src) => {
-    styleImports += `@import "${src}";\n`;
+    styleImports += `@use "${src}" as *;\n`;
   });
 
   writeFileSync('src/styles/styles.scss', styleImports);

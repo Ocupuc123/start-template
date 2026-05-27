@@ -1,0 +1,26 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field-search)
+
+mixin field-search(props, mods)
+
+  //- Принимает:
+  //-   props   {object} - пропсы
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +field-search({placeholder: 'Поиск'}, 'some-mod')
+
+  -
+    var allMods = '';
+    if(mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' field-search--' + modsList[i].trim();
+      }
+    }
+
+  form.field-search(class=allMods, action="#", method="GET")&attributes(attributes)
+    span.field-search__input-wrap
+      label.visually-hidden(for="search") Поиск по сайту
+      input#search.field-search__input(type="search", autocomplete="off", name="query")&attributes(props)
+      button.field-search__btn(type="submit")
+        span.visually-hidden Поиск по сайту
+        +sprite-svg({ width: 20, height: 20, name: 'search', })

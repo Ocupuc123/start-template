@@ -2,7 +2,8 @@
 // В этом файле должны быть стили для БЭМ-блока field-text, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
-@use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
 
 .field-text {
   $block-name: &; // #{$block-name}__element

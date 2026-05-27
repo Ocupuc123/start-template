@@ -1,25 +1,30 @@
+/* stylelint-disable selector-max-compound-selectors */
+/* stylelint-disable selector-max-combinators */
 /* stylelint-disable max-nesting-depth */
 // В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
 .main-nav {
   $block-name: &; // #{$block-name}__element
 
-  .menu {
+  & .menu {
     display: flex;
     flex-wrap: wrap;
     gap: 10px 20px;
     align-items: center;
-    padding: 0;
     margin: 0;
+    padding: 0;
     font-size: 16px;
     line-height: 120%;
-    color: $text-color;
     list-style: none;
+    color: $text-color;
   }
 
-  .menu > .menu-item > a {
+  & .menu > .menu-item > a {
     display: inline-flex;
     align-items: center;
     padding: 10px 0;
@@ -30,15 +35,15 @@
     }
   }
 
-  .menu > .current-menu-item > a {
+  & .menu > .current-menu-item > a {
     color: $color-main;
   }
 
-  .sub-menu {
+  & .sub-menu {
     display: none;
     width: 100%;
-    padding: 0;
     margin: 0;
+    padding: 0;
     list-style: none;
     background-color: #ffffff;
 
@@ -60,7 +65,7 @@
     }
   }
 
-  .sub-menu > .menu-item > a {
+  & .sub-menu > .menu-item > a {
     display: inline-flex;
     align-items: center;
     width: 100%;
@@ -73,7 +78,7 @@
     }
   }
 
-  .menu-item {
+  & .menu-item {
     position: relative;
 
     @include tablet-viewport {
@@ -81,7 +86,7 @@
     }
   }
 
-  .menu-item-has-children {
+  & .menu-item-has-children {
     &:hover {
       & > .sub-menu {
         display: block;
@@ -90,13 +95,13 @@
     }
   }
 
-  .menu-item-has-children.focus {
+  & .menu-item-has-children.focus {
     & > .sub-menu {
       display: block;
     }
   }
 
-  .menu-item-has-children > a::after {
+  & .menu-item-has-children > a::after {
     display: inline-flex;
     margin-left: 0.3em;
     content: "";
@@ -109,10 +114,10 @@
 
 @keyframes submenu-fade-in {
   from {
-    opacity: 0;
+    opacity: 0%;
   }
 
   to {
-    opacity: 1;
+    opacity: 100%;
   }
 }

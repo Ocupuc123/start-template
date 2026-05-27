@@ -24,7 +24,13 @@ export const compilePug = () => new Promise((resolve, reject) => {
       }),
     )
     .pipe(emittyPug.filter(global.emittyPugChangedFile))
-    .pipe(data(() => JSON.parse(readFileSync('./src/data/data.json', 'utf8'))))
+    .pipe(data(() => {
+      const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
+      return {
+        ...JSON.parse(readFileSync('./src/data/data.json', 'utf8')),
+        version: pkg.version,
+      };
+    }))
     .pipe(pug())
     .pipe(getClassesToBlocksList())
     .pipe(prettyHtml(PrettyHtmlConfig))

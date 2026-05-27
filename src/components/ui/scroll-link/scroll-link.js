@@ -2,31 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const links = document.querySelectorAll('[href^="#"][data-scroll-link]');
   for (let i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function(e) {
+    links[i].addEventListener('click', function (e) {
       const hash = this.href.replace(/[^#]*(.*)/, '$1');
-      if(hash && hash !== '#') {
+      if (hash && hash !== '#') {
         e.preventDefault();
         const scroll = window.scrollY;
         const targetTop = getOffsetRect(document.querySelector(hash)).top - 10; // С поправкой в 10px
         const scrollDiff = (scroll - targetTop) * -1;
         animateFn({
           duration: 500,
-          timing: function(timeFraction) {
+          timing(timeFraction) {
             return Math.pow(timeFraction, 4); // https://learn.javascript.ru/js-animation
           },
-          draw: function(progress) {
+          draw(progress) {
             const scrollNow = scroll + progress * scrollDiff;
-            window.scrollTo(0,scrollNow);
-          }
+            window.scrollTo(0, scrollNow);
+          },
         });
       }
     }, false);
   }
 
   function animateFn(_ref) {
-    const timing = _ref.timing,
-      draw = _ref.draw,
-      duration = _ref.duration;
+    const timing = _ref.timing;
+    const draw = _ref.draw;
+    const duration = _ref.duration;
     const start = performance.now();
     requestAnimationFrame(function animate(time) {
       let timeFraction = (time - start) / duration;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clientLeft = docElem.clientLeft || body.clientLeft || 0;
     const top = box.top + scrollTop - clientTop;
     const left = box.left + scrollLeft - clientLeft;
-    return { top: Math.round(top), left: Math.round(left) };
+    return {top: Math.round(top), left: Math.round(left)};
   }
 
 });

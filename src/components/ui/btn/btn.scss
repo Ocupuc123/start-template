@@ -2,12 +2,8 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 @use "sass:color";
-
-// @property --gradient-button-fill {
-//   syntax: "<color>";
-//   inherits: true;
-//   initial-value: #ffffff;
-// }
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
 
 .btn {
   display: inline-flex;
@@ -16,19 +12,19 @@
   width: auto;
   max-width: 100%;
   padding: $field-padding-vertical  $field-padding-horizontal;
-  color: $text-color;
   text-align: center;
-  cursor: pointer;
-  user-select: none;
-  outline: none;
+  color: $text-color;
   background-color: #e6e6e6;
   border: none;
   border-radius: $border-radius;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
 
   &:hover,
   &:focus {
-    color: $text-color;
     text-decoration: none;
+    color: $text-color;
     background-color: color.adjust(#e6e6e6, $lightness: -10%);
   }
 
@@ -40,9 +36,9 @@
   &--disabled,
   &:disabled {
     color: $text-color;
-    cursor: not-allowed;
     background-color: #e6e6e6;
     opacity: $opacity;
+    cursor: not-allowed;
 
     /* stylelint-disable-next-line at-rule-no-unknown */
     @at-root a.btn--disabled {

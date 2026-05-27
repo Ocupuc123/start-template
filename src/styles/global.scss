@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 *,
 *::before,
 *::after {
@@ -7,8 +10,8 @@
 body {
   min-height: 100%;
   font-family: $font-family;
-  color: $text-color;
   text-align: left;
+  color: $text-color;
   background-color: $body-bg;
 }
 
@@ -16,12 +19,12 @@ html {
   min-height: 100%;
   font-size: $font-size;
   line-height: $line-height;
-
-  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizelegibility;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  overflow-wrap: break-word;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 img,
@@ -34,19 +37,15 @@ iframe {
   height: auto;
 }
 
-img {
-  object-fit: contain;
-}
-
 a {
-  color: $link-color;
   text-decoration: none;
+  color: $link-color;
   transition: color $transition-time;
 
   &:hover,
   &:focus {
-    color: $link-color-hover;
     text-decoration: none;
+    color: $link-color-hover;
   }
 
   &[href^="tel:"] {

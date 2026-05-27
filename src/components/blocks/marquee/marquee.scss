@@ -2,6 +2,8 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
+@use "../../../styles/mixins" as *;
+
 .marquee {
   --marquee-gap: 10px;
   --marquee-speed: 40s;
@@ -33,7 +35,7 @@
     background-color: #ffffff;
     border-radius: 13px;
 
-    img {
+    & img {
       @include image-absolute-cover;
       border-radius: inherit;
     }

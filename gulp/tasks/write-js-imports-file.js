@@ -1,10 +1,11 @@
 import config from '../../config.js';
 import { writeFileSync } from 'node:fs';
 import { getDirectories, doNotEditMessage } from '../utils.js';
-import { blocksFromHtml } from './get-blocks-from-html.js';
+import { getUsedBlocks } from './get-blocks-from-html.js';
 
 export const writeJsImportsFile = (cb) => {
   const jsImportsList = [];
+  const blocksFromHtml = getUsedBlocks();
   const allBlocksWithJsFiles = getDirectories('js', 'src/components');
   const message = `/*${doNotEditMessage.replace(/\n /gm, '\n * ').replace(/\n\n$/, '\n */\n\n')}`;
   let jsImports = message;

@@ -3,20 +3,23 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
 .pagination {
   margin-top: 50px;
 
-  .screen-reader-text {
+  & .screen-reader-text {
     @include visually-hidden;
   }
 
-  .nav-links {
+  & .nav-links {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
   }
 
-  .page-numbers {
+  & .page-numbers {
     @include flex-all-center;
     flex-shrink: 0;
     min-width: 40px;
@@ -31,8 +34,8 @@
 
     &:hover,
     &:focus {
-      color: #ffffff;
       text-decoration: none;
+      color: #ffffff;
       background-color: $color-main;
     }
 
@@ -47,7 +50,7 @@
     }
   }
 
-  span.page-numbers {
+  & span.page-numbers {
     cursor: default;
   }
 }

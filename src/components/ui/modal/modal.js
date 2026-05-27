@@ -1,9 +1,9 @@
-import { getScrollbarSize } from '../../../scripts/utils/get-scrollbar-size.js';
+import {getScrollbarSize} from '../../../scripts/utils/get-scrollbar-size.js';
 
 const bodyPaddingRightOriginal = parseInt(window.getComputedStyle(document.body, null).getPropertyValue('padding-right'), 10);
 const backdrop = document.createElement('div');
 
-window.showModal = function(targetModalNode) {
+window.showModal = function (targetModalNode) {
   if ((document.body.clientHeight - document.documentElement.clientHeight) > 0) {
     document.body.style.paddingRight = `${bodyPaddingRightOriginal + getScrollbarSize() }px`;
   }
@@ -18,7 +18,7 @@ window.showModal = function(targetModalNode) {
   document.body.append(backdrop);
 };
 
-window.closeAllModals = function() {
+window.closeAllModals = function () {
   document.body.classList.remove('modal-open');
   document.body.style.paddingRight = '';
 
