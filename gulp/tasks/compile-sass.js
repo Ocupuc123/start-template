@@ -6,7 +6,7 @@ import postcss from 'gulp-postcss';
 import lightningcss from 'postcss-lightningcss';
 import browsersync from 'browser-sync';
 import notify from 'gulp-notify';
-import { isDevelopment } from '../utils.js';
+import {isDevelopment} from '../utils.js';
 
 const sass = gulpSass(dartSass);
 
@@ -16,8 +16,8 @@ export const compileSass = () =>
     .pipe(plumber({
       errorHandler: notify.onError({
         title: 'SASS',
-        message: 'Error: <%= error.message %>'
-      })
+        message: 'Error: <%= error.message %>',
+      }),
     }))
     .pipe(sass({}).on('error', sass.logError))
     .pipe(
