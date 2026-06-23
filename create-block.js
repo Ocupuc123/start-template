@@ -46,7 +46,7 @@ async function createBlock() {
 
   const extensionConfigs = {
     scss: {
-      content: `@use "../../styles/variables" as *;\n@use "../../styles/mixins" as *;\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`,
+      content: `@use "../../../styles/variables" as *;\n@use "../../../styles/mixins" as *;\n\n.${blockName} {\n  $${blockName}: &; // #{$${blockName}}__element\n}\n`,
       path: `${blockName}.scss`,
     },
     js: {
