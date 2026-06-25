@@ -1,4 +1,5 @@
 @use "../variables" as *;
+@use "../mixins/breakpoints-mixins.scss" as *;
 
 @mixin backdrop () {
   position: absolute;
@@ -119,4 +120,18 @@
 @mixin scroll-lock-ios {
   position: fixed;
   overflow: hidden;
+}
+
+@mixin spacing($properties: padding, $desktop: 60px, $mobile: 40px) {
+  @each $prop in $properties {
+    #{$prop}-top: $desktop;
+    #{$prop}-bottom: $desktop;
+  }
+
+  @include tablet-viewport {
+    @each $prop in $properties {
+      #{$prop}-top: $mobile;
+      #{$prop}-bottom: $mobile;
+    }
+  }
 }
