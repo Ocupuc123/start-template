@@ -34,13 +34,12 @@ $screen-xl:                   1280px;
 $screen-xxl:                  1536px;
 
 // Контейнер
-$container-width:             1170px;
-$container-gap:               20px;
+$container-width:             1360px;
+$container-gap-desktop:       40px;
+$container-gap-mobile:        15px;
 $grid-gap:                    10px;
 
 // Разное
-$section-bottom-indent-xl:    150px;
-$section-bottom-indent-sm:    100px;
 $field-padding-vertical:      5px;
 $field-padding-horizontal:    12px;
 $border-radius:               3px;
