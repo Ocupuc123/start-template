@@ -1,18 +1,21 @@
+/* eslint-disable no-unused-vars */
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+// import {Navigation, Pagination} from 'swiper/modules';
 
 export const initSwiper = () => {
-  new Swiper('.swiper', {
-    modules: [Navigation, Pagination],
-    slidesPerView: 1,
-    spaceBetween: 0,
+  const newSlider = new Swiper('.swiper', {
+    // modules: [Navigation, Pagination],
+    slidesPerView: 'auto',
+    spaceBetween: 20,
     speed: 800,
-    navigation: {
-      prevEl: '.swiper-button-prev',
-      nextEl: '.swiper-button-next',
-    },
+    enabled: true,
+    // breakpoints: {
+    //   1280: {
+    //     enabled: true,
+    //   },
+    // },
     a11y: {
       enabled: false,
-    }
+    },
   });
 };

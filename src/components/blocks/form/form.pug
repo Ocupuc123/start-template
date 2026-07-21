@@ -7,9 +7,12 @@ mixin form(mods)
   //- Вызов:
     +form
       +fieldset
-        +field-text({ attrs: { id: 'name', name: 'name', placeholder: 'ФИО родителя', autocomplete: 'off', } })
-        +field-text({ attrs: { id: 'phone', name: 'phone', placeholder: '+7 (___) ___-__-__', class: 'input-mask', autocomplete: 'off' } })
-        +field-checkbox([{ title: 'Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности, согласием на передачу персональных данных, согласием на обработку персональных данных, публичной офертой.', attrs: { id: 'approval', name: 'check0', checked: true, } }])
+        +field-text({ attrs: { name: "name", placeholder: "ФИО", autocomplete: "off" } })
+        +field-text({ attrs: { name: "phone", placeholder: "+7 ( )", autocomplete: "off", type: "tel" } })
+        +field-text({ attrs: { name: "email", placeholder: "Электронная почта", autocomplete: "off", type: "email" } })
+        +field-file({ helpText: "(в формате.doc,.docx,.pdf,.rtf, не более 5 Мб)", attrs: { name: "file", multiple: true }, text: { selectText: "Прикрепите файл", nothingText: "Ничего не выбрано", flesSelectedText: "Выбрано файлов:" } })
+        +field-text({ isTextarea: true, attrs: { name: "comment", placeholder: "Опишите реакцию на препарат" } })
+        +field-checkbox([{ title: "Настоящим выражаю согласие на обработку указанных мною персональных данных. С политикой конфиденциальности АО «Органика», в отношении обработки и защиты персональных данных ознакомлен (а).", subtitle: "Полученные от вас персональные данные будут носить конфиденциальный характер и, в соответствии с положениями Федерального закона № 152-ФЗ от 27.07.2006 г. «О защите персональных данных», не могут быть раскрыты третьим лицам без вашего письменного согласия, если иное не установлено законодательством РФ. Настоящее согласие может быть отозвано посредством направления письма по адресу электронной почты: <a href='mailto:inform@organica.su'>inform@organica.su</a>", attrs: { name: "check0", checked: true } }])
       +fieldaction
         +btn('Отправить', 'main')(type="submit")
 
