@@ -122,16 +122,10 @@
   overflow: hidden;
 }
 
-@mixin spacing($properties: padding, $desktop: 60px, $mobile: 40px) {
-  @each $prop in $properties {
-    #{$prop}-top: $desktop;
-    #{$prop}-bottom: $desktop;
-  }
+@mixin spacing($properties: margin, $desktop: 120px, $mobile: 80px) {
+  #{$properties}-bottom: $desktop;
 
   @include tablet-viewport {
-    @each $prop in $properties {
-      #{$prop}-top: $mobile;
-      #{$prop}-bottom: $mobile;
-    }
+    #{$properties}-bottom: $mobile;
   }
 }

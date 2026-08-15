@@ -8,7 +8,7 @@
 }
 
 body {
-  min-height: 100%;
+  min-block-size: 100svh;
   font-family: $font-family;
   text-align: left;
   color: $text-color;
@@ -16,11 +16,11 @@ body {
 }
 
 html {
-  min-height: 100%;
   font-size: $font-size;
   line-height: $line-height;
   text-rendering: optimizelegibility;
   overflow-wrap: break-word;
+  scrollbar-gutter: stable;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
